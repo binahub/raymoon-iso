@@ -50,6 +50,11 @@ export const menuItems = [
   },
   // label end
   {
+    name: 'دسته بندی',
+    href: '/category',
+    icon: <PiFolderNotchDuotone />,
+  },
+  {
     name: 'File Manager',
     href: '/',
     icon: <PiFolderNotchDuotone />,

@@ -16,6 +16,7 @@ const NextProgress = dynamic(() => import('@/components/next-progress'), {
 });
 // styles
 import '@/app/globals.css';
+import ReduxWrapper from '@/provider/redux/ReduxWrapper';
 
 export const metadata = {
   title: siteConfig.title,
@@ -40,6 +41,7 @@ export default async function RootLayout({
         suppressHydrationWarning
         className={cn('font-vazir',inter.variable, lexendDeca.variable)}
       >
+        <ReduxWrapper>
         <AuthProvider session={session}>
           <ThemeProvider>
             <NextProgress />
@@ -49,6 +51,7 @@ export default async function RootLayout({
             <GlobalModal />
           </ThemeProvider>
         </AuthProvider>
+        </ReduxWrapper>
       </body>
     </html>
   );

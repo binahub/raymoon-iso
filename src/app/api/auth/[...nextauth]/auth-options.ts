@@ -22,6 +22,7 @@ export const authOptions: NextAuthOptions = {
       return {
         ...session,
         authResponse: token,
+        apiToken: token.accessToken
       };
     },
     async jwt({ token, user }) {

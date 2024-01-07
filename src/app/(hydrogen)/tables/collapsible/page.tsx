@@ -36,7 +36,7 @@ export default function CollapsibleTablePage() {
       <OrderTable
         data={orderData}
         variant="elegant"
-        className="[&_.table-filter]:hidden [&_.table-pagination]:hidden"
+        // className="[&_.table-filter]:hidden [&_.table-pagination]:hidden"
       />
     </TableLayout>
   );

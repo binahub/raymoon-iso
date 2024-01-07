@@ -25,6 +25,9 @@ const filterState = {
 export default function InvoiceTable({ data = [] }: { data: any[] }) {
   const [pageSize, setPageSize] = useState(10);
 
+ 
+
+
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {
       handleSort(value);

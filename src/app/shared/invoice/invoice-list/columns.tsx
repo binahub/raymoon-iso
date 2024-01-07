@@ -92,11 +92,11 @@ export const getColumns = ({
     ),
   },
   {
-    title: <HeaderCell title="Customer" />,
-    dataIndex: 'customer',
-    key: 'customer',
+    title: <HeaderCell title="آی دی" />,
+    dataIndex: 'id',
+    key: 'id',
     width: 250,
-    hidden: 'customer',
+    hidden: 'id',
 
     render: (_: string, row: Invoice) => (
       <AvatarCard
@@ -107,11 +107,11 @@ export const getColumns = ({
     ),
   },
   {
-    title: <HeaderCell title="Email" />,
-    dataIndex: 'email',
-    key: 'email',
-    width: 250,
-    render: (email: string) => email.toLowerCase(),
+    title: <HeaderCell title="نام" />,
+    dataIndex: 'name',
+    key: 'name',
+    width: 150,
+    render: (name: string) => <div className='text-red' onClick={() => alert('salam')}>{'name.toLowerCase()'}</div>,
   },
   {
     title: (
@@ -165,13 +165,13 @@ export const getColumns = ({
       </Text>
     ),
   },
-  {
-    title: <HeaderCell title="Status" />,
-    dataIndex: 'status',
-    key: 'status',
-    width: 120,
-    render: (value: string) => getStatusBadge(value),
-  },
+  // {
+  //   title: <HeaderCell title="Status" />,
+  //   dataIndex: 'status',
+  //   key: 'status',
+  //   width: 120,
+  //   render: (value: string) => getStatusBadge(value),
+  // },
   {
     title: <></>,
     dataIndex: 'action',

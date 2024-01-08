@@ -1,13 +1,12 @@
 'use client';
 
-import React, { useCallback, useLayoutEffect, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useTable } from '@/hooks/use-table';
 import { useColumn } from '@/hooks/use-column';
 import { Button } from '@/components/ui/button';
 import ControlledTable from '@/components/controlled-table';
-import { useEffect } from 'react';
-import { useCategoryListMutation } from '@/provider/redux/query/Category';
+import { useCategoryListMutation } from '@/provider/redux/apis/category.api';
 import { parameterMap } from '@/const/apiCalls';
 import { getColumns } from './columns';
 const FilterElement = dynamic(
@@ -31,7 +30,7 @@ export default function CategoryTable() {
   useEffect(() => {
     list(parameterMap);
     console.log('first',catData)
-  }, []);
+  }, [list, catData]);
   useLayoutEffect(() => {
     setData(catData?.foodCategoryObjectList)
     console.log('second',catData?.foodCategoryObjectList)

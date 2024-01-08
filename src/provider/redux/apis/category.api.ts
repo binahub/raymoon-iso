@@ -8,7 +8,7 @@ export const CategoryApi = createApi({
     prepareHeaders: async (headers) => {
       // Retrieve the token from session
 
-      const session = await getSession()
+      const session : any = await getSession()
       // If a token exists, set the Authorization header with the bearer token
       if (session?.apiToken) {
         headers.set("Authorization", `Bearer ${session?.apiToken}`);

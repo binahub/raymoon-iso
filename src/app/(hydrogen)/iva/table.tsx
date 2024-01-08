@@ -7,9 +7,6 @@ import { routes } from '@/config/routes';
 import cn from '@/utils/class-names';
 import DataTable from '@/components/data-table';
 import TableLayout from '@/layouts/table/table-layout';
-import { useEffect } from 'react';
-import { parameterMap } from '@/const/apiCalls';
-import { useCategoryListMutation } from '@/provider/redux/apis/category.api';
 import TableAvatar from '@/components/ui/avatar-card';
 import Link from 'next/link';
 import { Tooltip } from '@/components/ui/tooltip';
@@ -17,6 +14,7 @@ import { ActionIcon } from '@/components/ui/action-icon';
 import EyeIcon from '@/components/icons/eye';
 import PencilIcon from '@/components/icons/pencil';
 import DeletePopover from '@/app/shared/delete-popover';
+import { useCommentsListQuery } from '@/provider/redux/apis/iva.api';
 // dynamic import
 const FilterElement = dynamic(
   () => import('@/app/shared/ecommerce/order/order-list/filter-element'),
@@ -127,13 +125,6 @@ export const getColumns = ({}: Columns) => [
       </div>
     ),
   },
-  // {
-  //   title: <HeaderCell title="حذف" />,
-  //   dataIndex: 'name',
-  //   key: 'name',
-  //   width: 90,
-  //   render: (value: string) => <button onClick={onDeleteItem}>#{value}</button>,
-  // },
 ];
 
 const filterState = {
@@ -158,13 +149,10 @@ export default function SaberTable({
   variant?: 'modern' | 'minimal' | 'classic' | 'elegant' | 'retro';
   className?: string;
 }) {
-  const [list, { isLoading, isSuccess, isError, error, data: cat }] =
-    useCategoryListMutation();
-  useEffect(() => {
-    list(parameterMap);
-  }, [list]);
 
-  if (isLoading) {
+const { data: catData} = useCommentsListQuery('commentsList', {refetchOnMountOrArgChange: true})
+
+  if (!catData) {
     return (
       <div className="flex h-full items-center justify-center">loading...</div>
     );
@@ -173,14 +161,14 @@ export default function SaberTable({
     <TableLayout
       title={pageHeader.title}
       breadcrumb={pageHeader.breadcrumb}
-      data={cat?.foodCategoryObjectList}
+      data={catData}
       fileName="order_data"
       header="id,name"
       buttons={['export', 'import', 'create']}
     >
       <div className={cn(className)}>
         <DataTable
-          data={cat?.foodCategoryObjectList}
+          data={catData}
           expandedRow={ExpandedRow}
           filterElement={FilterElement}
           filterState={filterState}

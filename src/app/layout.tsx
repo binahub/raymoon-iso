@@ -9,14 +9,14 @@ import { ThemeProvider } from '@/app/shared/theme-provider';
 import { siteConfig } from '@/config/site.config';
 import { inter, lexendDeca } from '@/app/fonts';
 import cn from '@/utils/class-names';
-import "../../public/fonts/vazirFont.css";
+import '../../public/fonts/vazirFont.css';
 
 const NextProgress = dynamic(() => import('@/components/next-progress'), {
   ssr: false,
 });
 // styles
 import '@/app/globals.css';
-import ReduxWrapper from '@/provider/redux/ReduxWrapper';
+import ReduxWrapper from '@/provider/redux/providers';
 
 export const metadata = {
   title: siteConfig.title,
@@ -39,19 +39,17 @@ export default async function RootLayout({
       <body
         // to prevent any warning that is caused by third party extensions like Grammarly
         suppressHydrationWarning
-        className={cn('font-vazir',inter.variable, lexendDeca.variable)}
+        className={cn('font-vazir', inter.variable, lexendDeca.variable)}
       >
-        <ReduxWrapper>
         <AuthProvider session={session}>
           <ThemeProvider>
             <NextProgress />
-            {children}
+            <ReduxWrapper>{children}</ReduxWrapper>
             <Toaster />
             <GlobalDrawer />
             <GlobalModal />
           </ThemeProvider>
         </AuthProvider>
-        </ReduxWrapper>
       </body>
     </html>
   );

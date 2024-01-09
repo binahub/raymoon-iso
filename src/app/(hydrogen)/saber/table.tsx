@@ -143,8 +143,8 @@ const filterState = {
   status: '',
   name: '',
 };
-const onDeleteItem = () => {
-  alert('salam');
+const onDeleteItem = (id: number) => {
+  alert('salam ' + id);
 };
 
 function ExpandedRow() {
@@ -162,7 +162,7 @@ export default function SaberTable({
     useCategoryListMutation();
   useEffect(() => {
     list(parameterMap);
-  }, []);
+  }, [list]);
 
   if (isLoading) {
     return (

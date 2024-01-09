@@ -29,7 +29,7 @@ export default function SignInForm() {
 
   useLayoutEffect(() => {
     authStatus == 'authenticated' ? router.push('/') : null
-  }, [authStatus])
+  }, [authStatus,router])
   
 
   

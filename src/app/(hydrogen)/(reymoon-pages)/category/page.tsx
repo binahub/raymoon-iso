@@ -32,6 +32,7 @@ export default function CategoryPage() {
       data={orderData}
       fileName="order_data"
       header="Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At"
+      buttons={['export', 'import']}
     >
       <OrderTable
         data={orderData}

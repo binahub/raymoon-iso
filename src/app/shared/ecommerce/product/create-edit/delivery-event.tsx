@@ -4,6 +4,10 @@ import { Datepicker } from '@/components/ui/datepicker';
 import { Input } from '@/components/ui/input';
 import cn from '@/utils/class-names';
 import { Controller, useFormContext } from 'react-hook-form';
+import dayjs from 'dayjs';
+import 'dayjs/locale/fa'; // Import the Persian (Farsi) locale
+import 'dayjs/'; // Import the Persian (Farsi) locale
+
 export default function DeliveryEvent({ className }: { className?: string }) {
   const {
     register,

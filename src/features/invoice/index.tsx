@@ -10,7 +10,6 @@ import { invoiceData } from '@/data/invoice-data';
 import ExportButton from '@/app/shared/export-button';
 import { parameterMap } from '@/const/apiCalls';
 
-
 import { metaObject } from '@/config/site.config';
 import { useCategoryListMutation } from '@/provider/redux/apis/category.api';
 import { useEffect } from 'react';
@@ -36,20 +35,22 @@ const pageHeader = {
   ],
 };
 
-
 export default function Invoice() {
-    const [list, { isLoading : dataIsLoading, isSuccess, isError, error, data: catData }] = useCategoryListMutation();
+  const [
+    list,
+    { isLoading: dataIsLoading, isSuccess, isError, error, data: catData },
+  ] = useCategoryListMutation();
 
-    useEffect(() => {
-        list(parameterMap)
-    },[list])
+  useEffect(() => {
+    list(parameterMap);
+  }, [list]);
 
-    if(dataIsLoading){
-        return <div>loading...</div>
-    }
-    return (
-        <>
-         <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}>
+  if (dataIsLoading) {
+    return <div>loading...</div>;
+  }
+  return (
+    <>
+      <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}>
         <div className="mt-4 flex items-center gap-3 @lg:mt-0">
           <ExportButton
             data={catData?.foodCategoryObjectList}
@@ -69,6 +70,6 @@ export default function Invoice() {
       </PageHeader>
 
       <InvoiceTable data={catData?.foodCategoryObjectList} />
-        </>
-    )
+    </>
+  );
 }

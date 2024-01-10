@@ -143,8 +143,8 @@ const filterState = {
   status: '',
   name: '',
 };
-const onDeleteItem = () => {
-  alert('salam');
+const onDeleteItem = (id: number) => {
+  alert('salam ' + id);
 };
 
 function ExpandedRow() {

@@ -7,7 +7,7 @@ import { Title, Text } from '@/components/ui/text';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PhoneNumber } from '@/components/ui/phone-input';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import Select from '@/components/ui/select';
 import { FormBlockWrapper, statusOptions } from './form-utils';
 import { AddInvoiceItems } from './add-invoice-items';
@@ -166,10 +166,10 @@ export default function CreateInvoice({
                       name="createDate"
                       control={control}
                       render={({ field: { value, onChange } }) => (
-                        <DatePicker
-                          inputProps={{ label: 'Date Create' }}
-                          placeholderText="Select Date"
-                          selected={value}
+                        <Datepicker
+                        label='Date Create'
+                          placeholder="Select Date"
+                          value={value}
                           onChange={onChange}
                         />
                       )}
@@ -180,13 +180,10 @@ export default function CreateInvoice({
                       name="dueDate"
                       control={control}
                       render={({ field: { value, onChange } }) => (
-                        <DatePicker
-                          inputProps={{
-                            label: 'Due Date',
-                            error: errors?.dueDate?.message,
-                          }}
-                          placeholderText="Select Date"
-                          selected={value}
+                        <Datepicker
+                        label= 'Due Date'
+                          placeholder="Select Date"
+                          value={value}
                           onChange={onChange}
                         />
                       )}

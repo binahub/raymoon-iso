@@ -1,10 +1,9 @@
 import FormGroup from '@/app/shared/form-group';
 import { Checkbox } from '@/components/ui/checkbox';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import { Input } from '@/components/ui/input';
 import cn from '@/utils/class-names';
 import { Controller, useFormContext } from 'react-hook-form';
-
 export default function DeliveryEvent({ className }: { className?: string }) {
   const {
     register,
@@ -54,13 +53,16 @@ export default function DeliveryEvent({ className }: { className?: string }) {
         name="availableDate"
         control={control}
         render={({ field: { value, onChange, onBlur } }) => (
-          <DatePicker
-            inputProps={{ label: 'Available date' }}
-            placeholderText="Select Date"
-            dateFormat="dd/MM/yyyy"
-            onChange={onChange}
-            onBlur={onBlur}
-            selected={value}
+          <Datepicker
+            // inputProps={{ label: 'Available date' }}
+            // placeholderText="Select Date"
+            // dateFormat="dd/MM/yyyy"
+            // onChange={onChange}
+            // onBlur={onBlur}
+            // selected={value}
+            value={value}
+            placeholder="تاریخ شروع"
+            label="تاریخ شروع"
           />
         )}
       />
@@ -68,13 +70,18 @@ export default function DeliveryEvent({ className }: { className?: string }) {
         name="endDate"
         control={control}
         render={({ field: { value, onChange, onBlur } }) => (
-          <DatePicker
-            inputProps={{ label: 'End date' }}
-            placeholderText="Select Date"
-            dateFormat="dd/MM/yyyy"
-            onChange={onChange}
-            onBlur={onBlur}
-            selected={value}
+          // <DatePicker
+          //   inputProps={{ label: 'End date' }}
+          //   placeholderText="Select Date"
+          //   dateFormat="dd/MM/yyyy"
+          //   onChange={onChange}
+          //   onBlur={onBlur}
+          //   selected={value}
+          // />
+          <Datepicker
+            value={value}
+            placeholder="تاریخ پایان"
+            label="تاریخ پایان"
           />
         )}
       />

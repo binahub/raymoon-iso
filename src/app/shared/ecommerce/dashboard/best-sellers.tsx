@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Title, Text } from '@/components/ui/text';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import WidgetCard from '@/components/cards/widget-card';
 import { Button } from '@/components/ui/button';
 import { topProducts } from '@/data/top-products-data';
@@ -31,20 +31,20 @@ export default function BestSellers({ className }: { className?: string }) {
       description={
         <>
           Overview:
-          <DatePicker
-            selected={starRangeDate}
+          <Datepicker
+            value={starRangeDate}
             onChange={handleRangeChange}
-            startDate={starRangeDate}
-            endDate={endRangeDate}
-            monthsShown={1}
-            placeholderText="Select Date in a Range"
-            selectsRange
-            inputProps={{
-              variant: 'text',
-              inputClassName:
-                'p-0 pe-1 h-auto [&.is-focus]:ms-2 [&_input]:text-ellipsis',
-              prefixClassName: 'hidden',
-            }}
+            // startDate={starRangeDate}
+            // endDate={endRangeDate}
+            // monthsShown={1}
+            placeholder="Select Date in a Range"
+            // selectsRange
+            // inputProps={{
+            //   variant: 'text',
+            //   inputClassName:
+            //     'p-0 pe-1 h-auto [&.is-focus]:ms-2 [&_input]:text-ellipsis',
+            //   prefixClassName: 'hidden',
+            // }}
           />
         </>
       }

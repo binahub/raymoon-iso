@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import WidgetCard from '@/components/cards/widget-card';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import {
   Bar,
   XAxis,
@@ -102,15 +102,15 @@ export default function SalesReport({ className }: { className?: string }) {
       }
       descriptionClassName="text-gray-500 mt-1.5"
       action={
-        <DatePicker
-          selected={startDate}
+        <Datepicker
+          value={startDate}
           onChange={(date: Date) => setStartDate(date)}
-          dateFormat="yyyy"
-          placeholderText="Select Year"
-          showYearPicker
-          inputProps={{ variant: 'text', inputClassName: 'p-0 px-1 h-auto' }}
-          popperPlacement="bottom-end"
-          className="w-[100px]"
+          // dateFormat="yyyy"
+          placeholder="Select"
+          // showYearPicker
+          // inputProps={{ variant: 'text', inputClassName: 'p-0 px-1 h-auto' }}
+          // popperPlacement="bottom-end"
+          // className="w-[100px]"
         />
       }
       className={className}

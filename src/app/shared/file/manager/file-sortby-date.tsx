@@ -5,7 +5,7 @@ import { PiCaretDownBold, PiCaretRightBold } from 'react-icons/pi';
 import { Popover } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { useMedia } from '@/hooks/use-media';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import cn from '@/utils/class-names';
 import { Title, Text } from '@/components/ui/text';
 
@@ -103,28 +103,27 @@ export default function FileSortbyDate() {
                 <Text as="span" className="mb-2 mt-2.5 block text-sm">
                   Start Date
                 </Text>
-                <DatePicker
-                  selected={startDate}
+                <Datepicker
+                  value={startDate}
                   onChange={(date: Date) => setStartDate(date)}
-                  selectsStart
-                  startDate={startDate}
-                  endDate={endDate}
-                  placeholderText="Select Date"
-                  className=""
+                  // selectsStart
+                  // startDate={startDate}
+                  // endDate={endDate}
+                  placeholder="Select Date"
                 />
               </div>
               <div>
                 <Text as="span" className="mb-2 block text-sm">
                   End Date
                 </Text>
-                <DatePicker
-                  selected={endDate}
+                <Datepicker
+                  value={endDate}
                   onChange={(date: Date) => setEndDate(date)}
-                  selectsEnd
-                  startDate={startDate}
-                  endDate={endDate}
-                  minDate={startDate}
-                  placeholderText="Select Date"
+                  // selectsEnd
+                  // startDate={startDate}
+                  // endDate={endDate}
+                  // minDate={startDate}
+                  placeholder="Select Date"
                 />
               </div>
             </div>

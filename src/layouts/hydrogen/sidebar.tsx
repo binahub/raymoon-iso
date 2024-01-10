@@ -95,7 +95,7 @@ export default function Sidebar({ className }: { className?: string }) {
                                   : 'text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900'
                               )}
                             >
-                              <div className='flex items-center truncate'>
+                              <div className="flex items-center truncate">
                                 <span
                                   className={cn(
                                     'me-[18px] ms-1 inline-flex h-1 w-1 rounded-full bg-current transition-all duration-200',
@@ -104,11 +104,17 @@ export default function Sidebar({ className }: { className?: string }) {
                                       : 'opacity-40'
                                   )}
                                 />{' '}
-                                <span className='truncate'>
+                                <span className="truncate">
                                   {dropdownItem?.name}
                                 </span>
                               </div>
-                              {dropdownItem?.badge?.length ? (getStatusBadge(dropdownItem?.badge)) : null}
+                              {
+                                //@ts-ignore
+                                dropdownItem?.badge?.length
+                                  ? //@ts-ignore
+                                    getStatusBadge(dropdownItem?.badge)
+                                  : null
+                              }
                             </Link>
                           );
                         })}
@@ -123,7 +129,7 @@ export default function Sidebar({ className }: { className?: string }) {
                             : 'text-gray-700 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-700/90'
                         )}
                       >
-                        <div className='flex items-center truncate'>
+                        <div className="flex items-center truncate">
                           {item?.icon && (
                             <span
                               className={cn(
@@ -136,10 +142,15 @@ export default function Sidebar({ className }: { className?: string }) {
                               {item?.icon}
                             </span>
                           )}
-                          <span className='truncate'>{item.name}</span>
+                          <span className="truncate">{item.name}</span>
                         </div>
-                          {item?.badge?.length ? (getStatusBadge(item?.badge)) : null}
-
+                        {
+                          //@ts-ignore
+                          item?.badge?.length
+                            ? //@ts-ignore
+                              getStatusBadge(item?.badge)
+                            : null
+                        }
                       </Link>
                     )}
                   </>

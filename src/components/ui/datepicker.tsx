@@ -115,12 +115,16 @@ import { PiCalendarBlank, PiCaretDownBold } from 'react-icons/pi';
 import 'react-multi-date-picker/styles/colors/yellow.css';
 
 export interface DatepickerProps {
-  value?: DateObject | Date | null;
+  value?: DateObject | Date | string;
   placeholder?: string;
   label?: string;
   onChange?(date: any): void;
   onCalendarOpen?(): void;
   onCalendarClose?(): void;
+  minDate?: DateObject | Date | string;
+  maxDate?: DateObject | Date | string;
+  disabled?: boolean;
+  format?: string;
 }
 
 export const Datepicker = ({
@@ -130,6 +134,10 @@ export const Datepicker = ({
   onCalendarOpen,
   onCalendarClose,
   onChange,
+  minDate,
+  maxDate,
+  disabled,
+  format,
   ...props
 }: DatepickerProps) => {
   const [isCalenderOpen, setIsCalenderOpen] = useState(false);
@@ -145,13 +153,16 @@ export const Datepicker = ({
       locale={persian_fa}
       value={value}
       onChange={onChange}
-      format="YYYY/MM/DD"
+      format={format ? format : 'YYYY/MM/DD'}
       inputClass="bg-red"
       containerClassName="w-full"
       calendarPosition="bottom-right"
       disableDayPicker={false}
       inputMode="none"
       monthYearSeparator="|"
+      minDate={minDate}
+      maxDate={maxDate}
+      disabled={disabled}
       render={
         <Input
           label={label}

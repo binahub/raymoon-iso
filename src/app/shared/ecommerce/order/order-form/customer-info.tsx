@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Controller, useFormContext } from 'react-hook-form';
 import { ActionIcon } from '@/components/ui/action-icon';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import PencilIcon from '@/components/icons/pencil';
 import { Text, Title } from '@/components/ui/text';
 import Select from '@/components/ui/select';
@@ -112,15 +112,12 @@ export default function CustomerInfo({ className }: CustomerInfoProps) {
             name="orderDate"
             control={control}
             render={({ field: { value, onChange, onBlur } }) => (
-              <DatePicker
-                inputProps={{ label: 'Order date' }}
-                placeholderText="Select Date"
-                dateFormat="dd/MM/yyyy"
+              <Datepicker
+                label="Order date"
+                placeholder="Select Date"
+                format="dd/MM/yyyy"
                 onChange={onChange}
-                onBlur={onBlur}
-                wrapperClassName="w-full"
-                //@ts-ignore
-                selected={value}
+                value={value}
               />
             )}
           />

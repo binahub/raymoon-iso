@@ -17,6 +17,7 @@
     "@floating-ui/react": "^0.26.5",
     "@googlemaps/js-api-loader": "^1.16.2",
     "@headlessui/react": "^1.7.17",
+    "@nosferatu500/react-sortable-tree": "^4.4.0",
     "@react-email/body": "0.0.7",
     "@react-email/button": "0.0.13",
     "@react-email/column": "0.0.9",

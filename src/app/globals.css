@@ -172,7 +172,7 @@
   }
 
   body {
-    @apply font-vazir flex min-h-full flex-col overflow-x-hidden text-sm text-gray-600 dark:bg-gray-50;
+    @apply flex min-h-full flex-col overflow-x-hidden font-vazir text-sm text-gray-600 dark:bg-gray-50;
   }
 
   input::-ms-clear,
@@ -204,11 +204,11 @@
   }
 
   h1 {
-    @apply text-3xl 2xl:text-[32px] 4xl:text-4xl dark:text-gray-800;
+    @apply text-3xl dark:text-gray-800 2xl:text-[32px] 4xl:text-4xl;
   }
 
   h2 {
-    @apply text-2xl 2xl:text-[26px] 4xl:text-3xl dark:text-gray-800;
+    @apply text-2xl dark:text-gray-800 2xl:text-[26px] 4xl:text-3xl;
   }
 
   h3 {
@@ -359,7 +359,7 @@ select:-webkit-autofill:focus {
 /* ?React Datepicker Styling */
 /* ................................................... */
 .react-datepicker-popper .react-datepicker {
-  @apply font-vazir bg-gray-0 text-gray-600 dark:border-gray-300 dark:bg-gray-100;
+  @apply bg-gray-0 font-vazir text-gray-600 dark:border-gray-300 dark:bg-gray-100;
 }
 
 input[type='checkbox']:checked ~ svg {
@@ -392,7 +392,7 @@ input[type='checkbox']:checked ~ svg {
 
 /* header */
 .react-datepicker .react-datepicker__header {
-  @apply font-vazir border-b-gray-0 bg-gray-0 dark:border-transparent dark:bg-gray-100;
+  @apply border-b-gray-0 bg-gray-0 font-vazir dark:border-transparent dark:bg-gray-100;
 }
 
 /* current month name in header */
@@ -988,7 +988,7 @@ div[style='z-index: 1000001;'],
 }
 
 .pac-item {
-  @apply font-vazir px-3 py-1.5;
+  @apply px-3 py-1.5 font-vazir;
 }
 
 /* google location search auto complete  */
@@ -1206,4 +1206,8 @@ div[style='z-index: 1000001;'],
   .swiper-pagination
   span.swiper-pagination-bullet-active {
   @apply !w-4 !bg-gray-400;
+}
+
+ol {
+  padding: 1rem 1rem !important;
 }

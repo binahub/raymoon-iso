@@ -11,7 +11,7 @@ import { useTable } from '@/hooks/use-table';
 import { useColumn } from '@/hooks/use-column';
 import { Button } from '@/components/ui/button';
 import ControlledTable from '@/components/controlled-table';
-import { useCategoryListMutation } from '@/provider/redux/query/Category';
+import { useCategoryListMutation } from '@/provider/redux/apis/category.api';
 import { parameterMap } from '@/const/apiCalls';
 import { getColumns } from './columns';
 const FilterElement = dynamic(

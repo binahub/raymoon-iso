@@ -9,7 +9,7 @@ import DataTable from '@/components/data-table';
 import TableLayout from '@/layouts/table/table-layout';
 import { useEffect } from 'react';
 import { parameterMap } from '@/const/apiCalls';
-import { useCategoryListMutation } from '@/provider/redux/query/Category';
+import { useCategoryListMutation } from '@/provider/redux/apis/category.api';
 import TableAvatar from '@/components/ui/avatar-card';
 import Link from 'next/link';
 import { Tooltip } from '@/components/ui/tooltip';

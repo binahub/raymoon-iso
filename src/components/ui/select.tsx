@@ -278,7 +278,7 @@ export default function SelectBox<OptionType extends SelectOption>({
   helperClassName,
   dropdownClassName,
   prefix = null,
-  placeholder = 'Select',
+  placeholder = 'انتخاب کنید',
   displayValue = displayValueFn,
   getOptionDisplayValue = getOptionDisplayValueFn,
   getOptionValue = getOptionValueFn,

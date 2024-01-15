@@ -127,6 +127,7 @@ export const getColumns = ({}: Columns) => [
       </div>
     ),
   },
+
   // {
   //   title: <HeaderCell title="حذف" />,
   //   dataIndex: 'name',
@@ -135,6 +136,7 @@ export const getColumns = ({}: Columns) => [
   //   render: (value: string) => <button onClick={onDeleteItem}>#{value}</button>,
   // },
 ];
+
 
 const filterState = {
   price: ['', ''],
@@ -163,6 +165,7 @@ export default function SaberTable({
   useEffect(() => {
     list(parameterMap);
   }, []);
+
 
   if (isLoading) {
     return (

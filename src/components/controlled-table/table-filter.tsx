@@ -48,7 +48,7 @@ function FilterDrawerView({
             <PiXBold className="h-4 w-4" />
           </ActionIcon>
         </div>
-        <div className="flex-grow">
+        <div className="flex-grow  mt-10 ">
           <div className="grid grid-cols-1 gap-6 [&_.price-field>span.mr-2]:mb-1.5 [&_.price-field]:flex-col [&_.price-field]:items-start [&_.react-datepicker-wrapper]:w-full [&_.react-datepicker-wrapper_.w-72]:w-full [&_.text-gray-500]:text-gray-700 [&_button.h-9]:h-10 sm:[&_button.h-9]:h-11 [&_label>.h-9]:h-10 sm:[&_label>.h-9]:h-11 [&_label>.w-24.h-9]:w-full">
             {children}
           </div>
@@ -56,9 +56,9 @@ function FilterDrawerView({
         <Button
           size="lg"
           onClick={() => setOpenDrawer(false)}
-          className="mt-5 h-11 w-full text-sm"
+          className="mt-5 h-11 w-full text-sm bg-blue-darkBlue"
         >
-          Show Results
+          اعمال فیلتر
         </Button>
       </div>
     </Drawer>
@@ -67,8 +67,8 @@ function FilterDrawerView({
 
 export type TableFilterProps = {
   searchTerm: string;
-  onSearchClear: () => void;
-  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onSearchClear?: () => void;
+  onSearchChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   columns: { [key: string]: any }[];
   checkedColumns: string[];
   setCheckedColumns: React.Dispatch<React.SetStateAction<string[]>>;
@@ -89,7 +89,7 @@ export default function TableFilter({
   checkedColumns,
   setCheckedColumns,
   hideIndex,
-  drawerTitle = 'Table Filters',
+  drawerTitle = 'فیلتر جزئیات',
   hasSearched,
   enableDrawerFilter = false,
   showSearchOnTheRight = false,
@@ -106,7 +106,7 @@ export default function TableFilter({
         {!showSearchOnTheRight ? (
           <Input
             type="search"
-            placeholder="Search by anything..."
+            placeholder="جستجو..."
             value={searchTerm}
             onClear={onSearchClear}
             onChange={onSearchChange}
@@ -173,7 +173,7 @@ export default function TableFilter({
             <PiFunnel className="me-1.5 h-[18px] w-[18px]" strokeWidth={1.7} />
             {!(isMediumScreen || enableDrawerFilter) && showFilters
               ? 'Hide Filters'
-              : 'Filters'}
+              : 'فیلتر'}
           </Button>
         ) : null}
 

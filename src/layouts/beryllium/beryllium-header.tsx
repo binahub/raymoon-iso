@@ -21,8 +21,7 @@ export default function Header({ className }: { className?: string }) {
         'sticky top-0 z-50 flex items-center justify-between bg-white px-4 py-4 backdrop-blur-xl dark:bg-gray-50/50 xl:pe-8',
         ((isMounted && windowScroll.y) as number) > 2 ? 'card-shadow ' : '',
         className
-      )}
-    >
+      )}    >
       <div className="hidden items-center gap-3 xl:flex">
         <Link
           aria-label="Site Logo"

@@ -65,7 +65,7 @@ export default function SearchList({ onClose }: { onClose?: () => void }) {
                   setSearchText(() => '');
                 }}
               >
-                Clear
+                پاک کن
               </Button>
             )
           }
@@ -94,7 +94,7 @@ export default function SearchList({ onClose }: { onClose?: () => void }) {
               as="h6"
               className="mb-5 px-3 font-semibold dark:text-gray-700"
             >
-              Quick Page Links
+              {/* Quick Page Links */}
             </Title>
           )}
         </>

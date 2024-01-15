@@ -3,8 +3,8 @@ import Breadcrumb from '@/components/ui/breadcrumb';
 import cn from '@/utils/class-names';
 
 export type PageHeaderTypes = {
-  title: string;
-  breadcrumb: { name: string; href?: string }[];
+  title?: string;
+  breadcrumb?: { name: string; href?: string }[];
   className?: string;
 };
 
@@ -30,7 +30,7 @@ export default function PageHeader({
             separatorVariant="circle"
             className="flex-wrap"
           >
-            {breadcrumb.map((item) => (
+            {breadcrumb?.map((item) => (
               <Breadcrumb.Item
                 key={item.name}
                 {...(item?.href && { href: item?.href })}

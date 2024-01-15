@@ -30,12 +30,12 @@ export default function DeletePopover({
           >
             <PiTrashFill className="me-1 h-[17px] w-[17px]" /> {title}
           </Title>
-          <Text className="mb-2 leading-relaxed text-gray-500">
+          <Text className="mb-4 leading-relaxed text-gray-500 ">
             {description}
           </Text>
           <div className="flex items-center justify-end">
             <Button size="sm" className="me-1.5 h-7" onClick={onDelete}>
-              Yes
+              بله
             </Button>
             <Button
               size="sm"
@@ -43,7 +43,7 @@ export default function DeletePopover({
               className="h-7"
               onClick={() => setOpen(false)}
             >
-              No
+              خیر
             </Button>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default function DeletePopover({
         aria-label={'Delete Item'}
         className="cursor-pointer hover:!border-gray-900 hover:text-gray-700"
       >
-        <TrashIcon className="h-4 w-4" />
+        <TrashIcon className="h-5 w-5" />
       </ActionIcon>
     </Popover>
   );

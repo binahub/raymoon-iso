@@ -37,6 +37,15 @@ export const routes = {
     viewTemplate: (id: string) => `/support/templates/${id}`,
     editTemplate: (id: string) => `/support/templates/${id}/edit`,
   },
+  iva:{
+    dashboard: '/iva',
+    add: '/iva/add',
+    list: '/iva/list'
+   },
+   neshan:{
+    // dashboard: '/neshan',
+    list: '/neshan/list'
+   },
   logistics: {
     dashboard: '/logistics',
     shipmentList: '/logistics/shipments',

@@ -32,7 +32,7 @@ export default function ChartsPage() {
           <a
             target="_blank"
             href="https://recharts.org/en-US"
-            rel="nofollow noopener noreferrer"
+            rel="nofollow noopener noreferrer "
             className="inline-flex w-full @lg:w-auto"
           >
             <Button

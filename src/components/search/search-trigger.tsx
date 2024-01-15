@@ -28,16 +28,15 @@ export default function SearchTrigger({
         <PiMagnifyingGlassBold className="magnifying-glass me-2 h-[18px] w-[18px]" />
       )}
       <span className="placeholder-text hidden text-sm text-gray-600 group-hover:text-gray-900 xl:inline-flex">
-        Search your page...
+        جستجو...
       </span>
-      <span className="search-command ms-auto hidden items-center text-sm text-gray-600 lg:flex lg:rounded-md lg:bg-gray-900 lg:px-1.5 lg:py-1 lg:text-xs lg:font-semibold lg:text-gray-0 xl:justify-normal">
+      {/* <span className="search-command ms-auto hidden items-center text-sm text-gray-600 lg:flex lg:rounded-md lg:bg-gray-900 lg:px-1.5 lg:py-1 lg:text-xs lg:font-semibold lg:text-gray-0 xl:justify-normal">
         {os === 'macos' ? (
           <PiCommand strokeWidth={1.3} className="h-[15px] w-[15px]" />
         ) : (
-          'ctrl'
+          'ctrl+k'
         )}
-        K
-      </span>
+      </span> */}
     </button>
   );
 }

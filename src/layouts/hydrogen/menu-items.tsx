@@ -86,6 +86,32 @@ export const menuItems = [
     href: routes.support.dashboard,
     icon: <PiHeadsetDuotone />,
   },
+  {
+    name: ' ایوا',
+    href: routes.iva.dashboard,
+    icon: <PiHeadsetDuotone />,
+    dropdownItems: [
+      {
+        name: 'افزودن خطای جدید',
+        href: routes.iva.add,
+      },
+      {
+        name: 'گزارش خطاها',
+        href: routes.iva.list,
+      },
+    ],
+  },
+  {
+    name: ' نشان',
+    href: routes.neshan,
+    icon: <PiHeadsetDuotone />,
+    dropdownItems: [
+      {
+        name: 'گزارش پایانه ها',
+        href: routes.neshan.list,
+      }
+    ],
+  },
   // label start
   {
     name: 'Apps Kit',

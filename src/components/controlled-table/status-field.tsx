@@ -1,7 +1,7 @@
 import Select, { SelectBoxProps, SelectOption } from '@/components/ui/select';
 
 export default function StatusField({
-  placeholder = 'Select status',
+  placeholder = 'انتخاب کنید',
   ...props
 }: SelectBoxProps<SelectOption>) {
   return (

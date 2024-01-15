@@ -271,7 +271,7 @@ export default function MessageDetails({ className }: { className?: string }) {
               value={contactStatus}
               options={contactStatuses}
               onChange={setContactStatus}
-              placeholder="Select Status"
+              placeholder="انتخاب کنید"
               placement="bottom-end"
               useContainerWidth={false}
               selectClassName="text-xs sm:text-sm"

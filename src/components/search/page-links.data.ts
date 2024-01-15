@@ -137,6 +137,14 @@ export const pageLinks = [
     name: 'File Manager',
     href: routes.file.manager,
   },
+  {
+    name: 'گزارش خطاها',
+    href: routes.iva.list,
+  },
+  {
+    name: 'افزودن خطای جدید',
+    href: routes.iva.add,
+  },
   // label start
   {
     name: 'Widgets',

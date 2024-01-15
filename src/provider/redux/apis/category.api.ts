@@ -8,7 +8,7 @@ export const CategoryApi = createApi({
     prepareHeaders: async (headers) => {
       // Retrieve the token from session
 
-      const session = await getSession()
+      const session : any = await getSession()
       // If a token exists, set the Authorization header with the bearer token
       if (session?.apiToken) {
         headers.set("Authorization", `Bearer ${session?.apiToken}`);
@@ -20,7 +20,7 @@ export const CategoryApi = createApi({
   tagTypes: ["auth", "category", "food", "organization"],
   endpoints: (builder) => ({
     postAuth: builder.mutation({
-      query: (params) => ({
+      query: (params: any) => ({
         url: "/unit/login/authenticate",
         method: "POST",
         body: params,
@@ -28,7 +28,7 @@ export const CategoryApi = createApi({
       invalidatesTags: ["auth"],
     }),
     categoryList: builder.mutation({
-      query: (params) => ({
+      query: (params: any) => ({
         url: "/categoryFood/list",
         method: "POST",
         body: params,
@@ -40,7 +40,7 @@ export const CategoryApi = createApi({
       providesTags: ["food"],
     }),
     addCategoryFood: builder.mutation({
-      query: (todo) => ({
+      query: (todo: any) => ({
         url: "/todos",
         method: "POST",
         body: todo,
@@ -48,7 +48,7 @@ export const CategoryApi = createApi({
       invalidatesTags: ["food"],
     }),
     updateCategoryFood: builder.mutation({
-      query: (todo) => ({
+      query: (todo: any) => ({
         url: `/todos/${todo.id}`,
         method: "PATCH",
         body: todo,
@@ -56,7 +56,7 @@ export const CategoryApi = createApi({
       invalidatesTags: ["food"],
     }),
     deleteCategoryFood: builder.mutation({
-      query: ({ id }) => ({
+      query: ({ id }: any) => ({
         url: `/todos/${id}`,
         method: "DELETE",
         body: id,
@@ -64,7 +64,7 @@ export const CategoryApi = createApi({
       invalidatesTags: ["food"],
     }),
     organizationList: builder.mutation({
-      query: (params) => ({
+      query: (params: any) => ({
         url: "/organization/list",
         method: "POST",
         body: params,
@@ -85,4 +85,3 @@ export const {
   useDeleteCategoryFoodMutation,
   useOrganizationListMutation,
 } = CategoryApi;
-

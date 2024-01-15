@@ -1,6 +1,6 @@
 "use client"
 import { parameterMap } from "@/const/apiCalls";
-import { useCategoryListMutation } from "@/provider/redux/query/Category";
+import { useCategoryListMutation } from "@/provider/redux/apis/category.api";
 import { useEffect } from "react";
 
 const CategoryData = () => {

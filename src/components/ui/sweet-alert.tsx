@@ -1,41 +1,40 @@
-import React from 'react';
+'use client';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
 interface AlertProps {
-  type: any;
+  type: 'error' | 'success';
   title: string;
   message: string;
+  confirmButtonText: string;
+  cancelButtonText?: string;
 }
 
 export default function SweetAlert({
   type,
   title,
   message,
+  confirmButtonText,
+  cancelButtonText,
 }: AlertProps) {
-  let ButtonClass = '';
-  if (type === 'error') ButtonClass = 'danger';
-  else if (type === 'success') ButtonClass = 'success';
-  else ButtonClass = 'primary';
-
   const handleSweetAlert = () =>
     MySwal.fire({
       title,
       icon: type,
       text: message,
       showCancelButton: true,
-      confirmButtonText: 'بله، مطمئن هستم',
-      cancelButtonText: 'لغو عملیات',
+      confirmButtonText,
+      cancelButtonText,
       focusConfirm: false,
       allowOutsideClick: false,
       customClass: {
-        confirmButton: ButtonClass,
+        confirmButton: 'bg-yellow-400 p-2 rounded-lg',
+        cancelButton: 'bg-slate-200 mr-2',
       },
       buttonsStyling: false,
-    })
+    });
 
-  return <div>
-    </div>;
+  return handleSweetAlert();
 }

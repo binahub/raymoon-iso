@@ -11,7 +11,7 @@ import ExportButton from '@/app/shared/export-button';
 import { parameterMap } from '@/const/apiCalls';
 
 import { metaObject } from '@/config/site.config';
-import { useCategoryListMutation } from '@/provider/redux/query/Category';
+import { useCategoryListMutation } from '@/provider/redux/apis/category.api';
 import { useEffect } from 'react';
 
 export const metadata = {

@@ -44,8 +44,6 @@ export default function SignInForm() {
         SweetAlert({
           message: result?.error,
           type: 'error',
-          title: 'خطا در ورود',
-          confirmButtonText: 'باشه!',
         });
       }
     });

@@ -171,14 +171,6 @@ export default function SaberTable({
     );
   }
 
-  if (isError) {
-    SweetAlert({
-      message: 'آیا مطمئن هستید؟',
-      confirmButtonText: 'باشه!',
-      title: 'هشدار',
-      type: 'error',
-    });
-  }
   return (
     <TableLayout
       title={pageHeader.title}

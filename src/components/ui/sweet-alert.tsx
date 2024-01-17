@@ -5,10 +5,10 @@ import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
 interface AlertProps {
-  type: 'error' | 'success';
-  title: string;
+  type: 'error' | 'success' | 'warning';
+  title?: string;
   message: string;
-  confirmButtonText: string;
+  confirmButtonText?: string;
   cancelButtonText?: string;
 }
 
@@ -19,21 +19,29 @@ export default function SweetAlert({
   confirmButtonText,
   cancelButtonText,
 }: AlertProps) {
+  let ButtonClass = '';
+  if (type === 'error') ButtonClass = 'bg-[#f27474]';
+  else if (type === 'success') ButtonClass = 'bg-[#a5dc86]';
+  else ButtonClass = 'bg-[#facea8]';
+
   const handleSweetAlert = () =>
     MySwal.fire({
       title,
       icon: type,
       text: message,
       showCancelButton: true,
-      confirmButtonText,
+      confirmButtonText: confirmButtonText || 'باشه!',
       cancelButtonText,
       focusConfirm: false,
       allowOutsideClick: false,
       customClass: {
-        confirmButton: 'bg-yellow-400 p-2 rounded-lg',
-        cancelButton: 'bg-slate-200 mr-2',
+        confirmButton: `${ButtonClass} p-2 rounded-lg`,
+        cancelButton: cancelButtonText
+          ? 'bg-slate-300 mr-2 p-2 rounded-lg'
+          : '',
       },
       buttonsStyling: false,
+      width: '25%',
     });
 
   return handleSweetAlert();

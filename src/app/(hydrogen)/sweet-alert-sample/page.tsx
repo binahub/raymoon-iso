@@ -10,10 +10,9 @@ function page() {
         <Button
           onClick={() =>
             SweetAlert({
-              title: 'danger',
-              type: 'success',
-              message: 'please confirm',
-              confirmButtonText: 'done',
+              type: 'error',
+              message: 'خطایی رخ داده است.',
+              cancelButtonText: 'ای بابا',
             })
           }
         >

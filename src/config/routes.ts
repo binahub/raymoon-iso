@@ -124,4 +124,6 @@ export const routes = {
   },
   signIn: '/signin',
   category: '/category',
+  checkboxTree: '/checkbox-tree-sample',
+  reactTreeSample: '/react-tree-sample',
 };

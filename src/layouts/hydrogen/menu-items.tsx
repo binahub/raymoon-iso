@@ -55,6 +55,22 @@ export const menuItems = [
     icon: <PiFolderNotchDuotone />,
   },
   {
+    name: 'شکیبا',
+    href: '#',
+    icon: <PiFolderNotchDuotone />,
+    dropdownItems: [
+      {
+        name: 'سمپل چک باکس',
+        href: routes.checkboxTree,
+        badge: '',
+      },
+      {
+        name: 'react tree sample',
+        href: routes.reactTreeSample,
+      },
+    ],
+  },
+  {
     name: 'File Manager',
     href: '/',
     icon: <PiFolderNotchDuotone />,

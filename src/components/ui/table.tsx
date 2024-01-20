@@ -50,7 +50,6 @@ export interface TableProps
   striped?: boolean;
   /** Add custom classes for extra style */
   className?: string;
-  rowEdit?: any
 }
 
 /**
@@ -62,12 +61,8 @@ export default function Table({
   variant = 'classic',
   emptyText,
   className,
-  rowEdit,
   ...props
-}: TableProps) {
-
-  console.log(rowEdit);
-  
+}: TableProps) {  
  
   return (
     <RcTable

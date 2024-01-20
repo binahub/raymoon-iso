@@ -1,5 +1,5 @@
 'use client';
-import { ActionIcon, Badge, Text, Title, Tooltip } from 'rizzui';
+import { ActionIcon, Title, Tooltip } from 'rizzui';
 import Link from 'next/link';
 import { routes } from '@/config/routes';
 import { HeaderCell } from '@/components/ui/table';
@@ -15,7 +15,6 @@ import { useCategoryListMutation } from '@/provider/redux/query/Category';
 import TableAvatar from '@/components/ui/avatar-card';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import { PiXBold } from 'react-icons/pi';
-import {neshanData} from '../data'
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -24,34 +23,6 @@ export default function NeshanPage() {
   const [isLink, setIsLink] = useState(false);
   const [isModal, setIsModal] = useState(true);
   const { openModal } = useModal();
-
-
-  
-function getStatusBadge(status: string) {
-  switch (status.toLowerCase()) {
-      case 'موفق':
-        return (
-          <div className="flex items-center">
-            <Badge color="success" renderAsDot />
-            <Text className="ms-2 font-medium text-green-dark">{status}</Text>
-          </div>
-        );
-        case 'ناموفق':
-          return (
-          <div className="flex items-center">
-            <Badge color="danger" renderAsDot />
-            <Text className="ms-2 font-medium text-red-dark">{status}</Text>
-          </div>
-        );
-    default:
-      return (
-        <div className="flex items-center">
-          <Badge renderAsDot className="bg-gray-400" />
-          <Text className="ms-2 font-medium text-gray-600">{status}</Text>
-        </div>
-      );
-  }
-}
 
   const filterState = {
     name: '',
@@ -69,64 +40,52 @@ function getStatusBadge(status: string) {
   };
 
   const pageHeader = {
-    title: 'نشان بانک',
+    title: 'سفارش غذا',
     breadcrumb: [
       {
         href: routes.neshan.list,
-        name: 'نشان اعتباری',
+        name: 'سفارشات',
       },
       {
-        name: 'گزارش پرداخت نشان اعتباری',
+        name: ' لیست سفارشات غذا',
       },
     ],
   };
 
 
-  console.log('neshanData :' ,neshanData);
   
 
   const getColumns = ({}: any) => [
     {
-      title: <HeaderCell title="نوع پرداخت" />,
-      dataIndex: 'paymentFunctionName',
-      key: 'paymentFunctionName',
-      width:30,
+      title: <HeaderCell title="شناسه" />,
+      dataIndex: 'id',
+      key: 'id',
+      width: 30,
       render: (value: string) => <p>{value}</p>,
     },
     {
-      title: (
-        <HeaderCell
-          title="مبلغ" 
-          ellipsis
-          sortable
-          ascending={
-            sortConfig?.direction === 'asc' && sortConfig?.key === 'amount'
-          }
+      title: <HeaderCell title="توضیحات" />,
+      dataIndex: 'imageUrl',
+      key: 'imageUrl',
+      width: 80,
+      hidden: 'customer',
+      render: (_: any, row: any) => (
+        <TableAvatar
+          src={row.imageUrl}
+          name={row.name}
+          description={'shakiba@fateme.bina'}
         />
       ),
-      onHeaderCell: () => onHeaderCellClick('amount'),
-      dataIndex: 'amount',
-      key: 'amount',
-      width: 30,
-      render: (value: string) => (
-        <Text className="font-medium text-gray-700">{value}ریال</Text>
-      ),
     },
     {
-      title: <HeaderCell title="شماره کارت اعتباری" />,
-      dataIndex: 'creditCardNumber',
-      key: 'creditCardNumber',
+      title: <HeaderCell title="نام" />,
+      dataIndex: 'name',
+      key: 'name',
       width: 30,
       render: (value: string) => <p>{value}</p>,
     },
     {
-      title: <HeaderCell title="  وضعیت پرداخت" />,
-      dataIndex: 'status',
-      key: 'status',
-      width: 40,
-      render: (value: string) => getStatusBadge(value),
-    },
-    {
+      // Need to avoid this issue -> <td> elements in a large <table> do not have table headers.
       title: <HeaderCell title="Actions" className="opacity-0" />,
       dataIndex: 'action',
       key: 'action',
@@ -252,7 +211,7 @@ function getStatusBadge(status: string) {
     handleRowSelect,
     handleSelectAll,
   } = useTable(
-    neshanData,
+    data?.foodCategoryObjectList,
     pageSize,
     data?.totalElements,
     filterState
@@ -329,7 +288,8 @@ function getStatusBadge(status: string) {
   const parameterMapFilter = {...parameterMap , ...filters}
   
   const actionFilter = () =>{
-    list( parameterMapFilter)  
+    list( parameterMapFilter)
+    
   }
 
 
@@ -356,7 +316,7 @@ function getStatusBadge(status: string) {
         current: currentPage,
         onChange: (page: number) => handlePaginate(page),
       }}
-      data={neshanData}
+      data={data?.foodCategoryObjectList}
       expandedKeys={[rowEdit]}
       onExpand={(expanded: boolean, row: any) => {
         expanded ? setRowEdit(row.id) : setRowEdit({});

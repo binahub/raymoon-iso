@@ -58,6 +58,7 @@ export default {
           orangelight: '#FEDA85',
           DEFAULT: 'rgb(var(--orange-default) / <alpha-value>)',
           dark: 'rgb(var(--orange-dark) / <alpha-value>)',
+          panel:'rgba(241,255,0,0)'
         },
         blue: {
           lighter: 'rgb(var(--blue-lighter) / <alpha-value>)',

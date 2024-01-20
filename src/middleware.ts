@@ -21,6 +21,8 @@ export const config = {
     '/forms/profile-settings/:path*',
     '/category',
     '/iva',
-    '/neshan'
+    '/neshan/list',
+    '/food/list'
+    
   ],
 };

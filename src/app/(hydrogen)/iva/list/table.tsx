@@ -71,7 +71,7 @@ export const getColumns = ({}: Columns) => [
   },
   {
     title: <HeaderCell title="شماره ترمینال" />,
-    dataIndex: 'شماره ترمینال',
+    dataIndex: 'terminal',
     key: 'terminal',
     width: 30,
     render: (value: string) => <p>{value}</p>,
@@ -220,9 +220,7 @@ export default function IvaTable({
     return (
       <div className="flex h-full items-center justify-center">loading...</div>
     );
-  }  
-  console.log(datavalue);
-  
+  }    
   return (
     <TableLayout
       title={pageHeader.title}

@@ -8,9 +8,12 @@ interface AnyObject {
 export function useTable<T extends AnyObject>(
   initialData: T[],
   countPerPage: number = 10,
+  totalData : number,
   initialFilterState?: Partial<Record<string, any>>
 ) {
   const [data, setData] = useState(initialData);
+  const [total , stTotal] = useState(totalData)  
+
 
   /*
    * Dummy loading state.
@@ -22,6 +25,7 @@ export function useTable<T extends AnyObject>(
 
   useEffect(() => {
     setData(initialData);
+    stTotal(totalData)
   }, [initialData]);
 
   /*
@@ -90,8 +94,7 @@ export function useTable<T extends AnyObject>(
   function paginatedData(data: T[] = sortedData) {
     const start = (currentPage - 1) * countPerPage;
     const end = start + countPerPage;
-
-    if (data?.length > start) return data.slice(start, end);
+    if (total > start) return data;
     return data;
   }
 
@@ -121,6 +124,7 @@ export function useTable<T extends AnyObject>(
   function updateFilter(columnId: string, filterValue: string | any[]) {
     if (!Array.isArray(filterValue) && !isString(filterValue)) {
       throw new Error('filterValue data type should be string or array of any');
+      
     }
 
     if (Array.isArray(filterValue) && filterValue.length !== 2) {
@@ -132,6 +136,8 @@ export function useTable<T extends AnyObject>(
       [columnId]: filterValue,
     }));
   }
+
+  
 
   function applyFilters() {
     const searchTermLower = searchTerm.toLowerCase();
@@ -170,6 +176,8 @@ export function useTable<T extends AnyObject>(
               }
             }
           );
+          // console.log(isMatchingItem);
+          
           return isMatchingItem;
         })
         // global search after running filters
@@ -266,7 +274,6 @@ export function useTable<T extends AnyObject>(
     // searching
     searchTerm,
     handleSearch,
-    // filters
     filters,
     updateFilter,
     applyFilters,

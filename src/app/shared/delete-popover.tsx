@@ -23,7 +23,7 @@ export default function DeletePopover({
       placement="left"
       className="z-50"
       content={({ setOpen }) => (
-        <div className="w-56 pb-2 pt-1 text-left rtl:text-right">
+        <div className="w-50 pb-2 pt-1 text-left rtl:text-right ">
           <Title
             as="h6"
             className="mb-0.5 flex items-start text-sm text-gray-700 sm:items-center"

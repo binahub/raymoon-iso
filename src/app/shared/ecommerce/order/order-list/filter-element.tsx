@@ -69,12 +69,12 @@ export default function FilterElement({
   const isMediumScreen = useMedia('(max-width: 1860px)', false);
   return (
     <>
-      <PriceField
+      {/* <PriceField
         value={filters['price']}
         onChange={(data) => updateFilter('price', data)}
         label={'شناسه'}
-      />
-      <DateFiled
+      /> */}
+      {/* <DateFiled
         selected={getDateRangeStateValues(filters['createdAt'][0])}
         startDate={getDateRangeStateValues(filters['createdAt'][0])}
         endDate={getDateRangeStateValues(filters['createdAt'][1])}
@@ -88,8 +88,8 @@ export default function FilterElement({
             labelClassName: 'font-medium text-gray-700',
           },
         })}
-      />
-      <DateFiled
+      /> */}
+      {/* <DateFiled
         selected={getDateRangeStateValues(filters['updatedAt'][0])}
         startDate={getDateRangeStateValues(filters['updatedAt'][0])}
         endDate={getDateRangeStateValues(filters['updatedAt'][1])}
@@ -103,7 +103,7 @@ export default function FilterElement({
             labelClassName: 'font-medium text-gray-700',
           },
         })}
-      />
+      /> */}
       <StatusField
         options={statusOptions}
         value={filters['status']}

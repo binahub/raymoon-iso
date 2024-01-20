@@ -46,6 +46,11 @@ export const routes = {
     // dashboard: '/neshan',
     list: '/neshan/list'
    },
+
+   food:{
+    // dashboard: '/neshan',
+    list: '/food/list'
+   },
   logistics: {
     dashboard: '/logistics',
     shipmentList: '/logistics/shipments',

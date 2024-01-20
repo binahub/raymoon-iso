@@ -26,7 +26,7 @@ function FilterDrawerView({
   hasSearched?: boolean;
   setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
   isOpen?: boolean;
-}>) {
+}>) {  
   return (
     <Drawer
       size="sm"
@@ -49,17 +49,17 @@ function FilterDrawerView({
           </ActionIcon>
         </div>
         <div className="flex-grow  mt-10 ">
-          <div className="grid grid-cols-1 gap-6 [&_.price-field>span.mr-2]:mb-1.5 [&_.price-field]:flex-col [&_.price-field]:items-start [&_.react-datepicker-wrapper]:w-full [&_.react-datepicker-wrapper_.w-72]:w-full [&_.text-gray-500]:text-gray-700 [&_button.h-9]:h-10 sm:[&_button.h-9]:h-11 [&_label>.h-9]:h-10 sm:[&_label>.h-9]:h-11 [&_label>.w-24.h-9]:w-full">
+          <div className="h-full grid grid-cols-1 gap-6 [&_.price-field>span.mr-2]:mb-1.5 [&_.price-field]:flex-col [&_.price-field]:items-start [&_.react-datepicker-wrapper]:w-full [&_.react-datepicker-wrapper_.w-72]:w-full [&_.text-gray-500]:text-gray-700 [&_button.h-9]:h-10 sm:[&_button.h-9]:h-11 [&_label>.h-9]:h-10 sm:[&_label>.h-9]:h-11 [&_label>.w-24.h-9]:w-full">
             {children}
           </div>
         </div>
-        <Button
+        {/* <Button
           size="lg"
-          onClick={() => setOpenDrawer(false)}
+          onClick={() => actionFilter()}
           className="mt-5 h-11 w-full text-sm bg-blue-darkBlue"
         >
           اعمال فیلتر
-        </Button>
+        </Button> */}
       </div>
     </Drawer>
   );
@@ -95,6 +95,7 @@ export default function TableFilter({
   showSearchOnTheRight = false,
   menu,
   children,
+  
 }: TableFilterProps) {
   const isMediumScreen = useMedia('(max-width: 1860px)', false);
   const [showFilters, setShowFilters] = useState(true);

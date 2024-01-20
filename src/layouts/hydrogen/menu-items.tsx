@@ -102,13 +102,25 @@ export const menuItems = [
     ],
   },
   {
-    name: ' نشان',
+    name: ' نشان بانک',
     href: routes.neshan,
     icon: <PiHeadsetDuotone />,
     dropdownItems: [
       {
-        name: 'گزارش پایانه ها',
+        name: 'گزارش پرداخت نشان اعتباری',
         href: routes.neshan.list,
+      }
+    ],
+  },
+
+  {
+    name: 'سفارش غذا',
+    href: routes.food,
+    icon: <PiHeadsetDuotone />,
+    dropdownItems: [
+      {
+        name:'گزارش سفارش غذاها',
+        href: routes.food.list,
       }
     ],
   },

@@ -126,4 +126,5 @@ export const routes = {
   category: '/category',
   checkboxTree: '/checkbox-tree-sample',
   reactTreeSample: '/react-tree-sample',
+  sweetAlertSample: '/sweet-alert-sample'
 };

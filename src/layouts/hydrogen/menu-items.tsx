@@ -68,6 +68,10 @@ export const menuItems = [
         name: 'react tree sample',
         href: routes.reactTreeSample,
       },
+      {
+        name: 'sweet alert sample',
+        href: routes.sweetAlertSample,
+      },
     ],
   },
   {

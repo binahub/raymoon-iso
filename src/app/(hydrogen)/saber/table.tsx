@@ -18,6 +18,7 @@ import EyeIcon from '@/components/icons/eye';
 import PencilIcon from '@/components/icons/pencil';
 import DeletePopover from '@/app/shared/delete-popover';
 import SweetAlert from '@/components/ui/sweet-alert';
+import { useCommentsListQuery } from '@/provider/redux/apis/iva.api';
 // dynamic import
 const FilterElement = dynamic(
   () => import('@/app/shared/ecommerce/order/order-list/filter-element'),
@@ -159,11 +160,13 @@ export default function SaberTable({
   variant?: 'modern' | 'minimal' | 'classic' | 'elegant' | 'retro';
   className?: string;
 }) {
-  const [list, { isLoading, isSuccess, isError, error, data: cat }] =
-    useCategoryListMutation();
-  useEffect(() => {
-    list(parameterMap);
-  }, [list]);
+  // const [list, { isLoading, isSuccess, isError, error, data: cat }] =
+  //   useCategoryListMutation();
+  // useEffect(() => {
+  //   list(parameterMap);
+  // }, [list]);
+
+  const {data: profileData, isLoading} = useCommentsListQuery('commentsList', {refetchOnMountOrArgChange: true})
 
   if (isLoading) {
     return (
@@ -175,14 +178,14 @@ export default function SaberTable({
     <TableLayout
       title={pageHeader.title}
       breadcrumb={pageHeader.breadcrumb}
-      data={cat?.foodCategoryObjectList}
+      data={profileData?.foodCategoryObjectList}
       fileName="order_data"
       header="id,name"
       buttons={['export', 'import', 'create']}
     >
       <div className={cn(className)}>
         <DataTable
-          data={cat?.foodCategoryObjectList}
+          data={profileData?.foodCategoryObjectList}
           expandedRow={ExpandedRow}
           filterElement={FilterElement}
           filterState={filterState}

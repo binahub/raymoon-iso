@@ -41,6 +41,7 @@
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "@uploadthing/react": "^6.1.0",
+    "async-mutex": "^0.4.1",
     "clsx": "^2.1.0",
     "date-arithmetic": "^4.1.0",
     "dayjs": "^1.11.10",

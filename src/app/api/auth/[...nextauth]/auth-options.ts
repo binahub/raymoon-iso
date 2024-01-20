@@ -20,15 +20,15 @@ export const authOptions: NextAuthOptions = {
       return {
         ...session,
         authResponse: token,
-        apiToken: token.accessToken
+        apiToken: token.accessToken,
       };
     },
     async jwt({ token, user }) {
       if (user) {
         // return user as JWT
         // token.user = user;
-        token = {...token, ...user}
-        console.log('tokenJWT2',token)
+        token = { ...token, ...user };
+        console.log('tokenJWT2', token);
       }
       return token;
     },
@@ -52,6 +52,7 @@ export const authOptions: NextAuthOptions = {
         // You need to provide your own logic here that takes the credentials
         // submitted and returns either a object representing a user or value
         // that is false/null if the credentials are invalid
+
         const res = await fetch(
           'http://78.157.51.13/food/api/v1/unit/login/authenticate',
           {
@@ -63,18 +64,15 @@ export const authOptions: NextAuthOptions = {
             }),
           }
         );
-
-        const user = await res.json() as any;
-
-        if (user && user.result == "0") {
-          console.log('login',user);
+        const user = (await res.json()) as any;
+        if (user && user.result == '0') {
+          console.log('login', user);
           return user as any;
-        }else if(user && user.description){
-          return null;
+        } else if (user && user.description) {
+          return Promise.reject(new Error(user.description));
         }
         return null;
       },
     }),
-    
   ],
 };

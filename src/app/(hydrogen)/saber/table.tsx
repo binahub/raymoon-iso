@@ -17,6 +17,7 @@ import { ActionIcon } from '@/components/ui/action-icon';
 import EyeIcon from '@/components/icons/eye';
 import PencilIcon from '@/components/icons/pencil';
 import DeletePopover from '@/app/shared/delete-popover';
+import SweetAlert from '@/components/ui/sweet-alert';
 // dynamic import
 const FilterElement = dynamic(
   () => import('@/app/shared/ecommerce/order/order-list/filter-element'),
@@ -169,6 +170,7 @@ export default function SaberTable({
       <div className="flex h-full items-center justify-center">loading...</div>
     );
   }
+
   return (
     <TableLayout
       title={pageHeader.title}

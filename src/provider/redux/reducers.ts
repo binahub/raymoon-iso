@@ -1,5 +1,5 @@
-import { CategoryApi } from './apis/category.api';
-import { IvaApi } from './apis/iva.api';
+import { CategoryApi } from '@/provider/redux/apis/category';
+import { IvaApi } from '@/provider/redux/apis/iva';
 
 const reducers = {
   [IvaApi.reducerPath]: IvaApi.reducer,

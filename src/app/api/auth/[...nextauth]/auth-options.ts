@@ -54,7 +54,7 @@ export const authOptions: NextAuthOptions = {
         // that is false/null if the credentials are invalid
 
         const res = await fetch(
-          'http://78.157.51.13/food/api/v1/unit/login/authenticate',
+          'http://mobile-panel-service-payment-dev.apps.ocpdev.spsplan.local/api/v1/Authentication/Token',
           {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -65,11 +65,18 @@ export const authOptions: NextAuthOptions = {
           }
         );
         const user = (await res.json()) as any;
-        if (user && user.result == '0') {
-          console.log('login', user);
-          return user as any;
-        } else if (user && user.description) {
-          return Promise.reject(new Error(user.description));
+
+        if (user && user.data.accessToken) {
+          const copiedUser = {
+            id: user.data.id,
+            accessToken: user.data.accessToken,
+          };
+
+          // console.log('login', user);
+
+          return copiedUser as any;
+        } else if (user && user.error) {
+          return Promise.reject(new Error(user.error?.message));
         }
         return null;
       },

@@ -3,8 +3,8 @@ import { fetchBaseQuery, FetchBaseQueryMeta } from '@reduxjs/toolkit/query';
 import type { BaseQueryFn, FetchArgs } from '@reduxjs/toolkit/query';
 import { getSession } from 'next-auth/react';
 import { QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
-import { FetchError } from '@/types/error';
-import Notification from './notification';
+import { FetchError } from '@/provider/redux/types/error';
+import Notification from '../../utils/notification';
 
 const mutex = new Mutex();
 

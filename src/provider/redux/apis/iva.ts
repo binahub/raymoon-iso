@@ -1,6 +1,5 @@
-import { baseQueryWithInterceptors } from '@/utils/base-query';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { getSession } from 'next-auth/react';
+import { baseQueryWithInterceptors } from '@/provider/redux/base-query';
+import { createApi } from '@reduxjs/toolkit/query/react';
 
 export const IvaApi = createApi({
   reducerPath: 'IvaApi',

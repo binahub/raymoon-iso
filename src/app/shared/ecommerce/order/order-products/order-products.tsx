@@ -143,9 +143,13 @@ export const getColumns = ({
   },
 ];
 
+const filterState = 10;
+const pageSize = 10;
+
+
 export default function OrderProducts() {
   const { isLoading, sortConfig, tableData, handleSort, handleDelete } =
-    useTable(initialData);
+    useTable(initialData, filterState, pageSize);
 
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {

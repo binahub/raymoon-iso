@@ -8,10 +8,7 @@ import ShipmentTableFilters from './shipment-table-filters';
 import ControlledTable from '@/components/controlled-table';
 import { pendingShipments } from '@/data/pending-shipments';
 
-const filterState = {
-  date: [null, null],
-  status: '',
-};
+const filterState = 10
 
 export default function ShipmentTable() {
   const [pageSize, setPageSize] = useState(10);

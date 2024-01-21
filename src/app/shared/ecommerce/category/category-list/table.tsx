@@ -39,6 +39,8 @@ export default function CategoryTable() {
     }
   };
 
+  const filterState = 10
+
   const {
     isLoading,
     isFiltered,
@@ -51,7 +53,7 @@ export default function CategoryTable() {
     sortConfig,
     handleSort,
     handleDelete,
-  } = useTable(categories, pageSize);
+  } = useTable(categories, pageSize, filterState);
 
   const columns = useMemo(
     () =>

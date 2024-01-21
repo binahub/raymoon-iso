@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import StatusField from '@/components/controlled-table/status-field';
 import { Input } from '@/components/ui/input';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import { Button } from 'rizzui';
 import { PiTrashDuotone } from 'react-icons/pi';
 
@@ -100,10 +100,10 @@ export default function FilterElement({
         );
       case 'DatePicker':
         return (
-          <DatePicker
-            className="mb-5"
-            inputProps={{ label: item.label }}
-            dateFormat="dd/MM/yyyy"
+          <Datepicker
+            // className="mb-5"
+            label={item.label}
+            // dateFormat="dd/MM/yyyy"
             onChange={() => {}}
             // onBlur={onBlur}
             // selected={value}

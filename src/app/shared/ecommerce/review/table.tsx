@@ -41,6 +41,8 @@ export default function ReviewsTable() {
 
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
 
+  const filterState = 10
+
   const {
     isLoading,
     isFiltered,
@@ -53,7 +55,7 @@ export default function ReviewsTable() {
     sortConfig,
     handleSort,
     handleDelete,
-  } = useTable(productReviews, pageSize);
+  } = useTable(productReviews, pageSize, filterState);
 
   const columns = useMemo(
     () =>

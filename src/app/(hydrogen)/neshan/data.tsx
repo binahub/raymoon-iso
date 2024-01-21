@@ -1,4 +1,6 @@
-export const neshanData = [
+export const neshanData : any ={
+  totalElements : 14 ,
+  data : [
     {
       id:1,
       amount: "10",
@@ -34,7 +36,7 @@ export const neshanData = [
       statementId: 63,
       transactionDate: "1399/10/06 15:38:49",
       orderID: "16030155",
-      paymentFunctionName: "پرداخت اقساط",
+      paymentFunctionName: "پرداخت بدهی",
       error: "خطا در اتصال، لطفا دوباره تلاش نمایید",
       status: "ناموفق"
     },
@@ -47,7 +49,7 @@ export const neshanData = [
       statementId: 63,
       transactionDate: "1399/10/06 15:37:47",
       orderID: "16030155",
-      paymentFunctionName: "پرداخت اقساط",
+      paymentFunctionName: "پرداخت بدهی",
       error: "خطا در اتصال، لطفا دوباره تلاش نمایید",
       status: "موفق"
     },
@@ -73,7 +75,7 @@ export const neshanData = [
       statementId: 63,
       transactionDate: "1399/10/06 15:35:53",
       orderID: "16030155",
-      paymentFunctionName: "پرداخت اقساط",
+      paymentFunctionName: "پرداخت بدهی",
       error: "شماره کارت معتبر نیست",
       status: "ناموفق"
     },
@@ -86,7 +88,7 @@ export const neshanData = [
       statementId: 7840905,
       transactionDate: "1399/09/11 13:0:12",
       orderID: "1606814980910",
-      paymentFunctionName: "پرداخت اقساط",
+      paymentFunctionName: "پرداخت بدهی",
       error: "توکن کارت نامعتبر است",
       status: "ناموفق"
     },
@@ -128,5 +130,58 @@ export const neshanData = [
       paymentFunctionName: "پرداخت اقساط",
       error: "توکن کارت نامعتبر است",
       status: "موفق"
+    },
+    {
+      id:11,
+      amount: "0",
+      retrivalRefNo: null,
+      systemTraceNo: null,
+      creditCardNumber: "603799******0440",
+      statementId: 7840905,
+      transactionDate: "1399/09/11 13:0:12",
+      orderID: "1606814980910",
+      paymentFunctionName: "پرداخت بدهی",
+      error: "توکن کارت نامعتبر است",
+      status: "ناموفق"
+    },
+    {
+      id:12,
+      amount: "1000",
+      retrivalRefNo: null,
+      systemTraceNo: null,
+      creditCardNumber: "603799******0440",
+      statementId: 7840905,
+      transactionDate: "1399/09/11 13:0:2",
+      orderID: "1606814980910",
+      paymentFunctionName: "پرداخت اقساط",
+      error: "توکن کارت نامعتبر است",
+      status: "موفق"
+    },
+    {
+      id:13,
+      amount: "0",
+      retrivalRefNo: null,
+      systemTraceNo: null,
+      creditCardNumber: "603799******0440",
+      statementId: 7840905,
+      transactionDate: "1399/09/11 12:59:51",
+      orderID: "1606814980910",
+      paymentFunctionName: "پرداخت اقساط",
+      error: "توکن کارت نامعتبر است",
+      status: "ناموفق"
+    },
+    {
+      id:14,
+      amount: "0",
+      retrivalRefNo: null,
+      systemTraceNo: null,
+      creditCardNumber: "603799******0440",
+      statementId: 7840905,
+      transactionDate: "1399/09/11 12:59:41",
+      orderID: "1606814980910",
+      paymentFunctionName: "پرداخت اقساط",
+      error: "توکن کارت نامعتبر است",
+      status: "موفق"
     }
   ]
+}

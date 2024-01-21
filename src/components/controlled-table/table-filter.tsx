@@ -55,7 +55,7 @@ function FilterDrawerView({
         </div>
         {/* <Button
           size="lg"
-          onClick={() => actionFilter()}
+          onClick={() => setOpenDrawer(false)}
           className="mt-5 h-11 w-full text-sm bg-blue-darkBlue"
         >
           اعمال فیلتر

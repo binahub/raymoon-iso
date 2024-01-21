@@ -6,8 +6,8 @@ import { HeaderCell } from '@/components/ui/table';
 import PencilIcon from '@/components/icons/pencil';
 import EyeIcon from '@/components/icons/eye';
 import DeletePopover from '@/app/shared/delete-popover';
-import BasicTablePage from '../custom-table/table';
-import FilterElement from '../custom-table/filter';
+import BasicTablePage from '../../../shared/custom-table/table';
+import FilterElement from '../../../shared/custom-table/filter';
 import { detail } from './detail';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
@@ -26,8 +26,6 @@ export default function NeshanPage() {
 
   const filterState = {
     name: '',
-    // description:'',
-    // status:[]
   };
 
   const parameterMap = {
@@ -51,9 +49,6 @@ export default function NeshanPage() {
       },
     ],
   };
-
-
-  
 
   const getColumns = ({}: any) => [
     {
@@ -217,9 +212,6 @@ export default function NeshanPage() {
     filterState
   );
 
-  console.log(tableData);
-  
-
   useEffect(() => {
     setPageNumer(currentPage - 1);
   }, [currentPage]);
@@ -263,35 +255,15 @@ export default function NeshanPage() {
       type: 'Text',
       key: 'name',
     },
-    // {
-    //   label: 'توضیحات',
-    //   type: 'Text',
-    //   key: 'description',
-    // },
-    // {
-    //   label: 'وضعیت',
-    //   type: 'Select',
-    //   key: 'status',
-    //   selectOption: [
-    //     {
-    //       name: 'فعال',
-    //       value: '1',
-    //     },
-    //     {
-    //       name: 'غیرفعال',
-    //       value: '2',
-    //     },
-    //   ],
-    // },
   ];
 
-  const parameterMapFilter = {...parameterMap , ...filters}
-  
-  const actionFilter = () =>{
-    list( parameterMapFilter)
-    
-  }
+  const parameterMapFilter = {
+    parameterMap: { ...parameterMap.parameterMap, ...filters },
+  };
 
+  const actionFilter = () => {
+    list(parameterMapFilter);
+  };
 
   return (
     <BasicTablePage
@@ -303,8 +275,8 @@ export default function NeshanPage() {
           handleReset,
           filters,
           updateFilter,
-          dataFilter ,
-          actionFilter
+          dataFilter,
+          actionFilter,
         })
       }
       getColumns={getColumns}

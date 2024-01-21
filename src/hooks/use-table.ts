@@ -12,9 +12,10 @@ export function useTable<T extends AnyObject>(
   initialFilterState?: Partial<Record<string, any>>
 ) {
   const [data, setData] = useState(initialData);
-  const [total , stTotal] = useState(totalData)  
-
-
+  const [total , stTotal] = useState(totalData)    
+  
+  
+  
   /*
    * Dummy loading state.
    */
@@ -91,14 +92,21 @@ export function useTable<T extends AnyObject>(
    * Handle pagination
    */
   const [currentPage, setCurrentPage] = useState(1);
-  function paginatedData(data: T[] = sortedData) {
+  function paginatedData(data: T[] = sortedData) {    
     const start = (currentPage - 1) * countPerPage;
     const end = start + countPerPage;
-    if (total > start) return data;
-    return data;
+  //   if (total > start) return data;
+  //   return data;
+  // }
+
+  /* 
+  *mock
+  */
+  if (total > start) return data.slice(start, end);
+  return data;
   }
 
-  function handlePaginate(pageNumber: number) {
+  function handlePaginate(pageNumber: number) {       
     setCurrentPage(pageNumber);
   }
 
@@ -121,7 +129,9 @@ export function useTable<T extends AnyObject>(
     initialFilterState ?? {}
   );
 
-  function updateFilter(columnId: string, filterValue: string | any[]) {
+  
+  function updateFilter(columnId: string, filterValue: string | any[]) {    
+
     if (!Array.isArray(filterValue) && !isString(filterValue)) {
       throw new Error('filterValue data type should be string or array of any');
       
@@ -134,18 +144,20 @@ export function useTable<T extends AnyObject>(
     setFilters((prevFilters) => ({
       ...prevFilters,
       [columnId]: filterValue,
-    }));
+    }));    
   }
 
   
 
-  function applyFilters() {
-    const searchTermLower = searchTerm.toLowerCase();
+  function applyFilters() {    
 
+    const searchTermLower = searchTerm.toLowerCase();
     return (
       sortedData && sortedData
         .filter((item) => {
-          const isMatchingItem = Object.entries(filters).some(
+          const isMatchingItem = Object.entries(filters)
+          .filter( ([columnId, filterValue])=> filterValue !== '' )
+          .every(
             ([columnId, filterValue]) => {
               if (
                 Array.isArray(filterValue) &&
@@ -175,9 +187,7 @@ export function useTable<T extends AnyObject>(
                 return true;
               }
             }
-          );
-          // console.log(isMatchingItem);
-          
+          );          
           return isMatchingItem;
         })
         // global search after running filters

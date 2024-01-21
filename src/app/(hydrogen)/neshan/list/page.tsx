@@ -6,29 +6,24 @@ import { HeaderCell } from '@/components/ui/table';
 import PencilIcon from '@/components/icons/pencil';
 import EyeIcon from '@/components/icons/eye';
 import DeletePopover from '@/app/shared/delete-popover';
-import BasicTablePage from '../custom-table/table';
-import FilterElement from '../custom-table/filter';
+import BasicTablePage from '../../../shared/custom-table/table';
+import FilterElement from '../../../shared/custom-table/filter';
 import { detail } from './detail';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-import { useCategoryListMutation } from '@/provider/redux/query/Category';
-import TableAvatar from '@/components/ui/avatar-card';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import { PiXBold } from 'react-icons/pi';
-import {neshanData} from '../data'
+import { neshanData } from '../data';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
-  const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
   const [isLink, setIsLink] = useState(false);
   const [isModal, setIsModal] = useState(true);
   const { openModal } = useModal();
 
-
-  
-function getStatusBadge(status: string) {
-  switch (status.toLowerCase()) {
+  function getStatusBadge(status: string) {
+    switch (status.toLowerCase()) {
       case 'موفق':
         return (
           <div className="flex items-center">
@@ -36,36 +31,26 @@ function getStatusBadge(status: string) {
             <Text className="ms-2 font-medium text-green-dark">{status}</Text>
           </div>
         );
-        case 'ناموفق':
-          return (
+      case 'ناموفق':
+        return (
           <div className="flex items-center">
             <Badge color="danger" renderAsDot />
             <Text className="ms-2 font-medium text-red-dark">{status}</Text>
           </div>
         );
-    default:
-      return (
-        <div className="flex items-center">
-          <Badge renderAsDot className="bg-gray-400" />
-          <Text className="ms-2 font-medium text-gray-600">{status}</Text>
-        </div>
-      );
+      default:
+        return (
+          <div className="flex items-center">
+            <Badge renderAsDot className="bg-gray-400" />
+            <Text className="ms-2 font-medium text-gray-600">{status}</Text>
+          </div>
+        );
+    }
   }
-}
 
   const filterState = {
-    name: '',
-    // description:'',
-    // status:[]
-  };
-
-  const parameterMap = {
-    parameterMap: {
-      page: pageNumer,
-      size: pageSize,
-      orderBy: 'id',
-      sort: 'asc',
-    },
+    paymentFunctionName: '',
+    status: '',
   };
 
   const pageHeader = {
@@ -81,22 +66,21 @@ function getStatusBadge(status: string) {
     ],
   };
 
-
-  console.log('neshanData :' ,neshanData);
-  
-
+  /*
+   * generation columns table
+   */
   const getColumns = ({}: any) => [
     {
       title: <HeaderCell title="نوع پرداخت" />,
       dataIndex: 'paymentFunctionName',
       key: 'paymentFunctionName',
-      width:30,
+      width: 30,
       render: (value: string) => <p>{value}</p>,
     },
     {
       title: (
         <HeaderCell
-          title="مبلغ" 
+          title="مبلغ"
           ellipsis
           sortable
           ascending={
@@ -211,13 +195,6 @@ function getStatusBadge(status: string) {
     },
   ];
 
-  const [list, { isLoading, isSuccess, isError, error, data }] =
-    useCategoryListMutation();
-
-  useEffect(() => {
-    list(parameterMap);
-  }, [pageNumer, pageSize]);
-
   function ModalView() {
     const { closeModal } = useModal();
     return (
@@ -229,12 +206,15 @@ function getStatusBadge(status: string) {
           <ActionIcon size="sm" variant="text" onClick={() => closeModal()}>
             <PiXBold className="h-auto w-5" />
           </ActionIcon>
-          <>{() => detail(data)}</>
+          <>{() => detail(neshanData.data)}</>
         </div>
       </div>
     );
   }
 
+  /*
+   * use hooks for table
+   */
   const {
     isFiltered,
     filters,
@@ -252,18 +232,11 @@ function getStatusBadge(status: string) {
     handleRowSelect,
     handleSelectAll,
   } = useTable(
-    neshanData,
+    neshanData.data,
     pageSize,
-    data?.totalElements,
+    neshanData.totalElements,
     filterState
   );
-
-  console.log(tableData);
-  
-
-  useEffect(() => {
-    setPageNumer(currentPage - 1);
-  }, [currentPage]);
 
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {
@@ -278,7 +251,7 @@ function getStatusBadge(status: string) {
   const columns = React.useMemo(
     () =>
       getColumns({
-        data,
+        neshanData,
         sortConfig,
         onHeaderCellClick,
         onDeleteItem,
@@ -298,40 +271,31 @@ function getStatusBadge(status: string) {
     ]
   );
 
+  /*
+   * filterable form input
+   */
   const dataFilter: any = [
     {
-      label: 'نام',
+      label: 'نوع پرداخت',
       type: 'Text',
-      key: 'name',
+      key: 'paymentFunctionName',
     },
-    // {
-    //   label: 'توضیحات',
-    //   type: 'Text',
-    //   key: 'description',
-    // },
-    // {
-    //   label: 'وضعیت',
-    //   type: 'Select',
-    //   key: 'status',
-    //   selectOption: [
-    //     {
-    //       name: 'فعال',
-    //       value: '1',
-    //     },
-    //     {
-    //       name: 'غیرفعال',
-    //       value: '2',
-    //     },
-    //   ],
-    // },
+    {
+      label: ' وضعیت پرداخت',
+      type: 'Select',
+      key: 'status',
+      selectOption: [
+        {
+          name: 'موفق',
+          value: '1',
+        },
+        {
+          name: 'ناموفق',
+          value: '2',
+        },
+      ],
+    },
   ];
-
-  const parameterMapFilter = {...parameterMap , ...filters}
-  
-  const actionFilter = () =>{
-    list( parameterMapFilter)  
-  }
-
 
   return (
     <BasicTablePage
@@ -343,8 +307,7 @@ function getStatusBadge(status: string) {
           handleReset,
           filters,
           updateFilter,
-          dataFilter ,
-          actionFilter
+          dataFilter,
         })
       }
       getColumns={getColumns}
@@ -352,16 +315,15 @@ function getStatusBadge(status: string) {
       paginatorOptions={{
         pageSize,
         setPageSize,
-        total: data?.totalElements,
+        total: neshanData?.totalElements,
         current: currentPage,
         onChange: (page: number) => handlePaginate(page),
       }}
-      data={neshanData}
+      data={neshanData.data}
       expandedKeys={[rowEdit]}
       onExpand={(expanded: boolean, row: any) => {
         expanded ? setRowEdit(row.id) : setRowEdit({});
       }}
-      isLoading={isLoading}
       columns={columns}
       handleSearch={handleSearch}
       searchTerm={searchTerm}

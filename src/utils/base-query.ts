@@ -39,7 +39,7 @@ const baseQueryWithInterceptors: BaseQueryFn<string | FetchArgs> = async (
   }
   if (result.error && result.error.status === 400) {
     const error: any = result.error?.data;
-    Notification.error(error.message || 'خطا در برقراری ارتباط با سرور');
+    Notification.error(error.message || 'خطا در برقراری ارتباط');
   }
   if (result?.data) {
     const dataInfo: any = result.data;

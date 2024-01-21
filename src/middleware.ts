@@ -19,6 +19,10 @@ export const config = {
     '/file-manager',
     '/invoice/:path*',
     '/forms/profile-settings/:path*',
-    '/category'
+    '/category',
+    '/iva',
+    '/neshan/list',
+    '/food/list'
+    
   ],
 };

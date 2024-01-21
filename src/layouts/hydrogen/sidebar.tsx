@@ -10,8 +10,10 @@ import cn from '@/utils/class-names';
 import { PiCaretDownBold } from 'react-icons/pi';
 import SimpleBar from '@/components/ui/simplebar';
 import { menuItems } from './menu-items';
-import Logo from '@/components/logo';
+// import Logo from '@/components/logo';
 import getStatusBadge from '@/components/get-status-badge';
+import Logo from '@public/logo.svg'
+import Image from 'next/image';
 
 export default function Sidebar({ className }: { className?: string }) {
   const pathname = usePathname();
@@ -24,7 +26,9 @@ export default function Sidebar({ className }: { className?: string }) {
     >
       <div className="sticky top-0 z-40 bg-gray-0/10 px-6 pb-5 pt-5 dark:bg-gray-100/5 2xl:px-8 2xl:pt-6">
         <Link href={'/'} aria-label="Site Logo">
-          <Logo className="max-w-[155px]" />
+          {/* <Logo className="max-w-[155px]" /> */}
+          <Image className="max-w-[155px]" src={Logo} alt='' />
+          
         </Link>
       </div>
 

@@ -17,7 +17,7 @@ export default function Header({ className }: FooterProps) {
   return (
     <header
       className={cn(
-        'flex w-full items-center justify-between px-4 py-5 md:h-20 md:px-5 lg:px-8 4xl:px-10',
+        'flex w-full items-center justify-between px-4 py-5 md:h-20 md:px-5 lg:px-8 4xl:px-10 ',
         className
       )}
     >

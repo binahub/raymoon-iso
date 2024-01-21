@@ -8,7 +8,6 @@ import signInBanner from "@public/assets/signin/login-banner.jpg"
 export const metadata = {
   ...metaObject('Sign In'),
 };
-
 export default function SignIn() {
   return (
     <AuthWrapperOne

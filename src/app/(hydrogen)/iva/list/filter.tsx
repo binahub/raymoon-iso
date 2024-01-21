@@ -2,14 +2,13 @@
 
 import React from 'react';
 import { PiTrashDuotone } from 'react-icons/pi';
-import DateFiled from '@/components/controlled-table/date-field';
-import PriceField from '@/components/controlled-table/price-field';
 import StatusField from '@/components/controlled-table/status-field';
-import { Title, Text } from '@/components/ui/text';
+import { Text } from '@/components/ui/text';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { getDateRangeStateValues } from '@/utils/get-formatted-date';
 import { useMedia } from '@/hooks/use-media';
+import { regions, status } from '../add/data';
+import { Input } from '@/components/ui/input';
 
 const statusOptions = [
   {
@@ -69,54 +68,49 @@ export default function FilterElement({
   const isMediumScreen = useMedia('(max-width: 1860px)', false);
   return (
     <>
-      {/* <PriceField
-        value={filters['price']}
-        onChange={(data) => updateFilter('price', data)}
-        label={'شناسه'}
-      /> */}
-      {/* <DateFiled
-        selected={getDateRangeStateValues(filters['createdAt'][0])}
-        startDate={getDateRangeStateValues(filters['createdAt'][0])}
-        endDate={getDateRangeStateValues(filters['createdAt'][1])}
-        onChange={(date: any) => {
-          updateFilter('createdAt', date);
-        }}
-        placeholderText="Select created date"
-        {...(isMediumScreen && {
-          inputProps: {
-            label: 'Created Date',
-            labelClassName: 'font-medium text-gray-700',
-          },
-        })}
-      /> */}
-      {/* <DateFiled
-        selected={getDateRangeStateValues(filters['updatedAt'][0])}
-        startDate={getDateRangeStateValues(filters['updatedAt'][0])}
-        endDate={getDateRangeStateValues(filters['updatedAt'][1])}
-        onChange={(date: any) => {
-          updateFilter('updatedAt', date);
-        }}
-        placeholderText="Select modified date"
-        {...(isMediumScreen && {
-          inputProps: {
-            label: 'Due Date',
-            labelClassName: 'font-medium text-gray-700',
-          },
-        })}
-      /> */}
+      <Input
+        label="کدخطا"
+        // placeholder="Enter your full name..."
+        labelClassName="font-medium text-gray-900 dark:text-white"
+        // {...register('fullName')}
+        // error={errors.fullName?.message}
+      />
+      <Input
+        label="شرح خطا"
+        // placeholder="Enter your full name..."
+        labelClassName="font-medium text-gray-900 dark:text-white"
+        // {...register('fullName')}
+        // error={errors.fullName?.message}
+      />
       <StatusField
-        options={statusOptions}
+        options={regions}
         value={filters['status']}
         onChange={(value: string) => {
           updateFilter('status', value);
         }}
-        getOptionValue={(option) => option.value}
+        getOptionValue={(option) => option.name}
         displayValue={(selected: string) =>
           statusOptions.find((option) => option.value === selected)?.label ??
           selected
         }
         {...(isMediumScreen && {
-          label: 'Status',
+          label: 'حوزه فعالیت',
+          labelClassName: 'font-medium text-gray-700',
+        })}
+      />
+      <StatusField
+        options={status}
+        value={filters['status']}
+        onChange={(value: string) => {
+          updateFilter('status', value);
+        }}
+        getOptionValue={(option) => option.name}
+        displayValue={(selected: string) =>
+          statusOptions.find((option) => option.value === selected)?.label ??
+          selected
+        }
+        {...(isMediumScreen && {
+          label: 'وضعیت فعالیت',
           labelClassName: 'font-medium text-gray-700',
         })}
       />

@@ -23,9 +23,10 @@ export default function ExportButton({
       variant="outline"
       onClick={() => exportToCSV(data, header, fileName)}
       className={cn('w-full @lg:w-auto', className)}
+      // color='danger'
     >
       <PiArrowLineUpBold className="me-1.5 h-[17px] w-[17px]" />
-      Export
+      دانلود فایل
     </Button>
   );
 }

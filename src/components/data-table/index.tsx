@@ -41,10 +41,10 @@ export default function DataTable({
   data: any[];
   variant?: 'modern' | 'minimal' | 'classic' | 'elegant' | 'retro';
   className?: string;
-  filterState: any;
-  getColumns: any;
-  expandedRow: any;
-  filterElement: any;
+  filterState?: any;
+  getColumns?: any;
+  expandedRow?: any;
+  filterElement?: any;
   pageSize?: number;
 }) {
   const [tablePageSize, setTablePageSize] = useState(pageSize ?? 10);
@@ -130,7 +130,7 @@ export default function DataTable({
           />
         }
         className={
-          'overflow-hidden rounded-md border border-gray-200 text-sm shadow-sm [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:h-60 [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:justify-center [&_.rc-table-row:last-child_td.rc-table-cell]:border-b-0 [&_thead.rc-table-thead]:border-t-0'
+          'rounded-md border border-gray-200 text-sm shadow-sm [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:h-60 [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:justify-center [&_.rc-table-row:last-child_td.rc-table-cell]:border-b-0 [&_thead.rc-table-thead]:border-t-0'
         }
       />
     </div>

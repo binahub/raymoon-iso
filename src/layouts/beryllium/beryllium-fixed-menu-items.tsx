@@ -113,6 +113,32 @@ export const berylliumMenuItems: MenuItemsType[] = [
         href: routes.support.dashboard,
         icon: PiHeadset,
       },
+      {
+        name: 'Iva',
+        description: '"Effortless Assistance at your Fingertips!"',
+        icon: PiHeadset,
+        subMenuItems: [
+          {
+            name: 'افزودن خطای جدید',
+            href: routes.iva.add,
+          },
+          {
+            name: 'گزارش خطاها',
+            href: routes.iva.list,
+          },
+        ],
+      },
+      {
+        name: 'neshan',
+        description: '"Effortless Assistance at your Fingertips!"',
+        icon: PiHeadset,
+        subMenuItems: [
+          {
+            name: 'گزارش ترمینال ها',
+            href: routes.neshan.list,
+          },
+        ],
+      },
     ],
   },
   {

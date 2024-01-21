@@ -11,6 +11,7 @@ import { Title, Text } from '@/components/ui/text';
 import { PiTextColumns } from 'react-icons/pi';
 
 import cn from '@/utils/class-names';
+import { useRaf } from 'react-use';
 
 export type ExtractProps<T> = T extends React.ComponentType<infer P> ? P : T;
 
@@ -61,9 +62,11 @@ export default function Table({
   emptyText,
   className,
   ...props
-}: TableProps) {
+}: TableProps) {  
+ 
   return (
     <RcTable
+      
       className={cn(
         classes.table,
         classes.thead,
@@ -80,7 +83,10 @@ export default function Table({
         )
       }
       {...props}
+      expandable={{...props.expandable }}
+
     />
+    
   );
 }
 
@@ -192,7 +198,7 @@ export function ToggleColumns<T>({
         content={() => (
           <div className="px-0.5 pt-2 text-left rtl:text-right">
             <Title as="h6" className="mb-1 px-0.5 text-sm font-semibold">
-              Toggle Columns
+              تغییر وضعیت نمایش ستون ها
             </Title>
             <CheckboxGroup
               values={checkedColumns}

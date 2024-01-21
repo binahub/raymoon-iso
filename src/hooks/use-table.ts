@@ -8,10 +8,14 @@ interface AnyObject {
 export function useTable<T extends AnyObject>(
   initialData: T[],
   countPerPage: number = 10,
+  totalData : number,
   initialFilterState?: Partial<Record<string, any>>
 ) {
   const [data, setData] = useState(initialData);
-
+  const [total , stTotal] = useState(totalData)    
+  
+  
+  
   /*
    * Dummy loading state.
    */
@@ -19,6 +23,11 @@ export function useTable<T extends AnyObject>(
   useEffect(() => {
     setLoading(false);
   }, []);
+
+  useEffect(() => {
+    setData(initialData);
+    stTotal(totalData)
+  }, [initialData]);
 
   /*
    * Handle row selection
@@ -83,15 +92,21 @@ export function useTable<T extends AnyObject>(
    * Handle pagination
    */
   const [currentPage, setCurrentPage] = useState(1);
-  function paginatedData(data: T[] = sortedData) {
+  function paginatedData(data: T[] = sortedData) {    
     const start = (currentPage - 1) * countPerPage;
     const end = start + countPerPage;
+  //   if (total > start) return data;
+  //   return data;
+  // }
 
-    if (data.length > start) return data.slice(start, end);
-    return data;
+  /* 
+  *mock
+  */
+  if (total > start) return data.slice(start, end);
+  return data;
   }
 
-  function handlePaginate(pageNumber: number) {
+  function handlePaginate(pageNumber: number) {       
     setCurrentPage(pageNumber);
   }
 
@@ -114,9 +129,12 @@ export function useTable<T extends AnyObject>(
     initialFilterState ?? {}
   );
 
-  function updateFilter(columnId: string, filterValue: string | any[]) {
+  
+  function updateFilter(columnId: string, filterValue: string | any[]) {    
+
     if (!Array.isArray(filterValue) && !isString(filterValue)) {
       throw new Error('filterValue data type should be string or array of any');
+      
     }
 
     if (Array.isArray(filterValue) && filterValue.length !== 2) {
@@ -126,16 +144,20 @@ export function useTable<T extends AnyObject>(
     setFilters((prevFilters) => ({
       ...prevFilters,
       [columnId]: filterValue,
-    }));
+    }));    
   }
 
-  function applyFilters() {
-    const searchTermLower = searchTerm.toLowerCase();
+  
 
+  function applyFilters() {    
+
+    const searchTermLower = searchTerm.toLowerCase();
     return (
-      sortedData
+      sortedData && sortedData
         .filter((item) => {
-          const isMatchingItem = Object.entries(filters).some(
+          const isMatchingItem = Object.entries(filters)
+          .filter( ([columnId, filterValue])=> filterValue !== '' )
+          .every(
             ([columnId, filterValue]) => {
               if (
                 Array.isArray(filterValue) &&
@@ -165,7 +187,7 @@ export function useTable<T extends AnyObject>(
                 return true;
               }
             }
-          );
+          );          
           return isMatchingItem;
         })
         // global search after running filters
@@ -222,7 +244,7 @@ export function useTable<T extends AnyObject>(
   /*
    * Set isFiltered and final filtered data
    */
-  const isFiltered = applyFilters().length > 0;
+  const isFiltered = applyFilters()?.length > 0;
   function calculateTotalItems() {
     if (isFiltered) {
       return applyFilters().length;
@@ -230,7 +252,7 @@ export function useTable<T extends AnyObject>(
     if (searchTerm) {
       return searchedData().length;
     }
-    return sortedData.length;
+    return sortedData?.length;
   }
   const filteredAndSearchedData = isFiltered ? applyFilters() : searchedData();
   const tableData = paginatedData(filteredAndSearchedData);
@@ -262,7 +284,6 @@ export function useTable<T extends AnyObject>(
     // searching
     searchTerm,
     handleSearch,
-    // filters
     filters,
     updateFilter,
     applyFilters,

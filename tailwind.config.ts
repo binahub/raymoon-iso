@@ -55,14 +55,17 @@ export default {
         orange: {
           lighter: 'rgb(var(--orange-lighter) / <alpha-value>)',
           light: 'rgb(var(--orange-light) / <alpha-value>)',
+          orangelight: '#FEDA85',
           DEFAULT: 'rgb(var(--orange-default) / <alpha-value>)',
           dark: 'rgb(var(--orange-dark) / <alpha-value>)',
+          panel:'rgba(241,255,0,0)'
         },
         blue: {
           lighter: 'rgb(var(--blue-lighter) / <alpha-value>)',
           light: 'rgb(var(--blue-light) / <alpha-value>)',
           DEFAULT: 'rgb(var(--blue-default) / <alpha-value>)',
           dark: 'rgb(var(--blue-dark) / <alpha-value>)',
+          darkBlue:'#020058'
         },
         green: {
           lighter: 'rgb(var(--green-lighter) / <alpha-value>)',

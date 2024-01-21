@@ -20,7 +20,7 @@ export default function ImportButton({
   title,
   modalBtnLabel = 'Import File',
   className,
-  buttonLabel = 'Import',
+  buttonLabel = 'آپلود فایل',
 }: React.PropsWithChildren<ImportButtonProps>) {
   const { openModal } = useModal();
 
@@ -40,7 +40,7 @@ export default function ImportButton({
         })
       }
       className={cn(
-        'w-full @lg:w-auto dark:bg-gray-100 dark:text-white dark:active:bg-gray-100',
+        'w-full @lg:w-auto dark:bg-gray-100 dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue',
         className
       )}
     >

@@ -1,4 +1,4 @@
-import SaberTable from './table';
+import IvaTable from './table';
 import { metaObject } from '@/config/site.config';
 
 export const metadata = {
@@ -7,9 +7,8 @@ export const metadata = {
 
 export default function CollapsibleTablePage() {
   return (
-    <SaberTable
+    <IvaTable
       variant="classic"
-      className="[&_.table-filter]:hidden [&_.table-pagination]:hidden"
     />
   );
 }

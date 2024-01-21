@@ -106,6 +106,44 @@ export const menuItems = [
     href: routes.support.dashboard,
     icon: <PiHeadsetDuotone />,
   },
+  {
+    name: ' ایوا',
+    href: routes.iva.dashboard,
+    icon: <PiHeadsetDuotone />,
+    dropdownItems: [
+      {
+        name: 'افزودن خطای جدید',
+        href: routes.iva.add,
+      },
+      {
+        name: 'گزارش خطاها',
+        href: routes.iva.list,
+      },
+    ],
+  },
+  {
+    name: ' نشان بانک',
+    href: routes.neshan,
+    icon: <PiHeadsetDuotone />,
+    dropdownItems: [
+      {
+        name: 'گزارش پرداخت نشان اعتباری',
+        href: routes.neshan.list,
+      }
+    ],
+  },
+
+  {
+    name: 'سفارش غذا',
+    href: routes.food,
+    icon: <PiHeadsetDuotone />,
+    dropdownItems: [
+      {
+        name:'گزارش سفارش غذاها',
+        href: routes.food.list,
+      }
+    ],
+  },
   // label start
   {
     name: 'Apps Kit',

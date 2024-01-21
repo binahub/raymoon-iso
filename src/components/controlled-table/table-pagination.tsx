@@ -22,6 +22,7 @@ export default function TablePagination({
   paginatorClassName = 'mt-5 xs:mt-6 sm:mt-7',
   ...props
 }: TablePaginationProps) {
+  
   if (total && total < pageSize) {
     return null;
   }
@@ -41,7 +42,7 @@ export default function TablePagination({
         )
       ) : (
         <div className="hidden items-center sm:flex">
-          Rows per page:{' '}
+          {/* تعداد رکورد در هر صفحه:{' '} */}
           <Select
             options={paginationLimitOptions}
             onChange={setPageSize}

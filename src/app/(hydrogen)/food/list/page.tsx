@@ -11,7 +11,7 @@ import FilterElement from '../../../shared/custom-table/filter';
 import { detail } from './detail';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-import { useCategoryListMutation } from '@/provider/redux/query/Category';
+import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import TableAvatar from '@/components/ui/avatar-card';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import { PiXBold } from 'react-icons/pi';

@@ -13,7 +13,8 @@ import { Form } from '@/components/ui/form';
 import { Text } from '@/components/ui/text';
 import { routes } from '@/config/routes';
 import { loginSchema, LoginSchema } from '@/utils/validators/login.schema';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import SweetAlert from '@/components/ui/sweet-alert';
 
 const initialValues: LoginSchema = {
   username: '',
@@ -24,24 +25,28 @@ const initialValues: LoginSchema = {
 export default function SignInForm() {
   //TODO: why we need to reset it here
   const [reset, setReset] = useState({});
-  const {data:session, status: authStatus} = useSession();
-  const router = useRouter()
+  const { data: session, status: authStatus } = useSession();
+  const router = useRouter();
 
   useLayoutEffect(() => {
-    authStatus == 'authenticated' ? router.push('/') : null
-  }, [authStatus])
-  
+    authStatus == 'authenticated' ? router.push('/') : null;
+  }, [authStatus, router]);
 
-  
-  
-
-  const onSubmit: SubmitHandler<LoginSchema> = (data,e) => {
-    e?.preventDefault()
+  const onSubmit: SubmitHandler<LoginSchema> = (data, e) => {
+    e?.preventDefault();
     signIn('credentials', {
       ...data,
-      redirect:true,
-      callbackUrl: '/'
-    })
+      redirect: false,
+    }).then((result: any) => {
+      if (result?.ok) {
+        router.push('/dashboard');
+      } else {
+        SweetAlert({
+          message: result?.error,
+          type: 'error',
+        });
+      }
+    });
     // setReset({ email: "", password: "", isRememberMe: false });
   };
 
@@ -78,14 +83,13 @@ export default function SignInForm() {
               {...register('password')}
               error={errors.password?.message}
             />
-            <Button className="w-full bg-blue-darkBlue mt-20" type="submit" size="lg" color="info">
-              <span className='font-[vazir] '>وارد شوید</span>{' '}
+            <Button className="w-full bg-blue-950" type="submit" size="lg">
+              <span className="font-[vazir]">وارد شوید</span>{' '}
               <PiArrowLeftBold className="ms-2 mt-0.5 h-5 w-5" />
             </Button>
           </div>
         )}
       </Form>
-
     </>
   );
 }

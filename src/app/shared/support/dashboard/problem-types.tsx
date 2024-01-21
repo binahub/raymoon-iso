@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { useState } from 'react';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import WidgetCard from '@/components/cards/widget-card';
 import { CustomTooltip } from '@/components/charts/custom-tooltip';
 
@@ -65,23 +65,10 @@ export default function ProblemTypes({ className }: { className?: string }) {
       description={
         <div className="flex items-center gap-2">
           <span>Show data: </span>
-          <DatePicker
-            dateFormat="yyyy"
-            placeholderText="Select Year"
-            maxDate={new Date()}
-            inputProps={{
-              variant: 'text',
-              inputClassName: 'p-0 pr-1.5 h-auto',
-              prefixClassName: 'hidden',
-            }}
-            popperPlacement="bottom-end"
-            className="w-32"
-            selected={startDate}
+          <Datepicker
+            format="yyyy"
+            placeholder="Select"
             onChange={handleChange}
-            selectsRange
-            startDate={startDate}
-            endDate={endDate}
-            showYearPicker
           />
         </div>
       }

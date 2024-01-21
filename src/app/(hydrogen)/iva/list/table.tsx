@@ -6,7 +6,7 @@ import DataTable from '@/components/data-table';
 import TableLayout from '@/layouts/table/table-layout';
 import { useEffect } from 'react';
 import { parameterMap } from '@/const/apiCalls';
-import { useCategoryListMutation } from '@/provider/redux/query/Category';
+import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import Link from 'next/link';
 import { Tooltip } from '@/components/ui/tooltip';
 import { ActionIcon } from '@/components/ui/action-icon';

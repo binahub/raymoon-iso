@@ -40,7 +40,7 @@ export default function AvatarUpload({
   const { startUpload, permittedFileInfo, isUploading } = useUploadThing(
     'avatar',
     {
-      onClientUploadComplete: (res: UploadFileResponse[] | undefined) => {
+      onClientUploadComplete: (res) => {
         if (setValue) {
           const respondedUrls = res?.map((r) => ({
             name: r.name,

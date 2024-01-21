@@ -83,7 +83,7 @@ export default function UploadZone({
   const { startUpload, permittedFileInfo, isUploading } = useUploadThing(
     'generalMedia',
     {
-      onClientUploadComplete: (res: UploadFileResponse[] | undefined) => {
+      onClientUploadComplete: (res) => {
         console.log('res', res);
         if (setValue) {
           // const respondedUrls = res?.map((r) => r.url);

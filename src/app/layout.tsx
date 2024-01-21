@@ -16,7 +16,7 @@ const NextProgress = dynamic(() => import('@/components/next-progress'), {
 });
 // styles
 import '@/app/globals.css';
-import ReduxWrapper from '@/provider/redux/ReduxWrapper';
+import ReduxWrapper from '@/provider/redux/providers';
 
 export const metadata = {
   title: siteConfig.title,

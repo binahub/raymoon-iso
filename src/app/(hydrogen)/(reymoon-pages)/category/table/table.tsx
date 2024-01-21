@@ -1,13 +1,17 @@
 'use client';
 
-import React, { useCallback, useLayoutEffect, useState } from 'react';
+import React, {
+  useCallback,
+  useLayoutEffect,
+  useState,
+  useEffect,
+} from 'react';
 import dynamic from 'next/dynamic';
 import { useTable } from '@/hooks/use-table';
 import { useColumn } from '@/hooks/use-column';
 import { Button } from '@/components/ui/button';
 import ControlledTable from '@/components/controlled-table';
-import { useEffect } from 'react';
-import { useCategoryListMutation } from '@/provider/redux/query/Category';
+import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { parameterMap } from '@/const/apiCalls';
 import { getColumns } from './columns';
 const FilterElement = dynamic(
@@ -26,18 +30,19 @@ const filterState = {
 };
 
 export default function CategoryTable() {
-  const [data, setData] = useState([])
-  const [list, { isLoading : dataIsLoading, isSuccess, isError, error, data: catData }] = useCategoryListMutation();
+  const [data, setData] = useState([]);
+  const [
+    list,
+    { isLoading: dataIsLoading, isSuccess, isError, error, data: catData },
+  ] = useCategoryListMutation();
   useEffect(() => {
     list(parameterMap);
-    console.log('first',catData)
-  }, []);
+  }, [list]);
   useLayoutEffect(() => {
-    setData(catData?.foodCategoryObjectList)
-    console.log('second',catData?.foodCategoryObjectList)
+    setData(catData?.foodCategoryObjectList);
+    console.log('second', catData?.foodCategoryObjectList);
+  }, [catData]);
 
-  }, [catData])
-  
   const [pageSize, setPageSize] = useState(10);
 
   const onHeaderCellClick = (value: string) => ({

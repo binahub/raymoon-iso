@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@/components/ui/tabs';
 import cn from '@/utils/class-names';
 import ExchangeIcon from '@/components/icons/exchange';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import { IoSearchOutline } from 'react-icons/io5';
 import { Form } from '@/components/ui/form';
 import { Controller } from 'react-hook-form';
@@ -174,13 +174,12 @@ function OneWayFilter({ state }: any) {
                     name="startDate"
                     control={control}
                     render={({ field: { value, onChange } }) => (
-                      <DatePicker
-                        inputProps={{ label: 'Journey Date' }}
-                        placeholderText="Select Date"
-                        selected={value}
+                      <Datepicker
+                        label="Journey Date"
+                        placeholder="Select Date"
+                        value={value}
                         minDate={new Date()}
                         onChange={onChange}
-                        className="text-left text-gray-900"
                       />
                     )}
                   />
@@ -313,16 +312,15 @@ function RoundWayFilter({ state }: any) {
                     name="startDate"
                     control={control}
                     render={({ field: { value, onChange } }) => (
-                      <DatePicker
+                      <Datepicker
                         minDate={new Date()}
-                        inputProps={{ label: 'Journey Date' }}
-                        placeholderText="Select Date"
-                        selected={value}
+                        label="Journey Date"
+                        placeholder="Select Date"
+                        value={value}
                         onChange={(e: Date) => {
                           setStartDate(e);
                           onChange(e);
                         }}
-                        className="text-left text-gray-900"
                       />
                     )}
                   />
@@ -332,18 +330,17 @@ function RoundWayFilter({ state }: any) {
                     name="endDate"
                     control={control}
                     render={({ field: { value, onChange } }) => (
-                      <DatePicker
+                      <Datepicker
                         disabled={!getValues('startDate')}
                         minDate={
                           getValues('startDate')
                             ? new Date(getValues('startDate'))
                             : new Date()
                         }
-                        inputProps={{ label: 'Return Date' }}
-                        placeholderText="Select Date"
-                        selected={value}
+                        label="Return Date"
+                        placeholder="Select Date"
+                        value={value}
                         onChange={onChange}
-                        className="text-left text-gray-900"
                       />
                     )}
                   />

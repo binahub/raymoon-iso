@@ -5,7 +5,7 @@ import WorldMap from 'react-svg-worldmap';
 import WidgetCard from '@/components/cards/widget-card';
 import { Title, Text } from '@/components/ui/text';
 import { Badge } from '@/components/ui/badge';
-import { DatePicker } from '@/components/ui/datepicker';
+import { Datepicker } from '@/components/ui/datepicker';
 import cn from '@/utils/class-names';
 import { useElementSize } from '@/hooks/use-element-size';
 
@@ -29,15 +29,11 @@ export default function TopShipmentCountries({
     <WidgetCard
       title="Top Countries"
       action={
-        <DatePicker
-          selected={startDate}
+        <Datepicker
+          value={startDate}
           onChange={(date: Date) => setStartDate(date)}
-          dateFormat="MMM, yyyy"
-          placeholderText="Select Month"
-          showMonthYearPicker
-          popperPlacement="bottom-end"
-          inputProps={{ variant: 'text', inputClassName: 'p-0 px-1 h-auto' }}
-          className="w-36"
+          format="MMM, yyyy"
+          placeholder="Select Month"
           maxDate={new Date()}
         />
       }

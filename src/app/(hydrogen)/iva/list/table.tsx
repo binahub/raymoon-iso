@@ -17,14 +17,7 @@ import FilterElement from "./filter"
 import { datavalue } from '../add/data';
 import { Form } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { useModal } from '@/app/shared/modal-views/use-modal';
-import { Title } from 'rizzui';
-import WidgetCard from '@/components/cards/widget-card';
-// dynamic import
-// const FilterElement = dynamic(
-//   () => import('@/app/shared/ecommerce/order/order-list/filter-element'),
-//   { ssr: false }
-// );
+
 
 const pageHeader = {
   title: 'مدیریت ایوا',

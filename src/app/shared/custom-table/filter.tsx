@@ -104,7 +104,7 @@ export default function FilterElement({
       <div className='relative '>
         {/* <div className=' rounded-2xl border border-gray-100 bg-white dark:bg-gray-100 pb-20 px-10 h-[90%] '> */}
         {/* <div className='mt-5'> */}
-          {dataFilter?.map((item: any) => <div className='mt-5'>{getElementForm(item)}</div>)}
+          {dataFilter?.map((item: any , index : number ) => <div className='mt-5' key = {index}>{getElementForm(item)}</div>)}
         {/* </div> */}
         {localFilter?.some((f) => f.value) ? (
             <Button

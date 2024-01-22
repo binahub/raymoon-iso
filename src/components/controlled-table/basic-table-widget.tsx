@@ -73,6 +73,8 @@ export default function BasicTableWidget({
     handleDelete(id);
   };
 
+  const filterState = 10
+
   const {
     isLoading,
     sortConfig,
@@ -87,7 +89,7 @@ export default function BasicTableWidget({
     selectedRowKeys,
     handleRowSelect,
     handleSelectAll,
-  } = useTable(data, pageSize);
+  } = useTable(data, pageSize, filterState);
 
   const columns = React.useMemo(
     () =>

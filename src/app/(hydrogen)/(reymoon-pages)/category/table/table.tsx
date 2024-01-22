@@ -22,12 +22,7 @@ const TableFooter = dynamic(() => import('@/app/shared/table-footer'), {
   ssr: false,
 });
 
-const filterState = {
-  amount: ['', ''],
-  createdAt: [null, null],
-  dueDate: [null, null],
-  status: '',
-};
+const filterState = 10;
 
 export default function CategoryTable() {
   const [data, setData] = useState([]);

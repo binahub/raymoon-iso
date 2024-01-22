@@ -12,9 +12,8 @@ import { detail } from './detail';
 import React, { useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { PiXBold } from 'react-icons/pi';
 import { neshanData } from '../data';
-import { ModalView } from './edite';
+import { ModalView } from './edit';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -182,55 +181,6 @@ export default function NeshanPage() {
     },
   ];
 
-  // function ModalView() {
-  //   const { closeModal } = useModal();
-  //   return (
-  //     <div className='m-auto px-5 pb-10 pt-5 @lg:pt-6 @2xl:px-7'>
-  //       <div className='mb-7 flex items-center justify-between'>
-  //         <Title as='h4' className='font-semibold'>
-  //           ویرایش جزئیات
-  //         </Title>
-  //         <ActionIcon size='sm' variant='text' onClick={() => closeModal()}>
-  //           <PiXBold className='h-auto w-5' />
-  //         </ActionIcon>
-  //       </div>
-
-  //       <div className='flex justify-center'>
-  //         <div className=' grid w-[100%] grid-cols-2 gap-5  bg-white dark:bg-gray-100 pb-8'>
-  //           <div>
-  //             <Input
-  //               label='شماره مرجع'
-  //               labelClassName='font-mediu dark:text-white'
-  //               className='bg-white'
-  //             />
-  //           </div>
-  //           <div>
-  //             <Input
-  //               label=' شماره پیگیری'
-  //               labelClassName='font-mediu dark:text-white'
-  //               className='bg-white'
-  //             />
-  //           </div>
-  //           <div>
-  //             <Input
-  //               label='شماره کارت اعتباری'
-  //               labelClassName='font-mediu dark:text-white'
-  //               className='bg-white'
-  //             />
-  //           </div>
-  //           <div>
-  //             <Input
-  //               label=' نوع پرداخت'
-  //               labelClassName='font-mediu dark:text-white'
-  //               className='bg-white'
-  //             />
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
   /*
    * use hooks for table
    */
@@ -308,6 +258,11 @@ export default function NeshanPage() {
           value: '2',
         },
       ],
+    },
+    {
+      label: ' تاریخ پرداخت',
+      type: 'DatePicker',
+      key: 'date',
     },
   ];
 

@@ -27,6 +27,8 @@ export default function FileListTable({
     handleDelete(id);
   };
 
+  const filterState = 10
+
   const {
     isLoading,
     tableData,
@@ -36,7 +38,7 @@ export default function FileListTable({
     sortConfig,
     handleSort,
     handleDelete,
-  } = useTable(data, pageSize);
+  } = useTable(data, pageSize, filterState);
 
   const columns = useMemo(
     () => getColumns({ sortConfig, onHeaderCellClick, onDeleteItem }),

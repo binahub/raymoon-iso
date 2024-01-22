@@ -15,11 +15,7 @@ const TableFooter = dynamic(() => import('@/app/shared/table-footer'), {
   ssr: false,
 });
 
-const filterState = {
-  price: ['', ''],
-  createdAt: [null, null],
-  status: '',
-};
+const filterState = 10;
 
 export default function ProductsTable({ data = [] }: { data: any[] }) {
   const [pageSize, setPageSize] = useState(10);

@@ -1,5 +1,6 @@
 'use client ';
 import { Input } from '@/components/ui/input';
+import { Datepicker } from '@/components/ui/datepicker';
 
 type Props = {
   record: {
@@ -50,6 +51,9 @@ export function detail(rowData: Props) {
             defaultValue={rowData?.record?.paymentFunctionName}
             disabled
           />
+        </div>
+        <div>
+          <Datepicker label="تاریخ" />
         </div>
       </div>
     </div>

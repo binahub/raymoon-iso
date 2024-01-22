@@ -124,6 +124,7 @@ export interface DatepickerProps {
   maxDate?: DateObject | Date | string;
   disabled?: boolean;
   format?: string;
+  className?: string;
 }
 
 export const Datepicker = ({
@@ -137,6 +138,7 @@ export const Datepicker = ({
   maxDate,
   disabled,
   format,
+  className,
   ...props
 }: DatepickerProps) => {
   const [isCalenderOpen, setIsCalenderOpen] = useState(false);
@@ -146,6 +148,7 @@ export const Datepicker = ({
   const handleCalenderClose = () => setIsCalenderOpen(false);
 
   return (
+    <div className={className}>
     <DatePicker
       className="yellow"
       calendar={persian}
@@ -153,7 +156,6 @@ export const Datepicker = ({
       value={value}
       onChange={onChange}
       format={format ? format : 'YYYY/MM/DD'}
-      inputClass="bg-red"
       containerClassName="w-full"
       calendarPosition="bottom-right"
       disableDayPicker={false}
@@ -181,5 +183,6 @@ export const Datepicker = ({
       onClose={onCalendarClose || handleCalenderClose}
       {...props}
     />
+    </div>
   );
 };

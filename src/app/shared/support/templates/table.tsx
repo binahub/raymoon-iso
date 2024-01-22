@@ -24,6 +24,8 @@ export default function SnippetsTable() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const filterState = 10
+
   const {
     isLoading,
     isFiltered,
@@ -37,7 +39,7 @@ export default function SnippetsTable() {
     handleRowSelect,
     handleSelectAll,
     handleDelete,
-  } = useTable(snippetsAndTemplates, 10);
+  } = useTable(snippetsAndTemplates, 10, filterState);
 
   const columns = useMemo(
     () =>

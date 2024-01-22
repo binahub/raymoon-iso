@@ -112,7 +112,7 @@ export default function Sidebar({ className }: { className?: string }) {
                                   {dropdownItem?.name}
                                 </span>
                               </div>
-                              {dropdownItem?.badge?.length ? (getStatusBadge(dropdownItem?.badge)) : null}
+                              {/* {dropdownItem?.badge?.length ? (getStatusBadge(dropdownItem?.badge)) : null} */}
                             </Link>
                           );
                         })}

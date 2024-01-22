@@ -57,10 +57,7 @@ const statuses = [
   },
 ];
 
-const filterState = {
-  date: [null, null],
-  status: '',
-};
+const filterState = 10
 
 export default function TicketsTable() {
   const [pageSize, setPageSize] = useState(10);

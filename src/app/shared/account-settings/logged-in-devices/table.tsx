@@ -14,7 +14,7 @@ export default function LoggedInDevices({
   data = [],
 }: {
   className?: string;
-  data: any[];
+  data: any;
 }) {
   const [pageSize, setPageSize] = useState(10);
   const onHeaderCellClick = (value: string) => ({
@@ -63,7 +63,7 @@ export default function LoggedInDevices({
   );
   const { visibleColumns } = useColumn(columns);
 
-  const selectedData = data.filter((item) => selectedRowKeys.includes(item.id));
+  const selectedData = data.filter((item:any) => selectedRowKeys.includes(item.id));
   function handleExportData() {
     exportToCSV(
       selectedData,

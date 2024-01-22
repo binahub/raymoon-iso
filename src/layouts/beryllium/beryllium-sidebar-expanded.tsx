@@ -126,7 +126,7 @@ export default function BerylliumLeftSidebarExpandable() {
   return (
     <div
       className={cn(
-        'fixed start-[104px] top-[91px] z-50 hidden h-[86%] w-0 overflow-x-hidden duration-200 xl:flex bg-white pt-5 pr-2 rounded-3xl',
+        'fixed start-[104px] top-[91px] z-50 hidden h-[86%] w-0 overflow-x-hidden duration-200 xl:flex light:bg-white pt-5 pr-2 rounded-3xl',
         !!expandedLeft && 'w-[294px]'
       )}
     >

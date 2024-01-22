@@ -181,9 +181,9 @@ function Upload(
           {placeholderText || (
             <div className="@5xl::ps-10 pt-2 text-center @2xl:ps-5 @2xl:text-left">
               <h5 className="mb-2 text-sm font-bold text-gray-900 @2xl:text-base @3xl:mb-3 @3xl:text-lg">
-                Drop or select file
+                فایل خود را انتخاب کنید
               </h5>
-              <p className="text-sm leading-relaxed text-gray-900">
+              {/* <p className="text-sm leading-relaxed text-gray-900">
                 Drop files here or click{' '}
                 <span
                   className={cn(
@@ -195,7 +195,7 @@ function Upload(
                   browse
                 </span>{' '}
                 thorough your machine
-              </p>
+              </p> */}
             </div>
           )}
         </div>

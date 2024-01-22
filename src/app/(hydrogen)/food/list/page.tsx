@@ -110,7 +110,7 @@ export default function NeshanPage() {
                 <PencilIcon className="h-4 w-4" />
               </ActionIcon>
             ) : (
-              <Link href={routes.iva.add}>
+              <Link href={routes.neshan.add}>
                 <ActionIcon
                   tag="span"
                   size="sm"
@@ -130,7 +130,7 @@ export default function NeshanPage() {
             color="invert"
           >
             {isLink ? (
-              <Link href={routes.iva.add}>
+              <Link href={routes.neshan.add}>
                 <ActionIcon
                   tag="span"
                   size="sm"

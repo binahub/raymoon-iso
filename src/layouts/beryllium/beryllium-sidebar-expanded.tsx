@@ -100,7 +100,7 @@ function CollapsibleMenuItem({ item }: { item: ItemType }) {
           >
             <div className="flex items-center truncate">
               <span
-                className={cn(
+                className={cn('bg-white',
                   'me-[18px] ms-1 inline-flex h-1 w-1 rounded-full bg-current transition-all duration-200',
                   isChildActive
                     ? 'bg-primary text-primary ring-[1px] ring-primary'
@@ -126,12 +126,12 @@ export default function BerylliumLeftSidebarExpandable() {
   return (
     <div
       className={cn(
-        'fixed start-[104px] top-[91px] z-50 hidden h-full w-0 overflow-x-hidden duration-200 xl:flex',
+        'fixed start-[104px] top-[91px] z-50 hidden h-[86%] w-0 overflow-x-hidden duration-200 xl:flex bg-white pt-5 pr-2 rounded-3xl',
         !!expandedLeft && 'w-[294px]'
       )}
     >
-      <SimpleBar className="h-[calc(100vh_-_100px)] min-w-[294px] pe-2.5">
-        <p className="mb-3 text-xs font-normal uppercase tracking-widest text-gray-500">
+      <SimpleBar className="min-w-[294px] pe-2.5 overflow-auto h-[85%]">
+        <p className="mb-3 text-xs font-normal uppercase tracking-widest text-gray-500 mr-3">
           {selectedMenu.title}
         </p>
         <div className="flex flex-col gap-2">

@@ -37,14 +37,10 @@ export const routes = {
     viewTemplate: (id: string) => `/support/templates/${id}`,
     editTemplate: (id: string) => `/support/templates/${id}/edit`,
   },
-  iva:{
-    dashboard: '/iva',
-    add: '/iva/add',
-    list: '/iva/list'
-   },
    neshan:{
-    // dashboard: '/neshan',
-    list: '/neshan/list'
+    dashboard: '/neshan',
+    list: '/neshan/list',
+    add: '/neshan/add'
    },
 
    food:{

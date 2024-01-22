@@ -21,7 +21,7 @@ export default function TableLayout({
 }: React.PropsWithChildren<TableLayoutProps>) {
   const buttonsFactory: any = {
     export: <ExportButton data={data} fileName={fileName} header={header} />,
-    import: <ImportButton title={'Import File'} />,
+    import: <ImportButton title={'آپلود فایل'} />,
     create: <button>ایجاد</button>,
   };
   return (

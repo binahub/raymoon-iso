@@ -18,7 +18,7 @@ export default function Header({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 flex items-center justify-between bg-white px-4 py-4 backdrop-blur-xl dark:bg-gray-50/50 xl:pe-8',
+        'sticky top-0 z-50 flex items-center justify-between px-5 backdrop-blur-xl dark:bg-gray-50/50 xl:pe-8 my-3',
         ((isMounted && windowScroll.y) as number) > 2 ? 'card-shadow ' : '',
         className
       )}    >
@@ -33,7 +33,7 @@ export default function Header({ className }: { className?: string }) {
       </div>
 
       <div className="flex w-full items-center justify-between gap-5 xl:w-[calc(100%_-_190px)] 2xl:w-[calc(100%_-_310px)] 3xl:gap-6">
-        <div className="flex max-w-2xl items-center xl:w-auto">
+        <div className="flex max-w-2xl items-center xl:w-auto bg-white">
           <HamburgerButton
             view={<Sidebar className="static w-full 2xl:w-full" />}
           />

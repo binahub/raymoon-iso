@@ -20,7 +20,7 @@ export default function PageHeader({
         <div>
           <Title
             as="h2"
-            className="mb-2 text-[22px] lg:text-2xl 4xl:text-[26px]"
+            className="mb-2 text-[22px] lg:text-2xl 4xl:text-[26px] "
           >
             {title}
           </Title>
@@ -28,7 +28,7 @@ export default function PageHeader({
           <Breadcrumb
             separator=""
             separatorVariant="circle"
-            className="flex-wrap"
+            className="flex-wrap text-blue-darkBlue"
           >
             {breadcrumb?.map((item) => (
               <Breadcrumb.Item

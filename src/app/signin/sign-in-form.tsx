@@ -14,7 +14,7 @@ import { Text } from '@/components/ui/text';
 import { routes } from '@/config/routes';
 import { loginSchema, LoginSchema } from '@/utils/validators/login.schema';
 import { useRouter } from 'next/navigation';
-import SweetAlert from '@/components/ui/sweet-alert';
+import Notification from '@/utils/notification';
 
 const initialValues: LoginSchema = {
   username: '',
@@ -26,27 +26,33 @@ export default function SignInForm() {
   //TODO: why we need to reset it here
   const [reset, setReset] = useState({});
   const { data: session, status: authStatus } = useSession();
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   useLayoutEffect(() => {
     authStatus == 'authenticated' ? router.push('/') : null;
   }, [authStatus, router]);
 
-  const onSubmit: SubmitHandler<LoginSchema> = (data, e) => {
+  const onSubmit: SubmitHandler<LoginSchema> = async (data, e) => {
     e?.preventDefault();
-    signIn('credentials', {
-      ...data,
-      redirect: false,
-    }).then((result: any) => {
-      if (result?.ok) {
-        router.push('/dashboard');
-      } else {
-        SweetAlert({
-          message: result?.error,
-          type: 'error',
-        });
-      }
-    });
+    try {
+      setLoading(true);
+      await signIn('credentials', {
+        ...data,
+        redirect: false,
+      }).then((result: any) => {
+        if (result?.ok) {
+          router.push('/dashboard');
+        } else {
+          Notification.error(result?.error);
+          setLoading(false);
+        }
+      });
+    } catch (error) {
+      setLoading(false);
+    }
+
+    // setReset({ email: "", password: "", isRememberMe: false });
   };
 
   return (
@@ -60,31 +66,31 @@ export default function SignInForm() {
         }}
       >
         {({ register, formState: { errors } }) => (
-          <div className="space-y-5">
+          <div className='space-y-5'>
             <Input
-              type="text"
-              size="lg"
-              label="نام کاربری"
-              placeholder="نام کاربری خود را وارد کنید"
-              color="info"
-              className="[&>label>span]:font-medium"
-              inputClassName="text-sm"
+              type='text'
+              size='lg'
+              label='نام کاربری'
+              placeholder='نام کاربری خود را وارد کنید'
+              color='info'
+              className='[&>label>span]:font-medium'
+              inputClassName='text-sm'
               {...register('username')}
               error={errors.username?.message}
             />
             <Password
-              label="رمز عبور"
-              placeholder="رمز عبور خود را وارد کنید"
-              size="lg"
-              className="[&>label>span]:font-medium"
-              inputClassName="text-sm"
-              color="info"
+              label='رمز عبور'
+              placeholder='رمز عبور خود را وارد کنید'
+              size='lg'
+              className='[&>label>span]:font-medium'
+              inputClassName='text-sm'
+              color='info'
               {...register('password')}
               error={errors.password?.message}
             />
-            <Button className="w-full bg-blue-darkBlue mt-50" type="submit" size="lg">
-              <span className="font-[vazir]	">وارد شوید</span>{' '}
-              <PiArrowLeftBold className="ms-2 mt-0.5 h-5 w-5 " />
+            <Button className='w-full bg-blue-950' type='submit' size='lg' isLoading={loading}>
+              <span className='font-[vazir]'>وارد شوید</span>{' '}
+              <PiArrowLeftBold className='ms-2 mt-0.5 h-5 w-5' />
             </Button>
           </div>
         )}

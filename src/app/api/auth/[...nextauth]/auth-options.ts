@@ -67,9 +67,15 @@ export const authOptions: NextAuthOptions = {
               password: credentials?.password,
             }),
           }
-        );
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .catch(() => {
+            throw new Error('خطا در برقراری ارتباط');
+          });
 
-        const user = (await res.json()) as any;
+        const user = (await res) as any;
 
         //   // !sadad
         if (user && user.result == "0") {
@@ -102,10 +108,5 @@ export const authOptions: NextAuthOptions = {
         return null;
       },
     }),
-    // GoogleProvider({
-    //   clientId: env.GOOGLE_CLIENT_ID || '',
-    //   clientSecret: env.GOOGLE_CLIENT_SECRET || '',
-    //   allowDangerousEmailAccountLinking: true,
-    // }),
   ],
 };

@@ -6,7 +6,7 @@ import Select from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Controller } from 'react-hook-form';
-import { regions, status } from './data';
+import { regions, status } from '../../iva/add/data';
 import cn from '@/utils/class-names';
 
 // export const metadata = {
@@ -14,14 +14,14 @@ import cn from '@/utils/class-names';
 // };
 
 const pageHeader = {
-  title: 'ایوا',
+  title: 'نشان بانک',
   breadcrumb: [
     {
-      href: routes.iva.add,
-      name: '  خطاهای شاپرکی',
+      href: routes.neshan.add,
+      name: ' نشان اعتباری ',
     },
     {
-      name: 'افزودن خطای جدید',
+      name: 'افزودن پرداخت نشان اعتباری',
     },
   ],
 };
@@ -35,40 +35,18 @@ export default function SupportInboxPage({ className }: { className?: string }) 
       <div
         className={cn(
           className,
-          'h-[88%] rounded-2xl border border-gray-100 bg-white @container dark:bg-gray-100 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]'
+          'h-[88%] rounded-3xl border border-gray-100 bg-white @container dark:bg-gray-100 shadow-[-10px_-10px_20px_-65px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]'
         )}
       >
         <div className='flex h-full w-full flex-col p-6 @2xl:p-12 3xl:px-16 4xl:px-28'>
-          {/* <h2 className="mx-auto mb-6 text-center text-xl font-bold text-black @2xl:mb-8 @2xl:text-2xl @7xl:text-3xl @7xl:leading-10 dark:text-white">
-          Subscribe to our newsletter!
-        </h2> */}
-
           <Form
             onSubmit={onSubmit}
-            // resetValues={reset}
-            // validationSchema={customerProfileSchema}
-            // useFormProps={{
-            //   defaultValues: initialValues,
-            // }}
-            className='mt-7 grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]'
+            className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]'
           >
             {({ register, control, setValue, getValues, formState: { errors } }) => {
               console.log('errors', errors);
               return (
                 <>
-                  {/* <AvatarUpload
-                name="avatar"
-                setValue={setValue}
-                getValues={getValues}
-                className="col-span-full"
-              /> */}
-                  {/* <UploadZone
-                label="Cover Photo"
-                name="coverPhoto"
-                setValue={setValue}
-                getValues={getValues}
-                className="col-span-full"
-              /> */}
                   <Input
                     label='کدخطا*'
                     labelClassName='font-medium text-gray-900 dark:text-white'
@@ -111,49 +89,8 @@ export default function SupportInboxPage({ className }: { className?: string }) 
                     // {...register('company')}
                     // error={errors.company?.message}
                   />
-                                    <Input
-                    label='شماره مرجع'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('email')}
-                    // error={errors.email?.message}
-                  />
-                  <Input
-                    label='شماره ترمینال'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('company')}
-                    // error={errors.company?.message}
-                  />
-                  <Input
-                    label='شماره ترمینال'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('company')}
-                    // error={errors.company?.message}
-                  />
-                                    <Input
-                    label='شماره مرجع'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('email')}
-                    // error={errors.email?.message}
-                  />
-                  <Input
-                    label='شماره ترمینال'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('company')}
-                    // error={errors.company?.message}
-                  />
-                  <Input
-                    label='شماره ترمینال'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('company')}
-                    // error={errors.company?.message}
-                  />
-                  {/* <Input
-                label="Phone "
-                placeholder="Enter your phone number..."
-                labelClassName="font-medium text-gray-900 dark:text-white"
-                {...register('phone')}
-                error={errors.phone?.message}
-              /> */}
+
+
                   <Controller
                     control={control}
                     name='region'

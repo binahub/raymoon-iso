@@ -51,7 +51,7 @@ function HeaderMenusLeft() {
 function HeaderMenuRight() {
   return (
     <div className="ms-auto flex shrink-0 items-center gap-2 text-gray-700 xs:gap-3 xl:gap-4">
-      <MessagesDropdown>
+      {/* <MessagesDropdown>
         <ActionIcon
           aria-label="Messages"
           variant="text"
@@ -67,7 +67,7 @@ function HeaderMenuRight() {
             className="absolute right-1 top-2.5 -translate-x-1 -translate-y-1/4"
           />
         </ActionIcon>
-      </MessagesDropdown>
+      </MessagesDropdown> */}
       <NotificationDropdown>
         <ActionIcon
           aria-label="Notification"
@@ -85,9 +85,9 @@ function HeaderMenuRight() {
           />
         </ActionIcon>
       </NotificationDropdown>
-      <SettingsButton className="rounded-full text-gray-700 shadow-none backdrop-blur-none hover:text-gray-1000 dark:bg-gray-100/0 3xl:h-10 3xl:w-10">
+      {/* <SettingsButton className="rounded-full text-gray-700 shadow-none backdrop-blur-none hover:text-gray-1000 dark:bg-gray-100/0 3xl:h-10 3xl:w-10">
         <PiGearDuotone className="h-[22px] w-auto animate-spin-slow" />
-      </SettingsButton>
+      </SettingsButton> */}
       <ProfileMenu
         buttonClassName="w-auto sm:w-auto p-1 border border-gray-300"
         avatarClassName="!w-7 !h-7 sm:!h-8 sm:!w-8"

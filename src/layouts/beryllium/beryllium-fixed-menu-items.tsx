@@ -47,6 +47,8 @@ import {
   PiUserCircle,
   PiUserGear,
   PiUserPlus,
+  PiBeerSteinThin,
+  PiCellSignalFull
 } from 'react-icons/pi';
 import { atom } from 'jotai';
 
@@ -114,28 +116,28 @@ export const berylliumMenuItems: MenuItemsType[] = [
         icon: PiHeadset,
       },
       {
-        name: 'Iva',
+        name: 'نشان بانک',
         description: '"Effortless Assistance at your Fingertips!"',
-        icon: PiHeadset,
+        icon: PiCellSignalFull,
         subMenuItems: [
           {
-            name: 'افزودن خطای جدید',
-            href: routes.iva.add,
+            name: 'گزارش پرداخت نشان اعتباری',
+            href: routes.neshan.list,
           },
           {
-            name: 'گزارش خطاها',
-            href: routes.iva.list,
+            name: 'افزودن پرداخت نشان اعتباری',
+            href: routes.neshan.add,
           },
         ],
       },
       {
-        name: 'neshan',
+        name: 'سفارش غذا',
         description: '"Effortless Assistance at your Fingertips!"',
-        icon: PiHeadset,
+        icon: PiBeerSteinThin,
         subMenuItems: [
           {
-            name: 'گزارش ترمینال ها',
-            href: routes.neshan.list,
+            name:'گزارش سفارش غذاها',
+            href: routes.food.list,
           },
         ],
       },

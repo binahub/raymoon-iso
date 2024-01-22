@@ -33,6 +33,7 @@ export default {
           800: 'rgb(var(--gray-800) / <alpha-value>)',
           900: 'rgb(var(--gray-900) / <alpha-value>)',
           1000: 'rgb(var(--gray-1000) / <alpha-value>)',
+          light: 'rgb(248, 248, 248)'
         },
         primary: {
           lighter: 'rgb(var(--primary-lighter) / <alpha-value>)',
@@ -58,7 +59,6 @@ export default {
           orangelight: '#FEDA85',
           DEFAULT: 'rgb(var(--orange-default) / <alpha-value>)',
           dark: 'rgb(var(--orange-dark) / <alpha-value>)',
-          panel:'rgba(241,255,0,0)'
         },
         blue: {
           lighter: 'rgb(var(--blue-lighter) / <alpha-value>)',
@@ -73,6 +73,15 @@ export default {
           DEFAULT: 'rgb(var(--green-default) / <alpha-value>)',
           dark: 'rgb(var(--green-dark) / <alpha-value>)',
         },
+        yellow:{
+          lighter: 'rgb(251, 212, 96)',
+          light:'rgba(241,255,0,0)',
+          dark :'rgb(252, 182, 0)',
+        },
+        purple:{
+          lighter: 'rgb(204, 204, 222)',
+          dark:'rgb(2, 0, 88)'
+        }
       },
       fontFamily: {
         inter: ['var(--font-inter)'],

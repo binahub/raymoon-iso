@@ -3,7 +3,8 @@ import AuthWrapperOne from '@/app/shared/auth-layout/auth-wrapper-one';
 import Image from 'next/image';
 import UnderlineShape from '@/components/shape/underline';
 import { metaObject } from '@/config/site.config';
-import signInBanner from "@public/assets/signin/login-banner.jpg"
+import signInBanner from "@public/assets/signin/login-banner.png";
+
 
 export const metadata = {
   ...metaObject('Sign In'),
@@ -26,16 +27,15 @@ export default function SignIn() {
       // bannerDescription="تست بنر توضیحات"
       isSocialLoginActive={false}
       pageImage={
-        // <div className="relative mx-auto aspect-[4/3.37] w-[500px] xl:w-[620px] 2xl:w-[820px]">
+        <div className="relative mx-auto aspect-[4/3.37] w-[500px] xl:w-[620px] 2xl:w-[900px]">
           <Image
             src={signInBanner}
             alt="Sign Up Thumbnail"
-            // fill
             priority
             sizes="(max-width: 768px) 100vw"
             className="object-cover rounded-3xl"
           />
-        // </div>
+         </div>
       }
     >
       <SignInForm />

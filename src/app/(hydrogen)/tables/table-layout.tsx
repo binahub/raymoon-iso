@@ -22,7 +22,7 @@ export default function TableLayout({
       <PageHeader {...props}>
         <div className="mt-4 flex items-center gap-3 @lg:mt-0">
           <ExportButton data={data} fileName={fileName} header={header} />
-          <ImportButton title={'Import File'} />
+          <ImportButton title={'آپلود فایل'} />
         </div>
       </PageHeader>
 

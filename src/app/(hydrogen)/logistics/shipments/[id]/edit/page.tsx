@@ -47,7 +47,7 @@ export default function EditShipmentsPage({
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}>
-        <ImportButton title={'Import File'} />
+        <ImportButton title={'آپلود فایل'} />
       </PageHeader>
 
       <CreateEditShipment id={params.id} shipment={shipmentData} />

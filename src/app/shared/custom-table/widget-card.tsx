@@ -3,10 +3,11 @@ import cn from '@/utils/class-names';
 import { ForwardedRef, forwardRef } from 'react';
 
 const widgetCardClasses = {
-  base: 'border border-gray-200 bg-gray-0 p-5 dark:bg-gray-50 lg:p-7 ',
+  base: ' h-[88%]  bg-gray-0 p-5 dark:bg-gray-50 lg:p-7 rounded-3xl  ',
+  // base:'h-[88%] rounded-2xl border border-gray-100 bg-white @container dark:bg-gray-100 shadow-[-10px_-10px_20px_-65px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]',
   rounded: {
     sm: 'rounded-sm',
-    DEFAULT: 'rounded-lg',
+    // DEFAULT: 'rounded-lg',
     lg: 'rounded-xl',
     xl: 'rounded-2xl',
   },
@@ -29,7 +30,7 @@ function WidgetCard(
     title,
     action,
     description,
-    rounded = 'DEFAULT',
+    // rounded = 'DEFAULT',
     className,
     headerClassName,
     actionClassName,
@@ -43,7 +44,7 @@ function WidgetCard(
     <div
       className={cn(
         widgetCardClasses.base,
-        widgetCardClasses.rounded[rounded],
+        // widgetCardClasses.rounded[rounded],
         className
       )}
       ref={ref}

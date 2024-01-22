@@ -132,18 +132,6 @@ export const menuItems = [
       }
     ],
   },
-
-  {
-    name: 'سفارش غذا',
-    href: routes.food,
-    icon: <PiHeadsetDuotone />,
-    dropdownItems: [
-      {
-        name:'گزارش سفارش غذاها',
-        href: routes.food.list,
-      }
-    ],
-  },
   // label start
   {
     name: 'Apps Kit',

@@ -25,58 +25,59 @@ dayjs.extend(relativeTime);
 const data = [
   {
     id: 1,
-    name: 'Invitation for crafting engaging designs',
+    name: 'بازپرداخت گواهی امضا',
     icon: <BrushSolidIcon />,
     unRead: true,
     sendTime: '2023-06-01T09:35:31.820Z',
   },
   {
     id: 2,
-    name: 'Isomorphic dashboard redesign',
+    name: 'تغییرات رمزعبور جهت برقراری امنیت ',
     icon: <CubeSolidIcon />,
     unRead: true,
     sendTime: '2023-05-30T09:35:31.820Z',
   },
   {
     id: 3,
-    name: '3 New Incoming Project Files:',
+    name: 'افزودن منو جشنواره در ایوا',
     icon: <FileStackIcon />,
     unRead: false,
     sendTime: '2023-06-01T09:35:31.820Z',
   },
   {
     id: 4,
-    name: 'Swornak purchased isomorphic',
+    name: 'وام سهام عدالت',
     icon: <ShoppingBagSolidIcon />,
     unRead: false,
     sendTime: '2023-05-21T09:35:31.820Z',
   },
   {
     id: 5,
-    name: 'Task #45890 merged with #45890 in “Ads Pro Admin Dashboard project:',
-    icon: <CloudTaskIcon />,
+    name: 'بازپرداخت گواهی امضا',
+    icon: <BrushSolidIcon />,
     unRead: true,
     sendTime: '2023-06-01T09:35:31.820Z',
   },
   {
     id: 6,
-    name: '3 new application design concepts added',
-    icon: <BulbSolidIcon />,
+    name: 'تغییرات رمزعبور جهت برقراری امنیت ',
+    icon: <CubeSolidIcon />,
     unRead: true,
-    sendTime: '2023-05-15T09:35:31.820Z',
+    sendTime: '2023-05-30T09:35:31.820Z',
   },
   {
     id: 7,
-    name: 'Your order has been placed',
-    icon: <ParcelMapIcon />,
+    name: 'افزودن منو جشنواره در ایوا',
+    icon: <FileStackIcon />,
     unRead: false,
-    sendTime: '2023-05-16T09:35:31.820Z',
+    sendTime: '2023-06-01T09:35:31.820Z',
   },
   {
-    name: 'Order has been shipped to #123221',
-    icon: <TruckSolidIcon />,
+    id: 8,
+    name: 'وام سهام عدالت',
+    icon: <ShoppingBagSolidIcon />,
     unRead: false,
-    sendTime: '2023-05-01T09:35:31.820Z',
+    sendTime: '2023-05-21T09:35:31.820Z',
   },
 ];
 
@@ -86,26 +87,26 @@ function NotificationsList({
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
-    <div className="w-[320px] text-left rtl:text-right sm:w-[360px] 2xl:w-[420px]">
+    <div className="w-[320px] text-left rtl:text-right sm:w-[340px] 2xl:w-[420px]">
       <div className="mb-3 flex items-center justify-between ps-6">
-        <Title as="h5">Notifications</Title>
-        <Checkbox label="Mark All As Read" />
+        <Title as="h5">پیام ها</Title>
+        {/* <Checkbox label="Mark All As Read" /> */}
       </div>
-      <SimpleBar className="max-h-[420px]">
+      <SimpleBar className="max-h-[350px]">
         <div className="grid cursor-pointer grid-cols-1 gap-1 ps-4">
           {data.map((item) => (
             <div
               key={item.name + item.id}
               className="group grid grid-cols-[auto_minmax(0,1fr)] gap-3 rounded-md px-2 py-2 pe-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-50"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded bg-gray-100/70 p-1 dark:bg-gray-50/50 [&>svg]:h-auto [&>svg]:w-5">
+              <div className="flex h-6 w-6 items-center justify-center rounded bg-gray-100/70 p-1 dark:bg-gray-50/50 [&>svg]:h-auto [&>svg]:w-5">
                 {item.icon}
               </div>
               <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center">
                 <div className="w-full">
                   <Title
-                    as="h6"
-                    className="mb-0.5 w-11/12 truncate text-sm font-semibold"
+                    as="h1"
+                    className="mb-0.5 w-11/12 text-sm font-medium"
                   >
                     {item.name}
                   </Title>
@@ -135,10 +136,10 @@ function NotificationsList({
       </SimpleBar>
       <Link
         href={'#'}
-        onClick={() => setIsOpen(false)}
+        // onClick={() => setIsOpen(false)}
         className="-me-6 block px-6 pb-0.5 pt-3 text-center hover:underline"
       >
-        View All Activity
+        دیدن همه موارد
       </Link>
     </div>
   );

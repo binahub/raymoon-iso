@@ -44,7 +44,8 @@ export const routes = {
    },
    neshan:{
     // dashboard: '/neshan',
-    list: '/neshan/list'
+    list: '/neshan/list',
+    add: '/neshan/add'
    },
 
    food:{

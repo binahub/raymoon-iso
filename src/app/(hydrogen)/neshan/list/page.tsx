@@ -26,23 +26,23 @@ export default function NeshanPage() {
     switch (status.toLowerCase()) {
       case 'موفق':
         return (
-          <div className="flex items-center">
-            <Badge color="success" renderAsDot />
-            <Text className="ms-2 font-medium text-green-dark">{status}</Text>
+          <div className='flex items-center'>
+            <Badge color='success' renderAsDot />
+            <Text className='ms-2 font-medium text-green-dark'>{status}</Text>
           </div>
         );
       case 'ناموفق':
         return (
-          <div className="flex items-center">
-            <Badge color="danger" renderAsDot />
-            <Text className="ms-2 font-medium text-red-dark">{status}</Text>
+          <div className='flex items-center'>
+            <Badge color='danger' renderAsDot />
+            <Text className='ms-2 font-medium text-red-dark'>{status}</Text>
           </div>
         );
       default:
         return (
-          <div className="flex items-center">
-            <Badge renderAsDot className="bg-gray-400" />
-            <Text className="ms-2 font-medium text-gray-600">{status}</Text>
+          <div className='flex items-center'>
+            <Badge renderAsDot className='bg-gray-400' />
+            <Text className='ms-2 font-medium text-gray-600'>{status}</Text>
           </div>
         );
     }
@@ -71,7 +71,7 @@ export default function NeshanPage() {
    */
   const getColumns = ({}: any) => [
     {
-      title: <HeaderCell title="نوع پرداخت" />,
+      title: <HeaderCell title='نوع پرداخت' />,
       dataIndex: 'paymentFunctionName',
       key: 'paymentFunctionName',
       width: 30,
@@ -80,56 +80,47 @@ export default function NeshanPage() {
     {
       title: (
         <HeaderCell
-          title="مبلغ"
+          title='مبلغ'
           ellipsis
           sortable
-          ascending={
-            sortConfig?.direction === 'asc' && sortConfig?.key === 'amount'
-          }
+          ascending={sortConfig?.direction === 'asc' && sortConfig?.key === 'amount'}
         />
       ),
       onHeaderCell: () => onHeaderCellClick('amount'),
       dataIndex: 'amount',
       key: 'amount',
       width: 30,
-      render: (value: string) => (
-        <Text className="font-medium text-gray-700">{value}ریال</Text>
-      ),
+      render: (value: string) => <Text className='font-medium text-gray-700'>{value}ریال</Text>,
     },
     {
-      title: <HeaderCell title="شماره کارت اعتباری" />,
+      title: <HeaderCell title='شماره کارت اعتباری' />,
       dataIndex: 'creditCardNumber',
       key: 'creditCardNumber',
       width: 30,
       render: (value: string) => <p>{value}</p>,
     },
     {
-      title: <HeaderCell title="  وضعیت پرداخت" />,
+      title: <HeaderCell title='  وضعیت پرداخت' />,
       dataIndex: 'status',
       key: 'status',
       width: 40,
       render: (value: string) => getStatusBadge(value),
     },
     {
-      title: <HeaderCell title="Actions" className="opacity-0" />,
+      title: <HeaderCell title='Actions' className='opacity-0' />,
       dataIndex: 'action',
       key: 'action',
       width: 50,
       render: (_: string, row: any) => (
-        <div className="flex items-center justify-end gap-3 pe-4">
-          <Tooltip
-            size="sm"
-            content={() => 'ویرایش'}
-            placement="top"
-            color="invert"
-          >
+        <div className='flex items-center justify-end gap-3 pe-4'>
+          <Tooltip size='sm' content={() => 'ویرایش'} placement='top' color='invert'>
             {isModal ? (
               <ActionIcon
-                tag="span"
-                size="sm"
-                variant="outline"
+                tag='span'
+                size='sm'
+                variant='outline'
                 aria-label={'ویرایش'}
-                className="hover:text-gray-700"
+                className='hover:text-gray-700'
                 onClick={() =>
                   openModal({
                     view: <ModalView />,
@@ -137,51 +128,46 @@ export default function NeshanPage() {
                   })
                 }
               >
-                <PencilIcon className="h-4 w-4" />
+                <PencilIcon className='h-4 w-4' />
               </ActionIcon>
             ) : (
               <Link href={routes.iva.add}>
                 <ActionIcon
-                  tag="span"
-                  size="sm"
-                  variant="outline"
+                  tag='span'
+                  size='sm'
+                  variant='outline'
                   aria-label={'ویرایش'}
-                  className="hover:text-gray-700"
+                  className='hover:text-gray-700'
                 >
-                  <PencilIcon className="h-4 w-4" />
+                  <PencilIcon className='h-4 w-4' />
                 </ActionIcon>
               </Link>
             )}
           </Tooltip>
-          <Tooltip
-            size="sm"
-            content={() => 'دیدن جزئیات بیشتر'}
-            placement="top"
-            color="invert"
-          >
+          <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
             {isLink ? (
               <Link href={routes.iva.add}>
                 <ActionIcon
-                  tag="span"
-                  size="sm"
-                  variant="outline"
+                  tag='span'
+                  size='sm'
+                  variant='outline'
                   aria-label={'دیدن جزئیات بیشتر'}
-                  className="hover:text-gray-700"
+                  className='hover:text-gray-700'
                   onClick={() => setRowEdit((prev) => (prev ? null : row.id))}
                 >
-                  <EyeIcon className="h-4 w-4" />
+                  <EyeIcon className='h-4 w-4' />
                 </ActionIcon>
               </Link>
             ) : (
               <ActionIcon
-                tag="span"
-                size="sm"
-                variant="outline"
+                tag='span'
+                size='sm'
+                variant='outline'
                 aria-label={'دیدن جزئیات بیشتر'}
-                className="hover:text-gray-700"
+                className='hover:text-gray-700'
                 onClick={() => setRowEdit((prev) => (prev ? null : row.id))}
               >
-                <EyeIcon className="h-4 w-4" />
+                <EyeIcon className='h-4 w-4' />
               </ActionIcon>
             )}
           </Tooltip>
@@ -198,13 +184,13 @@ export default function NeshanPage() {
   function ModalView() {
     const { closeModal } = useModal();
     return (
-      <div className="m-auto px-5 pb-8 pt-5 @lg:pt-6 @2xl:px-7">
-        <div className="mb-7 flex items-center justify-between">
-          <Title as="h4" className="font-semibold">
+      <div className='m-auto px-5 pb-8 pt-5 @lg:pt-6 @2xl:px-7'>
+        <div className='mb-7 flex items-center justify-between'>
+          <Title as='h4' className='font-semibold'>
             ویرایش جزئیات
           </Title>
-          <ActionIcon size="sm" variant="text" onClick={() => closeModal()}>
-            <PiXBold className="h-auto w-5" />
+          <ActionIcon size='sm' variant='text' onClick={() => closeModal()}>
+            <PiXBold className='h-auto w-5' />
           </ActionIcon>
           <>{() => detail(neshanData.data)}</>
         </div>
@@ -231,12 +217,7 @@ export default function NeshanPage() {
     selectedRowKeys,
     handleRowSelect,
     handleSelectAll,
-  } = useTable(
-    neshanData.data,
-    pageSize,
-    neshanData.totalElements,
-    filterState
-  );
+  } = useTable(neshanData.data, pageSize, neshanData.totalElements, filterState);
 
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {
@@ -295,6 +276,11 @@ export default function NeshanPage() {
         },
       ],
     },
+    {
+      label: ' تاریخ پرداخت',
+      type: 'DatePicker',
+      key: 'date',
+    },
   ];
 
   return (
@@ -328,9 +314,7 @@ export default function NeshanPage() {
       handleSearch={handleSearch}
       searchTerm={searchTerm}
       tableData={tableData}
-      fileTitles={
-        'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At'
-      }
+      fileTitles={'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At'}
     />
   );
 }

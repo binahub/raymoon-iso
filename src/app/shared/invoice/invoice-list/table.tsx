@@ -15,12 +15,7 @@ const TableFooter = dynamic(() => import('@/app/shared/table-footer'), {
   ssr: false,
 });
 
-const filterState = {
-  amount: ['', ''],
-  createdAt: [null, null],
-  dueDate: [null, null],
-  status: '',
-};
+const filterState = 10
 
 export default function InvoiceTable({ data = [] }: { data: any[] }) {
   const [pageSize, setPageSize] = useState(10);

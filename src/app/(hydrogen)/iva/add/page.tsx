@@ -26,11 +26,13 @@ const pageHeader = {
   ],
 };
 
-export default function SupportInboxPage({
-  className,
-}: {
-  className?: string;
-}) {
+export default function SupportInboxPage(
+//   {
+//   className,
+// }: {
+//   className?: string;
+// }
+) {
 
   const onSubmit = ()=>{}
   return (
@@ -41,10 +43,10 @@ export default function SupportInboxPage({
       ></PageHeader>
 
       <div
-        className={cn(
-          className,
-          'rounded-2xl border border-gray-100 bg-white @container dark:bg-gray-100 shadow-[0_35px_100px_-15px_rgba(0,0,0,0.3)]'
-        )}
+        // className={cn(
+        //   className,
+        //   'rounded-2xl border border-gray-100 bg-white @container dark:bg-gray-100 shadow-[0_35px_100px_-15px_rgba(0,0,0,0.3)]'
+        // )}
       >
         <div className="flex h-full w-full flex-col items-center justify-center p-6 py-10 @2xl:p-12 3xl:px-16 4xl:px-28">
           {/* <h2 className="mx-auto mb-6 text-center text-xl font-bold text-black @2xl:mb-8 @2xl:text-2xl @7xl:text-3xl @7xl:leading-10 dark:text-white">

@@ -15,10 +15,7 @@ const TableFooter = dynamic(() => import('@/app/shared/table-footer'), {
   ssr: false,
 });
 
-const filterState = {
-  role: '',
-  status: '',
-};
+const filterState = 10
 
 export default function UsersTable({ data = [] }: { data: any[] }) {
   const [pageSize, setPageSize] = useState(10);

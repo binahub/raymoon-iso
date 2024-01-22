@@ -42,11 +42,7 @@ const paymentMethodOptions = Object.entries(paymentMethods).map(
   ([value, name]) => ({ name, value })
 );
 
-const filterState = {
-  date: [null, null],
-  status: '',
-  paymentMethod: '',
-};
+const filterState = 10
 
 export default function ShipmentListTable() {
   const [pageSize, setPageSize] = useState(10);

@@ -83,9 +83,9 @@ export default function SignInForm() {
               {...register('password')}
               error={errors.password?.message}
             />
-            <Button className="w-full bg-yellow-dark mt-50" type="submit" size="lg">
-              <span className="font-[vazir] text-purple-dark	">وارد شوید</span>{' '}
-              <PiArrowLeftBold className="ms-2 mt-0.5 h-5 w-5 text-purple-dark" />
+            <Button className="w-full bg-blue-darkBlue mt-50" type="submit" size="lg">
+              <span className="font-[vazir]	">وارد شوید</span>{' '}
+              <PiArrowLeftBold className="ms-2 mt-0.5 h-5 w-5 " />
             </Button>
           </div>
         )}

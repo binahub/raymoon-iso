@@ -10,7 +10,7 @@ import BasicTablePage from '../../../shared/custom-table/table';
 import FilterElement from '../../../shared/custom-table/filter';
 import { detail } from './detail';
 import React, { useState } from 'react';
-import { useTable } from '@/hooks/use-table';
+import { useTable } from '@/hooks/use-table-mock';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import { neshanData } from '../data';
 import { ModalView } from './edit';

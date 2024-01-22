@@ -95,10 +95,10 @@ export function useTable<T extends AnyObject>(
   function paginatedData(data: T[] = sortedData) {    
     const start = (currentPage - 1) * countPerPage;
     const end = start + countPerPage;
-    if (total > start) return data;
-    return data;
-  }
 
+  if (total > start) return data.slice(start, end);
+  return data;
+  }
 
   function handlePaginate(pageNumber: number) {       
     setCurrentPage(pageNumber);

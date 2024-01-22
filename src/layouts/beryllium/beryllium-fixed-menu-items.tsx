@@ -105,11 +105,11 @@ export const berylliumMenuItems: MenuItemsType[] = [
         subMenuItems: [
           {
             name: 'افزودن',
-            href: routes.iva.add,
+            href: routes.neshan.add,
           },
           {
             name: 'گزارش',
-            href: routes.iva.list,
+            href: routes.neshan.list,
           },
         ],
       },
@@ -119,13 +119,13 @@ export const berylliumMenuItems: MenuItemsType[] = [
         subMenuItems: [
           {
             name: 'افزودن',
-            href: routes.iva.add,
+            href: routes.neshan.add,
           },
         ],
       },
       {
         name: 'پشتیبانی',
-        href: routes.iva.add,
+        href: routes.neshan.add,
         icon: PiCreditCard,
         badge: 'Update',
       },

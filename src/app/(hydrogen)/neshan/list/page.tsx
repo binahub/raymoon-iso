@@ -131,7 +131,7 @@ export default function NeshanPage() {
                 <PencilIcon className='h-4 w-4' />
               </ActionIcon>
             ) : (
-              <Link href={routes.iva.add}>
+              <Link href={routes.neshan.add}>
                 <ActionIcon
                   tag='span'
                   size='sm'
@@ -146,7 +146,7 @@ export default function NeshanPage() {
           </Tooltip>
           <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
             {isLink ? (
-              <Link href={routes.iva.add}>
+              <Link href={routes.neshan.add}>
                 <ActionIcon
                   tag='span'
                   size='sm'

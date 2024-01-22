@@ -137,14 +137,6 @@ export const pageLinks = [
     name: 'File Manager',
     href: routes.file.manager,
   },
-  // {
-  //   name: 'گزارش خطاها',
-  //   href: routes.iva.list,
-  // },
-  // {
-  //   name: 'افزودن خطای جدید',
-  //   href: routes.iva.add,
-  // },
   {
     name: 'گزارش سفارش غذاها',
     href: routes.food.list,
@@ -155,7 +147,7 @@ export const pageLinks = [
   },
   {
     name: 'افزودن پرداخت نشان اعتباری',
-    href: routes.iva.add,
+    href: routes.neshan.add,
   },
   // label start
   {

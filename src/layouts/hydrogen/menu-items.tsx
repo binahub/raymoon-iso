@@ -108,16 +108,16 @@ export const menuItems = [
   },
   {
     name: ' ایوا',
-    href: routes.iva.dashboard,
+    href: routes.neshan.dashboard,
     icon: <PiHeadsetDuotone />,
     dropdownItems: [
       {
         name: 'افزودن خطای جدید',
-        href: routes.iva.add,
+        href: routes.neshan.add,
       },
       {
         name: 'گزارش خطاها',
-        href: routes.iva.list,
+        href: routes.neshan.list,
       },
     ],
   },

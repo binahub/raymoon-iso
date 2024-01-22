@@ -6,7 +6,7 @@ import Select from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Controller } from 'react-hook-form';
-import { regions, status } from '../../iva/add/data';
+import { regions, status } from '../data';
 import cn from '@/utils/class-names';
 
 // export const metadata = {
@@ -26,7 +26,7 @@ const pageHeader = {
   ],
 };
 
-export default function SupportInboxPage({ className }: { className?: string }) {
+export default function SupportInboxPage() {
   const onSubmit = () => {};
   return (
     <>
@@ -34,7 +34,6 @@ export default function SupportInboxPage({ className }: { className?: string }) 
 
       <div
         className={cn(
-          className,
           'h-[88%] rounded-3xl border border-gray-100 bg-white @container dark:bg-gray-100 shadow-[-10px_-10px_20px_-65px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]'
         )}
       >
@@ -89,8 +88,6 @@ export default function SupportInboxPage({ className }: { className?: string }) 
                     // {...register('company')}
                     // error={errors.company?.message}
                   />
-
-
                   <Controller
                     control={control}
                     name='region'
@@ -142,13 +139,8 @@ export default function SupportInboxPage({ className }: { className?: string }) 
               );
             }}
           </Form>
-          {/* <NewsLetterForm /> */}
         </div>
       </div>
-
-      {/* <TabList /> */}
-
-      {/* <SupportInbox /> */}
     </>
   );
 }

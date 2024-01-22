@@ -115,11 +115,6 @@ export default function BasicTablePage({
   fileTitles,
   actionFilter,
 }: any) {
-  // console.log('filters:',filters);
-  // console.log('isFiltered:',isFiltered);
-  // console.log('updateFilter:',updateFilter);
-  // console.log('handleReset:',handleReset);
-
   const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
 
   return (
@@ -133,8 +128,6 @@ export default function BasicTablePage({
     >
       <div
         className='h-[88%] rounded-3xl border border-gray-100 bg-white @container dark:bg-gray-100 shadow-[-10px_-10px_20px_-65px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]'
-
-        //  className="grid grid-cols-1 gap-6 3xl:gap-8 h-[88%]"
       >
         <WidgetCard
           title={title}

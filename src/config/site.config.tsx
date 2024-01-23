@@ -1,8 +1,11 @@
 import { Metadata } from 'next';
-import logoImg from '@public/logo.svg';
+import lightLogo from '@public/light-sadad-logo.svg';
+import darktLogo from '@public/dark-sadad-logo.svg';
 import { LAYOUT_OPTIONS } from '@/config/enums';
 import logoIconImg from '@public/logo-short.svg';
 import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
+
+
 
 enum MODE {
   DARK = 'dark',
@@ -12,9 +15,9 @@ enum MODE {
 export const siteConfig = {
   title: 'Isomorphic - React Typescript Admin Dashboard Template',
   description: `Isomorphic the ultimate React TypeScript Admin Template. Streamline your admin dashboard development with our feature-rich, responsive, and highly customizable solution. Boost productivity and create stunning admin interfaces effortlessly.`,
-  logo: logoImg,
   icon: logoIconImg,
   mode: MODE.LIGHT,
+  logo: MODE.DARK ? darktLogo : lightLogo,
   layout: LAYOUT_OPTIONS.BERYLLIUM,
   // TODO: favicon
 };
@@ -24,16 +27,18 @@ export const metaObject = (
   openGraph?: OpenGraph,
   description: string = siteConfig.description
 ): Metadata => {
+
+
   return {
-    title: title ? `${title} - Isomorphic Furyroad` : siteConfig.title,
+    title: title ? `${title} - پنل راهبری` : siteConfig.title,
     description,
     openGraph: openGraph ?? {
-      title: title ? `${title} - Isomorphic Furyroad` : title,
+      title: title ? `${title} - پنل راهبری` : title,
       description,
-      url: 'https://isomorphic-furyroad.vercel.app',
-      siteName: 'Isomorphic Furyroad', // https://developers.google.com/search/docs/appearance/site-names
+      url: 'https://sadadpsp.ir/',
+      siteName: 'پنل راهبری', // https://developers.google.com/search/docs/appearance/site-names
       images: {
-        url: 'https://s3.amazonaws.com/redqteam.com/isomorphic-furyroad/itemdep/isobanner.png',
+        url: '#', // banner image for backoffice branding
         width: 1200,
         height: 630,
       },

@@ -123,7 +123,7 @@ export default function SupportInboxPage() {
                   <div className='col-span-full mt-2 flex items-center justify-end'>
                     <Button
                       type='submit'
-                      className='dark:bg-gray-100 dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
+                      className=' dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
                       // isLoading={isLoading}
                     >
                       افزودن

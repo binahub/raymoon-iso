@@ -67,11 +67,20 @@ export const authOptions: NextAuthOptions = {
               password: credentials?.password,
             }),
           }
-        );
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .catch(() => {
+            throw new Error('خطا در برقراری ارتباط');
+          });
 
-        const user = (await res.json()) as any;
+        const user = (await res) as any;
 
-        //   // !sadad
+        // console.log('login', user);
+
+          // !sadad
+
         if (user && user.result == "0") {
           console.log('login',user);
           return user as any;
@@ -86,26 +95,21 @@ export const authOptions: NextAuthOptions = {
         toast.error('خطا در دریافت اطلاعات');
 
         // sadad
+
+        // if (user && user.error) {
+        //   return Promise.reject(new Error(user.error?.message));
+        // }
+
         // if (user && user.data.accessToken) {
         //   const copiedUser = {
         //     id: user.data.id,
         //     accessToken: user.data.accessToken,
         //   };
-
-        //   // console.log('login', user);
-
         //   return copiedUser as any;
-        // } else if (user && user.error) {
-        //   return Promise.reject(new Error(user.error?.message));
         // }
 
         return null;
       },
     }),
-    // GoogleProvider({
-    //   clientId: env.GOOGLE_CLIENT_ID || '',
-    //   clientSecret: env.GOOGLE_CLIENT_SECRET || '',
-    //   allowDangerousEmailAccountLinking: true,
-    // }),
   ],
 };

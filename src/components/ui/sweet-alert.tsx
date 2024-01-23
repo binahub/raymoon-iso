@@ -41,7 +41,6 @@ export default function SweetAlert({
           : '',
       },
       buttonsStyling: false,
-      width: '25%',
     });
 
   return handleSweetAlert();

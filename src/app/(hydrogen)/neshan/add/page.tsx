@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Controller } from 'react-hook-form';
 import { regions, status } from '../data';
 import cn from '@/utils/class-names';
-import { Datepicker } from '@/components/ui/datepicker';
+import { Datepicker } from 'shafa-bo';
 
 
 // export const metadata = {

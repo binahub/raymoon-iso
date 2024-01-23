@@ -1218,3 +1218,7 @@ ol {
 .swal2-show {
   @apply xs:w-[100%] md:w-[50%] lg:w-[25%]
 }
+
+.rct-node-collapsed{
+padding: 10px
+}

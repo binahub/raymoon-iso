@@ -257,10 +257,13 @@ export default function NeshanPage() {
     },
   ];
 
+  // console.log(filters);
+  
   const parameterMapFilter = {
     parameterMap: { ...parameterMap.parameterMap, ...filters },
   };
 
+    
   const actionFilter = () => {
     list(parameterMapFilter);
   };

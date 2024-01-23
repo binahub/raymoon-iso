@@ -118,7 +118,7 @@ export default function AuthWrapperOne({
           </div>
         </div>
         <div className="hidden w-7/12 items-center justify-center rounded-[20px] lg:flex xl:justify-start ">
-          <div className=" text-center  2xl:block 2xl:w-[1063px]">
+          <div className=" text-center  2xl:block 2xl:w-[1063px] h-[100%]">
             <div className="mx-auto mb-10 max-w-sm pt-2 2xl:max-w-lg">
               <Title
                 as="h2"

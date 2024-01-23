@@ -138,7 +138,7 @@ export const pageLinks = [
     href: routes.file.manager,
   },
   {
-    name: 'گزارش سفارش غذاها',
+    name: 'لیست سفارش غذاها',
     href: routes.food.list,
   },
   {

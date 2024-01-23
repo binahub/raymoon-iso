@@ -52,9 +52,6 @@ export function detail(rowData: Props) {
             disabled
           />
         </div>
-        <div>
-          <Datepicker label="تاریخ" />
-        </div>
       </div>
     </div>
   );

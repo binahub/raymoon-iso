@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import StatusField from '@/components/controlled-table/status-field';
 import { Input } from '@/components/ui/input';
-import { Datepicker } from '@/components/ui/datepicker';
+// import { Datepicker } from '@/components/ui/datepicker';
 import { Button } from 'rizzui';
 import { PiTrashDuotone } from 'react-icons/pi';
 
@@ -76,7 +76,7 @@ export default function FilterElement({
             value={localFilter.find((f) => f.key === item.key)?.value || ''}
             onChange={(event) => OnChangeInput(event, item)}
             autoFocus
-            className='mb-4 pt-2'
+            className='bg-white'
           />
         );
       case 'Select':
@@ -101,21 +101,24 @@ export default function FilterElement({
   }
   return (
     dataFilter && (
-      <div className='relative'>
-        {dataFilter?.map((item: any) => <>{getElementForm(item)}</>)}
+      <div className='relative '>
+        {/* <div className=' rounded-2xl border border-gray-100 bg-white dark:bg-gray-100 pb-20 px-10 h-[90%] '> */}
+        {/* <div className='mt-5'> */}
+          {dataFilter?.map((item: any , index : number ) => <div className='mt-5' key = {index}>{getElementForm(item)}</div>)}
+        {/* </div> */}
         {localFilter?.some((f) => f.value) ? (
-          <Button
-            size='sm'
-            onClick={() => {
-              setLocalFilter([]);
-              handleReset();
-            }}
-            className='my-12 h-8 w-[100%]  bg-gray-200/70 '
-            variant='flat'
-          >
-            <PiTrashDuotone className='me-1.5 h-[17px] w-[17px]' /> پاک کن
-          </Button>
-        ) : null}
+            <Button
+              size='sm'
+              onClick={() => {
+                setLocalFilter([]);
+                handleReset();
+              }}
+              className='my-12 h-8 w-[100%]  bg-gray-200/70 '
+              variant='flat'
+            >
+              <PiTrashDuotone className='me-1.5 h-[17px] w-[17px]' /> پاک کن
+            </Button>
+          ) : null}
         <Button
           size='lg'
           onClick={(event) => onClickFilter(event)}

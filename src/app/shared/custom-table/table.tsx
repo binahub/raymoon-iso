@@ -25,23 +25,23 @@ type LayoutTable = {
   expandedRow?: Function;
   getColumns: Function;
   enablePagination?: boolean;
-  paginatorOptions?: any
+  paginatorOptions?: any;
 };
 function CustomExpandIcon(props: any) {
   return (
     <ActionIcon
-      size="sm"
-      variant="outline"
-      rounded="full"
-      className="expand-row-icon ms-2"
+      size='sm'
+      variant='outline'
+      rounded='full'
+      className='expand-row-icon ms-2'
       onClick={(e) => {
-        props.onExpand(props.record, e);        
+        props.onExpand(props.record, e);
       }}
     >
       {props.expanded ? (
-        <PiCaretUpBold className="h-3.5 w-3.5" />
+        <PiCaretUpBold className='h-3.5 w-3.5' />
       ) : (
-        <PiCaretDownBold className="h-3.5 w-3.5" />
+        <PiCaretDownBold className='h-3.5 w-3.5' />
       )}
     </ActionIcon>
   );
@@ -70,7 +70,7 @@ type BasicTableWidgetProps = {
     onChecked,
   }: ColumnTypes) => any;
   data: any[];
-  expandedRow: any,
+  expandedRow: any;
   filterElement?: any;
   variant?: 'modern' | 'minimal' | 'classic' | 'elegant' | 'retro';
   paginatorClassName?: string;
@@ -85,7 +85,6 @@ type BasicTableWidgetProps = {
   paginatorOptions?: any;
   fileTitles: string;
 };
-
 
 export default function BasicTablePage({
   pageHeader,
@@ -114,84 +113,77 @@ export default function BasicTablePage({
   handleReset,
   tableData,
   fileTitles,
-  actionFilter
+  actionFilter,
 }: any) {
+  const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
 
-
-  // console.log('filters:',filters);
-  // console.log('isFiltered:',isFiltered);
-  // console.log('updateFilter:',updateFilter);
-  // console.log('handleReset:',handleReset);
-
-
-
-  
-
-  const { visibleColumns , checkedColumns, setCheckedColumns } = useColumn(columns);
-  
   return (
     <TableLayout
       title={pageHeader.title}
       breadcrumb={pageHeader.breadcrumb}
       data={data}
-      fileName="order_data"
-      header = {fileTitles}
+      fileName='order_data'
+      header={fileTitles}
       buttons={buttons}
-      
-    >
-      <div className="grid grid-cols-1 gap-6 3xl:gap-8">
-      <WidgetCard
-      title={title}
-      className={cn('flex flex-col ', className)}
-      headerClassName="widget-card-header flex-col [&>.ps-2]:ps-0 [&>.ps-2]:w-full sm:[&>.ps-2]:w-auto [&>.ps-2]:mt-3 sm:[&>.ps-2]:mt-0  "
     >
       <div
-        className={cn('table-wrapper flex-grow ', noGutter && '-mx-5 lg:-mx-7')}
+        className='h-[88%] rounded-3xl border border-gray-100 bg-white @container dark:bg-gray-100 shadow-[-10px_-10px_20px_-65px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]'
       >
-        <ControlledTable
-          isLoading={isLoading }
-          data={tableData}
-          columns={visibleColumns}
-          expandable={ExpandedRow ? {
-            expandIcon: CustomExpandIcon,
-            expandedRowRender: (record) => <ExpandedRow record={record} />,
-            expandedRowKeys: expandedKeys,
-            onExpand: onExpand
-          } : {}}
-          scroll={scroll}
-          sticky={sticky}
-          variant={variant}
-          className="mt-4"
-          paginatorOptions={paginatorOptions ? paginatorOptions : {}}    
-          filterOptions={{
-            searchTerm,
-            onSearchClear: () => {
-              handleSearch('');
-            },
-            onSearchChange: (event) => {
-              handleSearch(event.target.value);
-            },
-            hasSearched: isFiltered,
-            hideIndex: 1,
-            columns,
-            checkedColumns,
-            setCheckedColumns,
-            enableDrawerFilter: true,
-          }}
-        filterElement={ FilterElement &&
-          <FilterElement
-            onSearch={handleSearch}
-            searchTerm={searchTerm}
-            isFiltered={isFiltered}
-            filters={filters}
-            updateFilter={updateFilter}
-            handleReset={handleReset}
-          />
-        }
-        />
-      </div>
-    </WidgetCard>
-        
+        <WidgetCard
+          title={title}
+          className={cn('flex flex-col ', className)}
+          headerClassName='widget-card-header flex-col [&>.ps-2]:ps-0 [&>.ps-2]:w-full sm:[&>.ps-2]:w-auto [&>.ps-2]:mt-3 sm:[&>.ps-2]:mt-0  '
+        >
+          <div className={cn('table-wrapper flex-grow ', noGutter && '-mx-5 lg:-mx-7')}>
+            <ControlledTable
+              isLoading={isLoading}
+              data={tableData}
+              columns={visibleColumns}
+              expandable={
+                ExpandedRow
+                  ? {
+                      expandIcon: CustomExpandIcon,
+                      expandedRowRender: (record) => <ExpandedRow record={record} />,
+                      expandedRowKeys: expandedKeys,
+                      onExpand: onExpand,
+                    }
+                  : {}
+              }
+              scroll={scroll}
+              sticky={sticky}
+              variant={variant}
+              className='mt-4'
+              paginatorOptions={paginatorOptions ? paginatorOptions : {}}
+              filterOptions={{
+                searchTerm,
+                onSearchClear: () => {
+                  handleSearch('');
+                },
+                onSearchChange: (event) => {
+                  handleSearch(event.target.value);
+                },
+                hasSearched: isFiltered,
+                hideIndex: 1,
+                columns,
+                checkedColumns,
+                setCheckedColumns,
+                enableDrawerFilter: true,
+              }}
+              filterElement={
+                FilterElement && (
+                  <FilterElement
+                    onSearch={handleSearch}
+                    searchTerm={searchTerm}
+                    isFiltered={isFiltered}
+                    filters={filters}
+                    updateFilter={updateFilter}
+                    handleReset={handleReset}
+                  />
+                )
+              }
+            />
+          </div>
+        </WidgetCard>
       </div>
     </TableLayout>
   );

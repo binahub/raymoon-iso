@@ -18,7 +18,7 @@ type ImportButtonProps = {
 
 export default function ImportButton({
   title,
-  modalBtnLabel = 'Import File',
+  modalBtnLabel = 'آپلود فایل',
   className,
   buttonLabel = 'آپلود فایل',
 }: React.PropsWithChildren<ImportButtonProps>) {
@@ -45,7 +45,7 @@ export default function ImportButton({
       )}
     >
       <PiArrowLineDownBold className="me-1.5 h-[17px] w-[17px]" />
-      {buttonLabel}
+     {buttonLabel}
     </Button>
   );
 }

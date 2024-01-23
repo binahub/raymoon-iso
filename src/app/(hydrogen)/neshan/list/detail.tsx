@@ -13,8 +13,9 @@ type Props = {
 
 export function detail(rowData: Props) {
   return (
-    <div className="my-10 flex justify-center ">
-      <div className="grid w-[50%] grid-cols-2 gap-5 rounded-lg border-2 border-solid p-12">
+    <div className="my-10 flex justify-center">
+      <div className=" grid w-[70%] grid-cols-2 gap-5 rounded-2xl border border-gray-100 bg-white dark:bg-gray-100 p-12">
+
         <div>
           <Input
             label="شماره مرجع"

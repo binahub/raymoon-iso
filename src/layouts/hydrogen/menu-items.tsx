@@ -108,16 +108,16 @@ export const menuItems = [
   },
   {
     name: ' ایوا',
-    href: routes.iva.dashboard,
+    href: routes.neshan.dashboard,
     icon: <PiHeadsetDuotone />,
     dropdownItems: [
       {
         name: 'افزودن خطای جدید',
-        href: routes.iva.add,
+        href: routes.neshan.add,
       },
       {
         name: 'گزارش خطاها',
-        href: routes.iva.list,
+        href: routes.neshan.list,
       },
     ],
   },
@@ -129,18 +129,6 @@ export const menuItems = [
       {
         name: 'گزارش پرداخت نشان اعتباری',
         href: routes.neshan.list,
-      }
-    ],
-  },
-
-  {
-    name: 'سفارش غذا',
-    href: routes.food,
-    icon: <PiHeadsetDuotone />,
-    dropdownItems: [
-      {
-        name:'گزارش سفارش غذاها',
-        href: routes.food.list,
       }
     ],
   },

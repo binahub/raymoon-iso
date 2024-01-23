@@ -62,7 +62,8 @@ export default function FileInput({
               />
               <button
                 onClick={() => handleImageDelete(index)}
-                className="invisible absolute left-1/2 top-1/2 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded bg-red-light text-white opacity-0 transition duration-300 group-hover:visible group-hover:opacity-100"
+                className='bg-blue-darkBlue'
+                // className="invisible absolute left-1/2 top-1/2 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded bg-red-light text-white opacity-0 transition duration-300 group-hover:visible group-hover:opacity-100"
               >
                 <PiX />
               </button>

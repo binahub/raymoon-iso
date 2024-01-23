@@ -33,10 +33,10 @@ function FilterDrawerView({
       isOpen={isOpen ?? false}
       onClose={() => setOpenDrawer(false)}
       overlayClassName="dark:bg-opacity-20 backdrop-blur-md"
-      containerClassName="dark:bg-gray-100"
+      containerClassName="dark:bg-gray-100 "
     >
-      <div className="flex h-full flex-col p-5">
-        <div className="-mx-5 mb-6 flex items-center justify-between border-b border-gray-200 px-5 pb-4">
+      <div className="flex h-full flex-col p-5 ">
+        <div className="-mx-5 mb-6 flex items-center justify-between border-b border-gray-200 px-5 pb-2">
           <Title as="h5">{drawerTitle}</Title>
           <ActionIcon
             size="sm"
@@ -48,7 +48,7 @@ function FilterDrawerView({
             <PiXBold className="h-4 w-4" />
           </ActionIcon>
         </div>
-        <div className="flex-grow  mt-10 ">
+        <div className="flex-grow ">
           <div className="h-full grid grid-cols-1 gap-6 [&_.price-field>span.mr-2]:mb-1.5 [&_.price-field]:flex-col [&_.price-field]:items-start [&_.react-datepicker-wrapper]:w-full [&_.react-datepicker-wrapper_.w-72]:w-full [&_.text-gray-500]:text-gray-700 [&_button.h-9]:h-10 sm:[&_button.h-9]:h-11 [&_label>.h-9]:h-10 sm:[&_label>.h-9]:h-11 [&_label>.w-24.h-9]:w-full">
             {children}
           </div>
@@ -102,7 +102,7 @@ export default function TableFilter({
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
-    <div className="table-filter mb-4 flex items-center justify-between">
+    <div className="table-filter flex items-center justify-between">
       <div className="flex flex-wrap items-center gap-4">
         {!showSearchOnTheRight ? (
           <Input

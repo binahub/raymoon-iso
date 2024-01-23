@@ -2,10 +2,7 @@
 
 import { ActionIcon } from '@/components/ui/action-icon';
 import { PiTextIndent } from 'react-icons/pi';
-import {
-  useBerylliumSidebars,
-  getActiveMainMenuIndex,
-} from '@/layouts/beryllium/beryllium-utils';
+import { useBerylliumSidebars, getActiveMainMenuIndex } from '@/layouts/beryllium/beryllium-utils';
 import {
   berylliumMenuItems,
   MenuItemsType,
@@ -17,11 +14,14 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import SimpleBar from '@/components/ui/simplebar';
 import { useWindowSize } from '@/hooks/use-window-size';
+import App from '../../../package.json';
 
 function MenuItem({ menu }: { menu: MenuItemsType }) {
   const { expandedLeft, setExpandedLeft } = useBerylliumSidebars();
   const [menuItems, setMenuItems] = useAtom(berylliumMenuItemAtom);
   const Icon = menu.icon;
+
+  console.log(App);
 
   const isActive = menuItems === menu;
 
@@ -35,7 +35,7 @@ function MenuItem({ menu }: { menu: MenuItemsType }) {
   return (
     <li
       onClick={handleClick}
-      className="group flex cursor-pointer flex-col items-center gap-1.5 pb-1.5 "
+      className='group flex cursor-pointer flex-col items-center gap-1.5 pb-1.5 '
     >
       <span
         className={cn(
@@ -43,24 +43,29 @@ function MenuItem({ menu }: { menu: MenuItemsType }) {
           isActive && 'bg-gray-0 text-gray-900 dark:bg-gray-100 '
         )}
       >
-        <Icon className="h-auto w-6" />
+        <Icon className='h-auto w-6' />
       </span>
-      <span className="text-white">{menu.name}</span>
+      <span className='text-white'>{menu.name}</span>
     </li>
   );
 }
 
 function MenuItems() {
   return (
-    <menu className="flex w-full justify-center">
-      <SimpleBar className="h-[calc(100vh_-_105px)] w-full pb-5">
-        <ul className="flex flex-col gap-6">
-          {berylliumMenuItems.map((menu) => (
-            <MenuItem key={menu.id} menu={menu} />
-          ))}
-        </ul>
-      </SimpleBar>
-    </menu>
+<>
+<menu className='flex w-full justify-center'>
+        <SimpleBar className='h-[calc(100vh_-_105px)] w-full pb-5'>
+          <ul className='flex flex-col gap-6'>
+            {berylliumMenuItems.map((menu) => (
+              <MenuItem key={menu.id} menu={menu} />
+            ))}
+          </ul>
+        </SimpleBar>
+      </menu>
+              <p className='text-yellow-lighter text-xs font-bold'>
+              {App.version}
+            </p>
+</>
   );
 }
 
@@ -71,10 +76,7 @@ export default function BerylliumLeftSidebarFixed() {
   const { expandedLeft, setExpandedLeft } = useBerylliumSidebars();
 
   useEffect(() => {
-    const activeMenuIndex = getActiveMainMenuIndex(
-      pathname,
-      berylliumMenuItems
-    );
+    const activeMenuIndex = getActiveMainMenuIndex(pathname, berylliumMenuItems);
     setMenuItems(berylliumMenuItems[activeMenuIndex]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
@@ -89,15 +91,15 @@ export default function BerylliumLeftSidebarFixed() {
   }, [width, pathname]);
 
   return (
-    <aside className="fixed start-0 top-0 z-50 hidden h-screen w-[88px] flex-col items-center gap-10 bg-gray-900 py-3.5 dark:bg-gray-0 xl:flex">
+    <aside className='fixed start-0 top-0 z-50 hidden h-screen w-[88px] flex-col items-center gap-10   bg-gradient-to-r from-blue-800  to-blue-darkBlue  py-3.5 dark:bg-gray-0 xl:flex'>
       <ActionIcon
-        aria-label="open sidebar"
-        variant="text"
-        className="rounded-full bg-transparent text-white transition-colors hover:bg-gray-300  hover:enabled:text-gray-900"
-        size="xl"
+        aria-label='open sidebar'
+        variant='text'
+        className='rounded-full bg-transparent text-white transition-colors hover:bg-gray-300  hover:enabled:text-gray-900'
+        size='xl'
         onClick={() => setExpandedLeft(!expandedLeft)}
       >
-        <PiTextIndent className="h-auto w-9" />
+        <PiTextIndent className='h-auto w-9' />
       </ActionIcon>
       <MenuItems />
     </aside>

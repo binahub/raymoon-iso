@@ -38,10 +38,7 @@ export default function SupportInboxPage() {
         )}
       >
         <div className='flex h-full w-full flex-col p-6 @2xl:p-12 3xl:px-16 4xl:px-28'>
-          <Form
-            onSubmit={onSubmit}
-            className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]'
-          >
+          <Form onSubmit={onSubmit} className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]'>
             {({ register, control, setValue, getValues, formState: { errors } }) => {
               console.log('errors', errors);
               return (
@@ -129,7 +126,7 @@ export default function SupportInboxPage() {
                   <div className='col-span-full mt-2 flex items-center justify-end'>
                     <Button
                       type='submit'
-                      className='dark:bg-gray-100 dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
+                      className=' dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
                       // isLoading={isLoading}
                     >
                       افزودن

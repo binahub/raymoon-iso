@@ -25,34 +25,30 @@ export function ModalView() {
             <Input
               label='شماره مرجع'
               labelClassName='font-mediu dark:text-white'
-              className='bg-white'
             />
           </div>
           <div>
             <Input
               label=' شماره پیگیری'
               labelClassName='font-mediu dark:text-white'
-              className='bg-white'
             />
           </div>
           <div>
             <Input
               label='شماره کارت اعتباری'
               labelClassName='font-mediu dark:text-white'
-              className='bg-white'
             />
           </div>
           <div>
             <Input
               label=' نوع پرداخت'
               labelClassName='font-mediu dark:text-white'
-              className='bg-white'
             />
           </div>
           <div className='col-span-full mt-2 flex items-center justify-end'>
             <Button
               type='submit'
-              className='dark:bg-gray-100 dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
+              className='dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
               // isLoading={isLoading}
             >
               ویرایش

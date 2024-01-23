@@ -34,7 +34,7 @@ export default function SignIn() {
               className='object-cover rounded-3xl h-[85%]'
             />
             <p className='text-yellow-lighter text-xs font-bold flex justify-center'>
-              {App.version}
+            نسخه {App.version}
             </p>
           </div>
         }

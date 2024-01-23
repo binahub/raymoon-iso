@@ -1189,3 +1189,7 @@ div[style='z-index: 1000001;'],
 ol {
   padding: 1rem 1rem !important;
 }
+
+.swal2-show {
+  @apply xs:w-[100%] md:w-[50%] lg:w-[25%]
+}

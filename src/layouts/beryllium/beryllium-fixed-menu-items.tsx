@@ -89,6 +89,44 @@ export const berylliumMenuItems: MenuItemsType[] = [
         href: routes.executive.dashboard,
         icon: PiBinoculars,
       },
+      {
+        name: 'تنظیمات منو',
+        description: '"Effortless Assistance at your Fingertips!"',
+        href: routes.reactTreeSample,
+        icon: PiUserCircle,
+      },
+      {
+        name: 'دسترسی کاربران',
+        description: '"Effortless Assistance at your Fingertips!"',
+        href: routes.checkboxTree,
+        icon: PiLightning,
+      },
+      {
+        name: 'نشان اعتباری',
+        description: '"نشان اعتباری"',
+        icon: PiHeadset,
+        subMenuItems: [
+          {
+            name: 'گزارش پرداخت',
+            href: routes.neshan.list,
+          },
+          {
+            name: 'افزودن پرداخت',
+            href: routes.neshan.add,
+          },
+        ],
+      },
+      {
+        name: 'سفارش غذا',
+        description: '"Effortless Assistance at your Fingertips!"',
+        icon: PiBeerSteinThin,
+        subMenuItems: [
+          {
+            name: 'گزارش سفارش غذاها',
+            href: routes.food.list,
+          },
+        ],
+      },
     ],
   },
   {

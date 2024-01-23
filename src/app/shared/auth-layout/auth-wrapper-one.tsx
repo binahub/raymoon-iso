@@ -11,6 +11,12 @@ import { FcGoogle } from 'react-icons/fc';
 import OrSeparation from './or-separation';
 import toast from 'react-hot-toast';
 import logo from "@public/assets/signin/logo.svg"
+import { siteConfig } from '@/config/site.config';
+import { useTheme } from 'next-themes';
+import lighLogo from "@public/light-sadad-logo.svg"
+import darkLogo from "@public/dark-sadad-logo.svg"
+import { useEffect, useState } from 'react';
+
 
 
 export default function AuthWrapperOne({
@@ -43,6 +49,15 @@ export default function AuthWrapperOne({
       </Text>
     );
   }
+  const [logo, setLogo] = useState(lighLogo);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      setLogo(lighLogo);
+    } else if (theme !== 'dark') setLogo(darkLogo);
+  }, [theme]);
+
   return (
     <>
       {/* <Link

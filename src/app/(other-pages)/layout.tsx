@@ -8,21 +8,30 @@ import { usePathname, useRouter } from 'next/navigation';
 import cn from '@/utils/class-names';
 import { siteConfig } from '@/config/site.config';
 import { routes } from '@/config/routes';
+import lighLogo from '@public/light-sadad-logo.svg';
+import darkLogo from '@public/dark-sadad-logo.svg';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const ignoreBackButtonRoutes = [routes.accessDenied, routes.notFound];
 
-export default function OtherPagesLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function OtherPagesLayout({ children }: { children: React.ReactNode }) {
   const { back } = useRouter();
   const pathName = usePathname();
   let notIn = !ignoreBackButtonRoutes.includes(pathName);
+  const { theme } = useTheme();
+  const [logo, setLogo] = useState(lighLogo);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      setLogo(lighLogo);
+    } else if (theme !== 'dark') setLogo(darkLogo);
+  }, [theme]);
+
   return (
-    <div className="flex min-h-screen flex-col bg-[#F8FAFC] dark:bg-gray-50">
+    <div className='flex min-h-screen flex-col bg-[#F8FAFC] dark:bg-gray-50'>
       {/* sticky top header  */}
-      <div className="sticky top-0 z-40 px-6 py-5 backdrop-blur-lg lg:backdrop-blur-none xl:px-10 xl:py-8">
+      <div className='sticky top-0 z-40 px-6 py-5 backdrop-blur-lg lg:backdrop-blur-none xl:px-10 xl:py-8'>
         <div
           className={cn(
             'mx-auto flex max-w-[1520px] items-center',
@@ -31,17 +40,17 @@ export default function OtherPagesLayout({
         >
           <Link href={'/'}>
             <Image
-              src={siteConfig.logo}
+              src={logo}
               alt={siteConfig.title}
-              className="dark:invert"
+              // className='dark:invert'
               priority
             />
           </Link>
           {notIn && (
             <Button
-              variant="outline"
-              size="sm"
-              className="md:h-10 md:px-4 md:text-base"
+              variant='outline'
+              size='sm'
+              className='md:h-10 md:px-4 md:text-base'
               onClick={() => back()}
             >
               Go to home

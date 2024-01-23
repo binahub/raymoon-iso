@@ -77,8 +77,10 @@ export const authOptions: NextAuthOptions = {
 
         const user = (await res) as any;
 
+        // console.log('login', user);
+
         //   // !sadad
-        
+
         // if (user && user.result == "0") {
         //   console.log('login',user);
         //   return user as any;
@@ -94,17 +96,16 @@ export const authOptions: NextAuthOptions = {
 
         // sadad
 
+        if (user && user.error) {
+          return Promise.reject(new Error(user.error?.message));
+        }
+
         if (user && user.data.accessToken) {
           const copiedUser = {
             id: user.data.id,
             accessToken: user.data.accessToken,
           };
-
-          // console.log('login', user);
-
           return copiedUser as any;
-        } else if (user && user.error) {
-          return Promise.reject(new Error(user.error?.message));
         }
 
         return null;

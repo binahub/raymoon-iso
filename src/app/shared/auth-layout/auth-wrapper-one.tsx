@@ -15,6 +15,7 @@ import { siteConfig } from '@/config/site.config';
 import { useTheme } from 'next-themes';
 import lighLogo from "@public/light-sadad-logo.svg"
 import darkLogo from "@public/dark-sadad-logo.svg"
+import { useEffect, useState } from 'react';
 
 
 
@@ -48,8 +49,14 @@ export default function AuthWrapperOne({
       </Text>
     );
   }
-
+  const [logo, setLogo] = useState(lighLogo);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      setLogo(lighLogo);
+    } else if (theme !== 'dark') setLogo(darkLogo);
+  }, [theme]);
 
   return (
     <>
@@ -76,7 +83,7 @@ export default function AuthWrapperOne({
                 href={'/'}
                 className="mb-6 inline-flex max-w-[168px] xl:mb-8"
               > */}
-                <Image src={theme === "dark" ? lighLogo : darkLogo} alt="panel-logo" className='mb-12' />
+                <Image src={logo} alt="panel-logo" className='mb-12' />
                 {/* <Image
                   src={logoImgText}
                   alt="Isomorphic"

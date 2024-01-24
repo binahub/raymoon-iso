@@ -21,16 +21,10 @@ export function ModalView() {
       <div className='flex justify-center'>
         <div className=' grid w-[100%] grid-cols-2 gap-5 bg-white dark:bg-gray-100 pb-8'>
           <div>
-            <Input
-              label='نام'
-              labelClassName='font-mediu dark:text-white'
-            />
+            <Input label='نام' labelClassName='font-mediu dark:text-white' />
           </div>
           <div>
-            <Input
-              label=' توضیحات'
-              labelClassName='font-mediu dark:text-white'
-            />
+            <Input label=' توضیحات' labelClassName='font-mediu dark:text-white' />
           </div>
           <div className='col-span-full mt-2 flex items-center justify-end'>
             <Button

@@ -1,52 +1,16 @@
 'use client';
-import { ActionIcon, Badge, Input, Text, Title, Tooltip } from 'rizzui';
-import Link from 'next/link';
 import { routes } from '@/config/routes';
-import { HeaderCell } from '@/components/ui/table';
-import PencilIcon from '@/components/icons/pencil';
-import EyeIcon from '@/components/icons/eye';
-import DeletePopover from '@/app/shared/delete-popover';
-import BasicTablePage from '../../../shared/custom-table/table';
-import FilterElement from '../../../shared/custom-table/filter';
+import { getColumns } from './columns';
+import BasicTablePage from '@/app/shared/custom-table/table';
+import FilterElement from '@/app/shared/custom-table/filter';
 import { detail } from './detail';
 import React, { useState } from 'react';
 import { useTable } from '@/hooks/use-table-mock';
-import { useModal } from '@/app/shared/modal-views/use-modal';
 import { neshanData } from '../data';
-import { ModalView } from './edit';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
   const [pageSize, setPageSize] = useState(5);
-  const [isLink, setIsLink] = useState(false);
-  const [isModal, setIsModal] = useState(true);
-  const { openModal } = useModal();
-
-  function getStatusBadge(status: string) {
-    switch (status.toLowerCase()) {
-      case 'موفق':
-        return (
-          <div className='flex items-center'>
-            <Badge color='success' renderAsDot />
-            <Text className='ms-2 font-medium text-green-dark'>{status}</Text>
-          </div>
-        );
-      case 'ناموفق':
-        return (
-          <div className='flex items-center'>
-            <Badge color='danger' renderAsDot />
-            <Text className='ms-2 font-medium text-red-dark'>{status}</Text>
-          </div>
-        );
-      default:
-        return (
-          <div className='flex items-center'>
-            <Badge renderAsDot className='bg-gray-400' />
-            <Text className='ms-2 font-medium text-gray-600'>{status}</Text>
-          </div>
-        );
-    }
-  }
 
   const filterState = {
     paymentFunctionName: '',
@@ -66,120 +30,8 @@ export default function NeshanPage() {
     ],
   };
 
-  /*
-   * generation columns table
-   */
-  const getColumns = ({}: any) => [
-    {
-      title: <HeaderCell title='نوع پرداخت' />,
-      dataIndex: 'paymentFunctionName',
-      key: 'paymentFunctionName',
-      width: 30,
-      render: (value: string) => <p>{value}</p>,
-    },
-    {
-      title: (
-        <HeaderCell
-          title='مبلغ'
-          ellipsis
-          sortable
-          ascending={sortConfig?.direction === 'asc' && sortConfig?.key === 'amount'}
-        />
-      ),
-      onHeaderCell: () => onHeaderCellClick('amount'),
-      dataIndex: 'amount',
-      key: 'amount',
-      width: 30,
-      render: (value: string) => <Text className='font-medium text-gray-700'>{value}ریال</Text>,
-    },
-    {
-      title: <HeaderCell title='شماره کارت اعتباری' />,
-      dataIndex: 'creditCardNumber',
-      key: 'creditCardNumber',
-      width: 30,
-      render: (value: string) => <p>{value}</p>,
-    },
-    {
-      title: <HeaderCell title='  وضعیت پرداخت' />,
-      dataIndex: 'status',
-      key: 'status',
-      width: 40,
-      render: (value: string) => getStatusBadge(value),
-    },
-    {
-      title: <HeaderCell title='Actions' className='opacity-0' />,
-      dataIndex: 'action',
-      key: 'action',
-      width: 50,
-      render: (_: string, row: any) => (
-        <div className='flex items-center justify-end gap-3 pe-4'>
-          <Tooltip size='sm' content={() => 'ویرایش'} placement='top' color='invert'>
-            {isModal ? (
-              <ActionIcon
-                tag='span'
-                size='sm'
-                variant='outline'
-                aria-label={'ویرایش'}
-                className='hover:text-gray-700'
-                onClick={() =>
-                  openModal({
-                    view: <ModalView />,
-                    customSize: '720px',
-                  })
-                }
-              >
-                <PencilIcon className='h-4 w-4' />
-              </ActionIcon>
-            ) : (
-              <Link href={routes.neshan.add}>
-                <ActionIcon
-                  tag='span'
-                  size='sm'
-                  variant='outline'
-                  aria-label={'ویرایش'}
-                  className='hover:text-gray-700'
-                >
-                  <PencilIcon className='h-4 w-4' />
-                </ActionIcon>
-              </Link>
-            )}
-          </Tooltip>
-          <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
-            {isLink ? (
-              <Link href={routes.neshan.add}>
-                <ActionIcon
-                  tag='span'
-                  size='sm'
-                  variant='outline'
-                  aria-label={'دیدن جزئیات بیشتر'}
-                  className='hover:text-gray-700'
-                  onClick={() => setRowEdit((prev) => (prev ? null : row.id))}
-                >
-                  <EyeIcon className='h-4 w-4' />
-                </ActionIcon>
-              </Link>
-            ) : (
-              <ActionIcon
-                tag='span'
-                size='sm'
-                variant='outline'
-                aria-label={'دیدن جزئیات بیشتر'}
-                className='hover:text-gray-700'
-                onClick={() => setRowEdit((prev) => (prev ? null : row.id))}
-              >
-                <EyeIcon className='h-4 w-4' />
-              </ActionIcon>
-            )}
-          </Tooltip>
-          <DeletePopover
-            title={`آیا مطمئن هستید؟`}
-            description={`انجام این عملیات غیرقابل بازگشت می باشد.`}
-            onDelete={() => {}}
-          />
-        </div>
-      ),
-    },
-  ];
+  /* create title excel coulemns */
+  const titleExcelColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
 
   /*
    * use hooks for table
@@ -210,12 +62,15 @@ export default function NeshanPage() {
 
   const onDeleteItem = (id: string) => {
     handleDelete(id);
-  };  
+  };
 
+  /*
+   * use options colums
+   */
   const columns = React.useMemo(
     () =>
       getColumns({
-        neshanData,
+        data: neshanData,
         sortConfig,
         onHeaderCellClick,
         onDeleteItem,
@@ -265,7 +120,7 @@ export default function NeshanPage() {
       key: 'date',
     },
   ];
-const [ isOpenDrawer ,setIsOpenDrawer] = useState(false)
+  const [isOpenDrawer, setIsOpenDrawer] = useState(false);
 
   return (
     <BasicTablePage
@@ -279,7 +134,7 @@ const [ isOpenDrawer ,setIsOpenDrawer] = useState(false)
           filters,
           updateFilter,
           dataFilter,
-          setIsOpenDrawer
+          setIsOpenDrawer,
         })
       }
       getColumns={getColumns}
@@ -300,7 +155,7 @@ const [ isOpenDrawer ,setIsOpenDrawer] = useState(false)
       handleSearch={handleSearch}
       searchTerm={searchTerm}
       tableData={tableData}
-      fileTitles={'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At'}
+      fileTitles={titleExcelColumns}
     />
   );
 }

@@ -256,8 +256,6 @@ export default function NeshanPage() {
       key: 'name',
     },
   ];
-
-  // console.log(filters);
   
   const parameterMapFilter = {
     parameterMap: { ...parameterMap.parameterMap, ...filters },

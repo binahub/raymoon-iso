@@ -68,7 +68,8 @@ export default function FilterElement({
       if (actionFilter) {
         updateFilter(element.key, element.value);
         actionFilter();
-      } else updateFilter(element.key, element.value);
+      } else 
+      updateFilter(element.key, element.value);
     });
     // setIsOpenDrawer(false)
   };

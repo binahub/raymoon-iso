@@ -58,7 +58,7 @@ function MenuItems() {
               <MenuItem key={menu.id} menu={menu} />
             ))}
           </ul>
-          <p className='text-xs flex justify-center text-white'> نسخه {App.version}</p>
+          <p className='text-xs flex justify-center font-thin text-white'> نسخه {App.version}</p>
         </SimpleBar>
       </menu>
     </>

@@ -7,15 +7,12 @@ import FilterElement from '@/app/shared/custom-table/filter';
 import { detail } from './detail';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
+import { dataFilter, filterState } from './filter';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
-
-  const filterState = {
-    name: '',
-  };
 
   const parameterMap = {
     parameterMap: {
@@ -39,14 +36,16 @@ export default function NeshanPage() {
     ],
   };
 
+  /* create title excel coulemns */
   const titleExcelColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
-
+/* api call */ 
   const [list, { isLoading, isSuccess, isError, error, data }] = useCategoryListMutation();
 
   useEffect(() => {
     list(parameterMap);
   }, [pageNumer, pageSize]);
 
+  /* use hooks for table*/
   const {
     isFiltered,
     filters,
@@ -65,7 +64,6 @@ export default function NeshanPage() {
     handleSelectAll,
   } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, filterState);
 
-
   useEffect(() => {
     setPageNumer(currentPage - 1);
   }, [currentPage]);
@@ -80,6 +78,7 @@ export default function NeshanPage() {
     handleDelete(id);
   };
 
+  /* use options colums */
   const columns = React.useMemo(
     () =>
       getColumns({
@@ -103,19 +102,9 @@ export default function NeshanPage() {
     ]
   );
 
-  const dataFilter: any = [
-    {
-      label: 'نام',
-      type: 'Text',
-      key: 'name',
-    },
-  ];
-
-
-  const actionFilter = (filters : any) => {
-    list({
-      parameterMap: { ...parameterMap.parameterMap, ...filters },
-    });
+  /* Handle filter with my dataFilter */
+  const actionFilter = (filters: any) => {
+    list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };
 
   return (

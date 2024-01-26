@@ -20,14 +20,14 @@ function FilterDrawerView({
   hasSearched,
   setOpenDrawer,
   children,
-  isOpenDrawer
 }: React.PropsWithChildren<{
   drawerTitle?: string;
   hasSearched?: boolean;
   setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
   isOpen?: boolean;
-  isOpenDrawer?: boolean
 }>) {
+
+  
   return (
     <Drawer
       size='sm'
@@ -80,7 +80,7 @@ export type TableFilterProps = {
   showSearchOnTheRight?: boolean;
   enableDrawerFilter?: boolean;
   menu?: React.ReactNode;
-  isOpenDrawer?: boolean;
+  // isOpenDrawer?: boolean;
 };
 
 export default function TableFilter({
@@ -97,20 +97,13 @@ export default function TableFilter({
   showSearchOnTheRight = false,
   menu,
   children,
-  isOpenDrawer,
+  // isOpenDrawer,
 }: TableFilterProps) {
   const isMediumScreen = useMedia('(max-width: 1860px)', false);
   const [showFilters, setShowFilters] = useState(true);
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  // useEffect(()=>{
-  //   console.log(isOpenDrawer);
 
-  //   setOpenDrawer(isOpenDrawer || true)
-    
-  // },[isOpenDrawer])
-  
-  // console.log(isOpenDrawer);
   return (
     <div className='table-filter flex items-center justify-between'>
       <div className='flex flex-wrap items-center gap-4'>
@@ -133,11 +126,10 @@ export default function TableFilter({
           <>
             {isMediumScreen || enableDrawerFilter ? (
               <FilterDrawerView
-                isOpen={openDrawer || isOpenDrawer}
+                isOpen={openDrawer}
                 setOpenDrawer={setOpenDrawer}
                 drawerTitle={drawerTitle}
                 hasSearched={hasSearched}
-                isOpenDrawer={isOpenDrawer}
               >
                 {children}
               </FilterDrawerView>

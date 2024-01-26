@@ -84,7 +84,6 @@ type BasicTableWidgetProps = {
   expadable?: boolean;
   paginatorOptions?: any;
   fileTitles: string;
-  isOpenDrawer?: boolean
 };
 
 export default function BasicTablePage({
@@ -114,8 +113,6 @@ export default function BasicTablePage({
   handleReset,
   tableData,
   fileTitles,
-  actionFilter,
-  isOpenDrawer
 }: any) {
   const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
 
@@ -172,7 +169,6 @@ export default function BasicTablePage({
                 checkedColumns,
                 setCheckedColumns,
                 enableDrawerFilter: true,
-                isOpenDrawer
               }}
               filterElement={
                 FilterElement && (

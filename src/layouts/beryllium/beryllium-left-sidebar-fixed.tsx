@@ -21,8 +21,6 @@ function MenuItem({ menu }: { menu: MenuItemsType }) {
   const [menuItems, setMenuItems] = useAtom(berylliumMenuItemAtom);
   const Icon = menu.icon;
 
-  console.log(App);
-
   const isActive = menuItems === menu;
 
   function handleClick() {
@@ -52,8 +50,8 @@ function MenuItem({ menu }: { menu: MenuItemsType }) {
 
 function MenuItems() {
   return (
-<>
-<menu className='flex w-full justify-center'>
+    <>
+      <menu className='flex w-full justify-center'>
         <SimpleBar className='h-[calc(100vh_-_105px)] w-full pb-5'>
           <ul className='flex flex-col gap-6'>
             {berylliumMenuItems.map((menu) => (
@@ -62,10 +60,8 @@ function MenuItems() {
           </ul>
         </SimpleBar>
       </menu>
-              <p className='text-yellow-lighter text-xs font-bold'>
-              {App.version}
-            </p>
-</>
+      <p className='text-yellow-lighter text-xs font-bold'>{App.version}</p>
+    </>
   );
 }
 

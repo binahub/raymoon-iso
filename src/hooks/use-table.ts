@@ -23,12 +23,7 @@ export function useTable<T extends AnyObject>(
   useEffect(() => {
     setLoading(false);
   }, []);
-
-  useEffect(() => {
-    setData(initialData);
-    stTotal(totalData)
-  }, [initialData]);
-
+  
   /*
    * Handle row selection
    */
@@ -282,6 +277,7 @@ export function useTable<T extends AnyObject>(
     // searching
     searchTerm,
     handleSearch,
+    setData,
     filters,
     updateFilter,
     applyFilters,

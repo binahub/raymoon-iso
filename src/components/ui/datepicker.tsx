@@ -149,40 +149,36 @@ export const Datepicker = ({
 
   return (
     <div className={className}>
-    <DatePicker
-      className="yellow"
-      calendar={persian}
-      locale={persian_fa}
-      value={value}
-      onChange={onChange}
-      format={format ? format : 'YYYY/MM/DD'}
-      containerClassName="w-full"
-      calendarPosition="bottom-right"
-      disableDayPicker={false}
-      inputMode="none"
-      monthYearSeparator="|"
-      minDate={minDate}
-      maxDate={maxDate}
-      disabled={disabled}
-      render={
-        <Input
-          label={label}
-          placeholder={placeholder}
-          suffix={
-            <PiCaretDownBold
-              className={cn(
-                'h-4 w-4 text-gray-500 transition',
-                isCalenderOpen && 'rotate-180'
-              )}
-            />
-          }
-          prefix={<PiCalendarBlank className="h-5 w-5 text-gray-500" />}
-        />
-      }
-      onOpen={onCalendarOpen || handleCalenderOpen}
-      onClose={onCalendarClose || handleCalenderClose}
-      {...props}
-    />
+      <DatePicker
+        calendar={persian}
+        locale={persian_fa}
+        value={value}
+        onChange={onChange}
+        format={format ? format : 'YYYY/MM/DD'}
+        containerClassName='w-full'
+        calendarPosition='bottom-right'
+        disableDayPicker={false}
+        inputMode='none'
+        monthYearSeparator='|'
+        minDate={minDate}
+        maxDate={maxDate}
+        disabled={disabled}
+        render={
+          <Input
+            label={label}
+            placeholder={placeholder}
+            suffix={
+              <PiCaretDownBold
+                className={cn('h-4 w-4 text-gray-500 transition', isCalenderOpen && 'rotate-180')}
+              />
+            }
+            prefix={<PiCalendarBlank className='h-5 w-5 text-gray-500' />}
+          />
+        }
+        onOpen={onCalendarOpen || handleCalenderOpen}
+        onClose={onCalendarClose || handleCalenderClose}
+        {...props}
+      />
     </div>
   );
 };

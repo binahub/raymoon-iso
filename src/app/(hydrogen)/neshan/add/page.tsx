@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Controller } from 'react-hook-form';
 import { regions, status } from '../data';
 import cn from '@/utils/class-names';
+import { Datepicker } from 'shafa-bo';
+
 
 // export const metadata = {
 //   ...metaObject(' ایوا'),
@@ -38,10 +40,7 @@ export default function SupportInboxPage() {
         )}
       >
         <div className='flex h-full w-full flex-col p-6 @2xl:p-12 3xl:px-16 4xl:px-28'>
-          <Form
-            onSubmit={onSubmit}
-            className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]'
-          >
+          <Form onSubmit={onSubmit} className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]'>
             {({ register, control, setValue, getValues, formState: { errors } }) => {
               console.log('errors', errors);
               return (
@@ -82,12 +81,7 @@ export default function SupportInboxPage() {
                     // {...register('company')}
                     // error={errors.company?.message}
                   />
-                  <Input
-                    label='شماره ترمینال'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('company')}
-                    // error={errors.company?.message}
-                  />
+                  <Datepicker label={'تاریخ ثبت خطا'} onChange={() => {}} />
                   <Controller
                     control={control}
                     name='region'
@@ -129,7 +123,7 @@ export default function SupportInboxPage() {
                   <div className='col-span-full mt-2 flex items-center justify-end'>
                     <Button
                       type='submit'
-                      className='dark:bg-gray-100 dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
+                      className=' dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
                       // isLoading={isLoading}
                     >
                       افزودن

@@ -48,7 +48,7 @@ import {
   PiUserGear,
   PiUserPlus,
   PiBeerSteinThin,
-  PiCellSignalFull
+  PiCellSignalFull,
 } from 'react-icons/pi';
 import { atom } from 'jotai';
 
@@ -86,10 +86,47 @@ export const berylliumMenuItems: MenuItemsType[] = [
       {
         name: 'داشبورد',
         description: '"Effortless Assistance at your Fingertips!"',
-        href: routes.file.dashboard,
+        href: routes.executive.dashboard,
         icon: PiBinoculars,
       },
-
+      {
+        name: 'تنظیمات منو',
+        description: '"Effortless Assistance at your Fingertips!"',
+        href: routes.reactTreeSample,
+        icon: PiUserCircle,
+      },
+      {
+        name: 'دسترسی کاربران',
+        description: '"Effortless Assistance at your Fingertips!"',
+        href: routes.checkboxTree,
+        icon: PiLightning,
+      },
+      {
+        name: 'نشان اعتباری',
+        description: '"نشان اعتباری"',
+        icon: PiHeadset,
+        subMenuItems: [
+          {
+            name: 'گزارش پرداخت',
+            href: routes.neshan.list,
+          },
+          {
+            name: 'افزودن پرداخت',
+            href: routes.neshan.add,
+          },
+        ],
+      },
+      {
+        name: 'سفارش غذا',
+        description: '"Effortless Assistance at your Fingertips!"',
+        icon: PiBeerSteinThin,
+        subMenuItems: [
+          {
+            name: 'گزارش سفارش غذاها',
+            href: routes.food.list,
+          },
+        ],
+      },
     ],
   },
   {
@@ -158,7 +195,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
         icon: PiBeerSteinThin,
         subMenuItems: [
           {
-            name:'گزارش سفارش غذاها',
+            name:'لیست سفارش ',
             href: routes.food.list,
           },
         ],

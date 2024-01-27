@@ -11,6 +11,12 @@ import { FcGoogle } from 'react-icons/fc';
 import OrSeparation from './or-separation';
 import toast from 'react-hot-toast';
 import logo from "@public/assets/signin/logo.svg"
+import { siteConfig } from '@/config/site.config';
+import { useTheme } from 'next-themes';
+import lighLogo from "@public/light-sadad-logo.svg"
+import darkLogo from "@public/dark-sadad-logo.svg"
+import { useEffect, useState } from 'react';
+
 
 
 export default function AuthWrapperOne({
@@ -43,6 +49,15 @@ export default function AuthWrapperOne({
       </Text>
     );
   }
+  const [logo, setLogo] = useState(lighLogo);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      setLogo(lighLogo);
+    } else if (theme !== 'dark') setLogo(darkLogo);
+  }, [theme]);
+
   return (
     <>
       {/* <Link
@@ -53,7 +68,7 @@ export default function AuthWrapperOne({
         <Text className="ms-1 font-lexend">Back to home</Text>
       </Link> */}
 
-      <div className="min-h-screen justify-between gap-x-8 px-4 py-8 pt-10 md:pt-12 lg:flex lg:p-6 xl:gap-x-10 xl:p-7 2xl:p-10 2xl:pt-10 [&>div]:min-h-[calc(100vh-80px)]  dark:bg-gray-100/40">
+      <div className=" justify-between gap-x-8 px-4 py-8 pt-10 md:pt-12 lg:flex lg:p-6 xl:gap-x-10 xl:p-7 2xl:p-10 2xl:pt-10 dark:bg-gray-100/40">
         <div className="relative flex w-full items-center justify-center lg:w-5/12 2xl:justify-end 2xl:pe-12">
           <div className=" w-full max-w-sm md:max-w-md lg:py-7 lg:ps-3 lg:pt-16 2xl:w-[630px] 2xl:max-w-none 2xl:ps-20 2xl:pt-7">
             {/* <Link
@@ -118,7 +133,7 @@ export default function AuthWrapperOne({
           </div>
         </div>
         <div className="hidden w-7/12 items-center justify-center rounded-[20px] lg:flex xl:justify-start ">
-          <div className=" text-center  2xl:block 2xl:w-[1063px]">
+          <div className=" text-center  2xl:block 2xl:w-[1063px] h-[100%]">
             <div className="mx-auto mb-10 max-w-sm pt-2 2xl:max-w-lg">
               <Title
                 as="h2"

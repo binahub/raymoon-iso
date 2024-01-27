@@ -8,6 +8,10 @@ import { usePathname, useRouter } from 'next/navigation';
 import cn from '@/utils/class-names';
 import { siteConfig } from '@/config/site.config';
 import { routes } from '@/config/routes';
+import lighLogo from '@public/light-sadad-logo.svg';
+import darkLogo from '@public/dark-sadad-logo.svg';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const ignoreBackButtonRoutes = [routes.accessDenied, routes.notFound];
 
@@ -15,6 +19,15 @@ export default function OtherPagesLayout({ children }: { children: React.ReactNo
   const { back } = useRouter();
   const pathName = usePathname();
   let notIn = !ignoreBackButtonRoutes.includes(pathName);
+  const { theme } = useTheme();
+  const [logo, setLogo] = useState(lighLogo);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      setLogo(lighLogo);
+    } else if (theme !== 'dark') setLogo(darkLogo);
+  }, [theme]);
+
   return (
     <div className='flex min-h-screen flex-col bg-[#F8FAFC] dark:bg-gray-50'>
       {/* sticky top header  */}
@@ -26,7 +39,12 @@ export default function OtherPagesLayout({ children }: { children: React.ReactNo
           )}
         >
           <Link href={'/'}>
-            <Image src={siteConfig.logo} alt={siteConfig.title} className='dark:invert' priority />
+            <Image
+              src={logo}
+              alt={siteConfig.title}
+              // className='dark:invert'
+              priority
+            />
           </Link>
           {notIn && (
             <Button

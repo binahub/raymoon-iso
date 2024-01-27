@@ -376,9 +376,7 @@ input[type='checkbox']:checked ~ svg {
   @apply w-auto border-l-0 pr-3.5;
 }
 
-.react-datepicker-popper
-  .react-datepicker__time-container
-  .react-datepicker__time {
+.react-datepicker-popper .react-datepicker__time-container .react-datepicker__time {
   @apply bg-gray-50 dark:bg-gray-200;
 }
 
@@ -540,8 +538,7 @@ input[type='checkbox']:checked ~ svg {
 }
 
 /* hover on selected months in range */
-.react-datepicker
-  .react-datepicker__month-text.react-datepicker__month--in-range:hover {
+.react-datepicker .react-datepicker__month-text.react-datepicker__month--in-range:hover {
   @apply bg-gray-200 text-gray-900;
 }
 
@@ -553,12 +550,9 @@ input[type='checkbox']:checked ~ svg {
 }
 
 /* hover on selected range start and end month */
-.react-datepicker
-  .react-datepicker__month-text.react-datepicker__month--selected:hover,
-.react-datepicker
-  .react-datepicker__month-text.react-datepicker__month--range-start:hover,
-.react-datepicker
-  .react-datepicker__month-text.react-datepicker__month--range-end:hover {
+.react-datepicker .react-datepicker__month-text.react-datepicker__month--selected:hover,
+.react-datepicker .react-datepicker__month-text.react-datepicker__month--range-start:hover,
+.react-datepicker .react-datepicker__month-text.react-datepicker__month--range-end:hover {
   @apply bg-gray-900/80 text-gray-0;
 }
 
@@ -583,10 +577,8 @@ input[type='checkbox']:checked ~ svg {
 }
 
 /* selected year & month in year picker */
-.react-datepicker
-  .react-datepicker__year-text.react-datepicker__year-text--selected,
-.react-datepicker
-  .react-datepicker__month-text.react-datepicker__month-text--selected {
+.react-datepicker .react-datepicker__year-text.react-datepicker__year-text--selected,
+.react-datepicker .react-datepicker__month-text.react-datepicker__month-text--selected {
   @apply bg-gray-900 text-gray-0;
   @apply hover:bg-gray-900/80 hover:text-gray-0;
 }
@@ -739,26 +731,15 @@ td.rc-table-cell-fix-right {
   @apply m-1.5 rounded border border-gray-100 @lg:m-1;
 }
 
-.text_editor
-  .rdw-editor-wrapper
-  .rdw-editor-toolbar
-  > div
-  > .rdw-option-wrapper {
+.text_editor .rdw-editor-wrapper .rdw-editor-toolbar > div > .rdw-option-wrapper {
   @apply h-9 w-10 w-9 border-0 border-r border-gray-100 last:border-r-0 hover:bg-gray-50 hover:shadow-none @lg:m-0;
 }
 
-.text_editor
-  .rdw-editor-wrapper
-  .rdw-editor-toolbar
-  > div
-  > .rdw-option-wrapper.rdw-option-active {
+.text_editor .rdw-editor-wrapper .rdw-editor-toolbar > div > .rdw-option-wrapper.rdw-option-active {
   @apply bg-gray-100 shadow-none;
 }
 
-.text_editor
-  .rdw-editor-wrapper
-  .rdw-editor-main
-  .public-DraftStyleDefault-block {
+.text_editor .rdw-editor-wrapper .rdw-editor-main .public-DraftStyleDefault-block {
   @apply m-0;
 }
 
@@ -906,8 +887,7 @@ td.rc-table-cell-fix-right {
 
 /* social btn shadow  */
 .social-btn-shadow {
-  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.1))
-    drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.1)) drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.1));
 }
 
 .social-btn-shadow:hover {
@@ -1202,12 +1182,21 @@ div[style='z-index: 1000001;'],
 .pos-all-items-top-slider .swiper-pagination span {
   @apply !mx-[3px] !h-2 !w-2.5 !rounded-full !bg-gray-600 !duration-200;
 }
-.pos-all-items-top-slider
-  .swiper-pagination
-  span.swiper-pagination-bullet-active {
+.pos-all-items-top-slider .swiper-pagination span.swiper-pagination-bullet-active {
   @apply !w-4 !bg-gray-400;
 }
 
 ol {
   padding: 1rem 1rem !important;
+}
+
+.simplebar-content {
+  height: 100% !important;
+}
+.swal2-show {
+  @apply xs:w-[100%] md:w-[50%] lg:w-[25%]
+}
+
+.rct-node-collapsed{
+padding: 10px
 }

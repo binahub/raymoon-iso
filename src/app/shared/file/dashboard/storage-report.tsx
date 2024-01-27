@@ -2,15 +2,7 @@
 
 import WidgetCard from '@/components/cards/widget-card';
 import { Title, Text } from '@/components/ui/text';
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Badge } from '@/components/ui/badge';
 import { useMedia } from '@/hooks/use-media';
 import cn from '@/utils/class-names';
@@ -108,7 +100,7 @@ const data = [
 function CustomYAxisTick({ x, y, payload }: any) {
   return (
     <g transform={`translate(${x},${y})`}>
-      <text x={0} y={0} dy={16} textAnchor="end" className="fill-gray-500">
+      <text x={0} y={0} dy={16} textAnchor='end' className='fill-gray-500'>
         {`${payload.value.toLocaleString()}`}GB
       </text>
     </g>
@@ -123,69 +115,52 @@ export default function StorageReport({ className }: { className?: string }) {
 
   return (
     <WidgetCard
-      title={'Total Storage used'}
-      titleClassName="font-normal text-gray-700 sm:text-base font-inter"
+      title='تراکنش موفق '
+      titleClassName='font-normal fontFamily-vazir text-gray-700 sm:text-base font-inter'
       description={
-        <div className="flex items-center justify-start">
-          <Title as="h2" className="me-2 font-semibold">
+        <div className='flex items-center justify-start'>
+          <Title as='h2' className='me-2 font-semibold'>
             105,000 GB
           </Title>
-          <Text className="flex items-center leading-none text-gray-500">
-            <Text
-              as="span"
-              className={cn(
-                'me-2 inline-flex items-center font-medium text-green'
-              )}
-            >
-              <TrendingUpIcon className="me-1 h-4 w-4" />
+          <Text className='flex items-center leading-none text-gray-500'>
+            <Text as='span' className={cn('me-2 inline-flex items-center font-medium text-green')}>
+              <TrendingUpIcon className='me-1 h-4 w-4' />
               32.40%
             </Text>
             last year
           </Text>
         </div>
       }
-      descriptionClassName="text-gray-500 mt-1.5"
+      descriptionClassName='text-gray-500 mt-1.5'
       action={
-        <div className="hidden @2xl:block">
-          <Badge renderAsDot className="me-0.5 bg-[#282ECA]" /> Image
-          <Badge renderAsDot className="me-0.5 ms-4 bg-[#4052F6]" /> Video
-          <Badge renderAsDot className="me-0.5 ms-4 bg-[#96C0FF]" /> Documents
-          <Badge
-            renderAsDot
-            className="me-0.5 ms-4 bg-[#DEEAFC] dark:bg-[#7c88b2]"
-          />{' '}
-          Musics
+        <div className='hidden @2xl:block'>
+          <Badge renderAsDot className='me-0.5 bg-[#282ECA]' /> Image
+          <Badge renderAsDot className='me-0.5 ms-4 bg-[#4052F6]' /> Video
+          <Badge renderAsDot className='me-0.5 ms-4 bg-[#96C0FF]' /> Documents
+          <Badge renderAsDot className='me-0.5 ms-4 bg-[#DEEAFC] dark:bg-[#7c88b2]' /> Musics
         </div>
       }
       className={className}
     >
       <SimpleBar>
-        <div className="h-96 w-full pt-9">
-          <ResponsiveContainer
-            width="100%"
-            height="100%"
-            {...(isTablet && { minWidth: '700px' })}
-          >
+        <div className='h-96 w-full pt-9'>
+          <ResponsiveContainer width='100%' height='100%' {...(isTablet && { minWidth: '700px' })}>
             <BarChart
               data={data}
               barSize={isMobile ? 16 : isDesktop ? 28 : is2xl ? 32 : 46}
               margin={{
                 left: 16,
               }}
-              className="[&_.recharts-tooltip-cursor]:fill-opacity-20 dark:[&_.recharts-tooltip-cursor]:fill-opacity-10 [&_.recharts-cartesian-axis-tick-value]:fill-gray-500 [&_.recharts-cartesian-axis.yAxis]:-translate-y-3 rtl:[&_.recharts-cartesian-axis.yAxis]:-translate-x-12 [&_.recharts-cartesian-grid-vertical]:opacity-0"
+              className='[&_.recharts-tooltip-cursor]:fill-opacity-20 dark:[&_.recharts-tooltip-cursor]:fill-opacity-10 [&_.recharts-cartesian-axis-tick-value]:fill-gray-500 [&_.recharts-cartesian-axis.yAxis]:-translate-y-3 rtl:[&_.recharts-cartesian-axis.yAxis]:-translate-x-12 [&_.recharts-cartesian-grid-vertical]:opacity-0'
             >
-              <CartesianGrid strokeDasharray="8 10" strokeOpacity={0.435} />
-              <XAxis dataKey="month" axisLine={false} tickLine={false} />
-              <YAxis
-                axisLine={false}
-                tickLine={false}
-                tick={<CustomYAxisTick />}
-              />
+              <CartesianGrid strokeDasharray='8 10' strokeOpacity={0.435} />
+              <XAxis dataKey='month' axisLine={false} tickLine={false} />
+              <YAxis axisLine={false} tickLine={false} tick={<CustomYAxisTick />} />
               <Tooltip content={<CustomTooltip />} />
-              <Bar dataKey="image" fill="#282ECA" stackId="a" />
-              <Bar dataKey="video" stackId="a" fill="#4052F6" />
-              <Bar dataKey="document" stackId="a" fill="#96C0FF" />
-              <Bar dataKey="music" stackId="a" fill="#DEEAFC" />
+              <Bar dataKey='image' fill='#282ECA' stackId='a' />
+              <Bar dataKey='video' stackId='a' fill='#4052F6' />
+              <Bar dataKey='document' stackId='a' fill='#96C0FF' />
+              <Bar dataKey='music' stackId='a' fill='#DEEAFC' />
             </BarChart>
           </ResponsiveContainer>
         </div>

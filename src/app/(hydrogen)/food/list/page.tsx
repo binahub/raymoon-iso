@@ -39,7 +39,7 @@ export default function NeshanPage() {
     ],
   };
 
-  const titleExcelColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At'
+  const titleExcelColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
 
   const [list, { isLoading, isSuccess, isError, error, data }] = useCategoryListMutation();
 
@@ -64,6 +64,7 @@ export default function NeshanPage() {
     handleRowSelect,
     handleSelectAll,
   } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, filterState);
+
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
@@ -110,12 +111,11 @@ export default function NeshanPage() {
     },
   ];
 
-  const parameterMapFilter = {
-    parameterMap: { ...parameterMap.parameterMap, ...filters },
-  };
 
-  const actionFilter = () => {
-    list(parameterMapFilter);
+  const actionFilter = (filters : any) => {
+    list({
+      parameterMap: { ...parameterMap.parameterMap, ...filters },
+    });
   };
 
   return (

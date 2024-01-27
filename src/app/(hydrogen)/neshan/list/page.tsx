@@ -120,13 +120,11 @@ export default function NeshanPage() {
       key: 'date',
     },
   ];
-  const [isOpenDrawer, setIsOpenDrawer] = useState(false);
 
   return (
     <BasicTablePage
       pageHeader={pageHeader}
       buttons={['export', 'import']}
-      isOpenDrawer={isOpenDrawer}
       filterElement={() =>
         FilterElement({
           isFiltered,
@@ -134,7 +132,6 @@ export default function NeshanPage() {
           filters,
           updateFilter,
           dataFilter,
-          setIsOpenDrawer,
         })
       }
       getColumns={getColumns}

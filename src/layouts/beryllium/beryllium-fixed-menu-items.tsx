@@ -48,7 +48,7 @@ import {
   PiUserGear,
   PiUserPlus,
   PiBeerSteinThin,
-  PiCellSignalFull
+  PiCellSignalFull,
 } from 'react-icons/pi';
 import { atom } from 'jotai';
 
@@ -86,7 +86,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
       {
         name: 'داشبورد',
         description: '"Effortless Assistance at your Fingertips!"',
-        href: routes.file.dashboard,
+        href: routes.executive.dashboard,
         icon: PiBinoculars,
       },
       {
@@ -122,7 +122,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
         icon: PiBeerSteinThin,
         subMenuItems: [
           {
-            name:'گزارش سفارش غذاها',
+            name: 'گزارش سفارش غذاها',
             href: routes.food.list,
           },
         ],
@@ -195,7 +195,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
         icon: PiBeerSteinThin,
         subMenuItems: [
           {
-            name:'گزارش سفارش غذاها',
+            name:'لیست سفارش ',
             href: routes.food.list,
           },
         ],

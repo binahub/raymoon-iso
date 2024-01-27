@@ -28,7 +28,6 @@ type ControlledTableProps = {
   tableFooter?: React.ReactNode;
   className?: string;
   paginatorClassName?: string;
-  actionFilter?:any
 } & TableProps;
 
 export default function ControlledTable({
@@ -40,9 +39,9 @@ export default function ControlledTable({
   showLoadingText,
   paginatorClassName,
   className,
-  actionFilter,
   ...tableProps
 }: ControlledTableProps) {
+
 
   if (isLoading) {
     return (
@@ -56,9 +55,7 @@ export default function ControlledTable({
         ) : null}
       </div>
     );
-  }
-
-  // console.log(filterOptions);
+  }  
   
 
   return (

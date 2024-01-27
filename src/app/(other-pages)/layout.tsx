@@ -53,13 +53,13 @@ export default function OtherPagesLayout({ children }: { children: React.ReactNo
               className='md:h-10 md:px-4 md:text-base'
               onClick={() => back()}
             >
-              Go to home
+              بازگشت
             </Button>
           )}
         </div>
       </div>
       {children}
-      <SocialItems />
+      {/* <SocialItems /> */}
     </div>
   );
 }

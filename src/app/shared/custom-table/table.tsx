@@ -113,9 +113,10 @@ export default function BasicTablePage({
   handleReset,
   tableData,
   fileTitles,
-  actionFilter,
 }: any) {
   const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
+
+  
 
   return (
     <TableLayout

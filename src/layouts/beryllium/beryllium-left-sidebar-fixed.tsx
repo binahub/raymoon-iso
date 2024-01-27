@@ -14,7 +14,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import SimpleBar from '@/components/ui/simplebar';
 import { useWindowSize } from '@/hooks/use-window-size';
-import App from '../../../package.json';
+import App from 'package.json'
 
 function MenuItem({ menu }: { menu: MenuItemsType }) {
   const { expandedLeft, setExpandedLeft } = useBerylliumSidebars();
@@ -53,14 +53,14 @@ function MenuItems() {
     <>
       <menu className='flex w-full justify-center'>
         <SimpleBar className='h-[calc(100vh_-_105px)] w-full pb-5'>
-          <ul className='flex flex-col gap-6'>
+          <ul className='flex flex-col gap-6 h-full'>
             {berylliumMenuItems.map((menu) => (
               <MenuItem key={menu.id} menu={menu} />
             ))}
           </ul>
+          <p className='text-xs flex justify-center font-thin text-white'> نسخه {App.version}</p>
         </SimpleBar>
       </menu>
-      <p className='text-yellow-lighter text-xs font-bold'>{App.version}</p>
     </>
   );
 }

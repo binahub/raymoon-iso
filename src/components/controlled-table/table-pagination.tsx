@@ -23,9 +23,9 @@ export default function TablePagination({
   ...props
 }: TablePaginationProps) {
   
-  if (total && total < pageSize) {
-    return null;
-  }
+  // if (total && total < pageSize) {
+  //   return null;
+  // }
 
   return (
     <div

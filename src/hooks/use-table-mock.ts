@@ -124,8 +124,8 @@ export function useTable<T extends AnyObject>(
   );
 
   
-  function updateFilter(columnId: string, filterValue: string | any[]) {    
-
+  function updateFilter(columnId: string, filterValue: string | any[]) {   
+  
     if (!Array.isArray(filterValue) && !isString(filterValue)) {
       throw new Error('filterValue data type should be string or array of any');
       
@@ -139,6 +139,8 @@ export function useTable<T extends AnyObject>(
       ...prevFilters,
       [columnId]: filterValue,
     }));    
+    // console.log(filters);
+
   }
 
   

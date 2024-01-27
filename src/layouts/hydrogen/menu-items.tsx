@@ -106,32 +106,32 @@ export const menuItems = [
     href: routes.support.dashboard,
     icon: <PiHeadsetDuotone />,
   },
-  {
-    name: ' ایوا',
-    href: routes.neshan.dashboard,
-    icon: <PiHeadsetDuotone />,
-    dropdownItems: [
-      {
-        name: 'افزودن خطای جدید',
-        href: routes.neshan.add,
-      },
-      {
-        name: 'گزارش خطاها',
-        href: routes.neshan.list,
-      },
-    ],
-  },
-  {
-    name: ' نشان بانک',
-    href: routes.neshan,
-    icon: <PiHeadsetDuotone />,
-    dropdownItems: [
-      {
-        name: 'گزارش پرداخت نشان اعتباری',
-        href: routes.neshan.list,
-      }
-    ],
-  },
+  // {
+  //   name: ' ایوا',
+  //   href: routes.neshan.dashboard,
+  //   icon: <PiHeadsetDuotone />,
+  //   dropdownItems: [
+  //     {
+  //       name: 'افزودن خطای جدید',
+  //       href: routes.neshan.add,
+  //     },
+  //     {
+  //       name: 'گزارش خطاها',
+  //       href: routes.neshan.list,
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: ' نشان بانک',
+  //   href: routes.neshan,
+  //   icon: <PiHeadsetDuotone />,
+  //   dropdownItems: [
+  //     {
+  //       name: 'گزارش پرداخت نشان اعتباری',
+  //       href: routes.neshan.list,
+  //     }
+  //   ],
+  // },
   // label start
   {
     name: 'Apps Kit',

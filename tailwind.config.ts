@@ -92,7 +92,7 @@ export default {
       animation: {
         blink: 'blink 1.4s infinite both;',
         'scale-up': 'scaleUp 500ms infinite alternate',
-        'spin-slow': 'spin 4s linear infinite',
+        'spin-slow': 'spin 17s linear infinite',
         popup: 'popup 500ms var(--popup-delay, 0ms) linear 1',
         skeleton: 'skeletonWave 1.6s linear 0.5s infinite',
         'spinner-ease-spin': 'spinnerSpin 0.8s ease infinite',

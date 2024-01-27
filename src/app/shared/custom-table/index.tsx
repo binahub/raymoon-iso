@@ -9,6 +9,7 @@ import Spinner from '@/components/ui/spinner';
 import type { TableFilterProps } from '@/components/controlled-table/table-filter';
 import type { TablePaginationProps } from '@/components/controlled-table/table-pagination';
 import cn from '@/utils/class-names';
+import {TableSkeleton} from '@/components/skeleton/table';
 const TableFilter = dynamic(
   () => import('@/components/controlled-table/table-filter'),
   { ssr: false }
@@ -45,7 +46,8 @@ export default function ControlledTable({
   if (isLoading) {
     return (
       <div className="grid h-full min-h-[128px] flex-grow place-content-center items-center justify-center">
-        <Spinner size="xl" />
+        {/* <Spinner size="xl" /> */}
+        <TableSkeleton actionButton />
         {showLoadingText ? (
           <Title as="h6" className="-me-2 mt-4 font-medium text-gray-500">
             Loading...

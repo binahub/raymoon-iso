@@ -1,18 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import CheckboxTree from 'react-checkbox-tree';
-import {
-  FaRegSquare,
-  FaCheckSquare,
-  FaRegPlusSquare,
-  FaFolder,
-} from 'react-icons/fa';
-import {
-  CiSquareCheck,
-  CiSquareMinus,
-  CiSquareChevLeft,
-  CiSquareChevDown,
-} from 'react-icons/ci';
+import { FaRegSquare, FaCheckSquare, FaRegPlusSquare, FaFolder } from 'react-icons/fa';
+import { CiSquareCheck, CiSquareMinus, CiSquareChevLeft, CiSquareChevDown } from 'react-icons/ci';
 import makeFlatItems from '@/utils/make-flat';
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 
@@ -68,12 +58,16 @@ export default function CheckboxTreeComponent({
     return { checkedItemsKeys, checkedItemsIds };
   };
 
+  const finalizeDataHandler = () => {
+    checkedWithParents(checkedWithParentsHandler(defaultChecked));
+  };
+
   useEffect(() => {
     if (defaultChecked.length > 0) {
       setChecked(defaultChecked);
-      checkedWithParents(checkedWithParentsHandler(defaultChecked));
+      finalizeDataHandler();
     }
-  }, [defaultChecked, defaultChecked.length, checkedWithParents, checkedWithParentsHandler(defaultChecked)]);
+  }, [defaultChecked, defaultChecked.length, finalizeDataHandler()]);
   return (
     <>
       <CheckboxTree

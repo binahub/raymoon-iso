@@ -15,17 +15,17 @@ export default function SignIn() {
       <AuthWrapperOne
         title={
           <>
-            به پنل مدیریت
+            به پنل مدیریت{' '}
             <span className='relative inline-block'>
               ایوا
               <UnderlineShape className='absolute -bottom-4 start-0 h-2.5 w-16 text-blue md:w-16 xl:-bottom-1.5 xl:w-16' />
-            </span>
+            </span>{' '}
             خوش آمدید 👋
           </>
         }
         isSocialLoginActive={false}
         pageImage={
-          <div className='relative mx-auto aspect-[4/3.37] w-[500px] xl:w-[620px] 2xl:w-[900px] h-full' >
+          <div className='relative mx-auto aspect-[4/3.37] w-[500px] xl:w-[620px] 2xl:w-[900px] h-full'>
             <Image
               src={signInBanner}
               alt='Sign Up Thumbnail'
@@ -34,7 +34,7 @@ export default function SignIn() {
               className='object-cover rounded-3xl h-[85%]'
             />
             <p className='text-yellow-lighter text-xs font-bold flex justify-center'>
-            نسخه {App.version}
+              نسخه {App.version}
             </p>
           </div>
         }

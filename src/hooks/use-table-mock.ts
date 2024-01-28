@@ -27,7 +27,7 @@ export function useTable<T extends AnyObject>(
   useEffect(() => {
     setData(initialData);
     stTotal(totalData)
-  }, [initialData]);
+  }, [initialData, totalData]);
 
   /*
    * Handle row selection

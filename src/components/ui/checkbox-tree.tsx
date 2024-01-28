@@ -73,7 +73,7 @@ export default function CheckboxTreeComponent({
       setChecked(defaultChecked);
       checkedWithParents(checkedWithParentsHandler(defaultChecked));
     }
-  }, [defaultChecked, defaultChecked.length, checkedWithParents]);
+  }, [defaultChecked, defaultChecked.length, checkedWithParents, checkedWithParentsHandler(defaultChecked)]);
   return (
     <>
       <CheckboxTree

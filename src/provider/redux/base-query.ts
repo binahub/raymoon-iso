@@ -1,6 +1,10 @@
 import { Mutex } from 'async-mutex';
-import { fetchBaseQuery, FetchBaseQueryMeta } from '@reduxjs/toolkit/query';
-import type { BaseQueryFn, FetchArgs } from '@reduxjs/toolkit/query';
+import {
+  fetchBaseQuery,
+  FetchBaseQueryMeta,
+  type BaseQueryFn,
+  type FetchArgs,
+} from '@reduxjs/toolkit/query';
 import { getSession } from 'next-auth/react';
 import { QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
 import { FetchError } from '@/provider/redux/types/error';

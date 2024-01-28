@@ -58,16 +58,14 @@ export default function CheckboxTreeComponent({
     return { checkedItemsKeys, checkedItemsIds };
   };
 
-  const finalizeDataHandler = () => {
-    checkedWithParents(checkedWithParentsHandler(defaultChecked));
-  };
+  const finalizeDataHandler = checkedWithParents(checkedWithParentsHandler(defaultChecked));
 
   useEffect(() => {
     if (defaultChecked.length > 0) {
       setChecked(defaultChecked);
-      finalizeDataHandler();
+      finalizeDataHandler;
     }
-  }, [defaultChecked, defaultChecked.length, finalizeDataHandler()]);
+  }, [defaultChecked, defaultChecked.length, finalizeDataHandler]);
   return (
     <>
       <CheckboxTree

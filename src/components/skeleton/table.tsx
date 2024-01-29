@@ -1,4 +1,5 @@
 import { LineGroup, Skeleton } from '@/components/ui/skeleton';
+import rangeMap from '@/utils/range-map';
 
 export interface TableSkeletonProps {
   actionButton?: boolean;
@@ -28,17 +29,13 @@ export const TableSkeleton = ({ actionButton, rowsNumber }: TableSkeletonProps) 
       </>
     );
 
-  let countArray: JSX.Element[] = [];
-
-  for (let i = 1; i <= (rowsNumber || 7); i++) {
-    countArray.push(<TableRowSkeleton key={i} />);
-  }
-
   return (
     <>
       <Skeleton className='h-10' />
       <br />
-      {countArray}
+      {rangeMap(rowsNumber || 7, (i) => (
+        <TableRowSkeleton key={i} />
+      ))}
     </>
   );
 };

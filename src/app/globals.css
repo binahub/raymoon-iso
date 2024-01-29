@@ -1194,9 +1194,26 @@ ol {
   height: 100% !important;
 }
 .swal2-show {
-  @apply xs:w-[100%] md:w-[50%] lg:w-[25%]
+  @apply xs:w-[100%] md:w-[50%] lg:w-[20%];
 }
 
-.rct-node-collapsed{
-padding: 10px
+.swal2-popup {
+  @apply dark:bg-gray-50;
+}
+
+.swal2-icon {
+  margin: 1.5rem auto;
+  zoom: 0.75;
+}
+
+.swal2-html-container {
+  @apply dark:text-gray-500;
+}
+
+.swal2-cancel {
+  @apply bg-gray-200 mr-2 p-2 rounded-lg dark:bg-gray-500;
+}
+
+.rct-node-collapsed {
+  padding: 10px;
 }

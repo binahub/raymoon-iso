@@ -20,8 +20,8 @@ export default function SweetAlert({
   cancelButtonText,
 }: AlertProps) {
   let ButtonClass = '';
-  if (type === 'error') ButtonClass = 'bg-[#f27474]';
-  else if (type === 'success') ButtonClass = 'bg-[#a5dc86]';
+  if (type === 'error') ButtonClass = 'bg-[#ea5455]';
+  else if (type === 'success') ButtonClass = 'bg-[#5cb85c]';
   else ButtonClass = 'bg-[#facea8]';
 
   const handleSweetAlert = () =>
@@ -29,16 +29,13 @@ export default function SweetAlert({
       title,
       icon: type,
       text: message,
-      showCancelButton: true,
+      showCancelButton: !!cancelButtonText,
       confirmButtonText: confirmButtonText || 'باشه!',
       cancelButtonText,
       focusConfirm: false,
       allowOutsideClick: false,
       customClass: {
         confirmButton: `${ButtonClass} p-2 rounded-lg`,
-        cancelButton: cancelButtonText
-          ? 'bg-slate-300 mr-2 p-2 rounded-lg'
-          : '',
       },
       buttonsStyling: false,
     });

@@ -1207,11 +1207,11 @@ ol {
 }
 
 .swal2-html-container {
-  @apply dark:text-gray-500;
+  @apply dark:text-gray-500 !mt-1;
 }
 
 .swal2-cancel {
-  @apply bg-gray-200 mr-2 p-2 rounded-lg dark:bg-gray-500;
+  @apply bg-gray-400 mr-2 p-2 rounded-lg text-white;
 }
 
 .rct-node-collapsed {

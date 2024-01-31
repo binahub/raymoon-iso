@@ -291,7 +291,7 @@ export default function SelectBox<OptionType extends SelectOption>({
   size = 'DEFAULT',
   rounded = 'DEFAULT',
   variant = 'outline',
-  color = 'DEFAULT',
+  color = 'info',
   suffix = <PiCaretUpDown className="h-5 w-5" />,
   onFocus,
   onBlur,
@@ -422,7 +422,7 @@ export default function SelectBox<OptionType extends SelectOption>({
                         'h-auto'
                       )}
                     >
-                      Nothing found.
+                     داده‌ای یافت نشد.
                     </li>
                   ) : (
                     options.map((option) => (

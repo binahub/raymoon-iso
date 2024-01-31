@@ -44,38 +44,31 @@ export default function SupportInboxPage() {
               <>
                 <Input
                   label='کدخطا*'
-                  labelClassName='font-medium text-gray-900 dark:text-white'
                   // {...register('fullName')}
                   // error={errors.fullName?.message}
                 />
                 <Input
                   label='شرح خطا*'
-                  labelClassName='font-medium text-gray-900 dark:text-white'
                   // {...register('email')}
                   // error={errors.email?.message}
                 />
                 <Input
                   label='شماره مرجع'
-                  labelClassName='font-medium text-gray-900 dark:text-white'
-
                   // {...register('email')}
                   // error={errors.email?.message}
                 />
                 <Input
                   label='شماره ترمینال'
-                  labelClassName='font-medium text-gray-900 dark:text-white'
                   // {...register('company')}
                   // error={errors.company?.message}
                 />
                 <Input
                   label='شماره مرجع'
-                  labelClassName='font-medium text-gray-900 dark:text-white'
                   // {...register('email')}
                   // error={errors.email?.message}
                 />
                 <Input
                   label='شماره ترمینال'
-                  labelClassName='font-medium text-gray-900 dark:text-white'
                   // {...register('company')}
                   // error={errors.company?.message}
                 />

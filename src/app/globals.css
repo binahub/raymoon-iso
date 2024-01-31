@@ -1193,6 +1193,16 @@ ol {
 .simplebar-content {
   height: 100% !important;
 }
+
+.rct-node-collapsed {
+  padding: 10px;
+}
+
+.rizzui-input-label {
+  @apply font-medium text-gray-900 dark:text-white;
+}
+
+/* sweet alert styles */
 .swal2-show {
   @apply xs:w-[100%] md:w-[50%] lg:w-[20%];
 }
@@ -1214,6 +1224,23 @@ ol {
   @apply bg-gray-400 mr-2 p-2 rounded-lg text-white;
 }
 
-.rct-node-collapsed {
-  padding: 10px;
+/* date picker styles  */
+.rmdp-wrapper {
+  @apply dark:bg-gray-100;
+}
+
+.rmdp-month-picker {
+  @apply dark:bg-gray-100;
+}
+
+.rmdp-year-picker {
+  @apply dark:bg-gray-100;
+}
+
+.rmdp-header-values {
+  @apply dark:text-white;
+}
+
+.rmdp-day {
+  @apply dark:text-white;
 }

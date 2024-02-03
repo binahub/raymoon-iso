@@ -903,10 +903,6 @@ ol {
   height: 100% !important;
 }
 
-.rct-node-collapsed {
-  padding: 10px;
-}
-
 .rizzui-input-label {
   @apply font-medium text-gray-900 dark:text-white;
 }
@@ -955,7 +951,34 @@ ol {
 }
 
 /* react tree styles */
-.rst__rowContents {
-  @apply dark:bg-gray-50
+
+.rct-node-collapsed {
+  padding: 5px;
 }
 
+.rst__rowContents {
+  @apply dark:bg-gray-50;
+}
+
+.rst__virtualScrollOverride {
+  direction: ltr;
+}
+
+.rst__nodeContent {
+  direction: rtl;
+}
+
+.rst__node {
+  direction: rtl;
+}
+
+/* checkbox tree styles */
+.rct-collapse *,
+.rct-checkbox *,
+.rct-node-icon * {
+  @apply !w-4;
+}
+
+.rct-node-icon {
+  color: rgb(56 114 250) !important;
+}

@@ -3,7 +3,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import isEmpty from 'lodash/isEmpty';
-import Table, { type TableProps } from '@/components/ui/table';
+import RizzTable, { type TableProps } from '@/components/ui/rizz-table';
 import { Title } from '@/components/ui/text';
 import Spinner from '@/components/ui/spinner';
 import type { TableFilterProps } from '@/components/controlled-table/table-filter';
@@ -48,7 +48,7 @@ export default function ControlledTable({
       {!isEmpty(filterOptions) && <TableFilter {...filterOptions}>{filterElement}</TableFilter>}
 
       <div className='relative'>
-        <Table
+        <RizzTable
           scroll={{ x: 1300 }}
           rowKey={(record) => record.id}
           className={cn(className)}

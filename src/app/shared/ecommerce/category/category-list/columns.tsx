@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { routes } from '@/config/routes';
 import { Title, Text } from '@/components/ui/text';
-import { HeaderCell } from '@/components/ui/table';
+import { HeaderCell } from '@/components/ui/rizz-table';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Tooltip } from '@/components/ui/tooltip';
 import { ActionIcon } from '@/components/ui/action-icon';

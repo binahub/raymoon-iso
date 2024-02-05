@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Title, Text } from '@/components/ui/text';
-import { HeaderCell } from '@/components/ui/table';
+import { HeaderCell } from '@/components/ui/rizz-table';
 import { toCurrency } from '@/utils/to-currency';
 import { Checkbox } from '@/components/ui/checkbox';
 import AvatarCard from '@/components/ui/avatar-card';

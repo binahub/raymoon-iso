@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ActionIcon, Badge, Text, Tooltip } from 'rizzui';
 
-import { HeaderCell } from '@/components/ui/table';
+import { HeaderCell } from '@/components/ui/rizz-table';
 import PencilIcon from '@/components/icons/pencil';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import { SnippetType } from '@/data/snippets-and-templates';

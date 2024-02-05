@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Area, AreaChart, ResponsiveContainer } from 'recharts';
-import { HeaderCell } from '@/components/ui/table';
+import { HeaderCell } from '@/components/ui/rizz-table';
 import { Checkbox } from '@/components/ui/checkbox';
 import { getRelativeTime } from '@/utils/get-relative-time';
 import { Button } from '@/components/ui/button';

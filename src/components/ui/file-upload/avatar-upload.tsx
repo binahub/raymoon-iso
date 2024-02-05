@@ -131,7 +131,7 @@ export default function AvatarUpload({
             {isUploading ? (
               <Loader className="justify-center" />
             ) : (
-              <Text className="font-medium">Drop or select file</Text>
+              <Text className="font-medium">فایل خود را انتخاب کنید</Text>
             )}
           </div>
         )}

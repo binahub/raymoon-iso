@@ -87,7 +87,7 @@ type BasicTableWidgetProps = {
   fileTitles: string;
 };
 
-export default function BasicTablePage({
+export default function Table({
   pageHeader,
   buttons,
   data,
@@ -143,7 +143,7 @@ export default function BasicTablePage({
                 ExpandedRow
                   ? {
                       expandIcon: CustomExpandIcon,
-                      expandedRowRender: (record) => <ExpandedRow record={record} />,
+                      expandedRowRender: (record : any) => <ExpandedRow record={record} />,
                       expandedRowKeys: expandedKeys,
                       onExpand: onExpand,
                     }

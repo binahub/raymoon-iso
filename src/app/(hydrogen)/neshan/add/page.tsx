@@ -10,7 +10,7 @@ import { regions, status } from '../data';
 import { countries, roles, timezones } from '@/data/forms/my-details';
 import { Datepicker } from 'shafa-bo';
 import CustomCard from '@/components/cards/custom-card';
-import { GeneralFormTypes, generalFormSchema, defaultValues } from '@/utils/general.schema';
+import { GeneralFormTypes, generalFormSchema, defaultValues } from '@/utils/validators/general.schema';
 import UploadZone from '@/components/ui/file-upload/upload-zone';
 import { Password } from 'rizzui';
 import { useState } from 'react';

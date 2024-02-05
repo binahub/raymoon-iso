@@ -27,6 +27,7 @@ interface UploadZoneProps {
   setValue: any;
   className?: string;
   error?: string;
+  handleUpload?: Function
 }
 
 interface FileType {
@@ -42,6 +43,7 @@ export default function UploadZone({
   getValues,
   setValue,
   error,
+  handleUpload
 }: UploadZoneProps) {
   const [files, setFiles] = useState<File[]>([]);
 

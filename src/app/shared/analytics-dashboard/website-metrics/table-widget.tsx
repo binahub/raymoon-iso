@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Table from '@/components/ui/table';
+import Table from '@/components/ui/rizz-table';
 import Pagination from '@/components/ui/pagination';
 import { Input } from '@/components/ui/input';
 import { Loader } from '@/components/ui/loader';

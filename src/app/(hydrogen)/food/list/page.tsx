@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { routes } from '@/config/routes';
-import BasicTablePage from '@/app/shared/custom-table/table';
-import FilterElement from '@/app/shared/custom-table/filter';
+import BasicTablePage from '@/app/shared/table/table';
+import FilterElement from '@/app/shared/table/filter';
 import { detail } from './detail';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';

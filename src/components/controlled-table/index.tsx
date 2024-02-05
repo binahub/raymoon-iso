@@ -3,7 +3,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import isEmpty from 'lodash/isEmpty';
-import Table, { type TableProps } from '@/components/ui/table';
+import Table, { type TableProps } from '@/components/ui/rizz-table';
 import { Title } from '@/components/ui/text';
 import Spinner from '@/components/ui/spinner';
 import type { TableFilterProps } from '@/components/controlled-table/table-filter';

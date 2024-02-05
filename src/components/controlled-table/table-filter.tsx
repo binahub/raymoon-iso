@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { ToggleColumns } from '@/components/ui/table';
+import { ToggleColumns } from '@/components/ui/rizz-table';
 import { PiMagnifyingGlassBold, PiFunnel, PiXBold } from 'react-icons/pi';
 import { Button } from '@/components/ui/button';
 import { ActionIcon } from '@/components/ui/action-icon';

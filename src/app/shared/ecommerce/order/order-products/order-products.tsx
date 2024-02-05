@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Table, { HeaderCell } from '@/components/ui/table';
+import Table, { HeaderCell } from '@/components/ui/rizz-table';
 import { Title, Text } from '@/components/ui/text';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useTable } from '@/hooks/use-table';

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import { PiCloudArrowDown } from 'react-icons/pi';
-import { HeaderCell } from '@/components/ui/table';
+import { HeaderCell } from '@/components/ui/rizz-table';
 import { Title, Text } from '@/components/ui/text';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';

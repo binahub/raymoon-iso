@@ -7,13 +7,15 @@ import persian_fa from 'react-date-object/locales/persian_fa';
 import { Input, cn } from 'rizzui';
 import { PiCalendarBlank, PiCaretDownBold } from 'react-icons/pi';
 import 'react-multi-date-picker/styles/colors/yellow.css';
+import dayjs from 'dayjs';
 
 export interface DatepickerProps {
-  // value?: DateObject | Date | string;
+  value?: DateObject | Date | string;
   placeholder?: string;
   label?: string;
   onCalendarOpen?(): void;
   onCalendarClose?(): void;
+  onChange?: any;
   minDate?: DateObject | Date | string;
   maxDate?: DateObject | Date | string;
   disabled?: boolean;
@@ -23,11 +25,12 @@ export interface DatepickerProps {
 }
 
 export const Datepicker = ({
-  // value,
+  value,
   placeholder,
   label,
   onCalendarOpen,
   onCalendarClose,
+  onChange,
   minDate,
   maxDate,
   disabled,
@@ -36,10 +39,9 @@ export const Datepicker = ({
   className,
   ...props
 }: DatepickerProps) => {
-  const [date, setDate] = useState(Date || null);
-
   const changeHandler = (e: any) => {
-    setDate(e.format(exportedFormat || 'YYYY-MM-DDTHH:m:ss'));
+    // onChange(dayjs(e).format('YYYY-MM-DDTHH:mm:ss' || exportedFormat));
+    onChange(e)
   };
 
   const [isCalenderOpen, setIsCalenderOpen] = useState(false);
@@ -53,8 +55,8 @@ export const Datepicker = ({
       <DatePicker
         calendar={persian}
         locale={persian_fa}
-        value={date}
-        onChange={(e) => changeHandler(e)}
+        value={value}
+        onChange={changeHandler}
         format={displayFormat ? displayFormat : 'YYYY/MM/DD'}
         containerClassName='w-full'
         calendarPosition='bottom-right'

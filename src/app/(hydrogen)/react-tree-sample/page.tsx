@@ -1,14 +1,12 @@
 'use client';
-import { Datepicker } from '@/components/ui/datepicker';
 import SortableTree from '@nosferatu500/react-sortable-tree';
 import '@nosferatu500/react-sortable-tree/style.css';
 import { data } from './data.json';
 import { useState } from 'react';
 import { Button } from 'rizzui';
-import WidgetCard from '@/components/cards/widget-card';
 import { routes } from '@/config/routes';
 import PageHeader from '@/app/shared/page-header';
-import CustomCard from '@/components/cards/custom-card';
+import Card from '@/components/cards/card';
 
 function List() {
   const finalData = data.map((item) => {
@@ -35,7 +33,7 @@ function List() {
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
-      <CustomCard>
+      <Card>
         <div className='h-[720px] p-8'>
           <SortableTree
             rowDirection='rtl'
@@ -57,7 +55,7 @@ function List() {
             })}
           />
         </div>
-      </CustomCard>
+      </Card>
     </>
   );
 }

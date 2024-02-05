@@ -9,7 +9,7 @@ import { Controller } from 'react-hook-form';
 import { regions, status } from '../data';
 import cn from '@/utils/class-names';
 import { Datepicker } from 'shafa-bo';
-import CustomCard from '@/components/cards/custom-card';
+import Card from '@/components/cards/card';
 
 // export const metadata = {
 //   ...metaObject(' ایوا'),
@@ -33,7 +33,7 @@ export default function SupportInboxPage() {
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
-      <CustomCard>
+      <Card>
         <Form
           onSubmit={onSubmit}
           className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%] p-6 @2xl:p-12 3xl:px-16 4xl:px-28'
@@ -124,7 +124,7 @@ export default function SupportInboxPage() {
             );
           }}
         </Form>
-      </CustomCard>
+      </Card>
     </>
   );
 }

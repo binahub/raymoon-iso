@@ -5,7 +5,7 @@ import CheckboxTreeComponent from '@/components/ui/checkbox-tree';
 import WidgetCard from '@/components/cards/widget-card';
 import { routes } from '@/config/routes';
 import PageHeader from '@/app/shared/page-header';
-import CustomCard from '@/components/cards/custom-card';
+import Card from '@/components/cards/card';
 
 function List() {
   const pageHeader = {
@@ -58,14 +58,14 @@ function List() {
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
-      <CustomCard>
+      <Card>
         <CheckboxTreeComponent
           checkModel='all'
           nodes={convertToAcceptableNode(data)}
           checkedWithParents={(checkedItems) => checkedItems.checkedItemsIds}
           defaultChecked={[]}
         />
-      </CustomCard>
+      </Card>
     </>
   );
 }

@@ -71,24 +71,28 @@ export default function SupportInboxPage() {
                   type='number'
                   {...register('TrackingCode')}
                   error={errors.TrackingCode?.message}
-                  className='flex-grow'
+                  className='flex-grow '
                 />
                 <Input
                   label='شماره همراه*'
-                  type='number'
+                  type='tel'
                   maxLength={11}
                   pattern='[0-9]*'
                   {...register('phoneNumber')}
                   error={errors.phoneNumber?.message}
-                  className='flex-grow'
+                  className='flex-grow ' 
+                  dir='rtl'
                 />
                 <Input
                   label='شماره ملی*'
-                  type='number'
+                  type='tel'    
+                  pattern='[0-9]*'              
                   maxLength={10}
                   {...register('nationalCode')}
                   error={errors.nationalCode?.message}
-                  className='flex-grow'
+                  className='flex-grow '
+                  dir='rtl'
+
                 />
                 <Input
                   type='email'

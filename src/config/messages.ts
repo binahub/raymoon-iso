@@ -3,6 +3,7 @@ export const messages = {
   passwordOneLowercase: `رمز عبور باید حداقل یک کاراکتر کوچک داشته باشد`,
   passwordOneNumeric: `رمز عبور باید حداقل یک کاراکتر عددی داشته باشد`,
   passwordRequired:'ضروری',
+  cardHolderNameIsRequired:'ضروری',
   passwordLengthMin: 'رمز عبور باید حداقل 6 کاراکتر باشد',
   passwordLengthMax: `رمز عبور نمی تواند بیش از 32 کاراکتر باشد`,
   newPasswordRequired: 'رمز عبور جدید اجباری است',

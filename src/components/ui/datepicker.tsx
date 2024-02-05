@@ -9,33 +9,39 @@ import { PiCalendarBlank, PiCaretDownBold } from 'react-icons/pi';
 import 'react-multi-date-picker/styles/colors/yellow.css';
 
 export interface DatepickerProps {
-  value?: DateObject | Date | string;
+  // value?: DateObject | Date | string;
   placeholder?: string;
   label?: string;
-  onChange?(date: any): void;
   onCalendarOpen?(): void;
   onCalendarClose?(): void;
   minDate?: DateObject | Date | string;
   maxDate?: DateObject | Date | string;
   disabled?: boolean;
-  format?: string;
+  displayFormat?: string;
+  exportedFormat?: string;
   className?: string;
 }
 
 export const Datepicker = ({
-  value,
+  // value,
   placeholder,
   label,
   onCalendarOpen,
   onCalendarClose,
-  onChange,
   minDate,
   maxDate,
   disabled,
-  format,
+  displayFormat,
+  exportedFormat,
   className,
   ...props
 }: DatepickerProps) => {
+  const [date, setDate] = useState(Date || null);
+
+  const changeHandler = (e: any) => {
+    setDate(e.format(exportedFormat || 'YYYY-MM-DDTHH:m:ss'));
+  };
+
   const [isCalenderOpen, setIsCalenderOpen] = useState(false);
   const handleCalenderOpen = () => {
     setIsCalenderOpen(true);
@@ -47,9 +53,9 @@ export const Datepicker = ({
       <DatePicker
         calendar={persian}
         locale={persian_fa}
-        value={value}
-        onChange={onChange}
-        format={format ? format : 'YYYY/MM/DD'}
+        value={date}
+        onChange={(e) => changeHandler(e)}
+        format={displayFormat ? displayFormat : 'YYYY/MM/DD'}
         containerClassName='w-full'
         calendarPosition='bottom-right'
         disableDayPicker={false}

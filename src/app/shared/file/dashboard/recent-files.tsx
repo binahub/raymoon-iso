@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Title } from '@/components/ui/text';
 import SimpleBar from '@/components/ui/simplebar';
 import FolderIcon from '@/components/icons/folder-solid';
-import { Card } from '@/app/shared/file/manager/file-grid/grid';
+import { CardItem } from '@/app/shared/file/manager/file-grid/grid';
 
 const recentFiles = [
   {
@@ -64,7 +64,7 @@ export default function RecentFiles({ className }: { className?: string }) {
         <div className="grid grid-flow-col gap-5">
           {recentFiles.map((item) => {
             return (
-              <Card
+              <CardItem
                 key={item.id}
                 className="min-w-[273px] hover:-translate-y-0 hover:shadow-none"
                 item={item}

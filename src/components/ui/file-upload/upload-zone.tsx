@@ -45,6 +45,9 @@ export default function UploadZone({
 }: UploadZoneProps) {
   const [files, setFiles] = useState<File[]>([]);
 
+  console.log(files);
+  
+
   const onDrop = useCallback(
     (acceptedFiles: FileWithPath[]) => {
       console.log('acceptedFiles', acceptedFiles);

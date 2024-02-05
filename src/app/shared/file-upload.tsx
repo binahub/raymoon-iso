@@ -111,13 +111,13 @@ export const FileInput = ({
   function handleFileUpload() {
     if (files.length) {
       console.log('uploaded files:', files);
-      toast.success(<Text as="b">File successfully added</Text>);
+      toast.success(<Text as="b">فایل با موفقیت آپلود شد.</Text>);
 
       setTimeout(() => {
         closeModal();
       }, 200);
     } else {
-      toast.error(<Text as="b">Please drop your file</Text>);
+      toast.error(<Text as="b">لطفا فایل خود را انتخاب کنید.</Text>);
     }
   }
 
@@ -179,7 +179,7 @@ export const FileInput = ({
           className={cn(!files.length && 'hidden', 'w-full')}
           onClick={() => setFiles([])}
         >
-          Reset
+          پاک کردن
         </Button>
         <Button className="w-full bg-gradient-to-r from-blue-800  to-blue-darkBlue" onClick={() => handleFileUpload()}>
           <PiArrowLineDownBold className="me-1.5 h-[17px] w-[17px]" />

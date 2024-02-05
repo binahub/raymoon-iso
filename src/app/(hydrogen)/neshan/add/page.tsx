@@ -10,7 +10,11 @@ import { regions, status } from '../data';
 import { countries, roles, timezones } from '@/data/forms/my-details';
 import { Datepicker } from 'shafa-bo';
 import CustomCard from '@/components/cards/custom-card';
-import { GeneralFormTypes, generalFormSchema, defaultValues } from '@/utils/validators/general.schema';
+import {
+  GeneralFormTypes,
+  generalFormSchema,
+  defaultValues,
+} from '@/utils/validators/general.schema';
 import UploadZone from '@/components/ui/file-upload/upload-zone';
 import { Password } from 'rizzui';
 import { useState } from 'react';
@@ -88,8 +92,7 @@ export default function SupportInboxPage() {
                 />
                 <Input
                   type='email'
-                  size='lg'
-                  label='ایمیل'
+                  label='ایمیل*'
                   placeholder='ایمیل خود را وارد کنید'
                   className='[&>label>span]:font-medium'
                   color='info'
@@ -97,27 +100,18 @@ export default function SupportInboxPage() {
                   {...register('email')}
                   error={errors.email?.message}
                 />
-                <Password
-                  label='رمز عبور*'
-                  placeholder='******'
-                  size='lg'
-                  className='[&>label>span]:font-medium'
-                  color='info'
-                  inputClassName='text-sm'
-                  {...register('password')}
-                  error={errors.password?.message}
-                />
                 <Controller
                   control={control}
                   name='bank'
                   render={({ field: { value, onChange } }) => (
                     <Select
-                      label='نام بانک*'
+                      label='نام بانک'
                       labelClassName='font-medium text-gray-900 dark:text-white'
                       dropdownClassName='p-2 gap-1 grid'
                       value={value}
                       onChange={onChange}
                       options={regions}
+                      isRequired
                       getOptionValue={(option) => option.name}
                       displayValue={(selected: string) =>
                         regions?.find((c) => c.name === selected)?.name ?? ''
@@ -125,6 +119,24 @@ export default function SupportInboxPage() {
                       error={errors?.bank?.message}
                     />
                   )}
+                />
+                <Password
+                  label='رمز عبور*'
+                  placeholder='******'
+                  className='[&>label>span]:font-medium '
+                  color='info'
+                  required
+                  inputClassName='text-sm'
+                  {...register('password')}
+                  error={errors.password?.message}
+                />
+                <Password
+                  label=' رمز عبور جدید*'
+                  placeholder='******'
+                  className='[&>label>span]:font-medium mb-6 @2xl:col-span-2'
+                  inputClassName='text-sm'
+                  {...register('newPassword')}
+                  error={errors.newPassword?.message}
                 />
                 {/* <Controller
                   name='startDate'

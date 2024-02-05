@@ -8,7 +8,7 @@ import { useColumn } from '@/hooks/use-column';
 import WidgetCard from './table-widget-card';
 import ControlledTable from '.';
 import cn from '@/utils/class-names';
-import CustomCard from '@/components/cards/custom-card';
+import Card from '@/components/cards/card';
 
 export const metadata = {
   ...metaObject('Basic Table'),
@@ -128,7 +128,7 @@ export default function Table({
       header={fileTitles}
       buttons={buttons}
     >
-      <CustomCard>
+      <Card>
         {/* <WidgetCard
           title={title}
           className={cn('flex flex-col ', className)}
@@ -184,7 +184,7 @@ export default function Table({
             />
           </div>
         {/* </WidgetCard> */}
-      </CustomCard>
+      </Card>
     </TableLayout>
   );
 }

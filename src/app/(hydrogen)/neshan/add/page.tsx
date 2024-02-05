@@ -9,12 +9,16 @@ import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions, status } from '../data';
 import { countries, roles, timezones } from '@/data/forms/my-details';
 import { Datepicker } from 'shafa-bo';
-import CustomCard from '@/components/cards/custom-card';
 import { GeneralFormTypes, generalFormSchema, defaultValues } from '@/utils/validators/general.schema';
 import UploadZone from '@/components/ui/file-upload/upload-zone';
 import { Password } from 'rizzui';
 import { useState } from 'react';
 import { DateObject } from 'react-multi-date-picker';
+import Card from '@/components/cards/card';
+
+// export const metadata = {
+//   ...metaObject(' ایوا'),
+// };
 
 const pageHeader = {
   title: 'نشان بانک',
@@ -41,7 +45,7 @@ export default function SupportInboxPage() {
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
-      <CustomCard>
+      <Card>
         <Form<GeneralFormTypes>
           validationSchema={generalFormSchema}
           // resetValues={reset}
@@ -158,7 +162,7 @@ export default function SupportInboxPage() {
             );
           }}
         </Form>
-      </CustomCard>
+      </Card>
     </>
   );
 }

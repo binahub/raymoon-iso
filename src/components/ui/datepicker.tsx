@@ -56,6 +56,25 @@ export const Datepicker = ({
   };
   const handleCalenderClose = () => setIsCalenderOpen(false);
 
+  const CustomInput = ({ openCalendar, value, handleValueChange }: any) => (
+    <Input
+      label={label}
+      value={value}
+      placeholder={placeholder}
+      onChange={handleValueChange}
+      inputClassName={error && 'border border-red'}
+      suffix={
+        <PiCaretDownBold
+          className={cn('h-4 w-4 text-gray-500 transition', isCalenderOpen && 'rotate-180')}
+        />
+      }
+      prefix={<PiCalendarBlank className='h-5 w-5 text-gray-500' />}
+      onFocus={() => {
+        openCalendar();
+      }}
+    />
+  );
+
   return (
     <div className={className}>
       <DatePicker
@@ -72,19 +91,7 @@ export const Datepicker = ({
         minDate={minDate}
         maxDate={maxDate}
         disabled={disabled}
-        render={
-          <Input
-            label={label}
-            placeholder={placeholder}
-            inputClassName={error && 'border border-red'}
-            suffix={
-              <PiCaretDownBold
-                className={cn('h-4 w-4 text-gray-500 transition', isCalenderOpen && 'rotate-180')}
-              />
-            }
-            prefix={<PiCalendarBlank className='h-5 w-5 text-gray-500' />}
-          />
-        }
+        render={<CustomInput />}
         onOpen={onCalendarOpen || handleCalenderOpen}
         onClose={onCalendarClose || handleCalenderClose}
         {...props}

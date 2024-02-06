@@ -7,8 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions, status } from '../data';
-import { countries, roles, timezones } from '@/data/forms/my-details';
-import { Datepicker } from 'shafa-bo';
+import { Datepicker } from '@/components/ui/datepicker';
 import {
   GeneralFormTypes,
   generalFormSchema,
@@ -16,8 +15,6 @@ import {
 } from '@/utils/validators/general.schema';
 import UploadZone from '@/components/ui/file-upload/upload-zone';
 import { Password } from 'rizzui';
-import { useState } from 'react';
-import { DateObject } from 'react-multi-date-picker';
 import Card from '@/components/cards/card';
 
 // export const metadata = {
@@ -144,17 +141,18 @@ export default function SupportInboxPage() {
                   {...register('newPassword')}
                   error={errors.newPassword?.message}
                 />
-                {/* <Controller
-                  name='startDate'
+                <Controller
                   control={control}
+                  name='startDate'
                   render={({ field: { value, onChange } }) => (
                     <Datepicker
                       label='تاریخ شروع'
                       value={value}
                       onChange={onChange}
+                      error={errors?.startDate}
                     />
                   )}
-                /> */}
+                />
                 <div className='mb-6 @3xl:col-span-3'>
                   <UploadZone
                     name='userInfo'

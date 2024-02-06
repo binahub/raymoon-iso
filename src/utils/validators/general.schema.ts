@@ -19,7 +19,7 @@ export const generalFormSchema = z.object({
   email: validateEmail,
   password: z.string().min(1, { message: messages.passwordRequired }),
   bank: z.string().min(1, { message: messages.bankRequired }),
-  // startDate: z.string(),
+  startDate: z.string().min(1, { message: messages.nameRequired }),
   newPassword: z
     .string()
     .min(1, { message: 'ضروری' })
@@ -45,7 +45,7 @@ export const defaultValues = {
   email: '',
   password: '',
   bank: undefined,
-  // startDate: undefined,
+  startDate: "",
   newPassword:'',
   userInfo: undefined,
 };

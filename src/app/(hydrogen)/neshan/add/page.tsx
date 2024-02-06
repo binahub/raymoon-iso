@@ -129,7 +129,6 @@ export default function SupportInboxPage() {
                   placeholder='******'
                   className='[&>label>span]:font-medium '
                   color='info'
-                  required
                   inputClassName='text-sm'
                   {...register('password')}
                   error={errors.password?.message}

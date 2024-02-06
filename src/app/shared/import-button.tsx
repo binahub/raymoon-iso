@@ -8,12 +8,15 @@ import cn from '@/utils/class-names';
 const FileUpload = dynamic(() => import('@/app/shared/file-upload'), {
   ssr: false,
 });
+type AcceptedFiles = 'img' | 'pdf' | 'csv' | 'imgAndPdf' | 'all';
 
 type ImportButtonProps = {
   title?: string;
   modalBtnLabel?: string;
   className?: string;
   buttonLabel?: string;
+  accept?: AcceptedFiles;
+  multiple?: boolean
 };
 
 export default function ImportButton({
@@ -21,6 +24,9 @@ export default function ImportButton({
   modalBtnLabel = 'آپلود فایل',
   className,
   buttonLabel = 'آپلود فایل',
+  accept,
+  multiple
+
 }: React.PropsWithChildren<ImportButtonProps>) {
   const { openModal } = useModal();
 
@@ -31,8 +37,8 @@ export default function ImportButton({
           view: (
             <FileUpload
               label={title}
-              accept="csv"
-              multiple={false}
+              accept={accept}
+              multiple={multiple}
               btnLabel={modalBtnLabel}
             />
           ),

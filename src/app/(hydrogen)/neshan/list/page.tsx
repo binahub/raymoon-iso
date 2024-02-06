@@ -124,7 +124,7 @@ export default function NeshanPage() {
   return (
     <Table
       pageHeader={pageHeader}
-      buttons={['export', 'import']}
+      buttons={['export']}
       filterElement={() =>
         FilterElement({
           isFiltered,

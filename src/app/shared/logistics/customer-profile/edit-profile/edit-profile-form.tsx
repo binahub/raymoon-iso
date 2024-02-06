@@ -95,6 +95,8 @@ export default function EditProfileForm({ className }: EditProfileFormProps) {
                 setValue={setValue}
                 getValues={getValues}
                 className="col-span-full"
+                handleUpload={()=>{}}
+
               />
               <Input
                 label="Full Name *"

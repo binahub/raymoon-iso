@@ -225,6 +225,7 @@ export default function CreateCategory({
                   getValues={getValues}
                   setValue={setValue}
                   className="col-span-full"
+                  handleUpload={()=>{}}
                 />
               </HorizontalFormBlockWrapper>
             </div>

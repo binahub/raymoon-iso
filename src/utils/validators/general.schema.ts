@@ -31,7 +31,8 @@ export const generalFormSchema = z.object({
       message: 'رمز عبور شما می بایست دارای حروف بزرگ و کوچک، اعداد و علائم اختصاری (@$%...) باشد.',
     }),
 
-  userInfo: z.array(fileSchema).optional(),
+  // userInfo: z.array(fileSchema)
+  userInfo: z.any()
 });
 
 // generate form types from zod validation schema
@@ -47,5 +48,5 @@ export const defaultValues = {
   bank: undefined,
   startDate: "",
   newPassword:'',
-  userInfo: undefined,
+  userInfo: [],
 };

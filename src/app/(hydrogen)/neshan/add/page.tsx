@@ -19,6 +19,7 @@ import UploadZone from '@/components/ui/file-upload/upload-zone';
 import { Password } from 'rizzui';
 import { useState } from 'react';
 import { DateObject } from 'react-multi-date-picker';
+import ImportButton from '@/app/shared/import-button';
 
 const pageHeader = {
   title: 'نشان بانک',
@@ -35,11 +36,7 @@ const pageHeader = {
 
 export default function SupportInboxPage() {
   const onSubmit: SubmitHandler<GeneralFormTypes> = (data) => {
-    console.log(data);
-    // toast.success(<Text as="b">Successfully added!</Text>);
-    // console.log('Profile settings data ->', {
-    //   ...data,
-    // });
+    console.log('AllDataForm : ', data);
   };
 
   return (
@@ -80,19 +77,18 @@ export default function SupportInboxPage() {
                   pattern='[0-9]*'
                   {...register('phoneNumber')}
                   error={errors.phoneNumber?.message}
-                  className='flex-grow ' 
+                  className='flex-grow '
                   dir='rtl'
                 />
                 <Input
                   label='شماره ملی*'
-                  type='tel'    
-                  pattern='[0-9]*'              
+                  type='tel'
+                  pattern='[0-9]*'
                   maxLength={10}
                   {...register('nationalCode')}
                   error={errors.nationalCode?.message}
                   className='flex-grow '
                   dir='rtl'
-
                 />
                 <Input
                   type='email'
@@ -109,13 +105,12 @@ export default function SupportInboxPage() {
                   name='bank'
                   render={({ field: { value, onChange } }) => (
                     <Select
-                      label='نام بانک'
+                      label='نام بانک*'
                       labelClassName='font-medium text-gray-900 dark:text-white'
                       dropdownClassName='p-2 gap-1 grid'
                       value={value}
                       onChange={onChange}
                       options={regions}
-                      isRequired
                       getOptionValue={(option) => option.name}
                       displayValue={(selected: string) =>
                         regions?.find((c) => c.name === selected)?.name ?? ''
@@ -158,6 +153,8 @@ export default function SupportInboxPage() {
                     getValues={getValues}
                     setValue={setValue}
                     error={errors?.userInfo?.message as string}
+                    handleUpload={(data: any) => console.log(data)}
+                    // inForm
                   />
                 </div>
                 <div className='col-span-full mt-2 flex items-center justify-end'>

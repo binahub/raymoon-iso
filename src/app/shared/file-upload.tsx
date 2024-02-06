@@ -28,7 +28,7 @@ export default function FileUpload({
   label = 'Upload Files',
   btnLabel = 'Upload',
   fieldLabel,
-  multiple = true,
+  multiple = false,
   accept = 'all',
 }: {
   label?: string;
@@ -78,7 +78,7 @@ const fileType = {
 export const FileInput = ({
   label,
   btnLabel = 'Upload',
-  multiple = true,
+  multiple = false,
   accept = 'img',
   className,
 }: {

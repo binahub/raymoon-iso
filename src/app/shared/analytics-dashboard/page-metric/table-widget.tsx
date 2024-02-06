@@ -66,7 +66,6 @@ export default function PageMetrics({ className, pageSize = 5 }: PageMetricsType
           <Datepicker
             value={startDate}
             onChange={(date: Date) => setStartDate(date)}
-            format='MMM, yyyy'
             placeholder='Select'
           />
         </div>

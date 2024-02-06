@@ -60,7 +60,6 @@ export default function DeliveryEvent({ className }: { className?: string }) {
           <Datepicker
             label="Available date"
             placeholder="Select Date"
-            format="dd/MM/yyyy"
             onChange={onChange}
             value={value}
           />
@@ -73,7 +72,6 @@ export default function DeliveryEvent({ className }: { className?: string }) {
           <Datepicker
             label="End date"
             placeholder="Select Date"
-            format="dd/MM/yyyy"
             onChange={onChange}
             value={value}
           />

@@ -108,7 +108,6 @@ export default function RepeatCustomerRate({
         <Datepicker
           value={startDate}
           onChange={(date: Date) => setStartDate(date)}
-          format="yyyy"
           placeholder="Select Year"
         />
       }

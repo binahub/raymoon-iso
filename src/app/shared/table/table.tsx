@@ -5,10 +5,9 @@ import React from 'react';
 import { ActionIcon } from 'rizzui';
 import { PiCaretDownBold, PiCaretUpBold } from 'react-icons/pi';
 import { useColumn } from '@/hooks/use-column';
-import WidgetCard from './table-widget-card';
 import ControlledTable from '.';
 import cn from '@/utils/class-names';
-import CustomCard from '@/components/cards/custom-card';
+import Card from '@/components/cards/card';
 
 export const metadata = {
   ...metaObject('Basic Table'),
@@ -128,12 +127,8 @@ export default function Table({
       header={fileTitles}
       buttons={buttons}
     >
-      <CustomCard>
-        {/* <WidgetCard
-          title={title}
-          className={cn('flex flex-col ', className)}
-          headerClassName='widget-card-header flex-col [&>.ps-2]:ps-0 [&>.ps-2]:w-full sm:[&>.ps-2]:w-auto [&>.ps-2]:mt-3 sm:[&>.ps-2]:mt-0'
-        > */}
+      
+      <Card >
           <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
             <ControlledTable
               isLoading={isLoading}
@@ -183,8 +178,7 @@ export default function Table({
               }
             />
           </div>
-        {/* </WidgetCard> */}
-      </CustomCard>
+      </Card>
     </TableLayout>
   );
 }

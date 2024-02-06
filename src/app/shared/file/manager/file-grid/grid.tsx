@@ -24,14 +24,14 @@ export default function Grid({
     <div className="@container">
       <div className="grid grid-cols-1 gap-5 @md:grid-cols-2 @2xl:grid-cols-3 @3xl:grid-cols-4 @7xl:grid-cols-5">
         {data?.map((item: any, index: number) => {
-          return <Card item={item} key={index} onDeleteItem={onDeleteItem} />;
+          return <CardItem item={item} key={index} onDeleteItem={onDeleteItem} />;
         })}
       </div>
     </div>
   );
 }
 
-export function Card({
+export function CardItem({
   item,
   onDeleteItem,
   className,

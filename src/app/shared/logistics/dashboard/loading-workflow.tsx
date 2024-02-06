@@ -65,19 +65,19 @@ export default function LoadingWorkflow({ className }: { className?: string }) {
         <div className="col-span-full grid grid-cols-3 gap-3 rounded-md border border-gray-300 p-4">
           <p className="col-span-full">Incoming Vehicles - 70</p>
           {incomingVehicles.map((vehicle, index) => (
-            <Card key={index} {...vehicle} />
+            <CardItem key={index} {...vehicle} />
           ))}
         </div>
         <div className="col-span-full grid grid-cols-2 gap-3 rounded-md border border-gray-300 p-4 sm:col-span-1">
           <p className="col-span-full">At Parking - 17</p>
           {atParking.map((vehicle, index) => (
-            <Card key={index} {...vehicle} />
+            <CardItem key={index} {...vehicle} />
           ))}
         </div>
         <div className="col-span-full grid grid-cols-2 gap-3 rounded-md border border-gray-300 p-4 sm:col-span-1">
           <p className="col-span-full">At Dock - 20</p>
           {atDock.map((vehicle, index) => (
-            <Card key={index} {...vehicle} />
+            <CardItem key={index} {...vehicle} />
           ))}
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function LoadingWorkflow({ className }: { className?: string }) {
   );
 }
 
-function Card({ count, label }: { count: number; label: string }) {
+function CardItem({ count, label }: { count: number; label: string }) {
   return (
     <div className="border-l-2 border-secondary ps-2 text-xs">
       <p className="font-semibold text-gray-900">{count}</p>

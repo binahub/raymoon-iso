@@ -66,7 +66,6 @@ export default function ProblemTypes({ className }: { className?: string }) {
         <div className="flex items-center gap-2">
           <span>Show data: </span>
           <Datepicker
-            format="yyyy"
             placeholder="Select"
             onChange={handleChange}
           />

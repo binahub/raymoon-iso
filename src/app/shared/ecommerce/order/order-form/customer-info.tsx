@@ -111,11 +111,10 @@ export default function CustomerInfo({ className }: CustomerInfoProps) {
           <Controller
             name="orderDate"
             control={control}
-            render={({ field: { value, onChange, onBlur } }) => (
+            render={({ field: { value, onChange } }) => (
               <Datepicker
                 label="Order date"
                 placeholder="Select Date"
-                format="dd/MM/yyyy"
                 onChange={onChange}
                 value={value}
               />

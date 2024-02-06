@@ -7,9 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions, status } from '../data';
-import { countries, roles, timezones } from '@/data/forms/my-details';
-import { Datepicker } from 'shafa-bo';
-import CustomCard from '@/components/cards/custom-card';
+import { Datepicker } from '@/components/ui/datepicker';
 import {
   GeneralFormTypes,
   generalFormSchema,
@@ -20,6 +18,7 @@ import { Password } from 'rizzui';
 import { useState } from 'react';
 import { DateObject } from 'react-multi-date-picker';
 import ImportButton from '@/app/shared/import-button';
+import Card from '@/components/cards/card';
 
 const pageHeader = {
   title: 'نشان بانک',
@@ -42,7 +41,7 @@ export default function SupportInboxPage() {
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
-      <CustomCard>
+      <Card>
         <Form<GeneralFormTypes>
           validationSchema={generalFormSchema}
           // resetValues={reset}
@@ -136,17 +135,18 @@ export default function SupportInboxPage() {
                   {...register('newPassword')}
                   error={errors.newPassword?.message}
                 />
-                {/* <Controller
-                  name='startDate'
+                <Controller
                   control={control}
+                  name='startDate'
                   render={({ field: { value, onChange } }) => (
                     <Datepicker
                       label='تاریخ شروع'
                       value={value}
                       onChange={onChange}
+                      error={errors?.startDate}
                     />
                   )}
-                /> */}
+                />
                 <div className='mb-6 @3xl:col-span-3'>
                   <UploadZone
                     name='userInfo'
@@ -170,7 +170,7 @@ export default function SupportInboxPage() {
             );
           }}
         </Form>
-      </CustomCard>
+      </Card>
     </>
   );
 }

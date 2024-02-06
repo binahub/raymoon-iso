@@ -103,7 +103,6 @@ export default function ResponseRate({ className }: { className?: string }) {
         <Datepicker
           value={startDate}
           onChange={(date: Date) => setStartDate(date)}
-          format="yyyy"
           placeholder="Select"
           maxDate={new Date()}
         />

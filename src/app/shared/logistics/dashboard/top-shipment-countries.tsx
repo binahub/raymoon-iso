@@ -32,7 +32,6 @@ export default function TopShipmentCountries({
         <Datepicker
           value={startDate}
           onChange={(date: Date) => setStartDate(date)}
-          format="MMM, yyyy"
           placeholder="Select Month"
           maxDate={new Date()}
         />

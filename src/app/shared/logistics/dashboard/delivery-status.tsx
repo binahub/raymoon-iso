@@ -134,7 +134,6 @@ export function DeliveryStatus({ className }: { className?: string }) {
         <Datepicker
           value={startDate}
           onChange={(date: Date) => setStartDate(date)}
-          format="yyyy"
           placeholder="Select Year"
           maxDate={new Date()}
         />

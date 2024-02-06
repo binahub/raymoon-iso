@@ -130,7 +130,6 @@ export default function EventForm({
                     onChange={onChange}
                     minDate={value}
                     maxDate={endDate}
-                    format="MMMM d, yyyy h:mm aa"
                   />
                 )}
               />
@@ -143,7 +142,6 @@ export default function EventForm({
                     onChange={onChange}
                     minDate={startDate}
                     maxDate={value}
-                    format="MMMM d, yyyy h:mm aa"
                   />
                 )}
               />

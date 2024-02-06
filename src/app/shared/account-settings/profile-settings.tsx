@@ -194,6 +194,7 @@ export default function ProfileSettingsView() {
                       getValues={getValues}
                       setValue={setValue}
                       error={errors?.portfolios?.message as string}
+                      handleUpload={()=>{}}
                     />
                   </div>
                 </FormGroup>

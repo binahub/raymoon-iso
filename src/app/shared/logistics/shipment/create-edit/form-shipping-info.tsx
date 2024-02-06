@@ -168,6 +168,8 @@ export default function FormShippingInfo() {
         getValues={getValues}
         setValue={setValue}
         error={errors?.shippingInfoAttachment?.message as string}
+        handleUpload={()=>{}}
+
       />
     </FormGroup>
   );

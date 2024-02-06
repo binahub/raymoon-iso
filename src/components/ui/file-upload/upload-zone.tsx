@@ -130,7 +130,7 @@ export default function UploadZone({
       <div
         className={cn(
           'rounded-md border',
-          !isEmpty(files) && 'flex items-center justify-between pr-6'
+          !isEmpty(files) && 'flex items-center justify-between p-4'
         )}
       >
         <div

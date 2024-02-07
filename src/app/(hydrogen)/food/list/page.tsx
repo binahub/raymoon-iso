@@ -123,7 +123,7 @@ export default function NeshanPage() {
   return (
     <BasicTablePage
       pageHeader={pageHeader}
-      buttons={['export', 'import']}
+      buttons={['export']}
       filterElement={() =>
         FilterElement({
           isFiltered,

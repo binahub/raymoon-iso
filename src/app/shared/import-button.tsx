@@ -7,9 +7,8 @@ import { useModal } from '@/app/shared/modal-views/use-modal';
 import cn from '@/utils/class-names';
 import { useEffect, useRef, useState } from 'react';
 import { ActionIcon } from 'rizzui';
-const FileUpload = dynamic(() => import('@/app/shared/file-upload'), {
-  ssr: false,
-});
+import FileUpload from '@/app/shared/file-upload'
+
 type AcceptedFiles = 'img' | 'pdf' | 'csv' | 'imgAndPdf' | 'all';
 
 type ImportButtonProps = {

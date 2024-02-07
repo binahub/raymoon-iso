@@ -75,7 +75,7 @@ export default function InvoiceEditPage({ params }: any) {
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}>
-        <ImportButton title="Upload File" className="mt-4 @lg:mt-0" getFile={()=>{}}/>
+        <ImportButton title="Upload File" className="mt-4 @lg:mt-0"/>
       </PageHeader>
 
       <CreateInvoice id={params.id} record={invoiceData} />

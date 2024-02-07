@@ -64,14 +64,14 @@ function UploadButton() {
                   error={errors.name?.message}
                   className='flex-grow'
                 />
-                {/* <div className='pt-6'>
+                <div className='pt-6'>
                   <ImportButton
                     title={'آپلود فایل'}
                     accept='csv'
                     getFile={(data: any) => setFile(data)}
                     multiple
                   />
-                </div> */}
+                </div>
                 {/* <div className='mt-2 flex justify-end pt-4'> */}
                 <div className='col-span-full mt-2 flex items-center justify-end'>
                   <Button

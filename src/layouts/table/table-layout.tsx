@@ -21,13 +21,13 @@ export default function TableLayout({
 }: React.PropsWithChildren<TableLayoutProps>) {
   const buttonsFactory: any = {
     export: <ExportButton data={data} fileName={fileName} header={header} />,
-    import: <ImportButton title={'Import File'}  getFile={()=>{}} />,
+    import: <ImportButton title={'Import File'} />,
     create: <button>ایجاد</button>,
   };
   return (
     <>
       <PageHeader {...props}>
-        <div className="mt-4 flex items-center gap-3 @lg:mt-0">
+        <div className='mt-4 flex items-center gap-3 @lg:mt-0'>
           {Object.keys(buttonsFactory).map(
             (item) => buttons.includes(item) && buttonsFactory[item]
           )}

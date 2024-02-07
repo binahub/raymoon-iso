@@ -19,7 +19,7 @@ type ImportButtonProps = {
   buttonLabel?: string;
   accept?: AcceptedFiles;
   multiple?: boolean;
-  getFile: (data: any) => void;
+  getFile?: (data: any) => void;
 };
 
 export default function ImportButton({
@@ -53,7 +53,7 @@ export default function ImportButton({
                 btnLabel={modalBtnLabel}
                 setFileName={(data: any) => {
                   setFile(data);
-                  getFile(data)
+                  getFile && getFile(data)
                 }}
               />
             ),

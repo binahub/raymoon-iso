@@ -213,6 +213,7 @@ export default function PersonalInfoView() {
                     getValues={getValues}
                     setValue={setValue}
                     error={errors?.portfolios?.message as string}
+                    handleUpload={()=>{}}
                   />
                 </div>
               </FormGroup>

@@ -2,6 +2,8 @@ import { z } from 'zod';
 import { messages } from '@/config/messages';
 import { fileSchema, validateEmail } from '@/utils/validators/common-rules';
 import { iranianPhoneNumber } from '@/const/regex.constant';
+import { passwordlengthChecker } from '@/utils/password-length-checker';
+import { containPersianCharacters } from '@/utils/persian-character-helper';
 
 // form zod validation schema
 export const generalFormSchema = z.object({
@@ -17,8 +19,20 @@ export const generalFormSchema = z.object({
   email: validateEmail,
   password: z.string().min(1, { message: messages.passwordRequired }),
   bank: z.string().min(1, { message: messages.bankRequired }),
-  // startDate: z.string(),
-  userInfo: z.array(fileSchema).optional(),
+  startDate: z.string().min(1, { message: messages.nameRequired }),
+  newPassword: z
+    .string()
+    .min(1, { message: 'ضروری' })
+    .max(8, { message: 'رمز عبور می بایست حداقل 8 کاراکتر باشد.' })
+    .refine((value) => !containPersianCharacters(value), {
+      message: 'رمز عبور نمی تواند شامل حروف فارسی باشد.',
+    })
+    .refine((value: any) => passwordlengthChecker(value).total >= 100, {
+      message: 'رمز عبور شما می بایست دارای حروف بزرگ و کوچک، اعداد و علائم اختصاری (@$%...) باشد.',
+    }),
+
+  // userInfo: z.array(fileSchema)
+  userInfo: z.any()
 });
 
 // generate form types from zod validation schema
@@ -32,6 +46,7 @@ export const defaultValues = {
   email: '',
   password: '',
   bank: undefined,
-  // startDate: undefined,
-  userInfo: undefined,
+  startDate: "",
+  newPassword:'',
+  userInfo: [],
 };

@@ -8,7 +8,8 @@ import { Button } from '@/components/ui/button';
 import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions, status } from '../data';
 import { countries, roles, timezones } from '@/data/forms/my-details';
-import { Datepicker } from 'shafa-bo';
+// import { Datepicker } from 'shafa-bo';
+import { Datepicker } from '@/components/ui/datepicker';
 import {
   GeneralFormTypes,
   generalFormSchema,
@@ -18,11 +19,8 @@ import UploadZone from '@/components/ui/file-upload/upload-zone';
 import { Password } from 'rizzui';
 import { useState } from 'react';
 import { DateObject } from 'react-multi-date-picker';
+import ImportButton from '@/app/shared/import-button';
 import Card from '@/components/cards/card';
-
-// export const metadata = {
-//   ...metaObject(' ایوا'),
-// };
 
 const pageHeader = {
   title: 'نشان بانک',
@@ -39,11 +37,7 @@ const pageHeader = {
 
 export default function SupportInboxPage() {
   const onSubmit: SubmitHandler<GeneralFormTypes> = (data) => {
-    console.log(data);
-    // toast.success(<Text as="b">Successfully added!</Text>);
-    // console.log('Profile settings data ->', {
-    //   ...data,
-    // });
+    console.log('AllDataForm : ', data);
   };
 
   return (
@@ -75,45 +69,37 @@ export default function SupportInboxPage() {
                   type='number'
                   {...register('TrackingCode')}
                   error={errors.TrackingCode?.message}
-                  className='flex-grow'
+                  className='flex-grow '
                 />
                 <Input
                   label='شماره همراه*'
-                  type='number'
+                  type='tel'
                   maxLength={11}
                   pattern='[0-9]*'
                   {...register('phoneNumber')}
                   error={errors.phoneNumber?.message}
-                  className='flex-grow'
+                  className='flex-grow '
+                  dir='rtl'
                 />
                 <Input
                   label='شماره ملی*'
-                  type='number'
+                  type='tel'
+                  pattern='[0-9]*'
                   maxLength={10}
                   {...register('nationalCode')}
                   error={errors.nationalCode?.message}
-                  className='flex-grow'
+                  className='flex-grow '
+                  dir='rtl'
                 />
                 <Input
                   type='email'
-                  size='lg'
-                  label='ایمیل'
+                  label='ایمیل*'
                   placeholder='ایمیل خود را وارد کنید'
                   className='[&>label>span]:font-medium'
                   color='info'
                   inputClassName='text-sm'
                   {...register('email')}
                   error={errors.email?.message}
-                />
-                <Password
-                  label='رمز عبور*'
-                  placeholder='******'
-                  size='lg'
-                  className='[&>label>span]:font-medium'
-                  color='info'
-                  inputClassName='text-sm'
-                  {...register('password')}
-                  error={errors.password?.message}
                 />
                 <Controller
                   control={control}
@@ -134,23 +120,43 @@ export default function SupportInboxPage() {
                     />
                   )}
                 />
-                {/* <Controller
-                  name='startDate'
+                <Password
+                  label='رمز عبور*'
+                  placeholder='******'
+                  className='[&>label>span]:font-medium '
+                  color='info'
+                  inputClassName='text-sm'
+                  {...register('password')}
+                  error={errors.password?.message}
+                />
+                <Password
+                  label=' رمز عبور جدید*'
+                  placeholder='******'
+                  className='[&>label>span]:font-medium mb-6 @2xl:col-span-2'
+                  inputClassName='text-sm'
+                  {...register('newPassword')}
+                  error={errors.newPassword?.message}
+                />
+                <Controller
                   control={control}
+                  name='startDate'
                   render={({ field: { value, onChange } }) => (
                     <Datepicker
                       label='تاریخ شروع'
                       value={value}
                       onChange={onChange}
+                      error={errors?.startDate}
                     />
                   )}
-                /> */}
+                />
                 <div className='mb-6 @3xl:col-span-3'>
                   <UploadZone
                     name='userInfo'
                     getValues={getValues}
                     setValue={setValue}
                     error={errors?.userInfo?.message as string}
+                    handleUpload={(data: any) => console.log(data)}
+                    // inForm
                   />
                 </div>
                 <div className='col-span-full mt-2 flex items-center justify-end'>

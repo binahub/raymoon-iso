@@ -84,6 +84,8 @@ export default function FormPackageInfo({ className }: FormPackageInfoProps) {
         getValues={getValues}
         setValue={setValue}
         error={errors?.packageInfoAttachment?.message as string}
+        handleUpload={()=>{}}
+
       />
       <div className="mt-3">
         <h4 className="flex items-center gap-1 text-base font-bold text-gray-900 @7xl:text-lg">

@@ -1,7 +1,5 @@
 'use client';
 import WidgetCard from '@/components/cards/widget-card';
-import SweetAlert from '@/components/ui/sweet-alert';
-import Notification from '@/utils/notification';
 import { Button } from '@/components/ui/button';
 import ImportButton from '@/app/shared/import-button';
 import { Form } from '@/components/ui/form';
@@ -13,8 +11,8 @@ import toast from 'react-hot-toast';
 import { Text } from '@/components/ui/text';
 
 function page() {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const [file, setFile] = useState([]);
+ 
+  const [file, setFile] = useState([]); // eslint-disable-next-line react-hooks/exhaustive-deps
 
   // form zod validation schema
   const formSchema = z.object({

@@ -15,3 +15,5 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ className, .
     ></RizzButton>
   );
 });
+
+Button.displayName = 'Button';

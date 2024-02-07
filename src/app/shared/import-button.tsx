@@ -34,10 +34,6 @@ export default function ImportButton({
   const { openModal } = useModal();
   const [file, setFile] = useState([]);
 
-  // useEffect(()=>{
-  //   ()=> getFile(file)
-  // },[])
-
   function handleImageDelete(index: number) {
     const updatedFiles = file.filter((_, i) => i !== index);
     setFile(updatedFiles);

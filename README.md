@@ -1,6 +1,6 @@
 # Ivaa App BackOffice
 
-The Ivaa App BackOffice is a web application that allows administrators to manage and report on all aspects of the Ivaa app. It is built using the Hydrogen framework and utilizes a modular architecture to ensure scalability and maintainability.
+The Ivaa App BackOffice is a web application that allows administrators to manage and report on all aspects of the Ivaa app. It is built using the NextJs framework, Typescript, Tailwind and utilizes a modular architecture to ensure scalability and maintainability.
 
 ## Getting Started
 

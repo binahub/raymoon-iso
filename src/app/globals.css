@@ -1005,3 +1005,12 @@ ol {
 .rct-node-icon {
   color: rgb(56 114 250) !important;
 }
+
+.name-upload{
+  display: flex;
+  justify-content: start;
+  background-color: gainsboro;
+  margin-top: 5px;
+  border-radius: 6px;
+  padding: 8px;
+}

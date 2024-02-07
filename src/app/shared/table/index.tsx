@@ -1,21 +1,15 @@
 'use client';
 
 import React from 'react';
-import dynamic from 'next/dynamic';
 import isEmpty from 'lodash/isEmpty';
 import RizzTable, { type TableProps } from '@/components/ui/rizz-table';
-import { Title } from '@/components/ui/text';
-import Spinner from '@/components/ui/spinner';
-import type { TableFilterProps } from '@/components/controlled-table/table-filter';
-import type { TablePaginationProps } from '@/components/controlled-table/table-pagination';
+import type { TableFilterProps } from './table-filter';
+import type { TablePaginationProps } from './table-pagination';
 import cn from '@/utils/class-names';
 import { TableSkeleton } from '@/components/skeleton/table';
-const TableFilter = dynamic(() => import('@/components/controlled-table/table-filter'), {
-  ssr: false,
-});
-const TablePagination = dynamic(() => import('@/components/controlled-table/table-pagination'), {
-  ssr: false,
-});
+import TableFilter  from './table-filter';
+import TablePagination  from './table-pagination'
+
 
 type ControlledTableProps = {
   isLoading?: boolean;

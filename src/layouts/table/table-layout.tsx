@@ -27,7 +27,7 @@ export default function TableLayout({
   return (
     <>
       <PageHeader {...props}>
-        <div className="mt-4 flex items-center gap-3 @lg:mt-0">
+        <div className='mt-4 flex items-center gap-3 @lg:mt-0'>
           {Object.keys(buttonsFactory).map(
             (item) => buttons.includes(item) && buttonsFactory[item]
           )}

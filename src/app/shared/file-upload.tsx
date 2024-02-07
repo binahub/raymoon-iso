@@ -30,28 +30,30 @@ export default function FileUpload({
   fieldLabel,
   multiple = false,
   accept = 'all',
+  setFileName,
 }: {
   label?: string;
   fieldLabel?: string;
   btnLabel?: string;
   multiple?: boolean;
   accept?: AcceptedFiles;
+  setFileName: (data: any) => void;
 }) {
   const { closeModal } = useModal();
 
   return (
-    <div className="m-auto px-5 pb-8 pt-5 @lg:pt-6 @2xl:px-7">
-      <div className="mb-6 flex items-center justify-between">
-        <Title as="h3" className="text-lg">
+    <div className='m-auto px-5 pb-8 pt-5 @lg:pt-6 @2xl:px-7'>
+      <div className='mb-6 flex items-center justify-between'>
+        <Title as='h3' className='text-lg'>
           {label}
         </Title>
         <ActionIcon
-          size="sm"
-          variant="text"
+          size='sm'
+          variant='text'
           onClick={() => closeModal()}
-          className="p-0 text-gray-500 hover:!text-gray-900"
+          className='p-0 text-gray-500 hover:!text-gray-900'
         >
-          <PiXBold className="h-[18px] w-[18px]" />
+          <PiXBold className='h-[18px] w-[18px]' />
         </ActionIcon>
       </div>
 
@@ -60,19 +62,20 @@ export default function FileUpload({
         multiple={multiple}
         label={fieldLabel}
         btnLabel={btnLabel}
+        setFileName={setFileName}
       />
     </div>
   );
 }
 
 const fileType = {
-  'text/csv': <PiFileCsv className="h-5 w-5" />,
-  'text/plain': <PiFile className="h-5 w-5" />,
-  'application/pdf': <PiFilePdf className="h-5 w-5" />,
-  'application/xml': <PiFileXls className="h-5 w-5" />,
-  'application/zip': <PiFileZip className="h-5 w-5" />,
-  'application/gzip': <PiFileZip className="h-5 w-5" />,
-  'application/msword': <PiFileDoc className="h-5 w-5" />,
+  'text/csv': <PiFileCsv className='h-5 w-5' />,
+  'text/plain': <PiFile className='h-5 w-5' />,
+  'application/pdf': <PiFilePdf className='h-5 w-5' />,
+  'application/xml': <PiFileXls className='h-5 w-5' />,
+  'application/zip': <PiFileZip className='h-5 w-5' />,
+  'application/gzip': <PiFileZip className='h-5 w-5' />,
+  'application/msword': <PiFileDoc className='h-5 w-5' />,
 } as { [key: string]: React.ReactElement };
 
 export const FileInput = ({
@@ -81,15 +84,19 @@ export const FileInput = ({
   multiple = false,
   accept = 'img',
   className,
+  setFileName,
 }: {
   className?: string;
   label?: React.ReactNode;
   multiple?: boolean;
   btnLabel?: string;
   accept?: AcceptedFiles;
+  setFileName: (data: any) => void;
 }) => {
   const { closeModal } = useModal();
   const [files, setFiles] = useState<Array<File>>([]);
+
+
   const imageRef = useRef<HTMLInputElement>(null);
 
   function handleFileDrop(event: React.ChangeEvent<HTMLInputElement>) {
@@ -110,14 +117,14 @@ export const FileInput = ({
 
   function handleFileUpload() {
     if (files.length) {
-      console.log('uploaded files:', files);
-      toast.success(<Text as="b">فایل با موفقیت آپلود شد.</Text>);
+      // console.log('uploaded files:', files);
+      toast.success(<Text as='b'>فایل با موفقیت آپلود شد.</Text>);
 
       setTimeout(() => {
         closeModal();
       }, 200);
     } else {
-      toast.error(<Text as="b">لطفا فایل خود را انتخاب کنید.</Text>);
+      toast.error(<Text as='b'>لطفا فایل خود را انتخاب کنید.</Text>);
     }
   }
 
@@ -129,60 +136,63 @@ export const FileInput = ({
         accept={accept}
         multiple={multiple}
         onChange={(event) => handleFileDrop(event)}
-        className="mb-6 min-h-[280px] justify-center border-dashed bg-gray-50 dark:bg-transparent"
+        className='mb-6 min-h-[280px] justify-center border-dashed bg-gray-50 dark:bg-transparent'
       />
 
-      {files.length > 1 ? (
-        <Text className="mb-2 text-gray-500">{files.length} files</Text>
-      ) : null}
+      {files.length > 1 ? <Text className='mb-2 text-gray-500'>{files.length} فایل</Text> : null}
 
       {files.length > 0 && (
-        <SimpleBar className="max-h-[280px]">
-          <div className="grid grid-cols-1 gap-4">
+        <SimpleBar className='max-h-[280px]'>
+          <div className='grid grid-cols-1 gap-4'>
             {files?.map((file: File, index: number) => (
               <div
-                className="flex min-h-[58px] w-full items-center rounded-xl border border-gray-200 px-3 dark:border-gray-300"
+                className='flex min-h-[58px] w-full items-center rounded-xl border border-gray-200 px-3 dark:border-gray-300'
                 key={file.name}
               >
-                <div className="relative flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-gray-50 object-cover px-2 py-1.5 dark:bg-transparent">
+                <div className='relative flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-gray-50 object-cover px-2 py-1.5 dark:bg-transparent'>
                   {file.type.includes('image') ? (
                     <Image
                       src={URL.createObjectURL(file)}
                       fill
-                      className=" object-contain"
+                      className=' object-contain'
                       priority
                       alt={file.name}
-                      sizes="(max-width: 768px) 100vw"
+                      sizes='(max-width: 768px) 100vw'
                     />
                   ) : (
                     <>{fileType[file.type]}</>
                   )}
                 </div>
-                <div className="truncate px-2.5">{file.name}</div>
+                <div className='truncate px-2.5'>{file.name}</div>
                 <ActionIcon
                   onClick={() => handleImageDelete(index)}
-                  size="sm"
-                  variant="flat"
-                  color="danger"
-                  className="ms-auto flex-shrink-0 p-0 dark:bg-red-dark/20"
+                  size='sm'
+                  variant='flat'
+                  color='danger'
+                  className='ms-auto flex-shrink-0 p-0 dark:bg-red-dark/20'
                 >
-                  <PiTrashBold className="w-6" />
+                  <PiTrashBold className='w-6' />
                 </ActionIcon>
               </div>
             ))}
           </div>
         </SimpleBar>
       )}
-      <div className="mt-4 flex justify-end gap-3">
+      <div className='mt-4 flex justify-end gap-3'>
         <Button
-          variant="outline"
+          variant='outline'
           className={cn(!files.length && 'hidden', 'w-full')}
           onClick={() => setFiles([])}
         >
           پاک کردن
         </Button>
-        <Button className="w-full bg-gradient-to-r from-blue-800  to-blue-darkBlue" onClick={() => handleFileUpload()}>
-          <PiArrowLineDownBold className="me-1.5 h-[17px] w-[17px]" />
+        <Button
+          className='w-full bg-gradient-to-r from-blue-800  to-blue-darkBlue'
+          onClick={
+            // () => handleFileUploa ,
+            () =>{ setFileName(files),  closeModal()}}
+        >
+          <PiArrowLineDownBold className='me-1.5 h-[17px] w-[17px]' />
           {btnLabel}
         </Button>
       </div>

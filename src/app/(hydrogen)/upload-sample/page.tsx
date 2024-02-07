@@ -10,7 +10,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Text } from '@/components/ui/text';
 
-function uploadButton() {
+function UploadButton() {
  
   const [file, setFile] = useState([]); // eslint-disable-next-line react-hooks/exhaustive-deps
 
@@ -91,4 +91,4 @@ function uploadButton() {
   );
 }
 
-export default uploadButton;
+export default UploadButton;

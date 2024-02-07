@@ -11,7 +11,7 @@ import { dataFilter, filterState } from './filter';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
-  const [pageNumer, setPageNumer]  = useState(0);
+  const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
 
   const parameterMap = {
@@ -58,28 +58,23 @@ export default function NeshanPage() {
     selectedRowKeys,
     handleRowSelect,
     handleSelectAll,
-    setData
+    setData,
   } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, filterState);
 
-  
   useEffect(() => {
     setPageNumer(currentPage - 1);
   }, [currentPage]);
 
-    
   useEffect(() => {
-    if(!isLoading){
-      setData(data?.foodCategoryObjectList)
+    if (!isLoading) {
+      setData(data?.foodCategoryObjectList);
     }
     setPageNumer(currentPage - 1);
   }, [isLoading]);
 
-  
-
-  useEffect(() => {      
-    list(parameterMap);   
+  useEffect(() => {
+    list(parameterMap);
   }, [pageNumer, pageSize]);
-
 
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {

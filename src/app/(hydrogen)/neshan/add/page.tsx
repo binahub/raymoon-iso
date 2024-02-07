@@ -6,7 +6,7 @@ import Select from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { SubmitHandler, Controller } from 'react-hook-form';
-import { regions, status } from '../data';
+import { regions } from '../data';
 import { Datepicker } from '@/components/ui/datepicker';
 import {
   GeneralFormTypes,
@@ -15,9 +15,6 @@ import {
 } from '@/utils/validators/general.schema';
 import UploadZone from '@/components/ui/file-upload/upload-zone';
 import { Password } from 'rizzui';
-import { useState } from 'react';
-import { DateObject } from 'react-multi-date-picker';
-import ImportButton from '@/app/shared/import-button';
 import Card from '@/components/cards/card';
 
 const pageHeader = {
@@ -154,7 +151,7 @@ export default function SupportInboxPage() {
                     setValue={setValue}
                     error={errors?.userInfo?.message as string}
                     handleUpload={(data: any) => console.log(data)}
-                    // inForm
+                    inForm
                   />
                 </div>
                 <div className='col-span-full mt-2 flex items-center justify-end'>

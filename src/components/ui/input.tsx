@@ -7,3 +7,5 @@ export { type InputProps } from 'rizzui';
 export const Input = forwardRef<HTMLInputElement, InputProps>(({ color, ...props }, ref) => {
   return <RizzInput color={color || 'info'} ref={ref} {...props} />;
 });
+
+Input.displayName = 'Input';

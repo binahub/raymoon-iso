@@ -37,9 +37,9 @@ export default function Header({ className }: { className?: string }) {
 
       <div className='flex w-full items-center justify-between gap-5 xl:w-[calc(100%_-_190px)] 2xl:w-[calc(100%_-_310px)] 3xl:gap-6'>
         <div
-          // className={`flex max-w-2xl items-center xl:w-auto ${theme !== 'dark' ? 'bg-white' : ''} `}
-          className='flex max-w-2xl min-w-20 items-center xl:w-auto '
-
+          className={`flex max-w-2xl items-center min-w-20 xl:w-auto ${
+            theme !== 'dark' ? 'bg-white' : ''
+          } `}
         >
           <HamburgerButton view={<Sidebar className='static w-full 2xl:w-full' />} />
           <Link

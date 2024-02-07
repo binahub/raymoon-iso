@@ -49,7 +49,6 @@ export default function PromotionalSales({
         <Datepicker
           value={startDate}
           onChange={(date: Date) => setStartDate(date)}
-          format="MMM, yyyy"
           placeholder="Select"
         />
       }

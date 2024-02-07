@@ -5,11 +5,13 @@ import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
 interface AlertProps {
-  type: 'error' | 'success' | 'warning';
+  type: 'error' | 'success' | 'warning' | 'info';
   title?: string;
   message: string;
   confirmButtonText?: string;
   cancelButtonText?: string;
+  confirmFlow?: () => void;
+  dismissFlow?: () => void;
 }
 
 export default function SweetAlert({
@@ -18,29 +20,42 @@ export default function SweetAlert({
   message,
   confirmButtonText,
   cancelButtonText,
+  confirmFlow,
+  dismissFlow,
 }: AlertProps) {
   let ButtonClass = '';
-  if (type === 'error') ButtonClass = 'bg-[#f27474]';
-  else if (type === 'success') ButtonClass = 'bg-[#a5dc86]';
-  else ButtonClass = 'bg-[#facea8]';
+  let color = '';
+  if (type === 'error') ButtonClass = 'bg-[#ea5455]';
+  else if (type === 'success') ButtonClass = 'bg-[#5cb85c]';
+  else if (type === 'info') {
+    ButtonClass = 'bg-primary';
+    color = 'rgb(56 114 250)';
+  } else {
+    ButtonClass = 'bg-[#FBBA00]';
+    color = '#FBBA00';
+  }
 
   const handleSweetAlert = () =>
     MySwal.fire({
       title,
       icon: type,
+      iconColor: color,
       text: message,
-      showCancelButton: true,
+      showCancelButton: !!cancelButtonText,
       confirmButtonText: confirmButtonText || 'باشه!',
       cancelButtonText,
       focusConfirm: false,
       allowOutsideClick: false,
       customClass: {
-        confirmButton: `${ButtonClass} p-2 rounded-lg`,
-        cancelButton: cancelButtonText
-          ? 'bg-slate-300 mr-2 p-2 rounded-lg'
-          : '',
+        confirmButton: `${ButtonClass} p-2 rounded-lg text-white`,
       },
       buttonsStyling: false,
+    }).then((result) => {
+      if (confirmFlow && result.isConfirmed) {
+        confirmFlow();
+      } else if (dismissFlow && result.isDismissed) {
+        dismissFlow();
+      }
     });
 
   return handleSweetAlert();

@@ -5,7 +5,7 @@ import isNumber from 'lodash/isNumber';
 import isString from 'lodash/isString';
 import { FieldHelperText } from 'rizzui';
 import { Listbox, Transition } from '@headlessui/react';
-import { ExtractProps } from '@/components/ui/table';
+import { ExtractProps } from '@/components/ui/rizz-table';
 import cn from '@/utils/class-names';
 import { PiCaretUpDown } from 'react-icons/pi';
 import { FieldError } from '@/components/ui/field-error';
@@ -291,7 +291,7 @@ export default function SelectBox<OptionType extends SelectOption>({
   size = 'DEFAULT',
   rounded = 'DEFAULT',
   variant = 'outline',
-  color = 'DEFAULT',
+  color = 'info',
   suffix = <PiCaretUpDown className="h-5 w-5" />,
   onFocus,
   onBlur,
@@ -422,7 +422,7 @@ export default function SelectBox<OptionType extends SelectOption>({
                         'h-auto'
                       )}
                     >
-                      Nothing found.
+                     داده‌ای یافت نشد.
                     </li>
                   ) : (
                     options.map((option) => (

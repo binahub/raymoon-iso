@@ -125,6 +125,7 @@ export default function StepTwo() {
               label="Upload Property Photo"
               getValues={getValues}
               setValue={setValue}
+              handleUpload={()=>{}}
             />
           </>
         </form>

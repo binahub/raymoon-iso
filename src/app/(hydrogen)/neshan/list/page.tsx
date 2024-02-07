@@ -1,8 +1,8 @@
 'use client';
 import { routes } from '@/config/routes';
 import { getColumns } from './columns';
-import BasicTablePage from '@/app/shared/custom-table/table';
-import FilterElement from '@/app/shared/custom-table/filter';
+import Table from '@/app/shared/table/table';
+import FilterElement from '@/app/shared/table/filter';
 import { detail } from './detail';
 import React, { useState } from 'react';
 import { useTable } from '@/hooks/use-table-mock';
@@ -122,9 +122,9 @@ export default function NeshanPage() {
   ];
 
   return (
-    <BasicTablePage
+    <Table
       pageHeader={pageHeader}
-      buttons={['export', 'import']}
+      buttons={['export']}
       filterElement={() =>
         FilterElement({
           isFiltered,

@@ -28,7 +28,6 @@ export default function UserLocation({ className }: { className?: string }) {
         <Datepicker
           value={startDate}
           onChange={(date: Date) => setStartDate(date)}
-          format="MMM, yyyy"
           placeholder="Select"
         />
       }

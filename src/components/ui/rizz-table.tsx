@@ -54,7 +54,7 @@ export interface TableProps extends Omit<RCTableProps, 'className' | 'emptyText'
  *  React table component with useful functions. Under the hood we are using `rc-table` package,
  * you can check their official documentation for more details -> https://www.npmjs.com/package/rc-table
  */
-export default function Table({
+export default function RizTable({
   striped,
   variant = 'classic',
   emptyText,

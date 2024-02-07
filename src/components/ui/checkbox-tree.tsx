@@ -6,13 +6,10 @@ import {
   FaCheckSquare,
   FaRegPlusSquare,
   FaFolder,
+  FaAngleLeft,
+  FaAngleDown,
 } from 'react-icons/fa';
-import {
-  CiSquareCheck,
-  CiSquareMinus,
-  CiSquareChevLeft,
-  CiSquareChevDown,
-} from 'react-icons/ci';
+import { FaRegSquareCheck, FaRegSquareMinus } from 'react-icons/fa6';
 import makeFlatItems from '@/utils/make-flat';
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 
@@ -68,12 +65,14 @@ export default function CheckboxTreeComponent({
     return { checkedItemsKeys, checkedItemsIds };
   };
 
+  const finalizeDataHandler = checkedWithParents(checkedWithParentsHandler(defaultChecked));
+
   useEffect(() => {
     if (defaultChecked.length > 0) {
       setChecked(defaultChecked);
-      checkedWithParents(checkedWithParentsHandler(defaultChecked));
+      finalizeDataHandler;
     }
-  }, [defaultChecked, defaultChecked.length, checkedWithParents]);
+  }, [defaultChecked, defaultChecked.length, finalizeDataHandler]);
   return (
     <>
       <CheckboxTree
@@ -86,11 +85,11 @@ export default function CheckboxTreeComponent({
         }}
         onExpand={(values: any) => setExpanded(values)}
         icons={{
-          check: <CiSquareCheck size={15} />,
+          check: <FaRegSquareCheck size={15} />,
           uncheck: <FaRegSquare size={15} />,
-          halfCheck: <CiSquareMinus size={15} />,
-          expandOpen: <CiSquareChevDown size={15} />,
-          expandClose: <CiSquareChevLeft size={15} />,
+          halfCheck: <FaRegSquareMinus size={15} />,
+          expandOpen: <FaAngleDown size={17} />,
+          expandClose: <FaAngleLeft size={17} />,
           parentOpen: <FaCheckSquare size={15} />,
           parentClose: <FaRegPlusSquare size={15} />,
           leaf: <FaFolder size={15} />,

@@ -14,7 +14,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import SimpleBar from '@/components/ui/simplebar';
 import { useWindowSize } from '@/hooks/use-window-size';
-import App from 'package.json'
+import App from 'package.json';
 
 function MenuItem({ menu }: { menu: MenuItemsType }) {
   const { expandedLeft, setExpandedLeft } = useBerylliumSidebars();
@@ -87,7 +87,7 @@ export default function BerylliumLeftSidebarFixed() {
   }, [width, pathname]);
 
   return (
-    <aside className='fixed start-0 top-0 z-50 hidden h-screen w-[88px] flex-col items-center gap-10   bg-gradient-to-r from-blue-800  to-blue-darkBlue  py-3.5 dark:bg-gray-0 xl:flex'>
+    <aside className='fixed start-0 top-0 z-50 hidden h-screen w-[88px] flex-col items-center gap-10 bg-gradient-to-r from-primary  to-blue-darkBlue  py-3.5 dark:bg-gray-0 xl:flex'>
       <ActionIcon
         aria-label='open sidebar'
         variant='text'

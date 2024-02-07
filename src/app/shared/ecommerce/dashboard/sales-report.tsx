@@ -105,7 +105,6 @@ export default function SalesReport({ className }: { className?: string }) {
         <Datepicker
           value={startDate}
           onChange={(date: Date) => setStartDate(date)}
-          format="yyyy"
           placeholder="Selec"
         />
       }

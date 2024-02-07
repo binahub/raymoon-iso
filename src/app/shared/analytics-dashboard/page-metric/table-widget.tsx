@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import ButtonGroupAction from '@/components/charts/button-group-action';
 import { Datepicker } from '@/components/ui/datepicker';
 import cn from '@/utils/class-names';
-import Table from '@/components/ui/table';
+import Table from '@/components/ui/rizz-table';
 import Pagination from '@/components/ui/pagination';
 import { Title } from '@/components/ui/text';
 import { Loader } from '@/components/ui/loader';
@@ -66,7 +66,6 @@ export default function PageMetrics({ className, pageSize = 5 }: PageMetricsType
           <Datepicker
             value={startDate}
             onChange={(date: Date) => setStartDate(date)}
-            format='MMM, yyyy'
             placeholder='Select'
           />
         </div>

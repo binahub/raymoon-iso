@@ -8,7 +8,7 @@ import {
   PiShareFat,
   PiTrashSimple,
 } from 'react-icons/pi';
-import { HeaderCell } from '@/components/ui/table';
+import { HeaderCell } from '@/components/ui/rizz-table';
 import { Title, Text } from '@/components/ui/text';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ActionIcon } from '@/components/ui/action-icon';

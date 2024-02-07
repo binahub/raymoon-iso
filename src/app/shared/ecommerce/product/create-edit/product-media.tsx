@@ -21,6 +21,8 @@ export default function ProductMedia({ className }: ProductMediaProps) {
         name="productImages"
         getValues={getValues}
         setValue={setValue}
+        handleUpload={()=>{}}
+
       />
     </FormGroup>
   );

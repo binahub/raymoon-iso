@@ -5,15 +5,20 @@ import { Form } from '@/components/ui/form';
 import Select from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Controller } from 'react-hook-form';
+import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions, status } from '../data';
-import cn from '@/utils/class-names';
-import { Datepicker } from 'shafa-bo';
-
-
-// export const metadata = {
-//   ...metaObject(' ایوا'),
-// };
+import { Datepicker } from '@/components/ui/datepicker';
+import {
+  GeneralFormTypes,
+  generalFormSchema,
+  defaultValues,
+} from '@/utils/validators/general.schema';
+import UploadZone from '@/components/ui/file-upload/upload-zone';
+import { Password } from 'rizzui';
+import { useState } from 'react';
+import { DateObject } from 'react-multi-date-picker';
+import ImportButton from '@/app/shared/import-button';
+import Card from '@/components/cards/card';
 
 const pageHeader = {
   title: 'نشان بانک',
@@ -29,112 +34,143 @@ const pageHeader = {
 };
 
 export default function SupportInboxPage() {
-  const onSubmit = () => {};
+  const onSubmit: SubmitHandler<GeneralFormTypes> = (data) => {
+    console.log('AllDataForm : ', data);
+  };
+
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
-
-      <div
-        className={cn(
-          'h-[88%] rounded-3xl border border-gray-100 bg-white @container dark:bg-gray-100 shadow-[-10px_-10px_20px_-65px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]'
-        )}
-      >
-        <div className='flex h-full w-full flex-col p-6 @2xl:p-12 3xl:px-16 4xl:px-28'>
-          <Form onSubmit={onSubmit} className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]'>
-            {({ register, control, setValue, getValues, formState: { errors } }) => {
-              console.log('errors', errors);
-              return (
-                <>
-                  <Input
-                    label='کدخطا*'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('fullName')}
-                    // error={errors.fullName?.message}
+      <Card>
+        <Form<GeneralFormTypes>
+          validationSchema={generalFormSchema}
+          // resetValues={reset}
+          onSubmit={onSubmit}
+          useFormProps={{
+            mode: 'onChange',
+            defaultValues,
+          }}
+          className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%] p-6 @2xl:p-12 3xl:px-16 4xl:px-28'
+        >
+          {({ register, control, setValue, getValues, formState: { errors } }) => {
+            return (
+              <>
+                <Input
+                  label='نام*'
+                  type='text'
+                  {...register('name')}
+                  error={errors.name?.message}
+                  className='flex-grow'
+                />
+                <Input
+                  label='شماره پیگیری*'
+                  type='number'
+                  {...register('TrackingCode')}
+                  error={errors.TrackingCode?.message}
+                  className='flex-grow '
+                />
+                <Input
+                  label='شماره همراه*'
+                  type='tel'
+                  maxLength={11}
+                  pattern='[0-9]*'
+                  {...register('phoneNumber')}
+                  error={errors.phoneNumber?.message}
+                  className='flex-grow '
+                  dir='rtl'
+                />
+                <Input
+                  label='شماره ملی*'
+                  type='tel'
+                  pattern='[0-9]*'
+                  maxLength={10}
+                  {...register('nationalCode')}
+                  error={errors.nationalCode?.message}
+                  className='flex-grow '
+                  dir='rtl'
+                />
+                <Input
+                  type='email'
+                  label='ایمیل*'
+                  placeholder='ایمیل خود را وارد کنید'
+                  className='[&>label>span]:font-medium'
+                  color='info'
+                  inputClassName='text-sm'
+                  {...register('email')}
+                  error={errors.email?.message}
+                />
+                <Controller
+                  control={control}
+                  name='bank'
+                  render={({ field: { value, onChange } }) => (
+                    <Select
+                      label='نام بانک*'
+                      labelClassName='font-medium text-gray-900 dark:text-white'
+                      dropdownClassName='p-2 gap-1 grid'
+                      value={value}
+                      onChange={onChange}
+                      options={regions}
+                      getOptionValue={(option) => option.name}
+                      displayValue={(selected: string) =>
+                        regions?.find((c) => c.name === selected)?.name ?? ''
+                      }
+                      error={errors?.bank?.message}
+                    />
+                  )}
+                />
+                <Password
+                  label='رمز عبور*'
+                  placeholder='******'
+                  className='[&>label>span]:font-medium '
+                  color='info'
+                  inputClassName='text-sm'
+                  {...register('password')}
+                  error={errors.password?.message}
+                />
+                <Password
+                  label=' رمز عبور جدید*'
+                  placeholder='******'
+                  className='[&>label>span]:font-medium mb-6 @2xl:col-span-2'
+                  inputClassName='text-sm'
+                  {...register('newPassword')}
+                  error={errors.newPassword?.message}
+                />
+                <Controller
+                  control={control}
+                  name='startDate'
+                  render={({ field: { value, onChange } }) => (
+                    <Datepicker
+                      label='تاریخ شروع'
+                      value={value}
+                      onChange={onChange}
+                      error={errors?.startDate}
+                    />
+                  )}
+                />
+                <div className='mb-6 @3xl:col-span-3'>
+                  <UploadZone
+                    name='userInfo'
+                    getValues={getValues}
+                    setValue={setValue}
+                    error={errors?.userInfo?.message as string}
+                    handleUpload={(data: any) => console.log(data)}
+                    // inForm
                   />
-                  <Input
-                    label='شرح خطا*'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('email')}
-                    // error={errors.email?.message}
-                  />
-                  <Input
-                    label='شماره مرجع'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('email')}
-                    // error={errors.email?.message}
-                  />
-                  <Input
-                    label='شماره ترمینال'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('company')}
-                    // error={errors.company?.message}
-                  />
-                  <Input
-                    label='شماره مرجع'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('email')}
-                    // error={errors.email?.message}
-                  />
-                  <Input
-                    label='شماره ترمینال'
-                    labelClassName='font-medium text-gray-900 dark:text-white'
-                    // {...register('company')}
-                    // error={errors.company?.message}
-                  />
-                  <Datepicker label={'تاریخ ثبت خطا'} onChange={() => {}} />
-                  <Controller
-                    control={control}
-                    name='region'
-                    render={({ field: { value, onChange } }) => (
-                      <Select
-                        label='حوزه فعالیت'
-                        labelClassName='font-medium text-gray-900 dark:text-white'
-                        dropdownClassName='p-2 gap-1 grid'
-                        value={value}
-                        onChange={onChange}
-                        options={regions}
-                        getOptionValue={(option) => option.name}
-                        // displayValue={(selected: string) =>
-                        //   regions?.find((c) => c.value === selected)?.name ?? ''
-                        // }
-                        error={errors?.region?.message as string}
-                      />
-                    )}
-                  />
-                  <Controller
-                    control={control}
-                    name='country'
-                    render={({ field: { value, onChange } }) => (
-                      <Select
-                        label='وضعیت فعالیت'
-                        labelClassName='font-medium text-gray-900 dark:text-white'
-                        dropdownClassName='p-2 gap-1 grid'
-                        value={value}
-                        onChange={onChange}
-                        options={status}
-                        getOptionValue={(option) => option.name}
-                        // displayValue={(selected: string) =>
-                        //   countries?.find((c) => c.value === selected)?.name ?? ''
-                        // }
-                        error={errors?.country?.message as string}
-                      />
-                    )}
-                  />
-                  <div className='col-span-full mt-2 flex items-center justify-end'>
-                    <Button
-                      type='submit'
-                      className=' dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
-                      // isLoading={isLoading}
-                    >
-                      افزودن
-                    </Button>
-                  </div>
-                </>
-              );
-            }}
-          </Form>
-        </div>
-      </div>
+                </div>
+                <div className='col-span-full mt-2 flex items-center justify-end'>
+                  <Button
+                    type='submit'
+                    className=' dark:text-white dark:bg-yellow-500 bg-primary w-32'
+                    // isLoading={isLoading}
+                  >
+                    افزودن
+                  </Button>
+                </div>
+              </>
+            );
+          }}
+        </Form>
+      </Card>
     </>
   );
 }

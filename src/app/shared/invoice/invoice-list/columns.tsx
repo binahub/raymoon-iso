@@ -6,7 +6,7 @@ import { routes } from '@/config/routes';
 import { Title, Text } from '@/components/ui/text';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip } from '@/components/ui/tooltip';
-import { HeaderCell } from '@/components/ui/table';
+import { HeaderCell } from '@/components/ui/rizz-table';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ActionIcon } from '@/components/ui/action-icon';
 import EyeIcon from '@/components/icons/eye';

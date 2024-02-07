@@ -1,6 +1,4 @@
 'use client';
-
-import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { PiArrowLineDownBold, PiTrashBold } from 'react-icons/pi';
 import { useModal } from '@/app/shared/modal-views/use-modal';

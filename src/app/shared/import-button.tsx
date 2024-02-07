@@ -70,7 +70,7 @@ export default function ImportButton({
       </Button>
       {file?.length > 0 &&
         file.map((item: File, index: number) => (
-          <div className='name-upload'>
+          <div className='name-upload' key={index}>
             <p>{item.name}</p>
             <ActionIcon
               onClick={() => handleImageDelete(index)}

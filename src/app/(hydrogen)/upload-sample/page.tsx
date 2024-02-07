@@ -13,6 +13,7 @@ import toast from 'react-hot-toast';
 import { Text } from '@/components/ui/text';
 
 function page() {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const [file, setFile] = useState([]);
 
   // form zod validation schema

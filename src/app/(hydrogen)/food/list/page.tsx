@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { routes } from '@/config/routes';
 import BasicTablePage from '@/app/shared/table/table';
-import FilterElement from '@/app/shared/table/filter';
+import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from './detail';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';

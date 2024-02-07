@@ -1,11 +1,12 @@
 'use client';
-import TableLayout from './table-layout';
-import { metaObject } from '@/config/site.config';
+
 import React from 'react';
 import { ActionIcon } from 'rizzui';
+import { metaObject } from '@/config/site.config';
 import { PiCaretDownBold, PiCaretUpBold } from 'react-icons/pi';
 import { useColumn } from '@/hooks/use-column';
 import ControlledTable from '.';
+import TableLayout from './table-layout';
 import cn from '@/utils/class-names';
 import Card from '@/components/cards/card';
 
@@ -116,8 +117,6 @@ export default function Table({
 }: any) {
   const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
 
-  
-
   return (
     <TableLayout
       title={pageHeader.title}
@@ -127,57 +126,56 @@ export default function Table({
       header={fileTitles}
       buttons={buttons}
     >
-      
-      <Card >
-          <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
-            <ControlledTable
-              isLoading={isLoading}
-              data={tableData}
-              columns={visibleColumns}
-              expandable={
-                ExpandedRow
-                  ? {
-                      expandIcon: CustomExpandIcon,
-                      expandedRowRender: (record : any) => <ExpandedRow record={record} />,
-                      expandedRowKeys: expandedKeys,
-                      onExpand: onExpand,
-                    }
-                  : {}
-              }
-              scroll={scroll}
-              sticky={sticky}
-              variant={variant}
-              className='mt-4'
-              paginatorOptions={paginatorOptions ? paginatorOptions : {}}
-              filterOptions={{
-                searchTerm,
-                onSearchClear: () => {
-                  handleSearch('');
-                },
-                onSearchChange: (event) => {
-                  handleSearch(event.target.value);
-                },
-                hasSearched: isFiltered,
-                hideIndex: 1,
-                columns,
-                checkedColumns,
-                setCheckedColumns,
-                enableDrawerFilter: true,
-              }}
-              filterElement={
-                FilterElement && (
-                  <FilterElement
-                    onSearch={handleSearch}
-                    searchTerm={searchTerm}
-                    isFiltered={isFiltered}
-                    filters={filters}
-                    updateFilter={updateFilter}
-                    handleReset={handleReset}
-                  />
-                )
-              }
-            />
-          </div>
+      <Card>
+        <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
+          <ControlledTable
+            isLoading={isLoading}
+            data={tableData}
+            columns={visibleColumns}
+            expandable={
+              ExpandedRow
+                ? {
+                    expandIcon: CustomExpandIcon,
+                    expandedRowRender: (record: any) => <ExpandedRow record={record} />,
+                    expandedRowKeys: expandedKeys,
+                    onExpand: onExpand,
+                  }
+                : {}
+            }
+            scroll={scroll}
+            sticky={sticky}
+            variant={variant}
+            className='mt-4'
+            paginatorOptions={paginatorOptions ? paginatorOptions : {}}
+            filterOptions={{
+              searchTerm,
+              onSearchClear: () => {
+                handleSearch('');
+              },
+              onSearchChange: (event) => {
+                handleSearch(event.target.value);
+              },
+              hasSearched: isFiltered,
+              hideIndex: 1,
+              columns,
+              checkedColumns,
+              setCheckedColumns,
+              enableDrawerFilter: true,
+            }}
+            filterElement={
+              FilterElement && (
+                <FilterElement
+                  onSearch={handleSearch}
+                  searchTerm={searchTerm}
+                  isFiltered={isFiltered}
+                  filters={filters}
+                  updateFilter={updateFilter}
+                  handleReset={handleReset}
+                />
+              )
+            }
+          />
+        </div>
       </Card>
     </TableLayout>
   );

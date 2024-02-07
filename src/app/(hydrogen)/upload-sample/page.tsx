@@ -12,7 +12,7 @@ import { Text } from '@/components/ui/text';
 
 function UploadButton() {
  
-  const [file, setFile] = useState([]); // eslint-disable-next-line react-hooks/exhaustive-deps
+  // const [file, setFile] = useState([]); 
 
   // form zod validation schema
   const formSchema = z.object({
@@ -26,12 +26,12 @@ function UploadButton() {
   };
 
   const onSubmit: SubmitHandler<any> = (data: any) => {
-    console.log(file);
+    // console.log(file);
 
-    if (file.length === 0) {
-      toast.error(<Text as='b'>لطفا فایل خود را انتخاب کنید.</Text>);
-    }
-    console.log('AllDataForm : ', { ...data, file });
+    // if (file.length === 0) {
+    //   toast.error(<Text as='b'>لطفا فایل خود را انتخاب کنید.</Text>);
+    // }
+    // console.log('AllDataForm : ', { ...data, file });
   };
 
   return (
@@ -68,7 +68,7 @@ function UploadButton() {
                   <ImportButton
                     title={'آپلود فایل'}
                     accept='csv'
-                    getFile={(data: any) => setFile(data)}
+                    // getFile={(data: any) => setFile(data)}
                     multiple
                   />
                 </div>

@@ -16,7 +16,7 @@ type ImportButtonProps = {
   buttonLabel?: string;
   accept?: AcceptedFiles;
   multiple?: boolean;
-  getFile?: (data: any) => void;
+  // getFile?: (data: any) => void;
 };
 
 export default function ImportButton({
@@ -26,7 +26,7 @@ export default function ImportButton({
   buttonLabel = 'آپلود فایل',
   accept,
   multiple,
-  getFile,
+  // getFile,
 }: React.PropsWithChildren<ImportButtonProps>) {
   const { openModal } = useModal();
   const [file, setFile] = useState([]);
@@ -50,7 +50,7 @@ export default function ImportButton({
                 btnLabel={modalBtnLabel}
                 setFileName={(data: any) => {
                   setFile(data);
-                  getFile && getFile(data);
+                  // if (getFile) getFile(data);
                 }}
               />
             ),

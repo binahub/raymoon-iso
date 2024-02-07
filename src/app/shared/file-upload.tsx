@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
-// import Image from 'next/image';
+import Image from 'next/image';
 import cn from '@/utils/class-names';
 import {
   PiArrowLineDownBold,
@@ -150,7 +150,7 @@ export const FileInput = ({
                 key={file.name}
               >
                 <div className='relative flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-gray-50 object-cover px-2 py-1.5 dark:bg-transparent'>
-                  {/* {file.type.includes('image') ? (
+                  {file.type.includes('image') ? (
                     <Image
                       src={URL.createObjectURL(file)}
                       fill
@@ -161,7 +161,7 @@ export const FileInput = ({
                     />
                   ) : (
                     <>{fileType[file.type]}</>
-                  )} */}
+                  )}
                 </div>
                 <div className='truncate px-2.5'>{file.name}</div>
                 <ActionIcon

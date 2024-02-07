@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions, status } from '../data';
 import { Datepicker } from '@/components/ui/datepicker';
+import { countries, roles, timezones } from '@/data/forms/my-details';
+// import { Datepicker } from 'shafa-bo';
 import {
   GeneralFormTypes,
   generalFormSchema,
@@ -160,7 +162,7 @@ export default function SupportInboxPage() {
                 <div className='col-span-full mt-2 flex items-center justify-end'>
                   <Button
                     type='submit'
-                    className=' dark:text-white dark:bg-yellow-500 bg-primary w-32'
+                    className='w-32'
                     // isLoading={isLoading}
                   >
                     افزودن

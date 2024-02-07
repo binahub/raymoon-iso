@@ -4,7 +4,8 @@ import { useState } from 'react';
 import DatePicker, { DateObject } from 'react-multi-date-picker';
 import persian from 'react-date-object/calendars/persian';
 import persian_fa from 'react-date-object/locales/persian_fa';
-import { Input, cn } from 'rizzui';
+import { cn } from 'rizzui';
+import { Input } from '@/components/ui/input';
 import { PiCalendarBlank, PiCaretDownBold } from 'react-icons/pi';
 import 'react-multi-date-picker/styles/colors/yellow.css';
 import dayjs from 'dayjs';
@@ -56,6 +57,25 @@ export const Datepicker = ({
   };
   const handleCalenderClose = () => setIsCalenderOpen(false);
 
+  const CustomInput = ({ openCalendar, value, handleValueChange }: any) => (
+    <Input
+      label={label}
+      value={value}
+      placeholder={placeholder}
+      onChange={handleValueChange}
+      inputClassName={error && 'border border-red'}
+      suffix={
+        <PiCaretDownBold
+          className={cn('h-4 w-4 text-gray-500 transition', isCalenderOpen && 'rotate-180')}
+        />
+      }
+      prefix={<PiCalendarBlank className='h-5 w-5 text-gray-500' />}
+      onFocus={() => {
+        openCalendar();
+      }}
+    />
+  );
+
   return (
     <div className={className}>
       <DatePicker
@@ -72,19 +92,7 @@ export const Datepicker = ({
         minDate={minDate}
         maxDate={maxDate}
         disabled={disabled}
-        render={
-          <Input
-            label={label}
-            placeholder={placeholder}
-            inputClassName={error && 'border border-red'}
-            suffix={
-              <PiCaretDownBold
-                className={cn('h-4 w-4 text-gray-500 transition', isCalenderOpen && 'rotate-180')}
-              />
-            }
-            prefix={<PiCalendarBlank className='h-5 w-5 text-gray-500' />}
-          />
-        }
+        render={<CustomInput />}
         onOpen={onCalendarOpen || handleCalenderOpen}
         onClose={onCalendarClose || handleCalenderClose}
         {...props}

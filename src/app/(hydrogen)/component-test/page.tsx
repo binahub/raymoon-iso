@@ -26,7 +26,7 @@ import {
   Card,
 } from 'shafa-bo';
 
-const page = () => {
+const ComponentTest = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
@@ -85,4 +85,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ComponentTest;

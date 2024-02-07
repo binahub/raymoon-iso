@@ -7,7 +7,7 @@ import { useModal } from '@/app/shared/modal-views/use-modal';
 import cn from '@/utils/class-names';
 import { useEffect, useRef, useState } from 'react';
 import { ActionIcon } from 'rizzui';
-import FileUpload from '@/app/shared/file-upload'
+import FileUpload from '@/app/shared/file-upload';
 
 type AcceptedFiles = 'img' | 'pdf' | 'csv' | 'imgAndPdf' | 'all';
 
@@ -52,7 +52,7 @@ export default function ImportButton({
                 btnLabel={modalBtnLabel}
                 setFileName={(data: any) => {
                   setFile(data);
-                  getFile && getFile(data)
+                  getFile && getFile(data);
                 }}
               />
             ),

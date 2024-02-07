@@ -1,45 +1,56 @@
-# Isomorphic
+# Ivaa App BackOffice
+
+The Ivaa App BackOffice is a web application that allows administrators to manage and report on all aspects of the Ivaa app. It is built using the Hydrogen framework and utilizes a modular architecture to ensure scalability and maintainability.
 
 ## Getting Started
 
-System Requirements:
+### System Requirements
 
 1. [Node.js 18.7^](https://nodejs.org/en) or later.
-2. [pnpm - package manager](https://pnpm.io/installation#using-npm) (recommended)
+2. [npm - package manager](https://www.npmjs.com/) (recommended)
 
-First, install dependencies:
+### Installation
 
-```bash
-pnpm install
-# or
-npm run install
-```
-
-Now, run the development server:
+1. Clone the repository or download the source code.
+2. Navigate to the project directory using the terminal or command prompt.
+3. Run the following command to install the required dependencies:
 
 ```bash
-pnpm dev
+npm install
 # or
-npm run dev
+pnpm run install
 ```
+
+## Running the Application
+
+1. Start the development server by running the following command:
+
+```bash
+npm dev
+# or
+pnpm run dev
+```
+
+2. Open http://localhost:3000 with your browser to see the result.
+
+## Editing the Application
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/(hydrogen)/page.tsx`. The page auto-updates as you edit the file. to learn more about this template please visit our [official documentation](https://isomorphic-doc.vercel.app/).
+You can start editing the page by modifying `app/(hydrogen)/page.tsx`. The page auto-updates as you edit the file.
 
 checkout our `package.json` scripts for more command.
 
-## Learn More.
+## Modules
 
-To learn more about Isomorphic, take a look at the following resources:
+The Ivaa App BackOffice is divided into several modules, each responsible for a specific functionality. These modules include:
 
-- [Isomorphic Documentation](https://isomorphic-doc.vercel.app/) - learn about isomorphic.
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+1. User Management: Allows administrators to create, edit, and delete user accounts.
+2. Reporting: Provides various reports on user activity, app usage, and other relevant metrics.
+3. Configuration: Allows administrators to configure app settings, such as theme, language, and other preferences.
+4. Integration: Manages integration with third-party services and APIs.
+5. Security: Ensures secure access to the application and protects sensitive data.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-https://www.youtube.com/watch?v=MAtaT8BZEAo
+The Ivaa App BackOffice is licensed under the MIT License.

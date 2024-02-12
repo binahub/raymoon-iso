@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useColumn } from '@/hooks/use-column';
 import { getColumns } from '@/app/shared/file/manager/file-list/columns';
 import FileFilters from '@/app/shared/file/manager/file-filters';
-import ControlledTable from '@/components/controlled-table';
+import { ControlledTable } from 'shafa-bo';
 const TableFooter = dynamic(() => import('@/app/shared/table-footer'), {
   ssr: false,
 });
@@ -31,7 +31,7 @@ export default function FileListTable({
     handleDelete(id);
   };
 
-  const filterState =10
+  const filterState = 10;
 
   const {
     isLoading,
@@ -92,8 +92,8 @@ export default function FileListTable({
         // @ts-ignore
         columns={visibleColumns}
         scroll={{ x: 1300 }}
-        variant="modern"
-        tableLayout="fixed"
+        variant='modern'
+        tableLayout='fixed'
         rowKey={(record) => record.id}
         paginatorOptions={{
           pageSize,
@@ -110,9 +110,8 @@ export default function FileListTable({
               handleDelete(ids);
             }}
           >
-            <Button size="sm" className="dark:bg-gray-300 dark:text-gray-800">
-              Download {selectedRowKeys.length}{' '}
-              {selectedRowKeys.length > 1 ? 'Files' : 'File'}
+            <Button size='sm' className='dark:bg-gray-300 dark:text-gray-800'>
+              Download {selectedRowKeys.length} {selectedRowKeys.length > 1 ? 'Files' : 'File'}
             </Button>
           </TableFooter>
         }

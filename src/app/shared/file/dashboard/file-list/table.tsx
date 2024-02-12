@@ -6,7 +6,7 @@ import { useTable } from '@/hooks/use-table';
 import { useColumn } from '@/hooks/use-column';
 import { getColumns } from './columns';
 import { Title, Text } from '@/components/ui/text';
-import ControlledTable from '@/components/controlled-table';
+import {ControlledTable} from 'shafa-bo';
 import { routes } from '@/config/routes';
 
 export default function FileListTable({

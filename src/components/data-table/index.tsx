@@ -4,25 +4,25 @@ import { useCallback, useMemo, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { useColumn } from '@/hooks/use-column';
 import { PiCaretDownBold, PiCaretUpBold } from 'react-icons/pi';
-import ControlledTable from '@/components/controlled-table';
+import { ControlledTable } from 'shafa-bo';
 import { ActionIcon } from '@/components/ui/action-icon';
 import cn from '@/utils/class-names';
 
 function CustomExpandIcon(props: any) {
   return (
     <ActionIcon
-      size="sm"
-      variant="outline"
-      rounded="full"
-      className="expand-row-icon ms-2"
+      size='sm'
+      variant='outline'
+      rounded='full'
+      className='expand-row-icon ms-2'
       onClick={(e) => {
         props.onExpand(props.record, e);
       }}
     >
       {props.expanded ? (
-        <PiCaretUpBold className="h-3.5 w-3.5" />
+        <PiCaretUpBold className='h-3.5 w-3.5' />
       ) : (
-        <PiCaretDownBold className="h-3.5 w-3.5" />
+        <PiCaretDownBold className='h-3.5 w-3.5' />
       )}
     </ActionIcon>
   );
@@ -83,8 +83,7 @@ export default function DataTable({
     [onHeaderCellClick, sortConfig.key, sortConfig.direction, onDeleteItem]
   );
 
-  const { visibleColumns, checkedColumns, setCheckedColumns } =
-    useColumn(columns);
+  const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
 
   return (
     <div className={cn(className)}>

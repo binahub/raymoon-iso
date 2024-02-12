@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { routes } from '@/config/routes';
-import BasicTablePage from '@/app/shared/table/table';
-import FilterElement from '@/app/shared/table/content-filter';
+import { Table, FilterElement } from 'shafa-bo';
 import { detail } from './detail';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
@@ -37,7 +36,7 @@ export default function NeshanPage() {
   };
 
   /* create title excel coulemns */
-  const titleExcelColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
+  const exportColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
   /* api call */
   const [list, { isLoading, isSuccess, isError, error, data }] = useCategoryListMutation();
 
@@ -116,9 +115,8 @@ export default function NeshanPage() {
   };
 
   return (
-    <BasicTablePage
+    <Table
       pageHeader={pageHeader}
-      buttons={['export']}
       filterElement={() =>
         FilterElement({
           isFiltered,
@@ -148,7 +146,9 @@ export default function NeshanPage() {
       handleSearch={handleSearch}
       searchTerm={searchTerm}
       tableData={tableData}
-      fileTitles={titleExcelColumns}
+      hasExportFile
+      exportFileName={'export-food-table'}
+      exportColumns={exportColumns}
     />
   );
 }

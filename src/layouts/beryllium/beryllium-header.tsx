@@ -36,11 +36,7 @@ export default function Header({ className }: { className?: string }) {
       </div>
 
       <div className='flex w-full items-center justify-between gap-5 xl:w-[calc(100%_-_190px)] 2xl:w-[calc(100%_-_310px)] 3xl:gap-6'>
-        <div
-          className={`flex max-w-2xl items-center min-w-20 xl:w-auto ${
-            theme !== 'dark' ? 'bg-white' : ''
-          } `}
-        >
+        <div className='flex max-w-2xl items-center min-w-20 xl:w-auto'>
           <HamburgerButton view={<Sidebar className='static w-full 2xl:w-full' />} />
           <Link
             aria-label='Site Logo'
@@ -51,7 +47,7 @@ export default function Header({ className }: { className?: string }) {
           </Link>
           <SearchWidget
             icon={<PiMagnifyingGlass className='me-3 h-[20px] w-[20px]' />}
-            className='xl:w-[500px] '
+            className={`xl:w-[500px]  ${theme !== 'dark' ? 'xl:bg-white' : ''}   `}
           />
         </div>
 

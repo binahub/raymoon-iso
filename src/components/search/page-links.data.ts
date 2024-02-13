@@ -142,6 +142,10 @@ export const pageLinks = [
     href: routes.food.list,
   },
   {
+    name: 'ویرایش سفارش غذاها',
+    href: routes.food.update,
+  },
+  {
     name: 'گزارش پرداخت نشان اعتباری',
     href: routes.neshan.list,
   },

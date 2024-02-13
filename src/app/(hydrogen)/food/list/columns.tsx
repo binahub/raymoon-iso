@@ -68,14 +68,15 @@ function RenderAction({
   row,
   onDeleteItem,
 }: {
-  row:  {
+  row: {
+    id: string;
     name: string;
     description: string;
-  }
+  };
   onDeleteItem: (id: string) => void;
 }) {
   const { openModal } = useModal();
-  
+
   return (
     <>
       <div className='flex items-center justify-end gap-3 pe-4'>
@@ -102,7 +103,7 @@ function RenderAction({
           placement='top'
           color='invert'
         >
-          <Link href={routes.neshan.add}>
+          <Link href={routes.food.update(row.id)}>
             <ActionIcon
               tag='span'
               size='sm'

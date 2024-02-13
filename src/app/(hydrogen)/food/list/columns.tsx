@@ -68,44 +68,52 @@ function RenderAction({
   row,
   onDeleteItem,
 }: {
-  row: SnippetType;
+  row: {
+    id: string;
+    name: string;
+    description: string;
+  };
   onDeleteItem: (id: string) => void;
 }) {
-  const [isModal, setIsModal] = useState(true);
   const { openModal } = useModal();
+
   return (
     <>
       <div className='flex items-center justify-end gap-3 pe-4'>
-        <Tooltip size='sm' content={() => 'ویرایش'} placement='top' color='invert'>
-          {isModal ? (
+        <Tooltip size='sm' content={() => ' ویرایش با مدال'} placement='top' color='invert'>
+          <ActionIcon
+            tag='span'
+            size='sm'
+            variant='outline'
+            aria-label={'ویرایش'}
+            className='hover:text-gray-700'
+            onClick={() =>
+              openModal({
+                view: <ModalView rowData={row} />,
+                customSize: '720px',
+              })
+            }
+          >
+            <PencilIcon className='h-4 w-4' />
+          </ActionIcon>
+        </Tooltip>
+        <Tooltip
+          size='sm'
+          content={() => ' ویرایش جزئیات در صفحه جدید'}
+          placement='top'
+          color='invert'
+        >
+          <Link href={routes.food.update(row.id)}>
             <ActionIcon
               tag='span'
               size='sm'
               variant='outline'
               aria-label={'ویرایش'}
               className='hover:text-gray-700'
-              onClick={() =>
-                openModal({
-                  view: <ModalView />,
-                  customSize: '720px',
-                })
-              }
             >
               <PencilIcon className='h-4 w-4' />
             </ActionIcon>
-          ) : (
-            <Link href={routes.neshan.add}>
-              <ActionIcon
-                tag='span'
-                size='sm'
-                variant='outline'
-                aria-label={'ویرایش'}
-                className='hover:text-gray-700'
-              >
-                <PencilIcon className='h-4 w-4' />
-              </ActionIcon>
-            </Link>
-          )}
+          </Link>
         </Tooltip>
         <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
           <Link href={routes.neshan.add}>

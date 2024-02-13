@@ -35,7 +35,7 @@ export default function NeshanPage() {
     ],
   };
 
-  /* create title excel coulemns */
+  /* create title excel columns */
   const exportColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
   /* api call */
   const [list, { isLoading, isSuccess, isError, error, data }] = useCategoryListMutation();
@@ -85,7 +85,7 @@ export default function NeshanPage() {
     handleDelete(id);
   };
 
-  /* use options colums */
+  /* use options columns */
   const columns = React.useMemo(
     () =>
       getColumns({
@@ -117,6 +117,26 @@ export default function NeshanPage() {
   return (
     <Table
       pageHeader={pageHeader}
+      /* get data from api call */
+      data={data?.foodCategoryObjectList}
+      /* get columns for table */
+      columns={columns}
+      /* data detail for show in expanded table */
+      expandedRow={(rowData: any) => detail(rowData)}
+      expandedKeys={[rowEdit]}
+      onExpand={(expanded: boolean, row: any) => {
+        expanded ? setRowEdit(row.id) : setRowEdit({});
+      }}
+      /* table pagination  */
+      paginatorOptions={{
+        pageSize,
+        setPageSize,
+        total: data?.totalElements,
+        current: currentPage,
+        onChange: (page: number) => handlePaginate(page),
+      }}
+      tableData={tableData}
+      /* table filter */
       filterElement={() =>
         FilterElement({
           isFiltered,
@@ -127,25 +147,10 @@ export default function NeshanPage() {
           actionFilter,
         })
       }
-      getColumns={getColumns}
-      expandedRow={(rowData: any) => detail(rowData)}
-      paginatorOptions={{
-        pageSize,
-        setPageSize,
-        total: data?.totalElements,
-        current: currentPage,
-        onChange: (page: number) => handlePaginate(page),
-      }}
-      data={data?.foodCategoryObjectList}
-      expandedKeys={[rowEdit]}
-      onExpand={(expanded: boolean, row: any) => {
-        expanded ? setRowEdit(row.id) : setRowEdit({});
-      }}
       isLoading={isLoading}
-      columns={columns}
       handleSearch={handleSearch}
       searchTerm={searchTerm}
-      tableData={tableData}
+      /* export file */
       hasExportFile
       exportFileName={'export-food-table'}
       exportColumns={exportColumns}

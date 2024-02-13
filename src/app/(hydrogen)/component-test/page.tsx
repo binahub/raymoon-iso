@@ -54,7 +54,7 @@ const ComponentTest = () => {
         pageSize={5}
         pageSizeOptions={[5, 10, 15, 20]}
       />
-      <ControlledTable
+      {/* <ControlledTable
         isLoading={true}
         data={[]}
         // @ts-ignore
@@ -68,7 +68,7 @@ const ComponentTest = () => {
           current: 1,
           onChange: (page: number) => console.log(page),
         }}
-      />
+      /> */}
       <TablePagination total={25} current={1} defaultCurrent={1} pageSize={6} />
       <QuillLoader className='col-span-full h-[143px]' />
       <SelectLoader />

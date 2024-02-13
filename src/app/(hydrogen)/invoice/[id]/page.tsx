@@ -1,5 +1,4 @@
 import { PiDownloadSimpleBold } from 'react-icons/pi';
-import InvoiceDetails from '@/app/shared/invoice/invoice-details';
 import PrintButton from '@/app/shared/print-button';
 import PageHeader from '@/app/shared/page-header';
 import { metaObject } from '@/config/site.config';
@@ -39,8 +38,6 @@ export default function InvoiceDetailsPage() {
           </Button>
         </div>
       </PageHeader>
-
-      <InvoiceDetails />
     </>
   );
 }

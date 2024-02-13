@@ -4,7 +4,16 @@ import { useModal } from '@/app/shared/modal-views/use-modal';
 import { ActionIcon, Button, Title } from 'rizzui';
 import { PiXBold } from 'react-icons/pi';
 
-export function ModalView() {
+type Props = {
+  rowData: {
+    name: string;
+    description: string;
+  };
+};
+export function ModalView(rowData: Props) {
+
+  console.log(rowData);
+  
   const { closeModal } = useModal();
   return (
     <div className='m-auto px-5 pb-10 pt-5 @lg:pt-6 @2xl:px-7 '>
@@ -21,10 +30,18 @@ export function ModalView() {
       <div className='flex justify-center'>
         <div className=' grid w-[100%] grid-cols-2 gap-5 bg-white dark:bg-gray-100 pb-8'>
           <div>
-            <Input label='نام' labelClassName='font-mediu dark:text-white' />
+            <Input
+              label='نام'
+              defaultValue={rowData?.rowData?.name}
+              labelClassName='font-mediu dark:text-white'
+            />
           </div>
           <div>
-            <Input label=' توضیحات' labelClassName='font-mediu dark:text-white' />
+            <Input
+              label=' توضیحات'
+              defaultValue={rowData?.rowData?.description}
+              labelClassName='font-mediu dark:text-white'
+            />
           </div>
           <div className='col-span-full mt-2 flex items-center justify-end'>
             <Button

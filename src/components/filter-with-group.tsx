@@ -7,7 +7,6 @@ import { CheckboxGroup } from '@/components/ui/checkbox-group';
 import { Collapse } from '@/components/ui/collapse';
 import { PiCaretDownBold, PiPlusBold } from 'react-icons/pi';
 import { generateSlug } from '@/utils/generate-slug';
-import { LayoverAirPortOptionType } from '@/app/shared/explore-flight/listing-filters/filter-utils';
 
 // type FilterOptions = {
 //   name: string;
@@ -20,7 +19,7 @@ import { LayoverAirPortOptionType } from '@/app/shared/explore-flight/listing-fi
 type FilterWithSearchProps = {
   title: string;
   name: string;
-  data: LayoverAirPortOptionType[];
+  data: any;
   state: any;
   clearFilter?: (key: string[]) => void;
   applyFilter: (query: string, value: any) => void;
@@ -29,14 +28,14 @@ type FilterWithSearchProps = {
 const MAX_OPTION_COUNT = 6;
 
 function pickOPtions(
-  arr: LayoverAirPortOptionType[],
+  arr: any,
   count: number
-): LayoverAirPortOptionType[] {
+): any {
   let len = 0;
 
-  const options: LayoverAirPortOptionType[] = [];
+  const options: any = [];
 
-  arr.map((item) => {
+  arr.map((item: any) => {
     if (len < count) {
       options.push(item);
       !item.isGroupTitle && len++;
@@ -46,9 +45,9 @@ function pickOPtions(
   return options;
 }
 
-function getOptionsLength(arr: LayoverAirPortOptionType[]) {
+function getOptionsLength(arr: any) {
   let len = 0;
-  arr.map((el) => {
+  arr.map((el: any) => {
     if (!el.isGroupTitle) len++;
   });
   return len;
@@ -63,7 +62,7 @@ export default function FilterWithGroup({
   applyFilter,
 }: FilterWithSearchProps) {
   const [filteredOptions, setFilteredOptions] = useState<
-    LayoverAirPortOptionType[]
+    any
   >([]);
   const [values, setValues] = useState<string[]>(
     state[name]?.length ? state[name].split(',') : []
@@ -138,7 +137,7 @@ export default function FilterWithGroup({
             onChange={(e) => handleOnChange(e)}
             className="space-y-3"
           >
-            {filteredOptions.map((item: LayoverAirPortOptionType) => {
+            {filteredOptions.map((item: any) => {
               if (item.isGroupTitle) {
                 return (
                   <p

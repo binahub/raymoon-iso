@@ -66,40 +66,37 @@ export function FileStatGrid({ className }: { className?: string }) {
             key={stat.id}
             title={stat.title}
             metric={stat.metric}
-            metricClassName="3xl:text-[22px]"
+            metricClassName='3xl:text-[22px]'
             className={cn('w-full max-w-full justify-between', className)}
             chart={
               <CircleProgressBar
                 percentage={stat.percentage}
                 size={80}
-                stroke="#D7E3FE"
+                stroke='#D7E3FE'
                 strokeWidth={7}
                 progressColor={stat.fill}
                 useParentResponsive={true}
                 label={
-                  <Text
-                    as="span"
-                    className="font-lexend text-base font-medium text-gray-700"
-                  >
+                  <Text as='span' className='font-lexend text-base font-medium text-gray-700'>
                     {stat.percentage}%
                   </Text>
                 }
-                strokeClassName="dark:stroke-gray-300"
+                strokeClassName='dark:stroke-gray-300'
               />
             }
           >
-            <Text className="mt-3 flex items-center leading-none text-gray-500">
+            <Text className='mt-3 flex items-center leading-none text-gray-500'>
               <Text
-                as="span"
+                as='span'
                 className={cn(
                   'me-2 inline-flex items-center font-medium',
                   stat.increased ? 'text-green' : 'text-red'
                 )}
               >
                 {stat.increased ? (
-                  <TrendingUpIcon className="me-1 h-4 w-4" />
+                  <TrendingUpIcon className='me-1 h-4 w-4' />
                 ) : (
-                  <TrendingDownIcon className="me-1 h-4 w-4" />
+                  <TrendingDownIcon className='me-1 h-4 w-4' />
                 )}
                 {stat.value}%
               </Text>
@@ -113,46 +110,36 @@ export function FileStatGrid({ className }: { className?: string }) {
 }
 
 export default function FileStats({ className }: FileStatsType) {
-  const {
-    sliderEl,
-    sliderPrevBtn,
-    sliderNextBtn,
-    scrollToTheRight,
-    scrollToTheLeft,
-  } = useScrollableSlider();
+  const { sliderEl, sliderPrevBtn, sliderNextBtn, scrollToTheRight, scrollToTheLeft } =
+    useScrollableSlider();
 
   return (
-    <div
-      className={cn(
-        'relative flex w-auto items-center overflow-hidden',
-        className
-      )}
-    >
+    <div className={cn('relative flex w-auto items-center overflow-hidden', className)}>
       <Button
-        title="Prev"
-        variant="text"
+        title='Prev'
+        variant='text'
         ref={sliderPrevBtn}
         onClick={() => scrollToTheLeft()}
-        className="!absolute left-0 top-0 z-10 !h-full w-8 !justify-start rounded-none bg-gradient-to-r from-white via-white to-transparent px-0 text-gray-500 hover:text-black dark:from-gray-50/80 dark:via-gray-50/80 3xl:hidden"
+        className='!absolute left-0 top-0 z-10 !h-full w-8 !justify-start rounded-none bg-white dark:bg-gray-50/80 bg-gradient-to-r from-white via-white to-transparent px-0 text-gray-500 hover:text-black dark:from-gray-50/80 dark:via-gray-50/80 3xl:hidden'
       >
-        <PiCaretLeftBold className="h-5 w-5" />
+        <PiCaretLeftBold className='h-5 w-5' />
       </Button>
-      <div className="w-full overflow-hidden">
+      <div className='w-full overflow-hidden'>
         <div
           ref={sliderEl}
-          className="custom-scrollbar-x grid grid-flow-col gap-5 overflow-x-auto scroll-smooth 2xl:gap-6 3xl:gap-8"
+          className='custom-scrollbar-x grid grid-flow-col gap-5 overflow-x-auto scroll-smooth 2xl:gap-6 3xl:gap-8'
         >
-          <FileStatGrid className="min-w-[292px]" />
+          <FileStatGrid className='min-w-[292px]' />
         </div>
       </div>
       <Button
-        title="Next"
-        variant="text"
+        title='Next'
+        variant='text'
         ref={sliderNextBtn}
         onClick={() => scrollToTheRight()}
-        className="!absolute right-0 top-0 z-10 !h-full w-8 !justify-end rounded-none bg-gradient-to-l from-white via-white to-transparent px-0 text-gray-500 hover:text-black dark:from-gray-50/80 dark:via-gray-50/80 3xl:hidden"
+        className='!absolute right-0 top-0 z-10 !h-full w-8 !justify-end rounded-none bg-white dark:bg-gray-50/80 bg-gradient-to-l from-white via-white to-transparent px-0 text-gray-500 hover:text-black dark:from-gray-50/80 dark:via-gray-50/80 3xl:hidden'
       >
-        <PiCaretRightBold className="h-5 w-5" />
+        <PiCaretRightBold className='h-5 w-5' />
       </Button>
     </div>
   );

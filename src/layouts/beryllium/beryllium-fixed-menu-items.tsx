@@ -147,7 +147,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
     icon: PiLightning,
     menuItems: [
       {
-        name: 'خظاهای شاپرکی',
+        name: 'خطاهای شاپرکی',
         description: 'خطاهای شاپرکی',
         icon: PiBinoculars,
         subMenuItems: [

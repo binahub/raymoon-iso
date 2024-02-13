@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { routes } from '@/config/routes';
 import PageHeader from '@/app/shared/page-header';
+// import CreateInvoice from '@/app/shared/invoice/create-invoice';
 import { PiArrowLineUpBold } from 'react-icons/pi';
 import ImportButton from '@/app/shared/import-button';
 import { metaObject } from '@/config/site.config';
@@ -76,6 +77,8 @@ export default function InvoiceEditPage({ params }: any) {
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}>
         <ImportButton title="Upload File" className="mt-4 @lg:mt-0"/>
       </PageHeader>
+
+      {/* <CreateInvoice id={params.id} record={invoiceData} /> */}
     </>
   );
 }

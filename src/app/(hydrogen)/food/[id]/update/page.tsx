@@ -24,7 +24,7 @@ const pageHeader = {
   ],
 };
 
-export default function InvoiceEditPage({ params }: any) {
+export default function FoodEditPage({ params }: any) {
   console.log('Invoice Edit Page ID', params.id);
 
   const parameterMap = {

@@ -42,7 +42,7 @@ export default function SignInForm() {
         redirect: false,
       }).then((result: any) => {
         if (result?.ok) {
-          router.push('/dashboard');
+          router.push('/');
         } else {
           Notification.error(result?.error);
           setLoading(false);

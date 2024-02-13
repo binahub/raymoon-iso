@@ -19,7 +19,7 @@ import { generateSlug } from '@/utils/generate-slug';
 type FilterWithSearchProps = {
   title: string;
   name: string;
-  data: any;
+  data: any[];
   state: any;
   clearFilter?: (key: string[]) => void;
   applyFilter: (query: string, value: any) => void;
@@ -28,12 +28,12 @@ type FilterWithSearchProps = {
 const MAX_OPTION_COUNT = 6;
 
 function pickOPtions(
-  arr: any,
+  arr: any[],
   count: number
-): any {
+): any[] {
   let len = 0;
 
-  const options: any = [];
+  const options: any[] = [];
 
   arr.map((item: any) => {
     if (len < count) {
@@ -45,7 +45,7 @@ function pickOPtions(
   return options;
 }
 
-function getOptionsLength(arr: any) {
+function getOptionsLength(arr: any[]) {
   let len = 0;
   arr.map((el: any) => {
     if (!el.isGroupTitle) len++;
@@ -62,7 +62,7 @@ export default function FilterWithGroup({
   applyFilter,
 }: FilterWithSearchProps) {
   const [filteredOptions, setFilteredOptions] = useState<
-    any
+    any[]
   >([]);
   const [values, setValues] = useState<string[]>(
     state[name]?.length ? state[name].split(',') : []

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { routes } from '@/config/routes';
+//@TODO: should change import from package
 import Table from '@/app/shared/table/table';
 import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from './detail';

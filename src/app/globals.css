@@ -1018,3 +1018,8 @@ ol {
   border-radius: 6px;
   padding: 8px;
 }
+
+
+.rc-pagination-item-active {
+  @apply !bg-primary
+}

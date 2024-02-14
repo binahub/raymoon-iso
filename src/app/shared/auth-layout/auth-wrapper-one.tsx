@@ -90,7 +90,7 @@ export default function AuthWrapperOne({
               {/* </Link> */}
               <Title
                 as='h2'
-                className='mb-5 text-[24px] leading-snug md:text-2xl md:!leading-normal lg:mb-7 lg:text-[27px] xl:text-3xl 2xl:pe-4 2xl:text-4xl'
+                className='flex flex-nowrap justify-center whitespace-pre mb-5 text-[21px] leading-snug md:text-2xl md:!leading-normal lg:mb-7 lg:text-[25px] xl:text-3xl 2xl:pe-4 2xl:text-4xl'
               >
                 {title}
               </Title>

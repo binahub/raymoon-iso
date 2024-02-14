@@ -67,7 +67,6 @@ export default function StepTwo() {
   };
 
   const onSubmit: SubmitHandler<LocationSchema> = (data) => {
-    console.log('data', data);
     setFormData((prev) => ({
       ...prev,
       lng: data.lng,

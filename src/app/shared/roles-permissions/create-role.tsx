@@ -25,13 +25,10 @@ export default function CreateRole() {
   const [isCopied, setIsCopied] = useState(false);
   const [state, copyToClipboard] = useCopyToClipboard();
 
-  console.log('state', state);
-
   const onSubmit: SubmitHandler<CreateRoleInput> = (data) => {
     // set timeout ony required to display loading state of the create category button
     setLoading(true);
     setTimeout(() => {
-      console.log('data', data);
       setLoading(false);
       setReset({
         roleName: '',
@@ -58,7 +55,6 @@ export default function CreateRole() {
       className="flex flex-grow flex-col gap-6 p-6 @container [&_.rizzui-input-label]:font-medium [&_.rizzui-input-label]:text-gray-900"
     >
       {({ register, control, watch, formState: { errors } }) => {
-        console.log('errors', errors);
         const getColor = watch('roleColor');
         const colorCode = `rgba(${getColor?.r ?? 0}, ${getColor?.g ?? 0}, ${
           getColor?.b ?? 0

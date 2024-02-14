@@ -25,7 +25,6 @@ const pageHeader = {
 };
 
 export default function FoodEditPage({ params }: any) {
-  console.log('Invoice Edit Page ID', params.id);
 
   const parameterMap = {
     parameterMap: {
@@ -45,10 +44,7 @@ export default function FoodEditPage({ params }: any) {
     const [testdata , setTestData]= useState({
       name:'',
       description:''
-    })
-
-    console.log(testdata);
-    
+    })    
 
   useEffect(() => {
     list(parameterMap);
@@ -64,7 +60,6 @@ export default function FoodEditPage({ params }: any) {
   }, [isSuccess, serverData]);
 
   const onSubmit: SubmitHandler<any> = (data: any) => {
-    // console.log(data);
     console.log('editData : ', { ...data, id: params.id });
   };
 

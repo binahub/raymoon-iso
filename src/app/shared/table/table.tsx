@@ -92,7 +92,7 @@ export default function Table({
   variant = 'modern',
   noGutter,
   sticky,
-  scroll = { x: 1300 },
+  scroll = { x: 1000 },
   expandedRow: ExpandedRow,
   onExpand,
   expandedKeys,

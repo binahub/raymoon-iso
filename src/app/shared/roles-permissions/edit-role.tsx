@@ -26,7 +26,6 @@ export default function EditRole() {
     // set timeout ony required to display loading state of the create category button
     setLoading(true);
     setTimeout(() => {
-      console.log('data', data);
       setLoading(false);
       closeModal();
     }, 600);
@@ -52,8 +51,6 @@ export default function EditRole() {
       className="grid grid-cols-1 gap-6 p-6  @container [&_.rizzui-input-label]:font-medium [&_.rizzui-input-label]:text-gray-900"
     >
       {({ register, control, watch, formState: { errors } }) => {
-        console.log('errors', errors);
-
         return (
           <>
             <div className="col-span-full flex items-center justify-between">

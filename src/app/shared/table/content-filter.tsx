@@ -1,9 +1,10 @@
-"use client";
-import { useEffect, useState } from "react";
-import { StatusField } from "./status-field";
-import { Input } from "@/components/ui/input";
-import { Button } from "rizzui";
-import { PiTrashDuotone } from "react-icons/pi";
+'use client';
+import React, { useEffect, useState } from 'react';
+import {StatusField} from 'shafa-bo';
+import { Input } from '@/components/ui/input';
+import { Button } from 'rizzui';
+import { PiTrashDuotone } from 'react-icons/pi';
+import { Datepicker } from 'shafa-bo';
 
 type FilterElementProps = {
   isFiltered?: boolean;
@@ -33,7 +34,7 @@ export default function FilterElement({
   /*
    *hendle input onchange
    */
-  const OnChangeInput = (event: any, item: any) => {
+  const OnChangeInput = (event: any, item: any) => {    
     let data = [...localFilter];
     const finded = data.find((f) => f.key === item.key);
     if (finded) {
@@ -58,13 +59,27 @@ export default function FilterElement({
     setLocalFilter(data);
   };
 
+    /*
+   *hendle datePicker onchange
+   */
+   const OnChangeDatePicker = (value: any, item: any) => {    
+    let data = [...localFilter];
+    const finded = data.find((f) => f.key === item.key);
+    if (finded) {
+      finded.value = value;
+    } else {
+      data.push({ key: item.key, value: value });
+    }
+    setLocalFilter(data);
+  };
+
   /*
    *hendle filter action
    */
   const onClickFilter = (e: any) => {
     e.preventDefault();
     localFilter?.forEach((element: any) => {
-      if (element.value === "") return;
+      if (element.value === '') return;
       if (actionFilter) {
         actionFilter({ ...filters, [element.key]: element.value });
       } else updateFilter(element.key, element.value);
@@ -76,33 +91,41 @@ export default function FilterElement({
    */
   function getElementForm(item: any) {
     switch (item.type) {
-      case "Text":
+      case 'Text':
         return (
           <Input
-            type="text"
+            type='text'
             label={item.label}
-            color="info"
-            value={localFilter.find((f) => f.key === item.key)?.value || ""}
+            color='info'
+            value={localFilter.find((f) => f.key === item.key)?.value || ''}
             onChange={(event) => OnChangeInput(event, item)}
             autoFocus
-            className="bg-white"
+            className='bg-white'
           />
         );
-      case "Select":
+      case 'Select':
         return (
           <StatusField
             options={item.selectOption}
             value={localFilter.find((f) => f.key === item.key)?.value}
-            onChange={(event) => OnChangeSelect(event, item)}
-            getOptionValue={(option) => option.name}
+            onChange={(event : any) => OnChangeSelect(event, item)}
+            getOptionValue={(option : any) => option.name}
             displayValue={(selected: string) =>
               item?.selectOption.find((option: any) => option.value === selected)?.label ?? selected
             }
             label={item.label}
           />
         );
-      case "DatePicker":
-        return;
+      case 'DatePicker':
+        return (
+          <Datepicker
+            label={item.label}
+            value={localFilter.find((f) => f.key === item.key)?.value}
+            onChange={(event: any) => OnChangeDatePicker(event , item)
+            }
+            // dateFormat='yyyy/MM/dd'
+          />
+        );
       default:
         undefined;
     }
@@ -110,29 +133,29 @@ export default function FilterElement({
 
   return (
     dataFilter && (
-      <div className="relative ">
+      <div className='relative '>
         {dataFilter?.map((item: any, index: number) => (
-          <div className="mt-5" key={index}>
+          <div className='mt-5' key={index}>
             {getElementForm(item)}
           </div>
         ))}
         {localFilter?.some((f) => f.value) ? (
           <Button
-            size="sm"
+            size='sm'
             onClick={() => {
               setLocalFilter([]);
               handleReset();
             }}
-            className="absolute inset-x-0 bottom-20 h-11 w-[100%]  bg-gray-200/70 "
-            variant="flat"
+            className='absolute inset-x-0 bottom-20 h-11 w-[100%]  bg-gray-200/70 '
+            variant='flat'
           >
-            <PiTrashDuotone className="me-1.5 h-[17px] w-[17px]" /> پاک کن
+            <PiTrashDuotone className='me-1.5 h-[17px] w-[17px]' /> پاک کن
           </Button>
         ) : null}
         <Button
-          size="lg"
+          size='lg'
           onClick={(event) => onClickFilter(event)}
-          className="absolute inset-x-0 bottom-0 bg-blue-darkBlue text-sm"
+          className='absolute inset-x-0 bottom-0 bg-blue-darkBlue text-sm'
         >
           اعمال فیلتر
         </Button>

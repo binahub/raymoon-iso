@@ -1013,3 +1013,8 @@ ol {
 .name-upload {
   @apply flex items-center justify-start bg-[gainsboro] mt-[5px] text-left px-3 py-2 rounded-md;
 }
+
+
+.rc-pagination-item-active {
+  @apply !bg-primary
+}

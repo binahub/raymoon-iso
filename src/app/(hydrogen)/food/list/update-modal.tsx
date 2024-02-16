@@ -1,3 +1,6 @@
+
+/* generate content for update in modal */
+
 'use client ';
 import { Input } from '@/components/ui/input';
 import { useModal } from '@/app/shared/modal-views/use-modal';
@@ -6,7 +9,6 @@ import { Button } from '@/components/ui/button';
 import { PiXBold } from 'react-icons/pi';
 import { Form } from 'shafa-bo';
 import { SubmitHandler } from 'react-hook-form';
-import { z } from 'zod';
 import { FoodSchema, foodSchema } from '@/utils/validators/food.schema';
 
 type Props = {
@@ -17,14 +19,15 @@ type Props = {
   };
 };
 export function ModalView(rowData: Props) {
+  const { closeModal } = useModal();
 
+  /* initialValues form */
   const initialValues: FoodSchema = {
     id: rowData.rowData?.id,
     name: rowData.rowData?.name,
     description: rowData.rowData?.description,
   };
   
-  const { closeModal } = useModal();
 
   const onSubmit: SubmitHandler<any> = (data: any) => {
     console.log('data : ', { ...data, id: rowData.rowData.id });
@@ -50,7 +53,7 @@ export function ModalView(rowData: Props) {
         }}
         className=' grid w-[100%] grid-cols-2 gap-5 bg-white dark:bg-gray-100 pb-6 pt-6'
       >
-        {({ register, control, setValue, getValues, formState: { errors } }) => {
+        {({ register, formState: { errors } }) => {
           return (
             <>
               <Input
@@ -75,7 +78,6 @@ export function ModalView(rowData: Props) {
                 <Button
                   type='submit'
                   className='w-32'
-                  // className='dark:text-white dark:active:bg-gray-100 bg-blue-darkBlue w-32'
                   // isLoading={isLoading}
                 >
                   ویرایش
@@ -86,6 +88,5 @@ export function ModalView(rowData: Props) {
         }}
       </Form>
     </div>
-    // </div>
   );
 }

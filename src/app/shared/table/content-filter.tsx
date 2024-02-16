@@ -25,10 +25,19 @@ export default function FilterElement({
   actionFilter,
   setIsOpenDrawer,
 }: FilterElementProps) {
-  const [localFilter, setLocalFilter] = useState<{ key: string; value: string }[]>([]);
+  
+  const [localFilter, setLocalFilter] = useState<{ key: string; value: string }[]>(filters ? 
+    Object.keys(filters).map((key) => ({ key, value: filters[key] })) : []);
+  console.log('localFilter :' , localFilter);
+
+
+
+  
 
   useEffect(() => {
     setLocalFilter(Object.keys(filters).map((key) => ({ key, value: filters[key] })));
+    console.log('filters:', filters);
+
   }, [filters]);
 
   /*
@@ -79,9 +88,10 @@ export default function FilterElement({
   const onClickFilter = (e: any) => {
     e.preventDefault();
     localFilter?.forEach((element: any) => {
-      if (element.value === '') return;
+      // if (element.value === '') return;
       if (actionFilter) {
         actionFilter({ ...filters, [element.key]: element.value });
+        updateFilter(element.key, element.value)
       } else updateFilter(element.key, element.value);
     });
   };

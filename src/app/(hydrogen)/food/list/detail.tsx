@@ -1,3 +1,6 @@
+
+/* show more details in expect table (readOnly) */
+
 'use client ';
 import { Input } from '@/components/ui/input';
 

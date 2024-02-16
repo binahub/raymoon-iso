@@ -26,6 +26,8 @@ const pageHeader = {
 };
 
 export default function FoodEditPage({ params }: Props) {
+
+  /* input data for post api */
   const parameterMap = {
     parameterMap: {
       id: params.id,
@@ -40,33 +42,24 @@ export default function FoodEditPage({ params }: Props) {
   const [list, { isLoading, isSuccess, isError, error, data: serverData }] =
     useCategoryListMutation();
 
-  const [testdata, setTestData] = useState({
-    name: '',
-    description: '',
-  });
+  /* initialValues form */
+  const initialValues: FoodSchema = {
+    id: params.id,
+    name: serverData?.foodCategoryObjectList[0]?.name,
+    description: serverData?.foodCategoryObjectList[0]?.description,
+  };
 
   useEffect(() => {
     list(parameterMap);
   }, []);
 
-  useEffect(() => {
-    if (isSuccess) {
-      setTestData({
-        name: serverData?.foodCategoryObjectList[0]?.name,
-        description: serverData?.foodCategoryObjectList[0]?.description,
-      });
-    }
-  }, [isSuccess, serverData]);
-
   const onSubmit: SubmitHandler<any> = (data: any) => {
     console.log('editData : ', { ...data, id: params.id });
   };
 
-  const initialValues: FoodSchema = {
-    id: params.id,
-    name: testdata?.name,
-    description: testdata?.description,
-  };
+  if (isLoading) {
+    return;
+  }
 
   return (
     <>
@@ -81,25 +74,21 @@ export default function FoodEditPage({ params }: Props) {
           }}
           className='grid gap-4 md:grid-cols-2 md:gap-7 w-[100%] p-6 @2xl:p-12 3xl:px-16 4xl:px-28'
         >
-          {({ register, control, setValue, getValues, formState: { errors } }) => {
+          {({ register, formState: { errors } }) => {
             return (
               <>
                 <Input
-                  label='نام'
+                  label='نام*'
                   id='name'
                   type='text'
-                  value={testdata?.name}
-                  // defaultValue={testdata.name}
                   {...register('name')}
                   className='flex-grow'
                   error={errors?.name?.message}
                 />
                 <Input
-                  label='توضیحات'
+                  label='توضیحات*'
                   id='description'
                   type='text'
-                  value={testdata?.description}
-                  // defaultValue={testdata.description}
                   {...register('description')}
                   className='flex-grow'
                   error={errors?.description?.message}

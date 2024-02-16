@@ -32,7 +32,7 @@ function FilterDrawerView({
       containerClassName='dark:bg-gray-100 '
     >
       <div className='flex h-full flex-col p-5 '>
-        <div className='-mx-5 mb-6 flex items-center justify-between border-b border-gray-200 px-5 pb-2'>
+        <div className='-mx-5 mb-6 flex items-center justify-between border-b border-gray-200 px-5'>
           <Title as='h5'>{drawerTitle}</Title>
           <ActionIcon
             size='sm'

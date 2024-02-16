@@ -28,7 +28,7 @@ export default function FilterElement({
   
   const [localFilter, setLocalFilter] = useState<{ key: string; value: string }[]>(filters ? 
     Object.keys(filters).map((key) => ({ key, value: filters[key] })) : []);
-  console.log('localFilter :' , localFilter);
+  // console.log('localFilter :' , localFilter);
 
 
 
@@ -36,7 +36,7 @@ export default function FilterElement({
 
   useEffect(() => {
     setLocalFilter(Object.keys(filters).map((key) => ({ key, value: filters[key] })));
-    console.log('filters:', filters);
+    // console.log('filters:', filters);
 
   }, [filters]);
 
@@ -88,12 +88,19 @@ export default function FilterElement({
   const onClickFilter = (e: any) => {
     e.preventDefault();
     localFilter?.forEach((element: any) => {
-      // if (element.value === '') return;
-      if (actionFilter) {
-        actionFilter({ ...filters, [element.key]: element.value });
-        updateFilter(element.key, element.value)
-      } else updateFilter(element.key, element.value);
+       updateFilter(element.key, element.value)
     });
+
+    let tempData : any = {}
+    localFilter?.forEach((element: any) => {
+       tempData[element.key]= element.value
+    })
+
+    if (actionFilter) {    
+      console.log({ ...filters,  ...tempData});
+        
+      actionFilter({ ...filters,  ...tempData});
+    } 
   };
 
   /*

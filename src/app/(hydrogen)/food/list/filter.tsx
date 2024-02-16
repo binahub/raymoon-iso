@@ -1,9 +1,9 @@
-
 /* generate dataFilter for generate content filter inside drawer filter */
 
 /* initioalization  */
 export const filterState = {
   name: '',
+  // description: '',
 };
 
 /* filterable form input */
@@ -13,6 +13,11 @@ export const dataFilter: any = [
     type: 'Text',
     key: 'name',
   },
+  // {
+  //   label: 'توضیحات',
+  //   type: 'Text',
+  //   key: 'description',
+  // },
   // {
   //   label: 'تاریخ شروع',
   //   type: 'DatePicker',

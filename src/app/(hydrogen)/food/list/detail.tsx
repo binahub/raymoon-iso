@@ -14,7 +14,7 @@ export function detail(rowData: Props) {
       <div className=" grid w-[70%] grid-cols-2 gap-5 rounded-2xl border border-gray-100 bg-white dark:bg-gray-100 p-12">
         <div>
           <Input
-            label="شماره مرجع"
+            label="نام"
             labelClassName="font-medium text-gray-900 dark:text-white"
             className="mb-5"
             defaultValue={rowData?.record?.name}
@@ -23,7 +23,7 @@ export function detail(rowData: Props) {
         </div>
         <div>
           <Input
-            label=" شماره پیگیری"
+            label=" توضیحات"
             labelClassName="font-medium text-gray-900 dark:text-white"
             className="mb-5"
             defaultValue={rowData?.record?.description}

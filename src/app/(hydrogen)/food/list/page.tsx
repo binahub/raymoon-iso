@@ -97,7 +97,7 @@ export default function NeshanPage() {
         onDeleteItem,
         checkedItems: selectedRowKeys,
         onChecked: handleRowSelect,
-        handleSelectAll,
+        handleSelectAll
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [

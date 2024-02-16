@@ -9,7 +9,7 @@ import { SnippetType } from '@/data/snippets-and-templates';
 import DeletePopover from '@/app/shared/delete-popover';
 import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
-import { ModalView } from './edit';
+import { ModalView } from './update-modal';
 import TableAvatar from '@/components/ui/avatar-card';
 
 type Columns = {

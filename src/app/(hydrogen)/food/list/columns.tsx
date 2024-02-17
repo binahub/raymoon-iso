@@ -1,4 +1,3 @@
-
 /* show columns tabel also handel modal for show detail and handel delete */
 
 import Link from 'next/link';
@@ -35,27 +34,30 @@ export const getColumns = ({
     title: <HeaderCell title='شناسه' />,
     dataIndex: 'id',
     key: 'id',
+    name: 'شناسه',
+    render: (value: string) => <p>{value}</p>,
+  },
+  {
+    title: <HeaderCell title='نام' />,
+    dataIndex: 'name',
+    key: 'name',
+    name: 'نام',
     render: (value: string) => <p>{value}</p>,
   },
   {
     title: <HeaderCell title='توضیحات' />,
     dataIndex: 'imageUrl',
     key: 'imageUrl',
-    hidden: 'customer',
+    name: 'توضیحات',
     render: (_: any, row: any) => (
       <TableAvatar src={row.imageUrl} name={row.name} description={'shakiba@fateme.bina'} />
     ),
   },
   {
-    title: <HeaderCell title='نام' />,
-    dataIndex: 'name',
-    key: 'name',
-    render: (value: string) => <p>{value}</p>,
-  },
-  {
     title: <HeaderCell title='Actions' className='opacity-0' />,
     dataIndex: 'action',
     key: 'action',
+    name: 'وضعیت',
     render: (_: string, row: any) => <RenderAction row={row} onDeleteItem={onDeleteItem} />,
   },
 ];

@@ -140,8 +140,8 @@ export default function FilterElement({
 
   return (
     dataFilter && (
-      <div className='relative h-[100%]'>
-        <div className='h-[75%]  overflow-y-auto pl-3 '>
+      <div className='h-screen'>
+        <div className='h-[70%]  overflow-y-auto pl-3 '>
           {dataFilter?.map((item: any, index: number) => (
             <div className='mt-5' key={index}>
               {getElementForm(item)}
@@ -149,7 +149,7 @@ export default function FilterElement({
           ))}
         </div>
 
-        <div className='absolute inset-x-0 bottom-0  w-[100%] '>
+        <div className='h-[15%] mt-4 flex flex-col justify-end items-end'>
           {localFilter?.some((f) => f.value) ? (
             <Button
               size='sm'
@@ -166,7 +166,7 @@ export default function FilterElement({
           <Button
             size='lg'
             onClick={(event) => onClickFilter(event)}
-            className=' bg-blue-darkBlue text-sm  w-[100%]  '
+            className=' bg-blue-darkBlue text-sm  w-[100%] '
           >
             اعمال فیلتر
           </Button>

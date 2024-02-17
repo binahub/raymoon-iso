@@ -197,11 +197,11 @@ export function ToggleColumns<T>({
               setValues={setCheckedColumns}
               className="grid grid-cols-2 gap-x-6 gap-y-5 px-1.5 pb-3.5 pt-4 text-gray-600"
             >
-              {columns.map((column: any, index) => (
+              {columns.map((column: any, index) => (                
                 <Checkbox
                   key={column.dataIndex}
                   value={column.dataIndex}
-                  label={addSpacesToCamelCase(column.dataIndex)}
+                  label={column.name}
                   labelClassName="ml-2 rtl:mr-2 text-[12px] font-medium"
                   containerClassName="cursor-pointer capitalize"
                   iconClassName="bg-blue-darkBlue "

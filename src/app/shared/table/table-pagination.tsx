@@ -22,16 +22,12 @@ export function TablePagination({
   paginatorClassName = 'mt-5 xs:mt-6 sm:mt-7',
   ...props
 }: TablePaginationProps) {
-
-  // console.log('pageSize:',pageSize);
-  // console.log('total:' , total);
-  
   
 
   return (
     <>
-      {(total && total !== 0) 
-      // || (total && total > pageSize )
+      {
+      (total && total !== 0 && total  > 5) 
        ? (
         <div
           className={cn(

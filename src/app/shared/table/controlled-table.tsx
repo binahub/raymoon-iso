@@ -5,8 +5,8 @@ import isEmpty from 'lodash/isEmpty';
 import RizzTable, { type TableProps } from './rizz-table';
 import cn from '@/utils/class-names';
 import { TableSkeleton } from '@/components/skeleton/table';
-import TableFilter, { TableFilterProps } from './table-filter';
-import { TablePagination, TablePaginationProps } from './table-pagination';
+import TableFilter , { TableFilterProps } from './table-filter';
+import { TablePagination , TablePaginationProps} from './table-pagination';
 
 type ControlledTableProps = {
   isLoading?: boolean;
@@ -34,9 +34,14 @@ export function ControlledTable({
     return <TableSkeleton actionButton />;
   }
 
+
+
+  console.log(filterOptions);
+  
+
   return (
     <>
-      {!isEmpty(filterOptions) && <TableFilter {...filterOptions}>{filterElement}</TableFilter>}
+      {!isEmpty(filterOptions) && <TableFilter {...filterOptions }>{filterElement}</TableFilter>}
 
       <div className='relative'>
         <RizzTable

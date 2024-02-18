@@ -22,9 +22,13 @@ export function TablePagination({
   paginatorClassName = 'mt-5 xs:mt-6 sm:mt-7',
   ...props
 }: TablePaginationProps) {
+  
+
   return (
     <>
-      {total && total !== 0 && total > 5 ? (
+      {
+      (total && total !== 0 && total  > 5) 
+       ? (
         <div
           className={cn(
             'table-pagination flex items-center justify-center sm:justify-between',

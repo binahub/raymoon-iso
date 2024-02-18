@@ -1,45 +1,45 @@
-'use client';
+"use client";
 
-import { Empty } from 'rizzui';
-import RcTable from 'rc-table';
-import { ActionIcon } from '@/components/ui/action-icon';
-import { Checkbox } from '@/components/ui/checkbox';
-import { CheckboxGroup } from '@/components/ui/checkbox-group';
-import { Popover } from '@/components/ui/popover';
-import { addSpacesToCamelCase } from '@/utils/add-spaces-to-camel-case';
-import { Title, Text } from '@/components/ui/text';
-import { PiTextColumns } from 'react-icons/pi';
+import { Empty } from "rizzui";
+import RcTable from "rc-table";
+import { ActionIcon } from "@/components/ui/action-icon";
+import { Checkbox } from "@/components/ui/checkbox";
+import { CheckboxGroup } from "@/components/ui/checkbox-group";
+import { Popover } from "@/components/ui/popover";
+import { addSpacesToCamelCase } from "@/utils/add-spaces-to-camel-case";
+import { Title, Text } from "@/components/ui/text";
+import { PiTextColumns } from "react-icons/pi";
 
-import cn from '@/utils/class-names';
-import { useRaf } from 'react-use';
+import  cn  from "@/utils/class-names";
+import { useRaf } from "react-use";
 
 export type ExtractProps<T> = T extends React.ComponentType<infer P> ? P : T;
 
 const classes = {
   table:
-    '[&_.rc-table-content]:overflow-x-auto !w-auto [&_.rc-table-row:hover]:bg-gray-50 [&_.rc-table-row-expand-icon-cell]:w-14',
+    "[&_.rc-table-content]:overflow-x-auto !w-auto [&_.rc-table-row:hover]:bg-gray-50 [&_.rc-table-row-expand-icon-cell]:w-14",
   thead:
-    '[&_thead]:text-left [&_thead]:rtl:text-right [&_th.rc-table-cell]:uppercase [&_th.rc-table-cell]:text-xs [&_th.rc-table-cell]:font-semibold [&_th.rc-table-cell]:tracking-wider [&_th.rc-table-cell]:text-gray-500',
-  tCell: '[&_.rc-table-cell]:px-3 [&_th.rc-table-cell]:py-3 [&_td.rc-table-cell]:py-4',
+    "[&_thead]:text-left [&_thead]:rtl:text-right [&_th.rc-table-cell]:uppercase [&_th.rc-table-cell]:text-xs [&_th.rc-table-cell]:font-semibold [&_th.rc-table-cell]:tracking-wider [&_th.rc-table-cell]:text-gray-500",
+  tCell: "[&_.rc-table-cell]:px-3 [&_th.rc-table-cell]:py-3 [&_td.rc-table-cell]:py-4",
   variants: {
     classic:
-      '[&_thead]:bg-gray-100 [&_.rc-table-container]:border-x [&_.rc-table-container]:border-gray-200/70 [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-gray-200/70 [&_thead]:border-y [&_thead]:border-gray-200/70',
+      "[&_thead]:bg-gray-100 [&_.rc-table-container]:border-x [&_.rc-table-container]:border-gray-200/70 [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-gray-200/70 [&_thead]:border-y [&_thead]:border-gray-200/70",
     modern:
-      '[&_thead_th]:bg-gray-100 [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-gray-200/70 [&_thead_.rc-table-row-expand-icon-cell]:bg-gray-100',
+      "[&_thead_th]:bg-gray-100 [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-gray-200/70 [&_thead_.rc-table-row-expand-icon-cell]:bg-gray-100",
     minimal:
-      '[&_thead_th]:bg-gray-100 [&_thead_th:first-child]:rounded-ss-lg [&_thead_th:first-child]:rounded-es-lg [&_thead_th:last-child]:rounded-se-lg [&_thead_th:last-child]:rounded-ee-lg [&_thead_.rc-table-row-expand-icon-cell]:bg-gray-100',
+      "[&_thead_th]:bg-gray-100 [&_thead_th:first-child]:rounded-ss-lg [&_thead_th:first-child]:rounded-es-lg [&_thead_th:last-child]:rounded-se-lg [&_thead_th:last-child]:rounded-ee-lg [&_thead_.rc-table-row-expand-icon-cell]:bg-gray-100",
     elegant:
-      '[&_thead]:border-y [&_thead]:border-gray-200/70 [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-gray-200/70',
+      "[&_thead]:border-y [&_thead]:border-gray-200/70 [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-gray-200/70",
     retro:
-      '[&_thead]:border-y [&_thead]:border-gray-200/70 [&_tbody_tr:last-child_td.rc-table-cell]:border-b [&_tbody_tr:last-child_td.rc-table-cell]:border-gray-200/70',
+      "[&_thead]:border-y [&_thead]:border-gray-200/70 [&_tbody_tr:last-child_td.rc-table-cell]:border-b [&_tbody_tr:last-child_td.rc-table-cell]:border-gray-200/70",
   },
   striped:
-    '[&_.rc-table-row:nth-child(2n)_.rc-table-cell]:bg-gray-100/50 [&_.rc-table-row:hover]:bg-transparent',
+    "[&_.rc-table-row:nth-child(2n)_.rc-table-cell]:bg-gray-100/50 [&_.rc-table-row:hover]:bg-transparent",
 };
 
 type RCTableProps = ExtractProps<typeof RcTable>;
 
-export interface TableProps extends Omit<RCTableProps, 'className' | 'emptyText'> {
+export interface TableProps extends Omit<RCTableProps, "className" | "emptyText"> {
   /** Set empty text, it will only appear when table has no data */
   emptyText?: React.ReactElement;
   /** The variants of the component are: */
@@ -56,7 +56,7 @@ export interface TableProps extends Omit<RCTableProps, 'className' | 'emptyText'
  */
 export default function RizzTable({
   striped,
-  variant = 'classic',
+  variant = "classic",
   emptyText,
   className,
   ...props
@@ -69,12 +69,12 @@ export default function RizzTable({
         classes.tCell,
         classes.variants[variant],
         striped && classes.striped,
-        className
+        className,
       )}
       emptyText={
         emptyText || (
-          <div className='py-5 text-center lg:py-8'>
-            <Empty /> <Text className='mt-3'>داده‌ای یافت نشد.</Text>
+          <div className="py-5 text-center lg:py-8">
+            <Empty /> <Text className="mt-3">داده‌ای یافت نشد.</Text>
           </div>
         )
       }
@@ -85,7 +85,7 @@ export default function RizzTable({
 }
 
 // Table Header Cell Component
-type TextAlign = 'left' | 'center' | 'right';
+type TextAlign = "left" | "center" | "right";
 
 export interface HeaderCellProps {
   title: React.ReactNode;
@@ -106,14 +106,14 @@ export interface HeaderCellProps {
 
 // A util func
 function handleTextAlignment(align: TextAlign) {
-  if (align === 'center') return 'justify-center';
-  if (align === 'right') return 'justify-end';
-  return '';
+  if (align === "center") return "justify-center";
+  if (align === "right") return "justify-end";
+  return "";
 }
 
 export function HeaderCell({
   title,
-  align = 'left',
+  align = "left",
   width,
   ellipsis,
   sortable,
@@ -123,7 +123,7 @@ export function HeaderCell({
 }: HeaderCellProps) {
   if (ellipsis && width === undefined) {
     console.warn(
-      'When ellipsis is true make sure you are using the same column width in HeaderCell component too.'
+      "When ellipsis is true make sure you are using the same column width in HeaderCell component too.",
     );
   }
   if (width !== undefined && ellipsis !== true) {
@@ -132,37 +132,37 @@ export function HeaderCell({
   return (
     <div
       className={cn(
-        'flex items-center gap-1',
-        sortable && 'cursor-pointer',
+        "flex items-center gap-1",
+        sortable && "cursor-pointer",
         handleTextAlignment(align),
-        className
+        className,
       )}
     >
       <div
-        {...(ellipsis && { className: 'truncate' })}
+        {...(ellipsis && { className: "truncate" })}
         {...(ellipsis && width && { style: { width } })}
       >
         {title}
       </div>
       {sortable && (
-        <div className='inline-flex'>
+        <div className="inline-flex">
           {ascending ? (
             <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='currentColor'
-              className={cn('h-auto w-3', iconClassName)}
-              viewBox='0 0 16 16'
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              className={cn("h-auto w-3", iconClassName)}
+              viewBox="0 0 16 16"
             >
-              <path d='m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z' />
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
             </svg>
           ) : (
             <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='currentColor'
-              className={cn('h-auto w-3', iconClassName)}
-              viewBox='0 0 16 16'
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              className={cn("h-auto w-3", iconClassName)}
+              viewBox="0 0 16 16"
             >
-              <path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z' />
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
             </svg>
           )}
         </div>
@@ -185,38 +185,38 @@ export function ToggleColumns<T>({
   hideIndex,
 }: ToggleColumnsTypes<T>) {
   return (
-    <div className=''>
+    <div>
       <Popover
         content={() => (
-          <div className='px-0.5 pt-2 text-left rtl:text-right'>
-            <Title as='h6' className='mb-1 px-0.5 text-sm font-semibold'>
+          <div className="px-0.5 pt-2 text-left rtl:text-right">
+            <Title as="h6" className="mb-1 px-0.5 text-sm font-semibold">
               تغییر وضعیت نمایش ستون ها
             </Title>
             <CheckboxGroup
               values={checkedColumns}
               setValues={setCheckedColumns}
-              className='grid grid-cols-2 gap-x-6 gap-y-5 px-1.5 pb-3.5 pt-4 text-gray-600'
+              className="grid grid-cols-2 gap-x-6 gap-y-5 px-1.5 pb-3.5 pt-4 text-gray-600"
             >
-              {columns.map((column: any, index) => (
+              {columns.map((column: any, index) => (                
                 <Checkbox
                   key={column.dataIndex}
                   value={column.dataIndex}
                   label={column.name}
-                  labelClassName='ml-2 rtl:mr-2 text-[12px] font-medium'
-                  containerClassName='cursor-pointer capitalize'
-                  iconClassName='bg-blue-darkBlue '
-                  className={cn(hideIndex && index === hideIndex ? 'hidden' : '')}
+                  labelClassName="ml-2 rtl:mr-2 text-[12px] font-medium"
+                  containerClassName="cursor-pointer capitalize"
+                  iconClassName="bg-blue-darkBlue "
+                  className={cn(hideIndex && index === hideIndex ? "hidden" : "")}
                 />
               ))}
             </CheckboxGroup>
           </div>
         )}
-        shadow='sm'
-        placement='bottom-end'
-        className='dark:bg-gray-100 [&>svg]:dark:fill-gray-100'
+        shadow="sm"
+        placement="bottom-end"
+        className="dark:bg-gray-100 [&>svg]:dark:fill-gray-100"
       >
-        <ActionIcon variant='outline' title={'Toggle Columns'}>
-          <PiTextColumns strokeWidth={3} className=' h-6 w-6' />
+        <ActionIcon variant="outline" title={"Toggle Columns"}>
+          <PiTextColumns strokeWidth={3} className=" h-6 w-6" />
         </ActionIcon>
       </Popover>
     </div>

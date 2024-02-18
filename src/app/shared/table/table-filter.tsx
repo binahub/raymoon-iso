@@ -10,6 +10,7 @@ import { Title } from '@/components/ui/text';
 import { Drawer } from '@/components/ui/drawer';
 import cn from '@/utils/class-names';
 import { useMedia } from '@/hooks/use-media';
+import ExportButton from '../export-button';
 
 function FilterDrawerView({
   isOpen,
@@ -68,6 +69,10 @@ export type TableFilterProps = {
   showSearchOnTheRight?: boolean;
   enableDrawerFilter?: boolean;
   menu?: React.ReactNode;
+  inquiryTable?: boolean;
+  data?: unknown[] | any;
+  header?: string;
+  fileName?: string;
 };
 
 export default function TableFilter({
@@ -83,6 +88,10 @@ export default function TableFilter({
   enableDrawerFilter = false,
   showSearchOnTheRight = false,
   menu,
+  inquiryTable,
+  data,
+  fileName,
+  header,
   children,
 }: TableFilterProps) {
   const isMediumScreen = useMedia('(max-width: 1860px)', false);
@@ -92,7 +101,7 @@ export default function TableFilter({
   return (
     <div className='table-filter flex items-center justify-between'>
       <div className='flex flex-wrap items-center gap-4'>
-        {!showSearchOnTheRight ? (
+        {!showSearchOnTheRight && !inquiryTable ? (
           <Input
             type='search'
             placeholder='جستجو...'
@@ -104,6 +113,13 @@ export default function TableFilter({
             prefix={<PiMagnifyingGlassBold className='h-4 w-4' />}
           />
         ) : null}
+        {inquiryTable && (
+          <ExportButton
+            data={data}
+            fileName={fileName ? fileName : 'export-table'}
+            header={header ? header : ''}
+          />
+        )}
 
         {showSearchOnTheRight && enableDrawerFilter ? <>{menu ? menu : null}</> : null}
 

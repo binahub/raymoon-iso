@@ -4,6 +4,7 @@ import { useModal } from '@/app/shared/modal-views/use-modal';
 import { ActionIcon, Button, Title } from 'rizzui';
 import { PiXBold } from 'react-icons/pi';
 
+
 type Props = {
   rowData: {
     name: string;

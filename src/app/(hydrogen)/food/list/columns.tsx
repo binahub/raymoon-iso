@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import { ActionIcon, Badge, Text, Tooltip } from 'rizzui';
+/* show columns tabel also handel modal for show detail and handel delete */
 
+import Link from 'next/link';
+import { ActionIcon, Tooltip } from 'rizzui';
 import { HeaderCell } from '@/components/ui/rizz-table';
 import PencilIcon from '@/components/icons/pencil';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { SnippetType } from '@/data/snippets-and-templates';
 import DeletePopover from '@/app/shared/delete-popover';
 import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
-import { ModalView } from './edit';
+import { ModalView } from '../[id]/update/update-modal';
 import TableAvatar from '@/components/ui/avatar-card';
 
 type Columns = {
@@ -35,31 +34,30 @@ export const getColumns = ({
     title: <HeaderCell title='شناسه' />,
     dataIndex: 'id',
     key: 'id',
-    width: 30,
+    name: 'شناسه',
+    render: (value: string) => <p>{value}</p>,
+  },
+  {
+    title: <HeaderCell title='نام' />,
+    dataIndex: 'name',
+    key: 'name',
+    name: 'نام',
     render: (value: string) => <p>{value}</p>,
   },
   {
     title: <HeaderCell title='توضیحات' />,
     dataIndex: 'imageUrl',
     key: 'imageUrl',
-    width: 80,
-    hidden: 'customer',
+    name: 'توضیحات',
     render: (_: any, row: any) => (
       <TableAvatar src={row.imageUrl} name={row.name} description={'shakiba@fateme.bina'} />
     ),
   },
   {
-    title: <HeaderCell title='نام' />,
-    dataIndex: 'name',
-    key: 'name',
-    width: 30,
-    render: (value: string) => <p>{value}</p>,
-  },
-  {
     title: <HeaderCell title='Actions' className='opacity-0' />,
     dataIndex: 'action',
     key: 'action',
-    width: 50,
+    name: 'وضعیت',
     render: (_: string, row: any) => <RenderAction row={row} onDeleteItem={onDeleteItem} />,
   },
 ];

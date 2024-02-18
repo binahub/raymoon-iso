@@ -65,8 +65,6 @@ export default function NeshanPage() {
     setData,
   } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, filterState);
 
-  
-
   useEffect(() => {
     setPageNumer(currentPage - 1);
   }, [currentPage]);

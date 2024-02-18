@@ -1,3 +1,6 @@
+
+/* generate dataFilter for generate content filter inside drawer filter */
+
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
@@ -97,7 +100,7 @@ export default function NeshanPage() {
         onDeleteItem,
         checkedItems: selectedRowKeys,
         onChecked: handleRowSelect,
-        handleSelectAll,
+        handleSelectAll
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
@@ -111,7 +114,7 @@ export default function NeshanPage() {
     ]
   );
 
-  /* Handle filter with my dataFilter */
+  /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };

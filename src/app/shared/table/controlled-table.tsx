@@ -3,12 +3,10 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
 import RizzTable, { type TableProps } from './rizz-table';
-import type { TableFilterProps } from './table-filter';
-import type { TablePaginationProps } from './table-pagination';
 import cn from '@/utils/class-names';
 import { TableSkeleton } from '@/components/skeleton/table';
-import TableFilter from './table-filter';
-import { TablePagination } from './table-pagination';
+import TableFilter, { TableFilterProps } from './table-filter';
+import { TablePagination, TablePaginationProps } from './table-pagination';
 
 type ControlledTableProps = {
   isLoading?: boolean;

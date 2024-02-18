@@ -8,7 +8,7 @@ import { useModal } from '@/app/shared/modal-views/use-modal';
 import DeletePopover from '@/app/shared/delete-popover';
 import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
-import { ModalView } from '../[id]/update/update-modal';
+import { ModalView } from './update-modal';
 import TableAvatar from '@/components/ui/avatar-card';
 
 type Columns = {

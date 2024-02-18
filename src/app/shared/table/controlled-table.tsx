@@ -7,7 +7,7 @@ import cn from '@/utils/class-names';
 import { TableSkeleton } from '@/components/skeleton/table';
 import TableFilter , { TableFilterProps } from './table-filter';
 import { TablePagination , TablePaginationProps}  from './table-pagination';
-s
+
 type ControlledTableProps = {
   isLoading?: boolean;
   showLoadingText?: boolean;

@@ -12,7 +12,10 @@ import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
 import PageHeader from '@/app/shared/page-header';
-import { Button, Form, Input } from 'shafa-bo';
+import { Button, Input } from 'shafa-bo';
+// import { Button } from '@/components/ui/button';
+// import { Input } from '@/components/ui/input';
+import { Form } from '@/components/ui/form';
 import Card from '@/components/cards/card';
 import { SubmitHandler } from 'react-hook-form';
 import ImportButton from '@/app/shared/import-button';
@@ -123,7 +126,7 @@ export default function NeshanPage() {
   };
 
   const onSubmit: SubmitHandler<any> = (data) => {
-    list(parameterMap)
+    list(parameterMap);
   };
 
   return (
@@ -146,7 +149,8 @@ export default function NeshanPage() {
                   {...register('name')}
                   // error={errors.name?.message}
                   className='flex-grow'
-                />                <div className='flex justify-end items-end'>
+                />{' '}
+                <div className='flex justify-end items-end'>
                   <Button
                     type='submit'
                     className='w-32'

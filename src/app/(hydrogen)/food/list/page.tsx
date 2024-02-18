@@ -1,10 +1,10 @@
-'use client';
+/* generate dataFilter for generate content filter inside drawer filter */
 
+'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { routes } from '@/config/routes';
 //@TODO: should change import from package
-// test
 import Table from '@/app/shared/table/table';
 import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from './detail';
@@ -13,7 +13,6 @@ import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
 
 export default function NeshanPage() {
-  // start states !
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
@@ -114,7 +113,7 @@ export default function NeshanPage() {
     ]
   );
 
-  /* Handle filter with my dataFilter */
+  /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };

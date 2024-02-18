@@ -74,7 +74,7 @@ export default function RizzTable({
       emptyText={
         emptyText || (
           <div className="py-5 text-center lg:py-8">
-            <Empty /> <Text className="mt-3">داده ای یافت نشد</Text>
+            <Empty /> <Text className="mt-3">داده‌ای یافت نشد.</Text>
           </div>
         )
       }

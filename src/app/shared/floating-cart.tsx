@@ -8,6 +8,7 @@ import { useCart } from '@/store/quick-cart/cart.context';
 import { routes } from '@/config/routes';
 import cn from '@/utils/class-names';
 import { DUMMY_ID } from '@/config/constants';
+// import CartDrawerView from './ecommerce/cart/cart-drawer-view';
 
 const Drawer = dynamic(
   () => import('@/components/ui/drawer').then((module) => module.Drawer),
@@ -67,6 +68,14 @@ export default function FloatingCart({ className }: FloatingCartProps) {
           overlayClassName="dark:bg-opacity-60"
           containerClassName="dark:bg-gray-100 max-w-md"
         >
+          {/* <CartDrawerView
+            setOpenDrawer={setOpenDrawer}
+            clearItemFromCart={clearItemFromCart}
+            removeItemFromCart={removeItemFromCart}
+            addItemToCart={addItemToCart}
+            items={items}
+            total={total}
+          /> */}
         </Drawer>
       </>
     )

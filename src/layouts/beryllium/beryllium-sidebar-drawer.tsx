@@ -1,3 +1,4 @@
+//@TODO: menu in smaller devices, it must replace to original menu
 'use client';
 
 import Link from 'next/link';
@@ -108,7 +109,7 @@ export default function Sidebar({ className }: { className?: string }) {
                                   {dropdownItem?.name}
                                 </span>
                               </div>
-                              {dropdownItem?.badge?.length ? getStatusBadge(dropdownItem?.badge) : null}
+                              {/* {dropdownItem?.badge?.length ? getStatusBadge(dropdownItem?.badge) : null} */}
                             </Link>
                           );
                         })}

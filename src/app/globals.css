@@ -1011,10 +1011,10 @@ ol {
 }
 
 .name-upload {
-  display: flex;
-  justify-content: start;
-  background-color: gainsboro;
-  margin-top: 5px;
-  border-radius: 6px;
-  padding: 8px;
+  @apply flex items-center justify-start bg-[gainsboro] mt-[5px] text-left px-3 py-2 rounded-md;
+}
+
+
+.rc-pagination-item-active {
+  @apply !bg-primary
 }

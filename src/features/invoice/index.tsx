@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { routes } from '@/config/routes';
 import { Button } from '@/components/ui/button';
 import PageHeader from '@/app/shared/page-header';
+// import InvoiceTable from '@/app/shared/invoice/invoice-list/table';
 import { PiPlusBold } from 'react-icons/pi';
 import { invoiceData } from '@/data/invoice-data';
 import ExportButton from '@/app/shared/export-button';
@@ -67,6 +68,8 @@ export default function Invoice() {
           </Link>
         </div>
       </PageHeader>
+
+      {/* <InvoiceTable data={catData?.foodCategoryObjectList} /> */}
     </>
   );
 }

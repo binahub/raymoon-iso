@@ -15,9 +15,10 @@ export default function SignIn() {
       <AuthWrapperOne
         title={
           <>
-            به پنل مدیریت{' '}
+            به پنل مدیریت
             <span className='relative inline-block'>
-              ایوا
+              {' '}
+              ایوا{' '}
               <UnderlineShape className='absolute -bottom-4 start-0 h-2.5 w-16 text-blue md:w-16 xl:-bottom-1.5 xl:w-16' />
             </span>{' '}
             خوش آمدید 👋

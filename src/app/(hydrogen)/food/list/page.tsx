@@ -11,6 +11,7 @@ import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
 
 export default function NeshanPage() {
+  // start states !
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);

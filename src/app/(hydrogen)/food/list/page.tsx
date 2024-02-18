@@ -118,46 +118,5 @@ export default function NeshanPage() {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };
 
-  return (
-    <Table
-      pageHeader={pageHeader}
-      /* get data from api call */
-      data={data?.foodCategoryObjectList}
-      /* get columns for table */
-      columns={columns}
-      /* data detail for show in expanded table */
-      expandedRow={(rowData: any) => detail(rowData)}
-      expandedKeys={[rowEdit]}
-      onExpand={(expanded: boolean, row: any) => {
-        expanded ? setRowEdit(row.id) : setRowEdit({});
-      }}
-      /* table pagination  */
-      paginatorOptions={{
-        pageSize,
-        setPageSize,
-        total: data?.totalElements,
-        current: currentPage,
-        onChange: (page: number) => handlePaginate(page),
-      }}
-      tableData={tableData}
-      /* table filter */
-      filterElement={() =>
-        FilterElement({
-          isFiltered,
-          handleReset,
-          filters,
-          updateFilter,
-          dataFilter,
-          actionFilter,
-        })
-      }
-      isLoading={isLoading}
-      handleSearch={handleSearch}
-      searchTerm={searchTerm}
-      /* export file */
-      hasExportFile
-      exportFileName={'export-food-table'}
-      exportColumns={exportColumns}
-    />
-  );
+  return <></>;
 }

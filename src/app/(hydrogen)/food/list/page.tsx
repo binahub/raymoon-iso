@@ -6,7 +6,7 @@ import { useTable } from '@/hooks/use-table';
 import { routes } from '@/config/routes';
 //@TODO: should change import from package
 import Table from '@/app/shared/table/table';
-// import FilterElement from '@/app/shared/table/content-filter';
+import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from './detail';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
@@ -141,16 +141,16 @@ export default function NeshanPage() {
       }}
       tableData={tableData}
       /* table filter */
-      // filterElement={() =>
-      //   FilterElement({
-      //     isFiltered,
-      //     handleReset,
-      //     filters,
-      //     updateFilter,
-      //     dataFilter,
-      //     actionFilter,
-      //   })
-      // }
+      filterElement={() =>
+        FilterElement({
+          isFiltered,
+          handleReset,
+          filters,
+          updateFilter,
+          dataFilter,
+          actionFilter,
+        })
+      }
       isLoading={isLoading}
       handleSearch={handleSearch}
       searchTerm={searchTerm}

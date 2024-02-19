@@ -4,7 +4,6 @@ import { getSession } from "next-auth/react";
 export const CategoryApi = createApi({
   reducerPath: "CategoryApi",
   baseQuery: fetchBaseQuery({
-    // baseUrl: "http://78.157.51.13/food/api/v1",
     baseUrl: "http://localhost:3000",
     // prepareHeaders: async (headers) => {
     //   // Retrieve the token from session
@@ -30,7 +29,6 @@ export const CategoryApi = createApi({
     }),
     categoryList: builder.mutation({
       query: (params: any) => ({
-        // url: "/categoryFood/list",
         url: "/food",
         method: "POST",
         body: params,

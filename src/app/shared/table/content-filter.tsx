@@ -14,6 +14,7 @@ type FilterElementProps = {
   dataFilter: any;
   actionFilter?: any;
   setIsOpenDrawer?: any;
+  isLoading?: boolean
 };
 
 export default function FilterElement({
@@ -24,6 +25,7 @@ export default function FilterElement({
   dataFilter,
   actionFilter,
   setIsOpenDrawer,
+  isLoading
 }: FilterElementProps) {
   const [localFilter, setLocalFilter] = useState<{ key: string; value: string }[]>(
     filters ? Object.keys(filters).map((key) => ({ key, value: filters[key] })) : []
@@ -167,6 +169,7 @@ export default function FilterElement({
             size='lg'
             onClick={(event) => onClickFilter(event)}
             className=' bg-blue-darkBlue text-sm  w-[100%] '
+            isLoading={isLoading}
           >
             اعمال فیلتر
           </Button>

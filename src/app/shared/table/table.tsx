@@ -82,7 +82,7 @@ type BasicTableWidgetProps = {
   paginatorOptions?: any;
   exportColumns?: string;
   exportFileName?: any;
-  inquiryTable?: any;
+  requiredSeachTable?: boolean;
 };
 
 export default function Table({
@@ -110,13 +110,13 @@ export default function Table({
   tableData,
   exportColumns,
   exportFileName,
-  inquiryTable,
+  requiredSeachTable,
 }: any) {
   const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
 
   return (
     <>
-      {inquiryTable ? (
+      {requiredSeachTable ? (
         <Card className='rounded-b-3xl'>
           <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
             <ControlledTable
@@ -152,7 +152,7 @@ export default function Table({
                 checkedColumns,
                 setCheckedColumns,
                 enableDrawerFilter: true,
-                inquiryTable: inquiryTable,
+                requiredSeachTable: requiredSeachTable,
                 data: data,
                 fileName: exportFileName,
                 header: exportColumns,
@@ -217,7 +217,7 @@ export default function Table({
                   checkedColumns,
                   setCheckedColumns,
                   enableDrawerFilter: true,
-                  inquiryTable: inquiryTable,
+                  requiredSeachTable: requiredSeachTable,
                 }}
                 filterElement={
                   FilterElement && (

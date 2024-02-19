@@ -8,5 +8,13 @@ export const foodSchema = z.object({
   description: z.string().min(1, { message: 'ضروری' }),
 });
 
+
+export const foodInquirySchema = z.object({
+  name: z.string().min(1, { message: 'ضروری' }),
+  description: z.string().min(1, { message: 'ضروری' }),
+});
+
 // generate form types from zod validation schema
 export type FoodSchema = z.infer<typeof foodSchema>;
+
+export type FoodInquirySchema = z.infer<typeof foodInquirySchema>;

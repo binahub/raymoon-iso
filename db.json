@@ -1,0 +1,57 @@
+{
+    "food":{
+        "result": "0",
+        "description": "موفق",
+        "doTime": "1402/11/30 10:51:17",
+        "foodCategoryObjectList": [
+            {
+                "id": "1",
+                "name": "خوراک",
+                "imageObject": {
+                    "id": "3",
+                    "imageUrl": "http://78.157.51.13/food/api/v1/upload/downloadFile/file-1702749947832.jpg"
+                },
+                "description": "تست"
+            },
+            {
+                "id": "2",
+                "name": "خوراکنی",
+                "imageObject": {
+                    "id": "3",
+                    "imageUrl": "http://78.157.51.13/food/api/v1/upload/downloadFile/file-1702749947832.jpg"
+                },
+                "description": "تست"
+            },
+            {
+                "id": "3",
+                "name": "خورامی",
+                "imageObject": {
+                    "id": "3",
+                    "imageUrl": "http://78.157.51.13/food/api/v1/upload/downloadFile/file-1702749947832.jpg"
+                },
+                "description": "تست"
+            },
+            {
+                "id": "4",
+                "name": "تست",
+                "imageObject": {
+                    "id": "3",
+                    "imageUrl": "http://78.157.51.13/food/api/v1/upload/downloadFile/file-1702749947832.jpg"
+                },
+                "description": "تست دیته بندی مثلا"
+            },
+            {
+                "id": "5",
+                "name": "فست فودی",
+                "imageObject": {
+                    "id": "6",
+                    "imageUrl": "http://78.157.51.13/food/api/v1/upload/downloadFile/file-1704826025123.jpg"
+                },
+                "description": "فست فودجات"
+            }
+        ],
+        "totalElements": 8,
+        "totalPages": 2,
+        "numberOfElements": 5
+    }
+}

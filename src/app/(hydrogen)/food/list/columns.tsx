@@ -19,6 +19,7 @@ type Columns = {
   onDeleteItem: (id: string) => void;
   onHeaderCellClick: (value: string) => void;
   onChecked?: (id: string) => void;
+  // isLoading?: boolean
 };
 
 export const getColumns = ({
@@ -29,6 +30,7 @@ export const getColumns = ({
   onHeaderCellClick,
   handleSelectAll,
   onChecked,
+  // isLoading
 }: Columns) => [
   {
     title: <HeaderCell title='شناسه' />,
@@ -78,7 +80,7 @@ function RenderAction({
   return (
     <>
       <div className='flex items-center justify-end gap-3 pe-4'>
-        {/* <Tooltip size='sm' content={() => ' ویرایش با مدال'} placement='top' color='invert'>
+        <Tooltip size='sm' content={() => ' ویرایش با مدال'} placement='top' color='invert'>
           <ActionIcon
             tag='span'
             size='sm'
@@ -94,7 +96,7 @@ function RenderAction({
           >
             <PencilIcon className='h-4 w-4' />
           </ActionIcon>
-        </Tooltip> */}
+        </Tooltip>
         <Tooltip
           size='sm'
           content={() => ' ویرایش جزئیات در صفحه جدید'}

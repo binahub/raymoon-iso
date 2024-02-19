@@ -22,7 +22,7 @@ export const config = {
     '/category',
     '/iva',
     '/neshan/list',
-    '/food/list'
-    
+    // '/food/list'
+    // 'food/inquiry'
   ],
 };

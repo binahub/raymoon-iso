@@ -12,18 +12,18 @@ import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
 import PageHeader from '@/app/shared/page-header';
-// import { Button, Input } from 'shafa-bo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form } from '@/components/ui/form';
 import Card from '@/components/cards/card';
 import { SubmitHandler } from 'react-hook-form';
-import ImportButton from '@/app/shared/import-button';
+import { foodInquirySchema, FoodInquirySchema } from '@/utils/validators/food.schema';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
+  const [dataResponse, setDataResponse]: any = useState([]);
 
   const parameterMap = {
     parameterMap: {
@@ -33,6 +33,7 @@ export default function NeshanPage() {
       sort: 'asc',
     },
   };
+
   const pageHeader = {
     title: 'سفارش غذا',
     breadcrumb: [
@@ -45,6 +46,11 @@ export default function NeshanPage() {
       },
     ],
   };
+
+  // useEffect(() => {
+  //   const response: any = fetch('http://localhost:3000/food').then(res => res.json()).then(data=>setDataResponse(data))
+  // }, []);
+
 
   /* create title excel columns */
   const exportColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
@@ -69,7 +75,7 @@ export default function NeshanPage() {
     handleRowSelect,
     handleSelectAll,
     setData,
-  } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, filterState);
+  } = useTable(dataResponse, pageSize, data?.totalElements, filterState);
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
@@ -77,7 +83,7 @@ export default function NeshanPage() {
 
   useEffect(() => {
     if (!isLoading) {
-      setData(data?.foodCategoryObjectList);
+      setData(dataResponse);
     }
     setPageNumer(currentPage - 1);
   }, [isLoading]);
@@ -123,10 +129,12 @@ export default function NeshanPage() {
   /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
+    setDataResponse(data?.foodCategoryObjectLists);
   };
 
   const onSubmit: SubmitHandler<any> = (data) => {
-    list(parameterMap);
+    // list(parameterMap);
+    list({ parameterMap: { ...parameterMap.parameterMap, ...data } });
   };
 
   return (
@@ -134,6 +142,7 @@ export default function NeshanPage() {
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
       <Card className='rounded-t-3xl mb-5'>
         <Form
+          validationSchema={foodInquirySchema}
           onSubmit={onSubmit}
           useFormProps={{
             mode: 'onChange',
@@ -145,17 +154,22 @@ export default function NeshanPage() {
               <>
                 <Input
                   label='نام*'
+                  id='name'
                   type='text'
                   {...register('name')}
-                  // error={errors.name?.message}
                   className='flex-grow'
-                />{' '}
+                  error={errors?.name?.message}
+                />
+                <Input
+                  label='توضیحات*'
+                  id='description'
+                  type='text'
+                  {...register('description')}
+                  className='flex-grow'
+                  error={errors?.description?.message}
+                />
                 <div className='flex justify-end items-end'>
-                  <Button
-                    type='submit'
-                    className='w-32'
-                    // isLoading={isLoading}
-                  >
+                  <Button type='submit' className='w-32' isLoading={isLoading}>
                     استعلام
                   </Button>
                 </div>
@@ -165,9 +179,8 @@ export default function NeshanPage() {
         </Form>
       </Card>
       <Table
-        inquiryTable
         /* get data from api call */
-        // data={data?.foodCategoryObjectList}
+        data={dataResponse}
         /* get columns for table */
         columns={columns}
         /* data detail for show in expanded table */
@@ -193,12 +206,13 @@ export default function NeshanPage() {
             filters,
             updateFilter,
             dataFilter,
-            // actionFilter,
+            actionFilter,
           })
         }
         isLoading={isLoading}
         handleSearch={handleSearch}
         searchTerm={searchTerm}
+        requiredSeachTable
       />
     </>
   );

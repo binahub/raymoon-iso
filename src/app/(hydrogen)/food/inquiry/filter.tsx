@@ -13,225 +13,205 @@ export const dataFilter: any = [
     type: 'Text',
     key: 'name',
   },
-  // {
-  //   label: 'توضیحات',
-  //   type: 'Text',
-  //   key: 'description',
-  // },
-  // {
-  //   label: 'تاریخ شروع',
-  //   type: 'DatePicker',
-  //   key: 'date',
-  // },
-  // {
-  //   label: ' وضعیت پرداخت',
-  //   type: 'Select',
-  //   key: 'status',
-  //   selectOption: [
-  //     {
-  //       name: 'موفق',
-  //       value: '1',
-  //     },
-  //     {
-  //       name: 'ناموفق',
-  //       value: '2',
-  //     },
-  //   ],
-  // },
+  {
+    label: 'توضیحات',
+    type: 'Text',
+    key: 'description',
+  },
 
-  // {
-  //   label: 'تاریخ شروع',
-  //   type: 'DatePicker',
-  //   key: 'date',
-  // },
-  // {
-  //   label: ' وضعیت پرداخت',
-  //   type: 'Select',
-  //   key: 'status',
-  //   selectOption: [
-  //     {
-  //       name: 'موفق',
-  //       value: '1',
-  //     },
-  //     {
-  //       name: 'ناموفق',
-  //       value: '2',
-  //     },
-  //   ],
-  // },
-  //   {
-  //   label: 'توضیحات',
-  //   type: 'Text',
-  //   key: 'description',
-  // },
-  // {
-  //   label: 'تاریخ شروع',
-  //   type: 'DatePicker',
-  //   key: 'date',
-  // },
-  // {
-  //   label: ' وضعیت پرداخت',
-  //   type: 'Select',
-  //   key: 'status',
-  //   selectOption: [
-  //     {
-  //       name: 'موفق',
-  //       value: '1',
-  //     },
-  //     {
-  //       name: 'ناموفق',
-  //       value: '2',
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'توضیحات',
-  //   type: 'Text',
-  //   key: 'description',
-  // },
-  // {
-  //   label: 'تاریخ شروع',
-  //   type: 'DatePicker',
-  //   key: 'date',
-  // },
-  // {
-  //   label: ' وضعیت پرداخت',
-  //   type: 'Select',
-  //   key: 'status',
-  //   selectOption: [
-  //     {
-  //       name: 'موفق',
-  //       value: '1',
-  //     },
-  //     {
-  //       name: 'ناموفق',
-  //       value: '2',
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'توضیحات',
-  //   type: 'Text',
-  //   key: 'description',
-  // },
-  // {
-  //   label: 'تاریخ شروع',
-  //   type: 'DatePicker',
-  //   key: 'date',
-  // },
-  // {
-  //   label: ' وضعیت پرداخت',
-  //   type: 'Select',
-  //   key: 'status',
-  //   selectOption: [
-  //     {
-  //       name: 'موفق',
-  //       value: '1',
-  //     },
-  //     {
-  //       name: 'ناموفق',
-  //       value: '2',
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'توضیحات',
-  //   type: 'Text',
-  //   key: 'description',
-  // },
-  // {
-  //   label: 'تاریخ شروع',
-  //   type: 'DatePicker',
-  //   key: 'date',
-  // },
-  // {
-  //   label: ' وضعیت پرداخت',
-  //   type: 'Select',
-  //   key: 'status',
-  //   selectOption: [
-  //     {
-  //       name: 'موفق',
-  //       value: '1',
-  //     },
-  //     {
-  //       name: 'ناموفق',
-  //       value: '2',
-  //     },
-  //   ],
-  // },
-  //   {
-  //   label: 'توضیحات',
-  //   type: 'Text',
-  //   key: 'description',
-  // },
-  // {
-  //   label: 'تاریخ شروع',
-  //   type: 'DatePicker',
-  //   key: 'date',
-  // },
-  // {
-  //   label: ' وضعیت پرداخت',
-  //   type: 'Select',
-  //   key: 'status',
-  //   selectOption: [
-  //     {
-  //       name: 'موفق',
-  //       value: '1',
-  //     },
-  //     {
-  //       name: 'ناموفق',
-  //       value: '2',
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'توضیحات',
-  //   type: 'Text',
-  //   key: 'description',
-  // },
-  // {
-  //   label: 'تاریخ شروع',
-  //   type: 'DatePicker',
-  //   key: 'date',
-  // },
-  // {
-  //   label: ' وضعیت پرداخت',
-  //   type: 'Select',
-  //   key: 'status',
-  //   selectOption: [
-  //     {
-  //       name: 'موفق',
-  //       value: '1',
-  //     },
-  //     {
-  //       name: 'ناموفق',
-  //       value: '2',
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'توضیحات',
-  //   type: 'Text',
-  //   key: 'description',
-  // },
-  // {
-  //   label: 'تاریخ شروع',
-  //   type: 'DatePicker',
-  //   key: 'date',
-  // },
-  // {
-  //   label: ' وضعیت پرداخت',
-  //   type: 'Select',
-  //   key: 'status',
-  //   selectOption: [
-  //     {
-  //       name: 'موفق',
-  //       value: '1',
-  //     },
-  //     {
-  //       name: 'ناموفق',
-  //       value: '2',
-  //     },
-  //   ],
-  // },
+  {
+    label: 'تاریخ شروع',
+    type: 'DatePicker',
+    key: 'date1',
+  },
+  {
+    label: ' وضعیت پرداخت',
+    type: 'Select',
+    key: 'status1',
+    selectOption: [
+      {
+        name: 'موفق',
+        value: '1',
+      },
+      {
+        name: 'ناموفق',
+        value: '2',
+      },
+    ],
+  },
+    {
+    label: 'توضیحات',
+    type: 'Text',
+    key: 'description',
+  },
+  {
+    label: 'تاریخ شروع',
+    type: 'DatePicker',
+    key: 'date',
+  },
+  {
+    label: ' وضعیت پرداخت',
+    type: 'Select',
+    key: 'status',
+    selectOption: [
+      {
+        name: 'موفق',
+        value: '1',
+      },
+      {
+        name: 'ناموفق',
+        value: '2',
+      },
+    ],
+  },
+  {
+    label: 'توضیحات',
+    type: 'Text',
+    key: 'description',
+  },
+  {
+    label: 'تاریخ شروع',
+    type: 'DatePicker',
+    key: 'date',
+  },
+  {
+    label: ' وضعیت پرداخت',
+    type: 'Select',
+    key: 'status',
+    selectOption: [
+      {
+        name: 'موفق',
+        value: '1',
+      },
+      {
+        name: 'ناموفق',
+        value: '2',
+      },
+    ],
+  },
+  {
+    label: 'توضیحات',
+    type: 'Text',
+    key: 'description',
+  },
+  {
+    label: 'تاریخ شروع',
+    type: 'DatePicker',
+    key: 'date',
+  },
+  {
+    label: ' وضعیت پرداخت',
+    type: 'Select',
+    key: 'status',
+    selectOption: [
+      {
+        name: 'موفق',
+        value: '1',
+      },
+      {
+        name: 'ناموفق',
+        value: '2',
+      },
+    ],
+  },
+  {
+    label: 'توضیحات',
+    type: 'Text',
+    key: 'description',
+  },
+  {
+    label: 'تاریخ شروع',
+    type: 'DatePicker',
+    key: 'date',
+  },
+  {
+    label: ' وضعیت پرداخت',
+    type: 'Select',
+    key: 'status',
+    selectOption: [
+      {
+        name: 'موفق',
+        value: '1',
+      },
+      {
+        name: 'ناموفق',
+        value: '2',
+      },
+    ],
+  },
+    {
+    label: 'توضیحات',
+    type: 'Text',
+    key: 'description',
+  },
+  {
+    label: 'تاریخ شروع',
+    type: 'DatePicker',
+    key: 'date',
+  },
+  {
+    label: ' وضعیت پرداخت',
+    type: 'Select',
+    key: 'status',
+    selectOption: [
+      {
+        name: 'موفق',
+        value: '1',
+      },
+      {
+        name: 'ناموفق',
+        value: '2',
+      },
+    ],
+  },
+  {
+    label: 'توضیحات',
+    type: 'Text',
+    key: 'description',
+  },
+  {
+    label: 'تاریخ شروع',
+    type: 'DatePicker',
+    key: 'date',
+  },
+  {
+    label: ' وضعیت پرداخت',
+    type: 'Select',
+    key: 'status',
+    selectOption: [
+      {
+        name: 'موفق',
+        value: '1',
+      },
+      {
+        name: 'ناموفق',
+        value: '2',
+      },
+    ],
+  },
+  {
+    label: 'توضیحات',
+    type: 'Text',
+    key: 'description',
+  },
+  {
+    label: 'تاریخ شروع',
+    type: 'DatePicker',
+    key: 'date',
+  },
+  {
+    label: ' وضعیت پرداخت',
+    type: 'Select',
+    key: 'status',
+    selectOption: [
+      {
+        name: 'موفق',
+        value: '1',
+      },
+      {
+        name: 'ناموفق',
+        value: '2',
+      },
+    ],
+  },
 ];

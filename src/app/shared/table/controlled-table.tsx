@@ -33,10 +33,6 @@ export function ControlledTable({
   if (isLoading) {
     return <TableSkeleton actionButton />;
   }
-
-
-
-  console.log(filterOptions);
   
 
   return (

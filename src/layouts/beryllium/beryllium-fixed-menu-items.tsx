@@ -209,6 +209,10 @@ export const berylliumMenuItems: MenuItemsType[] = [
             name: 'لیست سفارش ',
             href: routes.food.list,
           },
+          {
+            name: ' استعلام سفارش غذا',
+            href: routes.food.inquiry,
+          },
         ],
       },
       {

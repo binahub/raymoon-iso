@@ -149,6 +149,7 @@ export default function NeshanPage() {
           updateFilter,
           dataFilter,
           actionFilter,
+          isLoading
         })
       }
       isLoading={isLoading}

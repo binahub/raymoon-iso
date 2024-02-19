@@ -69,7 +69,7 @@ export type TableFilterProps = {
   showSearchOnTheRight?: boolean;
   enableDrawerFilter?: boolean;
   menu?: React.ReactNode;
-  inquiryTable?: boolean;
+  requiredSeachTable?: boolean;
   data?: unknown[] | any;
   header?: string;
   fileName?: string;
@@ -83,12 +83,12 @@ export default function TableFilter({
   checkedColumns,
   setCheckedColumns,
   hideIndex,
-  drawerTitle = 'جستجو',
+  drawerTitle = 'فیلتر',
   hasSearched,
   enableDrawerFilter = false,
   showSearchOnTheRight = false,
   menu,
-  inquiryTable,
+  requiredSeachTable,
   data,
   fileName,
   header,
@@ -101,7 +101,7 @@ export default function TableFilter({
   return (
     <div className='table-filter flex items-center justify-between'>
       <div className='flex flex-wrap items-center gap-4'>
-        {!showSearchOnTheRight && !inquiryTable ? (
+        {!showSearchOnTheRight && !requiredSeachTable ? (
           <Input
             type='search'
             placeholder='جستجو...'
@@ -113,7 +113,7 @@ export default function TableFilter({
             prefix={<PiMagnifyingGlassBold className='h-4 w-4' />}
           />
         ) : null}
-        {inquiryTable && (
+        {requiredSeachTable && (
           <ExportButton
             data={data}
             fileName={fileName ? fileName : 'export-table'}

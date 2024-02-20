@@ -53,8 +53,6 @@ export default function NeshanPage() {
   const [list, { isLoading, isSuccess, isError, error, data: dataService }] =
     useCategoryListMutation();
 
-  console.log(dataService);
-
   /* use hooks for table*/
   const {
     isFiltered,
@@ -146,7 +144,7 @@ export default function NeshanPage() {
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
       <Card className='rounded-t-3xl mb-5'>
         <Form
-          // validationSchema={foodInquirySchema}
+          validationSchema={foodInquirySchema}
           onSubmit={onSubmit}
           useFormProps={{
             mode: 'onChange',
@@ -162,7 +160,7 @@ export default function NeshanPage() {
                   type='text'
                   {...register('name')}
                   className='flex-grow'
-                  // error={errors?.name?.message}
+                  error={errors?.name?.message}
                 />
                 <Input
                   label='توضیحات*'
@@ -170,7 +168,7 @@ export default function NeshanPage() {
                   type='text'
                   {...register('description')}
                   className='flex-grow'
-                  // error={errors?.description?.message}
+                  error={errors?.description?.message}
                 />
                 <div className='flex justify-end items-end'>
                   <Button type='submit' className='w-32' isLoading={isLoading}>

@@ -1,6 +1,4 @@
 'use client';
-import { routes } from '@/config/routes';
-import PageHeader from '@/app/shared/page-header';
 import { Form } from '@/components/ui/form';
 import Select from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
@@ -19,27 +17,26 @@ import { Password } from 'rizzui';
 
 type Props = {
   handlerOnSubmit: (data: any) => void;
-  data?: any;
+  data: any;
   isEdit?: boolean;
 };
 
 export default function FormData({ handlerOnSubmit, data, isEdit }: Props) {
 
+console.log(data);
+  
   const onSubmit: SubmitHandler<GeneralFormTypes> = (value) => {
-
-    console.log('gsdjhfgswdfghsj');
-    
     handlerOnSubmit(value);
   };
 
   return (
     <>
       <Form<GeneralFormTypes>
-        validationSchema={generalFormSchema}
+        // validationSchema={generalFormSchema}
         onSubmit={onSubmit}
         useFormProps={{
           mode: 'onChange',
-          defaultValues,
+          // defaultValues,
         }}
         className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%] p-6 @2xl:p-12 3xl:px-16 4xl:px-28'
       >
@@ -134,7 +131,7 @@ export default function FormData({ handlerOnSubmit, data, isEdit }: Props) {
                 error={isEdit ? '' : errors.newPassword?.message}
                 disabled={isEdit}
               />
-              <Controller
+              {/* <Controller
                 control={control}
                 name='startDate'
                 render={({ field: { value, onChange } }) => (
@@ -146,7 +143,7 @@ export default function FormData({ handlerOnSubmit, data, isEdit }: Props) {
                     disabled={isEdit}
                   />
                 )}
-              />
+              /> */}
               <div className='mb-6 @3xl:col-span-3'>
                 <UploadZone
                   name='userInfo'

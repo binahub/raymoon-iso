@@ -134,7 +134,7 @@ export default function SupportInboxPage() {
                   {...register('newPassword')}
                   error={errors.newPassword?.message}
                 />
-                <Controller
+                {/* <Controller
                   control={control}
                   name='startDate'
                   render={({ field: { value, onChange } }) => (
@@ -145,7 +145,7 @@ export default function SupportInboxPage() {
                       error={errors?.startDate}
                     />
                   )}
-                />
+                /> */}
                 <div className='mb-6 @3xl:col-span-3'>
                   <UploadZone
                     name='userInfo'

@@ -8,8 +8,9 @@ import { ActionIcon } from '@/components/ui/action-icon';
 import { Input } from '@/components/ui/input';
 import { Title } from '@/components/ui/text';
 import { Drawer } from '@/components/ui/drawer';
-import  cn  from '@/utils/class-names';
+import cn from '@/utils/class-names';
 import { useMedia } from '@/hooks/use-media';
+import ExportButton from '../export-button';
 
 function FilterDrawerView({
   isOpen,
@@ -32,7 +33,7 @@ function FilterDrawerView({
       containerClassName='dark:bg-gray-100 '
     >
       <div className='flex h-full flex-col p-5 '>
-        <div className='-mx-5 mb-6 flex items-center justify-between border-b border-gray-200 px-5 pb-2'>
+        <div className='-mx-5 mb-6 flex items-center justify-between border-b border-gray-200 px-5'>
           <Title as='h5'>{drawerTitle}</Title>
           <ActionIcon
             size='sm'
@@ -68,6 +69,10 @@ export type TableFilterProps = {
   showSearchOnTheRight?: boolean;
   enableDrawerFilter?: boolean;
   menu?: React.ReactNode;
+  requiredSeachTable?: boolean;
+  data?: unknown[] | any;
+  header?: string;
+  fileName?: string;
 };
 
 export default function TableFilter({
@@ -78,11 +83,15 @@ export default function TableFilter({
   checkedColumns,
   setCheckedColumns,
   hideIndex,
-  drawerTitle = 'جستجو',
+  drawerTitle = 'فیلتر',
   hasSearched,
   enableDrawerFilter = false,
   showSearchOnTheRight = false,
   menu,
+  requiredSeachTable,
+  data,
+  fileName,
+  header,
   children,
 }: TableFilterProps) {
   const isMediumScreen = useMedia('(max-width: 1860px)', false);
@@ -92,7 +101,7 @@ export default function TableFilter({
   return (
     <div className='table-filter flex items-center justify-between'>
       <div className='flex flex-wrap items-center gap-4'>
-        {!showSearchOnTheRight ? (
+        {!showSearchOnTheRight && !requiredSeachTable ? (
           <Input
             type='search'
             placeholder='جستجو...'
@@ -104,6 +113,13 @@ export default function TableFilter({
             prefix={<PiMagnifyingGlassBold className='h-4 w-4' />}
           />
         ) : null}
+        {requiredSeachTable && (
+          <ExportButton
+            data={data}
+            fileName={fileName ? fileName : 'export-table'}
+            header={header ? header : ''}
+          />
+        )}
 
         {showSearchOnTheRight && enableDrawerFilter ? <>{menu ? menu : null}</> : null}
 

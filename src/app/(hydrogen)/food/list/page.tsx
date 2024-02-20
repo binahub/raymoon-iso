@@ -1,18 +1,16 @@
 'use client';
-
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-import { routes } from '@/config/routes';
 //@TODO: should change import from package
 import Table from '@/app/shared/table/table';
 import FilterElement from '@/app/shared/table/content-filter';
-import { detail } from './detail';
+import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
+import { pageHeader } from './header';
 
 export default function NeshanPage() {
-  // start states !
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
@@ -24,19 +22,6 @@ export default function NeshanPage() {
       orderBy: 'id',
       sort: 'asc',
     },
-  };
-
-  const pageHeader = {
-    title: 'سفارش غذا',
-    breadcrumb: [
-      {
-        href: routes.neshan.list,
-        name: 'سفارشات',
-      },
-      {
-        name: ' لیست سفارشات غذا',
-      },
-    ],
   };
 
   /* create title excel columns */
@@ -99,7 +84,7 @@ export default function NeshanPage() {
         onDeleteItem,
         checkedItems: selectedRowKeys,
         onChecked: handleRowSelect,
-        handleSelectAll,
+        handleSelectAll
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
@@ -113,7 +98,7 @@ export default function NeshanPage() {
     ]
   );
 
-  /* Handle filter with my dataFilter */
+  /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };
@@ -149,6 +134,7 @@ export default function NeshanPage() {
           updateFilter,
           dataFilter,
           actionFilter,
+          isLoading
         })
       }
       isLoading={isLoading}

@@ -6,11 +6,12 @@ import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { useEffect, useRef, useState } from 'react';
 import { Card, Input, Form } from 'shafa-bo';
 import { SubmitHandler } from 'react-hook-form';
+import { FoodSchema, foodSchema } from '@/utils/validators/food.schema';
 
 type Props = {
   params: { id: string };
 };
- 
+
 const pageHeader = {
   title: 'سفارش غذا',
   breadcrumb: [
@@ -24,9 +25,9 @@ const pageHeader = {
   ],
 };
 
-export default function FoodEditPage({ params }: any) {
-  console.log('Invoice Edit Page ID', params.id);
+export default function FoodEditPage({ params }: Props) {
 
+  /* input data for post api */
   const parameterMap = {
     parameterMap: {
       id: params.id,
@@ -41,68 +42,56 @@ export default function FoodEditPage({ params }: any) {
   const [list, { isLoading, isSuccess, isError, error, data: serverData }] =
     useCategoryListMutation();
 
-
-    const [testdata , setTestData]= useState({
-      name:'',
-      description:''
-    })
-
-    console.log(testdata);
-    
+  /* initialValues form */
+  const initialValues: FoodSchema = {
+    id: params.id,
+    name: serverData?.foodCategoryObjectList[0]?.name,
+    description: serverData?.foodCategoryObjectList[0]?.description,
+  };
 
   useEffect(() => {
     list(parameterMap);
   }, []);
 
-  useEffect(() => {
-    if (isSuccess) {
-      setTestData({
-        name: serverData?.foodCategoryObjectList[0]?.name,
-        description: serverData?.foodCategoryObjectList[0]?.description,
-      },)
-    }
-  }, [isSuccess, serverData]);
-
   const onSubmit: SubmitHandler<any> = (data: any) => {
-    // console.log(data);
     console.log('editData : ', { ...data, id: params.id });
   };
+
+  if (isLoading) {
+    return;
+  }
 
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
       <Card>
         <Form
-          // validationSchema={formSchema}
-          // resetValues={reset}
+          validationSchema={foodSchema}
           onSubmit={onSubmit}
           useFormProps={{
             mode: 'onChange',
-            defaultValues: {
-              name: testdata.name,
-              description: testdata.description,
-            },
+            defaultValues: initialValues,
           }}
-          className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%] p-6 @2xl:p-12 3xl:px-16 4xl:px-28'
+          className='grid gap-4 md:grid-cols-2 md:gap-7 w-[100%] p-6 @2xl:p-12 3xl:px-16 4xl:px-28'
         >
-          {({ register, control, setValue, getValues, formState: { errors } }) => {
+          {({ register, formState: { errors } }) => {
             return (
               <>
                 <Input
                   label='نام*'
                   id='name'
                   type='text'
-                  value={testdata.name}
                   {...register('name')}
                   className='flex-grow'
+                  error={errors?.name?.message}
                 />
                 <Input
                   label='توضیحات*'
                   id='description'
                   type='text'
-                  value={testdata.description}
                   {...register('description')}
                   className='flex-grow'
+                  error={errors?.description?.message}
                 />
                 <div className='col-span-full mt-2 flex items-center justify-end'>
                   <Button

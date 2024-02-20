@@ -8,14 +8,12 @@ interface AnyObject {
 export function useTable<T extends AnyObject>(
   initialData: T[],
   countPerPage: number = 10,
-  totalData : number,
+  totalData: number,
   initialFilterState?: Partial<Record<string, any>>
 ) {
   const [data, setData] = useState(initialData);
-  const [total , stTotal] = useState(totalData)    
-  
-  
-  
+  const [total, stTotal] = useState(totalData);
+
   /*
    * Dummy loading state.
    */
@@ -23,7 +21,7 @@ export function useTable<T extends AnyObject>(
   useEffect(() => {
     setLoading(false);
   }, []);
-  
+
   /*
    * Handle row selection
    */
@@ -87,15 +85,14 @@ export function useTable<T extends AnyObject>(
    * Handle pagination
    */
   const [currentPage, setCurrentPage] = useState(1);
-  function paginatedData(data: T[] = sortedData) {    
+  function paginatedData(data: T[] = sortedData) {
     const start = (currentPage - 1) * countPerPage;
     const end = start + countPerPage;
     if (total > start) return data;
     return data;
   }
 
-
-  function handlePaginate(pageNumber: number) {       
+  function handlePaginate(pageNumber: number) {
     setCurrentPage(pageNumber);
   }
 
@@ -114,18 +111,11 @@ export function useTable<T extends AnyObject>(
    * Handle Filters and searching
    */
   const [searchTerm, setSearchTerm] = useState('');
-  const [filters, setFilters] = useState<Record<string, any>>(
-    initialFilterState ?? {}
-  );
+  const [filters, setFilters] = useState<Record<string, any>>(initialFilterState ?? {});
 
-  
-
-  
-  function updateFilter(columnId: string, filterValue: string | any[]) { 
-
+  function updateFilter(columnId: string, filterValue: string | any[]) {
     if (!Array.isArray(filterValue) && !isString(filterValue)) {
       throw new Error('filterValue data type should be string or array of any');
-      
     }
 
     if (Array.isArray(filterValue) && filterValue.length !== 2) {
@@ -135,42 +125,28 @@ export function useTable<T extends AnyObject>(
     setFilters((prevFilters) => ({
       ...prevFilters,
       [columnId]: filterValue,
-    }));  
-
-
-      
+    }));
   }
 
-
-  function applyFilters() {    
-
+  function applyFilters() {
     const searchTermLower = searchTerm.toLowerCase();
     return (
-      sortedData && sortedData
+      sortedData &&
+      sortedData
         .filter((item) => {
           const isMatchingItem = Object.entries(filters)
-          .filter( ([columnId, filterValue])=> filterValue !== '' )
-          .every(
-            ([columnId, filterValue]) => {
-              if (
-                Array.isArray(filterValue) &&
-                typeof filterValue[1] === 'object'
-              ) {
+            .filter(([columnId, filterValue]) => filterValue !== '')
+            .every(([columnId, filterValue]) => {
+              if (Array.isArray(filterValue) && typeof filterValue[1] === 'object') {
                 const itemValue = new Date(item[columnId]);
                 return (
                   // @ts-ignore
                   itemValue >= filterValue[0] && itemValue <= filterValue[1]
                 );
               }
-              if (
-                Array.isArray(filterValue) &&
-                typeof filterValue[1] === 'string'
-              ) {
+              if (Array.isArray(filterValue) && typeof filterValue[1] === 'string') {
                 const itemPrice = Math.ceil(Number(item[columnId]));
-                return (
-                  itemPrice >= Number(filterValue[0]) &&
-                  itemPrice <= Number(filterValue[1])
-                );
+                return itemPrice >= Number(filterValue[0]) && itemPrice <= Number(filterValue[1]);
               }
               if (isString(filterValue) && !Array.isArray(filterValue)) {
                 const itemValue = item[columnId]?.toString().toLowerCase();
@@ -179,8 +155,7 @@ export function useTable<T extends AnyObject>(
                 }
                 return true;
               }
-            }
-          );          
+            });
           return isMatchingItem;
         })
         // global search after running filters
@@ -190,8 +165,7 @@ export function useTable<T extends AnyObject>(
               ? value &&
                 Object.values(value).some(
                   (nestedItem) =>
-                    nestedItem &&
-                    String(nestedItem).toLowerCase().includes(searchTermLower)
+                    nestedItem && String(nestedItem).toLowerCase().includes(searchTermLower)
                 )
               : value && String(value).toLowerCase().includes(searchTermLower)
           )
@@ -217,8 +191,7 @@ export function useTable<T extends AnyObject>(
           ? value &&
             Object.values(value).some(
               (nestedItem) =>
-                nestedItem &&
-                String(nestedItem).toLowerCase().includes(searchTermLower)
+                nestedItem && String(nestedItem).toLowerCase().includes(searchTermLower)
             )
           : value && String(value).toLowerCase().includes(searchTermLower)
       )

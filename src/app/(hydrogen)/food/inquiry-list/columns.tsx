@@ -10,7 +10,7 @@ import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
 // import { ModalView } from '../list/update-modal';
 import TableAvatar from '@/components/ui/avatar-card';
-import { ModalView } from '../update/update-modal';
+import { ModalView } from '../update/modal';
 
 type Columns = {
   data: any[];
@@ -115,7 +115,7 @@ function RenderAction({
           </Link>
         </Tooltip>
         <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
-          <Link href={routes.neshan.add}>
+          <Link href={routes.food.detail(row.id)}>
             <ActionIcon
               tag='span'
               size='sm'

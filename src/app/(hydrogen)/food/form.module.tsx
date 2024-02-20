@@ -17,14 +17,11 @@ import { Password } from 'rizzui';
 
 type Props = {
   handlerOnSubmit: (data: any) => void;
-  data: any;
+  data?: any;
   isEdit?: boolean;
 };
 
-export default function FormData({ handlerOnSubmit, data, isEdit }: Props) {
-
-console.log(data);
-  
+export default function FormData({ handlerOnSubmit, data, isEdit }: Props) {  
   const onSubmit: SubmitHandler<GeneralFormTypes> = (value) => {
     handlerOnSubmit(value);
   };

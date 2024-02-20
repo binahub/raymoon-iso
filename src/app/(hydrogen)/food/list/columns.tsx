@@ -8,7 +8,7 @@ import { useModal } from '@/app/shared/modal-views/use-modal';
 import DeletePopover from '@/app/shared/delete-popover';
 import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
-import { ModalView } from '../update/update-modal';
+import { ModalView } from '../update/modal';
 import TableAvatar from '@/components/ui/avatar-card';
 
 type Columns = {
@@ -116,7 +116,7 @@ function RenderAction({
           </Link>
         </Tooltip>
         <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
-          <Link href={routes.neshan.add}>
+        <Link href={routes.food.detail(row.id)}>
             <ActionIcon
               tag='span'
               size='sm'

@@ -3,11 +3,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-import { routes } from '@/config/routes';
 //@TODO: should change import from package
 import Table from '@/app/shared/table/table';
 import FilterElement from '@/app/shared/table/content-filter';
-import { detail } from './detail';
+import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
@@ -18,6 +17,7 @@ import { Form } from '@/components/ui/form';
 import Card from '@/components/cards/card';
 import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema, FoodInquirySchema } from '@/utils/validators/food.schema';
+import { pageHeader } from './header';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -34,21 +34,9 @@ export default function NeshanPage() {
     },
   };
 
-  const pageHeader = {
-    title: 'سفارش غذا',
-    breadcrumb: [
-      {
-        href: routes.food.inquiry,
-        name: 'سفارشات',
-      },
-      {
-        name: ' لیست سفارشات غذا',
-      },
-    ],
-  };
-
   /* create title excel columns */
-  const exportColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
+  const exportColumns = 'شناسه,نام,ایمیل';
+
   /* api call */
   const [list, { isLoading, isSuccess, isError, error, data: dataService }] =
     useCategoryListMutation();

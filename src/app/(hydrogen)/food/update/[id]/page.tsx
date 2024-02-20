@@ -1,27 +1,14 @@
 'use client';
-import { routes } from '@/config/routes';
 import PageHeader from '@/app/shared/page-header';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { useEffect, useState } from 'react';
 import { Card } from 'shafa-bo';
 import { SubmitHandler } from 'react-hook-form';
 import FormData from '../../form.module';
+import { pageHeader } from '../header';
 
 type Props = {
   params: { id: string };
-};
-
-const pageHeader = {
-  title: 'سفارش غذا',
-  breadcrumb: [
-    {
-      href: routes.food.list,
-      name: 'لیست سفارشات غذا',
-    },
-    {
-      name: 'ویرایش',
-    },
-  ],
 };
 
 export default function FoodEditPage({ params }: Props) {

@@ -1,16 +1,14 @@
-/* generate dataFilter for generate content filter inside drawer filter */
-
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-import { routes } from '@/config/routes';
 //@TODO: should change import from package
 import Table from '@/app/shared/table/table';
 import FilterElement from '@/app/shared/table/content-filter';
-import { detail } from './detail';
+import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
+import { pageHeader } from './header';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -24,19 +22,6 @@ export default function NeshanPage() {
       orderBy: 'id',
       sort: 'asc',
     },
-  };
-
-  const pageHeader = {
-    title: 'سفارش غذا',
-    breadcrumb: [
-      {
-        href: routes.neshan.list,
-        name: 'سفارشات',
-      },
-      {
-        name: ' لیست سفارشات غذا',
-      },
-    ],
   };
 
   /* create title excel columns */

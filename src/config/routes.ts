@@ -49,6 +49,7 @@ export const routes = {
     inquiry: '/food/inquiry-list',
     create:'/food/create',
     update: (id: string) => `/food/update/${id}`,
+    detail: (id: string) => `/food/detail/${id}`,
    },
   logistics: {
     dashboard: '/logistics',

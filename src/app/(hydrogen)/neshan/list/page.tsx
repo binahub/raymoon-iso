@@ -130,7 +130,6 @@ export default function NeshanPage() {
       </>
     );
   };
-
   return (
     <Table
       pageHeader={pageHeader}

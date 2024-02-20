@@ -2,9 +2,7 @@
 import PageHeader from '@/app/shared/page-header';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { useEffect, useState } from 'react';
-import { Card } from 'shafa-bo';
-import { SubmitHandler } from 'react-hook-form';
-import FormData from '../../form.module';
+import Card from '@/components/cards/card';
 import { pageHeader } from '../header';
 import { Input } from '@/components/ui/input';
 
@@ -45,8 +43,8 @@ export default function FoodEditPage({ params }: Props) {
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
-      <div className='my-10 flex justify-center'>
-        <div className=' grid w-[100%] grid-cols-3 gap-5 rounded-2xl border border-gray-100 bg-white dark:bg-gray-100 p-12'>
+      <Card>
+        <div className=' grid w-[100%] grid-cols-3 gap-5 p-5'>
           <div>
             <Input
               label='نام'
@@ -75,7 +73,7 @@ export default function FoodEditPage({ params }: Props) {
             />
           </div>
         </div>
-      </div>
+      </Card>
     </>
   );
 }

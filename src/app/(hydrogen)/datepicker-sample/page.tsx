@@ -6,7 +6,6 @@ import { Datepicker } from '@/components/ui/datepicker';
 import { Form } from '@/components/ui/form';
 import { DatePickerSchema, datePickerSchema } from '@/utils/validators/datepicker.schema';
 
-
 function page() {
   const onSubmit: SubmitHandler<any> = (data: any) => {
     console.log(data);
@@ -16,9 +15,7 @@ function page() {
     <div>
       <Card className='p-5'>
         {/* using datepicker in react-hook-form */}
-        <Form<DatePickerSchema> 
-        validationSchema={datePickerSchema}
-        onSubmit={onSubmit}>
+        <Form<DatePickerSchema> validationSchema={datePickerSchema} onSubmit={onSubmit}>
           {({ register, control, formState: { errors } }) => {
             return (
               <>
@@ -32,6 +29,7 @@ function page() {
                       onChange={onChange}
                       className='w-60'
                       error={errors?.startDate}
+                      // disabled
                     />
                   )}
                 />

@@ -26,8 +26,6 @@ function UploadButton() {
   };
 
   const onSubmit: SubmitHandler<any> = (data: any) => {
-    console.log(file);
-
     if (file.length === 0) {
       toast.error(<Text as='b'>لطفا فایل خود را انتخاب کنید.</Text>);
     }

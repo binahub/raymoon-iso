@@ -9,7 +9,8 @@ function page() {
     <div>
       <WidgetCard title='using sweet alert' className='flex flex-col'>
         <Button
-          className='my-4 w-40 dark:bg-primary'
+          className='my-4 w-40'
+          // variant='outline'
           onClick={() =>
             SweetAlert({
               type: 'info',

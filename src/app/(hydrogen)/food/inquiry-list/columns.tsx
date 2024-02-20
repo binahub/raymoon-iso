@@ -10,6 +10,7 @@ import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
 // import { ModalView } from '../list/update-modal';
 import TableAvatar from '@/components/ui/avatar-card';
+import { ModalView } from '../update/update-modal';
 
 type Columns = {
   data: any[];
@@ -78,7 +79,7 @@ function RenderAction({
   return (
     <>
       <div className='flex items-center justify-end gap-3 pe-4'>
-        {/* <Tooltip size='sm' content={() => ' ویرایش با مدال'} placement='top' color='invert'>
+        <Tooltip size='sm' content={() => ' ویرایش با مدال'} placement='top' color='invert'>
           <ActionIcon
             tag='span'
             size='sm'
@@ -94,7 +95,7 @@ function RenderAction({
           >
             <PencilIcon className='h-4 w-4' />
           </ActionIcon>
-        </Tooltip> */}
+        </Tooltip>
         <Tooltip
           size='sm'
           content={() => ' ویرایش جزئیات در صفحه جدید'}

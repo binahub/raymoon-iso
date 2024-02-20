@@ -22,7 +22,8 @@ export const config = {
     '/category',
     '/iva',
     '/neshan/list',
-    // '/food/list'
-    // 'food/inquiry'
+    '/food/create',
+    '/food/list',
+    '/food/inquiry-list'
   ],
 };

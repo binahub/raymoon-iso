@@ -11,8 +11,7 @@
     "lint": "next lint",
     "generate-icons": "node generate-icons-data.js",
     "format": "prettier --write .",
-    "prepare": "husky install",
-    "start-json-server": "json-server --watch db.json"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.5",

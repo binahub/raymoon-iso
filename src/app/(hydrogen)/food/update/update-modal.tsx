@@ -9,6 +9,7 @@ import { PiXBold } from 'react-icons/pi';
 import { Form } from 'shafa-bo';
 import { SubmitHandler } from 'react-hook-form';
 import { FoodSchema, foodSchema } from '@/utils/validators/food.schema';
+import FormData from '../form.module';
 
 type Props = {
   rowData: {
@@ -42,49 +43,7 @@ export function ModalView(rowData: Props) {
         </ActionIcon>
       </div>
       <hr className='my-6 w=[80%] h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50' />
-      <Form
-        validationSchema={foodSchema}
-        onSubmit={onSubmit}
-        useFormProps={{
-          mode: 'onChange',
-          defaultValues: initialValues,
-        }}
-        className=' grid w-[100%] grid-cols-2 gap-5 bg-white dark:bg-gray-100 pb-6 pt-6'
-      >
-        {({ register, formState: { errors } }) => {
-          return (
-            <>
-              <Input
-                label='نام*'
-                id='name'
-                type='text'
-                defaultValue={rowData?.rowData?.name}
-                {...register('name')}
-                className='flex-grow'
-                error={errors?.name?.message}
-              />
-              <Input
-                label='توضیحات*'
-                id='description'
-                type='text'
-                defaultValue={rowData?.rowData?.description}
-                {...register('description')}
-                className='flex-grow'
-                error={errors?.description?.message}
-              />
-              <div className='col-span-full mt-2 flex items-center justify-end'>
-                <Button
-                  type='submit'
-                  className='w-32'
-                  // isLoading={isLoading}
-                >
-                  ویرایش
-                </Button>
-              </div>
-            </>
-          );
-        }}
-      </Form>
+      <FormData handlerOnSubmit={onSubmit} data={rowData?.rowData} isEdit/>
     </div>
   );
 }

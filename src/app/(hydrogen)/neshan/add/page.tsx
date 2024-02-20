@@ -62,10 +62,10 @@ export default function SupportInboxPage() {
                   className='flex-grow'
                 />
                 <Input
-                  label='شماره پیگیری*'
+                  label='توضیحات*'
                   type='number'
-                  {...register('TrackingCode')}
-                  error={errors.TrackingCode?.message}
+                  {...register('description')}
+                  error={errors.description?.message}
                   className='flex-grow '
                 />
                 <Input

@@ -206,6 +206,10 @@ export const berylliumMenuItems: MenuItemsType[] = [
         icon: PiBeerSteinThin,
         subMenuItems: [
           {
+            name: ' افزودن غذا',
+            href: routes.food.create,
+          },
+          {
             name: 'لیست سفارش ',
             href: routes.food.list,
           },

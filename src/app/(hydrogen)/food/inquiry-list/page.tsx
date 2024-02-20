@@ -23,7 +23,7 @@ export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
-  const [dataResponse, setDataResponse]: any = useState([]);
+  const [isInitialLoad, setIsInitialLoad] = useState(false);
 
   const parameterMap = {
     parameterMap: {
@@ -47,15 +47,13 @@ export default function NeshanPage() {
     ],
   };
 
-  // useEffect(() => {
-  //   const response: any = fetch('http://localhost:3000/food').then(res => res.json()).then(data=>setDataResponse(data))
-  // }, []);
-
-
   /* create title excel columns */
   const exportColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
   /* api call */
-  const [list, { isLoading, isSuccess, isError, error, data }] = useCategoryListMutation();
+  const [list, { isLoading, isSuccess, isError, error, data: dataService }] =
+    useCategoryListMutation();
+
+  console.log(dataService);
 
   /* use hooks for table*/
   const {
@@ -75,7 +73,12 @@ export default function NeshanPage() {
     handleRowSelect,
     handleSelectAll,
     setData,
-  } = useTable(dataResponse, pageSize, data?.totalElements, filterState);
+  } = useTable(
+    dataService?.foodCategoryObjectList,
+    pageSize,
+    dataService?.totalElements,
+    filterState
+  );
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
@@ -83,14 +86,10 @@ export default function NeshanPage() {
 
   useEffect(() => {
     if (!isLoading) {
-      setData(dataResponse);
+      setData(dataService?.foodCategoryObjectList);
     }
     setPageNumer(currentPage - 1);
   }, [isLoading]);
-
-  useEffect(() => {
-    list(parameterMap);
-  }, [pageNumer, pageSize]);
 
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {
@@ -106,7 +105,7 @@ export default function NeshanPage() {
   const columns = React.useMemo(
     () =>
       getColumns({
-        data,
+        data: dataService?.foodCategoryObjectList,
         sortConfig,
         onHeaderCellClick,
         onDeleteItem,
@@ -129,20 +128,25 @@ export default function NeshanPage() {
   /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
-    setDataResponse(data?.foodCategoryObjectLists);
   };
 
   const onSubmit: SubmitHandler<any> = (data) => {
-    // list(parameterMap);
     list({ parameterMap: { ...parameterMap.parameterMap, ...data } });
+    setIsInitialLoad(true);
   };
+
+  useEffect(() => {
+    if (isInitialLoad) {
+      list(parameterMap);
+    }
+  }, [pageNumer, pageSize]);
 
   return (
     <>
       <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
       <Card className='rounded-t-3xl mb-5'>
         <Form
-          validationSchema={foodInquirySchema}
+          // validationSchema={foodInquirySchema}
           onSubmit={onSubmit}
           useFormProps={{
             mode: 'onChange',
@@ -158,7 +162,7 @@ export default function NeshanPage() {
                   type='text'
                   {...register('name')}
                   className='flex-grow'
-                  error={errors?.name?.message}
+                  // error={errors?.name?.message}
                 />
                 <Input
                   label='توضیحات*'
@@ -166,7 +170,7 @@ export default function NeshanPage() {
                   type='text'
                   {...register('description')}
                   className='flex-grow'
-                  error={errors?.description?.message}
+                  // error={errors?.description?.message}
                 />
                 <div className='flex justify-end items-end'>
                   <Button type='submit' className='w-32' isLoading={isLoading}>
@@ -180,7 +184,7 @@ export default function NeshanPage() {
       </Card>
       <Table
         /* get data from api call */
-        data={dataResponse}
+        data={dataService?.foodCategoryObjectList}
         /* get columns for table */
         columns={columns}
         /* data detail for show in expanded table */
@@ -193,7 +197,7 @@ export default function NeshanPage() {
         paginatorOptions={{
           pageSize,
           setPageSize,
-          total: data?.totalElements,
+          total: dataService?.totalElements,
           current: currentPage,
           onChange: (page: number) => handlePaginate(page),
         }}
@@ -212,6 +216,7 @@ export default function NeshanPage() {
         isLoading={isLoading}
         handleSearch={handleSearch}
         searchTerm={searchTerm}
+        exportColumns={exportColumns}
         requiredSeachTable
       />
     </>

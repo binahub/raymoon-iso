@@ -4,19 +4,18 @@ import { getSession } from "next-auth/react";
 export const CategoryApi = createApi({
   reducerPath: "CategoryApi",
   baseQuery: fetchBaseQuery({
-    // baseUrl: "http://78.157.51.13/food/api/v1",
-    baseUrl: "http://localhost:3000",
-    // prepareHeaders: async (headers) => {
-    //   // Retrieve the token from session
+    baseUrl: "http://78.157.51.13/food/api/v1",
+    prepareHeaders: async (headers) => {
+      // Retrieve the token from session
 
-    //   const session : any = await getSession()
-    //   // If a token exists, set the Authorization header with the bearer token
-    //   if (session?.apiToken) {
-    //     headers.set("Authorization", `Bearer ${session?.apiToken}`);
-    //   }
+      const session : any = await getSession()
+      // If a token exists, set the Authorization header with the bearer token
+      if (session?.apiToken) {
+        headers.set("Authorization", `Bearer ${session?.apiToken}`);
+      }
 
-    //   return headers;
-    // },
+      return headers;
+    },
   }),
   tagTypes: ["auth", "category", "food", "organization"],
   endpoints: (builder) => ({
@@ -30,8 +29,7 @@ export const CategoryApi = createApi({
     }),
     categoryList: builder.mutation({
       query: (params: any) => ({
-        // url: "/categoryFood/list",
-        url: "/food",
+        url: "/categoryFood/list",
         method: "POST",
         body: params,
       }),

@@ -73,6 +73,7 @@ export const Datepicker = ({
       onFocus={() => {
         openCalendar();
       }}
+      disabled={disabled}
     />
   );
 

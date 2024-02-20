@@ -136,6 +136,10 @@ export const berylliumMenuItems: MenuItemsType[] = [
             name: 'لیست غذاها',
             href: routes.food.list,
           },
+          {
+            name: 'نمونه Tab',
+            href: routes.tabSample,
+          },
         ],
       },
     ],

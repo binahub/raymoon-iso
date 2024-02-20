@@ -1,5 +1,3 @@
-/* show columns tabel also handel modal for show detail and handel delete */
-
 import Link from 'next/link';
 import { ActionIcon, Tooltip } from 'rizzui';
 import { HeaderCell } from '@/components/ui/rizz-table';

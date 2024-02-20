@@ -1,5 +1,3 @@
-/* generate content for update in modal */
-
 'use client ';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import { ActionIcon, Title } from 'rizzui';

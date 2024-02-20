@@ -1,8 +1,4 @@
-/* show more details in expect table (readOnly) */
-
 'use client ';
-import PageHeader from '@/app/shared/page-header';
-import Card from '@/components/cards/card';
 import { Input } from '@/components/ui/input';
 
 type Props = {

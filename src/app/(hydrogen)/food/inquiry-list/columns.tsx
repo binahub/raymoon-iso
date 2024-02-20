@@ -1,5 +1,3 @@
-/* show columns tabel also handel modal for show detail and handel delete */
-
 import Link from 'next/link';
 import { ActionIcon, Tooltip } from 'rizzui';
 import { HeaderCell } from '@/components/ui/rizz-table';
@@ -8,7 +6,6 @@ import { useModal } from '@/app/shared/modal-views/use-modal';
 import DeletePopover from '@/app/shared/delete-popover';
 import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
-// import { ModalView } from '../list/update-modal';
 import TableAvatar from '@/components/ui/avatar-card';
 import { ModalView } from '../update/modal';
 

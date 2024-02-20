@@ -1,5 +1,3 @@
-/* generate dataFilter for generate content filter inside drawer filter */
-
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';

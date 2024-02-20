@@ -1,6 +1,3 @@
-
-/* generate content for update in modal */
-
 'use client ';
 import { Input } from '@/components/ui/input';
 import { useModal } from '@/app/shared/modal-views/use-modal';

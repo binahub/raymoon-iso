@@ -1,5 +1,3 @@
-/* generate dataFilter for generate content filter inside drawer filter */
-
 /* initioalization  */
 export const filterState = {
   name: '',

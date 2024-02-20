@@ -49,9 +49,9 @@ function DropdownMenu() {
           </Link>
         ))}
       </div>
-      <div className='border-t border-gray-300 px-6 pb-6 pt-5'>
+      <div className='border-t border-gray-300 px-3.5 py-3.5'>
         <Button
-          className='h-auto w-full justify-start p-0 font-medium text-gray-700 hover:!text-red-600 outline-none focus-within:text-gray-600 focus-visible:ring-0 bg-white dark:bg-gray-50'
+          className='h-auto w-full justify-start px-2.5 py-2 font-medium text-gray-700 hover:!text-red-600 hover:bg-gray-100 hover:dark:bg-gray-50/50 outline-none focus-within:text-gray-600 focus-visible:ring-0 bg-white dark:bg-gray-100'
           variant='text'
           onClick={() => signOut()}
         >

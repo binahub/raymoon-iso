@@ -1,15 +1,15 @@
 import { routes } from "@/config/routes";
 
-export const pageHeader = {
+export const headerData = {
     title: 'سفارش غذا',
     breadcrumb: [
       {
-        href: routes.food.create,
-        name: ' افزودن غذا به لیست ',
+        href: routes.food.list,
+        name: 'لیست سفارشات غذا',
       },
   
       {
-        name: 'ایجاد',
+        name: ' افزودن غذا به لیست ',
       },
     ],
   };

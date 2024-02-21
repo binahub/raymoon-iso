@@ -8,7 +8,7 @@ import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
-import { pageHeader } from './header';
+import { headerData } from './header';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -51,17 +51,20 @@ export default function NeshanPage() {
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
     if (!isLoading) {
       setData(data?.foodCategoryObjectList);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }
     setPageNumer(currentPage - 1);
   }, [isLoading]);
 
   useEffect(() => {
     list(parameterMap);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
 
   const onHeaderCellClick = (value: string) => ({
@@ -105,7 +108,7 @@ export default function NeshanPage() {
 
   return (
     <Table
-      pageHeader={pageHeader}
+      pageHeader={headerData}
       /* get data from api call */
       data={data?.foodCategoryObjectList}
       /* get columns for table */

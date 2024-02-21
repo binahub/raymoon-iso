@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function FoodEditPage({ params }: Props) {
-  const [initialData, setInitialData] = useState({ name: '', description: '' });  
+  const [initialData, setInitialData] = useState({ name: '', description: '' });
 
   const parameterMap = {
     parameterMap: {
@@ -49,10 +49,11 @@ export default function FoodEditPage({ params }: Props) {
 
   return (
     <>
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
-      <Card>
-        <FormData handlerOnSubmit={onSubmit} data ={initialData} numberCol={3} isEdit />
-      </Card>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}>
+        <Card>
+          <FormData handlerOnSubmit={onSubmit} data={initialData} numberCol={3} isEdit />
+        </Card>
+      </PageHeader>
     </>
   );
 }

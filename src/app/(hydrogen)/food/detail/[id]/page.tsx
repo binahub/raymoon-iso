@@ -43,8 +43,7 @@ export default function FoodEditPage({ params }: Props) {
   }, [isSuccess, serverData]);
 
   return (
-    <>
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}>
       <Card>
         <div className=' grid w-[100%] grid-cols-3 gap-5 p-5'>
           <div>
@@ -76,6 +75,6 @@ export default function FoodEditPage({ params }: Props) {
           </div>
         </div>
       </Card>
-    </>
+      </PageHeader>
   );
 }

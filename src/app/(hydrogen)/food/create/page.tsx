@@ -1,6 +1,6 @@
 'use client';
 import PageHeader from '@/app/shared/page-header';
-import Card from '@/components/cards/card';
+import { Card } from 'shafa-bo';
 import FormData from '../form.module';
 import { headerData } from './header';
 

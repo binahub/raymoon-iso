@@ -57,9 +57,9 @@ export default function NeshanPage() {
   useEffect(() => {
     if (!isLoading) {
       setData(data?.foodCategoryObjectList);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }
     setPageNumer(currentPage - 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function NeshanPage() {
         onDeleteItem,
         checkedItems: selectedRowKeys,
         onChecked: handleRowSelect,
-        handleSelectAll
+        handleSelectAll,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
@@ -137,7 +137,7 @@ export default function NeshanPage() {
           updateFilter,
           dataFilter,
           actionFilter,
-          isLoading
+          isLoading,
         })
       }
       isLoading={isLoading}

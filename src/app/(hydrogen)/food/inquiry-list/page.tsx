@@ -1,5 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { NoSSR } from 'next-dynamic-no-ssr';
+// import NoSSR from 'react-no-ssr';
 import { useTable } from '@/hooks/use-table';
 //@TODO: should change import from package
 import Table from '@/app/shared/table/table';
@@ -11,17 +13,22 @@ import { dataFilter, filterState } from './filter';
 import PageHeader from '@/app/shared/page-header';
 // import { Button } from '@/components/ui/button';
 // import { Input } from '@/components/ui/input';
-// import { Form } from '@/components/ui/form';
+import { Form } from '@/components/ui/form';
 // import Card from '@/components/cards/card';
-const Card = dynamic(() => import('shafa-bo').then((module) => module.Card), { ssr: false });
-const Input = dynamic(() => import('shafa-bo').then((module) => module.Input), { ssr: false });
-const Button = dynamic(() => import('shafa-bo').then((module) => module.Button), { ssr: false });
-const Form = dynamic(() => import('shafa-bo').then((module) => module.Form), { ssr: false });
+// const { Input, Button, Form, Card}:any = dynamic(() => import('shafa-bo'), { ssr: false });
+// const Input = dynamic(() => import('shafa-bo').then((module) => module.Input), { ssr: false });
+// const Button = dynamic(() => import('shafa-bo').then((module) => module.Button), { ssr: false });
+// const Form = dynamic(() => import('shafa-bo').then((module) => module.Form), { ssr: false });
+// import { Input, Button, Form, Card } from 'shafa-bo';
 
 import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema, FoodInquirySchema } from '@/utils/validators/food.schema';
 import { headerData } from './header';
 import dynamic from 'next/dynamic';
+const { Input, Button, Card }: any = dynamic((): any => import('shafa-bo'), { ssr: false });
+
+// import NoSsr from '@/components/no-ssr';
+// import dynamic from 'next/dynamic';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -135,7 +142,7 @@ export default function NeshanPage() {
   }, [pageNumer, pageSize]);
 
   return (
-    <>
+    <NoSSR>
       <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
       <Card className='rounded-t-3xl mb-5'>
         <Form
@@ -212,6 +219,6 @@ export default function NeshanPage() {
         exportColumns={exportColumns}
         requiredSeachTable
       />
-    </>
+    </NoSSR>
   );
 }

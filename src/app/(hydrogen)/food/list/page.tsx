@@ -9,6 +9,7 @@ import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, initialFilterValues } from './filter';
 import { headerData } from './header';
+import ImportButton from '@/app/shared/import-button';
 
 export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -38,8 +39,6 @@ export default function FoodPage() {
     sortConfig,
     tableData,
     currentPage,
-    // searchTerm,
-    // handleSearch,
     handleSort,
     handleDelete,
     handlePaginate,
@@ -106,20 +105,27 @@ export default function FoodPage() {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };
 
+  /* generate each ReactNode for show in layout table */
+  const GenerateElement = () => {
+    return (<ImportButton title={'آپلود فایل'} /> );
+  };
+
   return (
     <Table
       pageHeader={headerData}
       /* get data from api call */
       data={data?.foodCategoryObjectList}
-      /* get columns for table */
+      /* get each ReactNode */
+      buttons={<GenerateElement />}
+      /* get columns table */
       columns={columns}
-      /* data detail for show in expanded table */
+      /* show detail or ReactNode */
       expandedRow={(rowData: any) => detail(rowData)}
       expandedKeys={[rowEdit]}
       onExpand={(expanded: boolean, row: any) => {
         expanded ? setRowEdit(row.id) : setRowEdit({});
       }}
-      /* table pagination  */
+      /* show table pagination and handle functionality  */
       paginatorOptions={{
         pageSize,
         setPageSize,
@@ -128,7 +134,7 @@ export default function FoodPage() {
         onChange: (page: number) => handlePaginate(page),
       }}
       tableData={tableData}
-      /* table filter */
+      /* show filter drawer && handle filter */
       filterElement={() =>
         FilterElement({
           isFiltered,
@@ -141,8 +147,6 @@ export default function FoodPage() {
         })
       }
       isLoading={isLoading}
-      // handleSearch={handleSearch}
-      // searchTerm={searchTerm}
       /* export file */
       hasExportFile
       exportFileName={'export-food-table'}

@@ -113,7 +113,7 @@ export default function TableFilter({
             prefix={<PiMagnifyingGlassBold className='h-4 w-4' />}
           />
         ) : null} */}
-        {requiredSeachTable && (
+        {requiredSeachTable && data && (
           <ExportButton
             data={data}
             fileName={fileName ? fileName : 'export-table'}

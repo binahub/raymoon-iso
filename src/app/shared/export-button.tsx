@@ -1,6 +1,6 @@
 'use client';
 
-import { PiArrowLineUpBold } from 'react-icons/pi';
+import { PiArrowLineDownBold } from 'react-icons/pi';
 import { Button } from '@/components/ui/button';
 import cn from '@/utils/class-names';
 import { exportToCSV } from '@/utils/export-to-csv';
@@ -25,8 +25,8 @@ export default function ExportButton({
       className={cn('w-full @lg:w-auto', className)}
       // color='danger'
     >
-      <PiArrowLineUpBold className="me-1.5 h-[17px] w-[17px]" />
-      دانلود فایل
+      <PiArrowLineDownBold className="me-1.5 h-[17px] w-[17px]" />
+      خروجی
     </Button>
   );
 }

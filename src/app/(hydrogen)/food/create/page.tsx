@@ -1,10 +1,12 @@
 'use client';
 import PageHeader from '@/app/shared/page-header';
 // import Card from '@/components/cards/card';
-import { Card } from 'shafa-bo';
+// import { Card } from 'shafa-bo';
 import FormData from '../form.module';
 import { headerData } from './header';
-import NoSsr from '@/components/no-ssr';
+import dynamic from 'next/dynamic';
+// import NoSsr from '@/components/no-ssr';
+const Card = dynamic(() => import('shafa-bo').then((module) => module.Card), { ssr: false });
 
 export default function FormPage() {
   const onSubmit = (data: any) => {
@@ -14,11 +16,9 @@ export default function FormPage() {
   return (
     <>
       <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb} />
-      <NoSsr>
-        <Card>
-          <FormData handlerOnSubmit={onSubmit} />
-        </Card>
-      </NoSsr>
+      <Card>
+        <FormData handlerOnSubmit={onSubmit} />
+      </Card>
     </>
   );
 }

@@ -9,13 +9,18 @@ import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
 import PageHeader from '@/app/shared/page-header';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+// import { Button } from '@/components/ui/button';
+// import { Input } from '@/components/ui/input';
 import { Form } from '@/components/ui/form';
-import Card from '@/components/cards/card';
+// import Card from '@/components/cards/card';
+const Card = dynamic(() => import('shafa-bo').then((module) => module.Card), { ssr: false });
+const Input = dynamic(() => import('shafa-bo').then((module) => module.Input), { ssr: false });
+const Button = dynamic(() => import('shafa-bo').then((module) => module.Button), { ssr: false });
+
 import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema, FoodInquirySchema } from '@/utils/validators/food.schema';
 import { headerData } from './header';
+import dynamic from 'next/dynamic';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});

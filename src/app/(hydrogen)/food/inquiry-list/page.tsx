@@ -128,7 +128,7 @@ export default function FoodPage() {
 
   return (
     <>
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}/>
         <Card className='rounded-t-3xl mb-5'>
           <Form
             validationSchema={foodInquirySchema}
@@ -167,7 +167,6 @@ export default function FoodPage() {
             }}
           </Form>
         </Card>
-      </PageHeader>
       <Table
         /* get data from api call for handel export file */
         data={dataService?.foodCategoryObjectList}

@@ -1,7 +1,7 @@
 'use client';
-import { useEffect, useState } from 'react';
 import PageHeader from '@/app/shared/page-header';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
+import { useEffect, useState } from 'react';
 import Card from '@/components/cards/card';
 import { headerData } from '../header';
 import { Input } from '@/components/ui/input';
@@ -29,7 +29,6 @@ export default function FoodEditPage({ params }: Props) {
 
   useEffect(() => {
     list(parameterMap);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -39,11 +38,11 @@ export default function FoodEditPage({ params }: Props) {
         description: serverData?.foodCategoryObjectList[0]?.description,
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, serverData]);
 
   return (
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}>
+    <>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}/>
       <Card>
         <div className=' grid w-[100%] grid-cols-3 gap-5 p-5'>
           <div>
@@ -75,6 +74,6 @@ export default function FoodEditPage({ params }: Props) {
           </div>
         </div>
       </Card>
-      </PageHeader>
+    </>
   );
 }

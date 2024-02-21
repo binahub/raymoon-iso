@@ -1,6 +1,6 @@
 import { routes } from "@/config/routes";
 
-export const pageHeader = {
+export const headerData = {
     title: 'سفارش غذا',
     breadcrumb: [
       {

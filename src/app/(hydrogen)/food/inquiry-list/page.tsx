@@ -15,7 +15,7 @@ import { Form } from '@/components/ui/form';
 import Card from '@/components/cards/card';
 import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema, FoodInquirySchema } from '@/utils/validators/food.schema';
-import { pageHeader } from './header';
+import { headerData } from './header';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -66,6 +66,7 @@ export default function NeshanPage() {
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
@@ -73,6 +74,7 @@ export default function NeshanPage() {
       setData(dataService?.foodCategoryObjectList);
     }
     setPageNumer(currentPage - 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const onHeaderCellClick = (value: string) => ({
@@ -123,11 +125,12 @@ export default function NeshanPage() {
     if (isInitialLoad) {
       list(parameterMap);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
 
   return (
     <>
-      <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
       <Card className='rounded-t-3xl mb-5'>
         <Form
           validationSchema={foodInquirySchema}

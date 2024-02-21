@@ -1,9 +1,8 @@
 'use client';
-import { routes } from '@/config/routes';
 import PageHeader from '@/app/shared/page-header';
 import Card from '@/components/cards/card';
 import FormData from '../form.module';
-import { pageHeader } from './header';
+import { headerData } from './header';
 
 export default function FormPage() {
 
@@ -13,7 +12,7 @@ const onSubmit = (data : any)=>{
 
   return (
     <>
-      <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}/>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}/>
       <Card>
         <FormData handlerOnSubmit={onSubmit} />
       </Card>

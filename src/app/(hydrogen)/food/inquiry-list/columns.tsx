@@ -82,7 +82,7 @@ function RenderAction({
             size='sm'
             variant='outline'
             aria-label={'ویرایش'}
-            className='hover:text-gray-700'
+            className='hover:text-gray-700  cursor-pointer'
             onClick={() =>
               openModal({
                 view: <ModalView rowData={row} />,

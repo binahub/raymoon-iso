@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { Card } from 'shafa-bo';
 import { SubmitHandler } from 'react-hook-form';
 import FormData from '../../form.module';
-import { pageHeader } from '../header';
+import { headerData } from '../header';
 
 type Props = {
   params: { id: string };
@@ -30,6 +30,7 @@ export default function FoodEditPage({ params }: Props) {
 
   useEffect(() => {
     list(parameterMap);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ export default function FoodEditPage({ params }: Props) {
         description: serverData?.foodCategoryObjectList[0]?.description,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, serverData]);
 
   const onSubmit: SubmitHandler<any> = (data: any) => {
@@ -47,7 +49,7 @@ export default function FoodEditPage({ params }: Props) {
 
   return (
     <>
-      <PageHeader title={pageHeader.title} breadcrumb={pageHeader.breadcrumb}></PageHeader>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
       <Card>
         <FormData handlerOnSubmit={onSubmit} data ={initialData} isEdit />
       </Card>

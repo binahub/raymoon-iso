@@ -51,7 +51,7 @@ export default function FoodEditPage({ params }: Props) {
     <>
       <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
       <Card>
-        <FormData handlerOnSubmit={onSubmit} data ={initialData} isEdit />
+        <FormData handlerOnSubmit={onSubmit} data ={initialData} numberCol={3} isEdit />
       </Card>
     </>
   );

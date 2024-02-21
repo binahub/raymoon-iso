@@ -38,7 +38,7 @@ export function ModalView(rowData: Props) {
         </ActionIcon>
       </div>
       <hr className='my-6 w=[80%] h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50' />
-      <FormData handlerOnSubmit={onSubmit} data={rowData?.rowData} isEdit />
+      <FormData handlerOnSubmit={onSubmit} data={rowData?.rowData} numberCol={2} isEdit />
     </div>
   );
 }

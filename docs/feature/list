@@ -1,0 +1,36 @@
+TWO TYPE LIST PAGE :
+
+
+[1] list without require input data
+
+you should create the following files :
+
+    1) columns.tsx
+            generate columns table with status column including: add && delete && update && ...
+    2) filter.tsx
+            create object for generate content filter in drawer
+    3) header.tsx
+            generate title and breadcrumb page
+    4) page.tsx
+        a) api call for get data list
+        b) use useTable hook to generate all functionalities in table ---> like: pagination && handle table layout && actions
+        c) create actionFilter function for api call per filter 
+        d) use Table component with following :
+
+
+
+[2] list with require input data (inquirt-list)
+
+you should create the following files :
+
+    1) columns.tsx
+            generate columns table with status column including: add && delete && update
+    2) filter.tsx
+            create object for generate content filter in drawer
+    3) header.tsx
+            generate title and breadcrumb page
+    4) page.tsx
+        a) api call for get data list
+        b) use useTable hook to generate all functionalities in table ---> like: pagination && handle table layout && actions
+        c) create actionFilter function for api call per filter 
+        d) use Table component with following :

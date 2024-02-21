@@ -7,10 +7,10 @@ import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
-import { dataFilter, filterState } from './filter';
+import { dataFilter, initialFilterValues } from './filter';
 import { headerData } from './header';
 
-export default function NeshanPage() {
+export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
@@ -38,16 +38,16 @@ export default function NeshanPage() {
     sortConfig,
     tableData,
     currentPage,
-    searchTerm,
+    // searchTerm,
+    // handleSearch,
     handleSort,
     handleDelete,
-    handleSearch,
     handlePaginate,
     selectedRowKeys,
     handleRowSelect,
     handleSelectAll,
     setData,
-  } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, filterState);
+  } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, initialFilterValues);
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
@@ -141,8 +141,8 @@ export default function NeshanPage() {
         })
       }
       isLoading={isLoading}
-      handleSearch={handleSearch}
-      searchTerm={searchTerm}
+      // handleSearch={handleSearch}
+      // searchTerm={searchTerm}
       /* export file */
       hasExportFile
       exportFileName={'export-food-table'}

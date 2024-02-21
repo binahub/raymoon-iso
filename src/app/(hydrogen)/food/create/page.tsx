@@ -14,7 +14,7 @@ const onSubmit = (data : any)=>{
     <>
       <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}/>
       <Card>
-        <FormData handlerOnSubmit={onSubmit} />
+        <FormData handlerOnSubmit={onSubmit} numberCol={3} />
       </Card>
     </>
   );

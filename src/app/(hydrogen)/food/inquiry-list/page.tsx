@@ -17,7 +17,7 @@ import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema, FoodInquirySchema } from '@/utils/validators/food.schema';
 import { headerData } from './header';
 
-export default function NeshanPage() {
+export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);

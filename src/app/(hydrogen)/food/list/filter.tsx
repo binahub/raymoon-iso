@@ -1,7 +1,7 @@
 /* generate dataFilter for generate content filter inside drawer filter */
 
 /* initioalization  */
-export const filterState = {
+export const initialFilterValues = {
   name: '',
   // description: '',
 };

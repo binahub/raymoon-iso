@@ -19,9 +19,10 @@ type Props = {
   handlerOnSubmit: (data: any) => void;
   data?: any;
   isEdit?: boolean;
+  numberCol: number
 };
 
-export default function FormData({ handlerOnSubmit, data, isEdit }: Props) {  
+export default function FormData({ handlerOnSubmit, data, isEdit ,numberCol }: Props) {  
   const onSubmit: SubmitHandler<GeneralFormTypes> = (value) => {
     handlerOnSubmit(value);
   };
@@ -35,7 +36,7 @@ export default function FormData({ handlerOnSubmit, data, isEdit }: Props) {
           mode: 'onChange',
           // defaultValues,
         }}
-        className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%] p-6 @2xl:p-12 3xl:px-16 4xl:px-28'
+        className= {`grid gap-4 md:grid-cols-${numberCol} md:gap-7 w-[100%] @2xl:p-12 3xl:px-16 4xl:px-28`}
       >
         {({ register, control, setValue, getValues, formState: { errors } }) => {
           return (

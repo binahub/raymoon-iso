@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { PiArrowLineDownBold, PiTrashBold } from 'react-icons/pi';
+import { PiArrowLineUpBold, PiTrashBold } from 'react-icons/pi';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import cn from '@/utils/class-names';
 import { useEffect, useRef, useState } from 'react';
@@ -62,7 +62,7 @@ export default function ImportButton({
           className
         )}
       >
-        <PiArrowLineDownBold className='me-1.5 h-[17px] w-[17px]' />
+        <PiArrowLineUpBold className='me-1.5 h-[17px] w-[17px]' />
         {buttonLabel}
       </Button>
       {file?.length > 0 &&

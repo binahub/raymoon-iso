@@ -1,0 +1,7 @@
+TWO WAY FOR UPDATE :
+
+1) create [id]-> page.tsx file for generate dynamic rout  ----> it is used for edit data with api call
+
+2) create modal.tsx file for edit page in table  ----> it is used if you need to edit each row in modal
+
+3) create header.tsx file for generate title and breadcrumb page

@@ -7,10 +7,11 @@ import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
-import { dataFilter, filterState } from './filter';
+import { dataFilter, initialFilterValues } from './filter';
 import { headerData } from './header';
+import ImportButton from '@/app/shared/import-button';
 
-export default function NeshanPage() {
+export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
@@ -25,7 +26,7 @@ export default function NeshanPage() {
   };
 
   /* create title excel columns */
-  const exportColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
+  const exportColumns = 'Order ID,Name';
   /* api call */
   const [list, { isLoading, isSuccess, isError, error, data }] = useCategoryListMutation();
 
@@ -38,16 +39,14 @@ export default function NeshanPage() {
     sortConfig,
     tableData,
     currentPage,
-    searchTerm,
     handleSort,
     handleDelete,
-    handleSearch,
     handlePaginate,
     selectedRowKeys,
     handleRowSelect,
     handleSelectAll,
     setData,
-  } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, filterState);
+  } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, initialFilterValues);
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
@@ -106,20 +105,27 @@ export default function NeshanPage() {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };
 
+  /* generate each ReactNode for show in layout table */
+  const GenerateElement = () => {
+    return (<ImportButton title={'آپلود فایل'} /> );
+  };
+
   return (
     <Table
       pageHeader={headerData}
       /* get data from api call */
       data={data?.foodCategoryObjectList}
-      /* get columns for table */
+      /* get each ReactNode */
+      buttons={<GenerateElement />}
+      /* get columns table */
       columns={columns}
-      /* data detail for show in expanded table */
+      /* show detail or ReactNode */
       expandedRow={(rowData: any) => detail(rowData)}
       expandedKeys={[rowEdit]}
       onExpand={(expanded: boolean, row: any) => {
         expanded ? setRowEdit(row.id) : setRowEdit({});
       }}
-      /* table pagination  */
+      /* show table pagination and handle functionality  */
       paginatorOptions={{
         pageSize,
         setPageSize,
@@ -128,7 +134,7 @@ export default function NeshanPage() {
         onChange: (page: number) => handlePaginate(page),
       }}
       tableData={tableData}
-      /* table filter */
+      /* show filter drawer && handle filter */
       filterElement={() =>
         FilterElement({
           isFiltered,
@@ -141,8 +147,6 @@ export default function NeshanPage() {
         })
       }
       isLoading={isLoading}
-      handleSearch={handleSearch}
-      searchTerm={searchTerm}
       /* export file */
       hasExportFile
       exportFileName={'export-food-table'}

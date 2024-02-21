@@ -17,7 +17,7 @@ import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema, FoodInquirySchema } from '@/utils/validators/food.schema';
 import { headerData } from './header';
 
-export default function NeshanPage() {
+export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
@@ -33,7 +33,7 @@ export default function NeshanPage() {
   };
 
   /* create title excel columns */
-  const exportColumns = 'شناسه,نام,ایمیل';
+  const exportColumns = 'Order ID,Name';
 
   /* api call */
   const [list, { isLoading, isSuccess, isError, error, data: dataService }] =
@@ -48,10 +48,8 @@ export default function NeshanPage() {
     sortConfig,
     tableData,
     currentPage,
-    searchTerm,
     handleSort,
     handleDelete,
-    handleSearch,
     handlePaginate,
     selectedRowKeys,
     handleRowSelect,
@@ -170,17 +168,17 @@ export default function NeshanPage() {
         </Form>
       </Card>
       <Table
-        /* get data from api call */
+        /* get data from api call for handel export file */
         data={dataService?.foodCategoryObjectList}
-        /* get columns for table */
+        /* get columns table */
         columns={columns}
-        /* data detail for show in expanded table */
+        /* show detail or ReactNode */
         expandedRow={(rowData: any) => detail(rowData)}
         expandedKeys={[rowEdit]}
         onExpand={(expanded: boolean, row: any) => {
           expanded ? setRowEdit(row.id) : setRowEdit({});
         }}
-        /* table pagination  */
+        /* show table pagination and handle functionality  */
         paginatorOptions={{
           pageSize,
           setPageSize,
@@ -189,7 +187,7 @@ export default function NeshanPage() {
           onChange: (page: number) => handlePaginate(page),
         }}
         tableData={tableData}
-        /* table filter */
+        /* show filter drawer && handle filter */
         filterElement={() =>
           FilterElement({
             isFiltered,
@@ -201,9 +199,9 @@ export default function NeshanPage() {
           })
         }
         isLoading={isLoading}
-        handleSearch={handleSearch}
-        searchTerm={searchTerm}
+        /* title export file */
         exportColumns={exportColumns}
+        /* choose between two types of table */
         requiredSeachTable
       />
     </>

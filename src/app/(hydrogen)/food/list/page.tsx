@@ -2,13 +2,17 @@
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 //@TODO: should change import from package
-import Table from '@/app/shared/table/table';
+// import Table from '@/app/shared/table/table';
+// import { Table } from 'shafa-bo';
 import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
 import { headerData } from './header';
+import dynamic from 'next/dynamic';
+
+const Table = dynamic(() => import('shafa-bo').then((module) => module.Table), { ssr: false });
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});

@@ -49,7 +49,7 @@ export default function FoodEditPage({ params }: Props) {
 
   return (
     <>
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}/>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
       <Card>
         <FormData handlerOnSubmit={onSubmit} data ={initialData} numberCol={3} isEdit />
       </Card>

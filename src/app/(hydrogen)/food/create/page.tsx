@@ -1,9 +1,11 @@
 'use client';
 import PageHeader from '@/app/shared/page-header';
-import Card from '@/components/cards/card';
+// import Card from '@/components/cards/card';
 // import { Card } from 'shafa-bo';
 import FormData from '../form.module';
 import { headerData } from './header';
+import dynamic from 'next/dynamic';
+const Card = dynamic(() => import('shafa-bo').then((module) => module.Card), { ssr: false });
 
 export default function FormPage() {
   const onSubmit = (data: any) => {

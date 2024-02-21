@@ -33,7 +33,7 @@ export default function FoodPage() {
   };
 
   /* create title excel columns */
-  const exportColumns = 'شناسه,نام,ایمیل';
+  const exportColumns = 'Order ID,Name';
 
   /* api call */
   const [list, { isLoading, isSuccess, isError, error, data: dataService }] =

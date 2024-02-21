@@ -26,7 +26,7 @@ export default function FoodPage() {
   };
 
   /* create title excel columns */
-  const exportColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
+  const exportColumns = 'Order ID,Name';
   /* api call */
   const [list, { isLoading, isSuccess, isError, error, data }] = useCategoryListMutation();
 

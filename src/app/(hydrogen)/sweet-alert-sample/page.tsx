@@ -22,7 +22,7 @@ function page() {
         <Input />
         <Spinner size='sm' />
       </WidgetCard>
-      <Card height='[150px]' className='p-5'>
+      <Card className='p-5'>
         <Pagination pageSize={5} total={10} />
       </Card>
     </div>

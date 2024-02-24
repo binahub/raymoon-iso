@@ -1,7 +1,7 @@
 'use client';
 import WidgetCard from '@/components/cards/widget-card';
 import SweetAlert from '@/components/ui/sweet-alert';
-import { Button, Datepicker } from 'shafa-bo';
+import { Button, Datepicker, Input } from 'shafa-bo';
 
 function page() {
   return (
@@ -19,6 +19,7 @@ function page() {
           click to see sweet alert
         </Button>
         <Datepicker />
+        <Input />
       </WidgetCard>
     </div>
   );

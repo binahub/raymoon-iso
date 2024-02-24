@@ -1,7 +1,7 @@
 'use client';
-import WidgetCard from '@/components/cards/widget-card';
+// import WidgetCard from '@/components/cards/widget-card';
 import SweetAlert from '@/components/ui/sweet-alert';
-import { Button, Datepicker, Input, Spinner } from 'shafa-bo';
+import { Button, Datepicker, Input, Spinner, WidgetCard } from 'shafa-bo';
 
 function page() {
   return (

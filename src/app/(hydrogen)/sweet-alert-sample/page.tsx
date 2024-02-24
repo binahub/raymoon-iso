@@ -10,6 +10,7 @@ import {
   Card,
   Pagination,
   Breadcrumb,
+  Checkbox,
 } from 'shafa-bo';
 
 function page() {
@@ -34,6 +35,7 @@ function page() {
           ))}
         </Breadcrumb>
         <br />
+        <Checkbox />
         <Button
           onClick={() =>
             SweetAlert({

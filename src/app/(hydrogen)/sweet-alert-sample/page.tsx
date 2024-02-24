@@ -1,7 +1,7 @@
 'use client';
 // import WidgetCard from '@/components/cards/widget-card';
 import SweetAlert from '@/components/ui/sweet-alert';
-import { Button, Datepicker, Input, Spinner, WidgetCard } from 'shafa-bo';
+import { Button, Datepicker, Input, Spinner, WidgetCard, Card } from 'shafa-bo';
 
 function page() {
   return (
@@ -18,10 +18,13 @@ function page() {
         >
           click to see sweet alert
         </Button>
-        <Datepicker />
+        <Datepicker onChange={() => console.log('date changed')} />
         <Input />
         <Spinner size='sm' />
       </WidgetCard>
+      <Card height='[150px]' className='p-5'>
+        salam
+      </Card>
     </div>
   );
 }

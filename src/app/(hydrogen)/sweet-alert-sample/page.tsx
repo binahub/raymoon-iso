@@ -1,12 +1,39 @@
 'use client';
 // import WidgetCard from '@/components/cards/widget-card';
 import SweetAlert from '@/components/ui/sweet-alert';
-import { Button, Datepicker, Input, Spinner, WidgetCard, Card, Pagination } from 'shafa-bo';
+import {
+  Button,
+  Datepicker,
+  Input,
+  Spinner,
+  WidgetCard,
+  Card,
+  Pagination,
+  Breadcrumb,
+} from 'shafa-bo';
 
 function page() {
+  const breadcrumb = [
+    {
+      href: '/logistics',
+      name: ' نشان اعتباری ',
+    },
+    {
+      name: 'افزودن پرداخت نشان اعتباری',
+    },
+  ];
   return (
     <div>
       <WidgetCard title='component using'>
+        <Breadcrumb>
+          {' '}
+          {breadcrumb.map((item) => (
+            <Breadcrumb.Item key={item.name} {...(item?.href && { href: item?.href })}>
+              {item.name}
+            </Breadcrumb.Item>
+          ))}
+        </Breadcrumb>
+        <br />
         <Button
           onClick={() =>
             SweetAlert({

@@ -1,12 +1,12 @@
 'use client';
 import WidgetCard from '@/components/cards/widget-card';
 import SweetAlert from '@/components/ui/sweet-alert';
-import { Button } from 'rizzui';
+import { Button } from 'shafa-bo';
 
 function page() {
   return (
     <div>
-      <WidgetCard title="component using">
+      <WidgetCard title='component using'>
         <Button
           onClick={() =>
             SweetAlert({

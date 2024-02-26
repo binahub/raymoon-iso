@@ -29,6 +29,7 @@ export default function FoodEditPage({ params }: Props) {
 
   useEffect(() => {
     list(parameterMap);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function FoodEditPage({ params }: Props) {
 
   return (
     <>
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}/>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb} />
       <Card>
         <div className=' grid w-[100%] grid-cols-3 gap-5 p-5'>
           <div>

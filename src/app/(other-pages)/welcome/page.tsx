@@ -4,14 +4,12 @@ import { Title, Text } from '@/components/ui/text';
 import LaptopImg from '@public/welcome-laptop.png';
 import MobileImg from '@public/welcome-mobile.png';
 import DatePicker from 'react-multi-date-picker';
-import { Input } from 'rizzui';
 
 export default function WelcomePage() {
   return (
     <div className='flex grow items-center px-6 xl:px-10'>
       <div className='mx-auto flex w-full max-w-[1180px] flex-col-reverse items-center justify-between text-center lg:flex-row lg:gap-5 lg:text-start 3xl:max-w-[1520px]'>
         <div>
-          <Input />
           <Title
             as='h2'
             className='mb-3 text-[22px] font-bold leading-snug sm:text-2xl md:mb-5 md:text-3xl md:leading-snug xl:mb-7 xl:text-4xl xl:leading-normal 2xl:text-[40px] 3xl:text-5xl 3xl:leading-snug'

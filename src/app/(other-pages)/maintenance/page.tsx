@@ -1,6 +1,5 @@
-'use client';
 import Image from 'next/image';
-import { Title, Text } from 'shafa-bo';
+import { Title, Text } from '@/components/ui/shafa';
 import SubscriptionForm from '@/app/shared/subscription-form';
 import MaintananceImg from '@public/maintanance.png';
 

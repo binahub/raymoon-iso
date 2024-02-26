@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { ActionIcon, Tooltip } from 'rizzui';
-import { HeaderCell } from '@/components/ui/rizz-table';
+import { HeaderCell, AvatarCard } from 'shafa-bo';
 import PencilIcon from '@/components/icons/pencil';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import DeletePopover from '@/app/shared/delete-popover';
 import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
-import TableAvatar from '@/components/ui/avatar-card';
 import { ModalView } from '../update/modal';
 
 type Columns = {
@@ -48,7 +47,7 @@ export const getColumns = ({
     key: 'imageUrl',
     name: 'توضیحات',
     render: (_: any, row: any) => (
-      <TableAvatar src={row.imageUrl} name={row.name} description={'shakiba@fateme.bina'} />
+      <AvatarCard src={row.imageUrl} name={row.name} description={'shakiba@fateme.bina'} />
     ),
   },
   {

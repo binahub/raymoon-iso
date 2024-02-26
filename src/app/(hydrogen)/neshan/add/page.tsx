@@ -1,23 +1,14 @@
 'use client';
 import { routes } from '@/config/routes';
 import PageHeader from '@/app/shared/page-header';
-import { Form } from '@/components/ui/form';
-import Select from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { Form, Select, Input, Button, Password, Card, UploadZone } from 'shafa-bo';
 import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions } from '../data';
-import { Datepicker } from '@/components/ui/datepicker';
-import { countries, roles, timezones } from '@/data/forms/my-details';
-// import { Datepicker } from 'shafa-bo';
 import {
   GeneralFormTypes,
   generalFormSchema,
   defaultValues,
 } from '@/utils/validators/general.schema';
-import UploadZone from '@/components/ui/file-upload/upload-zone';
-import { Password } from 'rizzui';
-import Card from '@/components/cards/card';
 
 const pageHeader = {
   title: 'نشان بانک',

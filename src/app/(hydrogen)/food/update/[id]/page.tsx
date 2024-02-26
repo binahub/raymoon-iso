@@ -1,8 +1,7 @@
 'use client';
-import PageHeader from '@/app/shared/page-header';
+import { PageHeader, Card } from 'shafa-bo';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { useEffect, useState } from 'react';
-import { Card } from 'shafa-bo';
 import { SubmitHandler } from 'react-hook-form';
 import FormData from '../../form.module';
 import { headerData } from '../header';
@@ -12,7 +11,7 @@ type Props = {
 };
 
 export default function FoodEditPage({ params }: Props) {
-  const [initialData, setInitialData] = useState({ name: '', description: '' });  
+  const [initialData, setInitialData] = useState({ name: '', description: '' });
 
   const parameterMap = {
     parameterMap: {
@@ -51,7 +50,7 @@ export default function FoodEditPage({ params }: Props) {
     <>
       <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
       <Card>
-        <FormData handlerOnSubmit={onSubmit} data ={initialData} numberCol={3} isEdit />
+        <FormData handlerOnSubmit={onSubmit} data={initialData} numberCol={3} isEdit />
       </Card>
     </>
   );

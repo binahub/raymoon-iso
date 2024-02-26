@@ -2,9 +2,8 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { Button, Title, Text } from 'shafa-bo';
 import { PiHouseLineBold } from 'react-icons/pi';
-import { Title, Text } from '@/components/ui/text';
 
 // images and icons
 import NotFoundImg from '@public/not-found.png';

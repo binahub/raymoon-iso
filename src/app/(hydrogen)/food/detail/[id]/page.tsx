@@ -1,10 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
-import PageHeader from '@/app/shared/page-header';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
-import Card from '@/components/cards/card';
+import { Card, Input, PageHeader } from 'shafa-bo';
 import { headerData } from '../header';
-import { Input } from '@/components/ui/input';
 
 type Props = {
   params: { id: string };

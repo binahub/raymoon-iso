@@ -2,17 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 //@TODO: should change import from package
-import Table from '@/app/shared/table/table';
-import FilterElement from '@/app/shared/table/content-filter';
+import { Table, FilterElement, Card, Form, Input, Button } from 'shafa-bo';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
 import PageHeader from '@/app/shared/page-header';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Form } from '@/components/ui/form';
-import Card from '@/components/cards/card';
 import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema, FoodInquirySchema } from '@/utils/validators/food.schema';
 import { headerData } from './header';

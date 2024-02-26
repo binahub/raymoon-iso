@@ -1,6 +1,6 @@
 'use client ';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { ActionIcon, Title } from 'rizzui';
+import { ActionIcon, Title } from 'shafa-bo';
 import { PiXBold } from 'react-icons/pi';
 import { SubmitHandler } from 'react-hook-form';
 import { FoodSchema } from '@/utils/validators/food.schema';

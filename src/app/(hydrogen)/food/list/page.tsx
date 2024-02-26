@@ -1,9 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-//@TODO: should change import from package
-import Table from '@/app/shared/table/table';
-import FilterElement from '@/app/shared/table/content-filter';
+import { Table, FilterElement } from 'shafa-bo';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
@@ -107,7 +105,7 @@ export default function FoodPage() {
 
   /* generate each ReactNode for show in layout table */
   const GenerateElement = () => {
-    return (<ImportButton title={'آپلود فایل'} /> );
+    return <ImportButton title={'آپلود فایل'} />;
   };
 
   return (

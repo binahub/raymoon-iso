@@ -1,9 +1,6 @@
 'use client';
-import Card from '@/components/cards/card';
 import { Controller, SubmitHandler } from 'react-hook-form';
-import { Button } from '@/components/ui/button';
-import { Datepicker } from '@/components/ui/datepicker';
-import { Form } from '@/components/ui/form';
+import { Button, Datepicker, Form, Card } from 'shafa-bo';
 import { DatePickerSchema, datePickerSchema } from '@/utils/validators/datepicker.schema';
 
 function page() {

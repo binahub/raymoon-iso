@@ -2,12 +2,7 @@
 
 import React, { useState } from 'react';
 import ButtonGroupAction from '@/components/charts/button-group-action';
-import { Datepicker } from '@/components/ui/datepicker';
-import cn from '@/utils/class-names';
-import Table from '@/components/ui/rizz-table';
-import Pagination from '@/components/ui/pagination';
-import { Title } from '@/components/ui/text';
-import { Loader } from '@/components/ui/loader';
+import { Loader, Title, Pagination, Table, Datepicker, cn } from 'shafa-bo';
 import { pageMetricData } from '@/data/page-metrics-data';
 import { getColumns } from '@/app/shared/analytics-dashboard/page-metric/columns';
 import { useTable } from '@/hooks/use-table';
@@ -83,7 +78,7 @@ export default function PageMetrics({ className, pageSize = 5 }: PageMetricsType
             columns={visibleColumns}
             scroll={{ x: 1300 }}
             variant='elegant'
-            rowKey={(record) => record.id}
+            rowKey={(record: any) => record.id}
             tableLayout='fixed'
             className='mt-4 text-sm'
           />

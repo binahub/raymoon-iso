@@ -3,7 +3,7 @@
 import React from 'react';
 import Table from '@/components/ui/rizz-table';
 import Pagination from '@/components/ui/pagination';
-import { Input } from '@/components/ui/input';
+import { Input } from 'shafa-bo';
 import { Loader } from '@/components/ui/loader';
 import WidgetCard from '@/components/cards/widget-card';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';

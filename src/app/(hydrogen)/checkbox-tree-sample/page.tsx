@@ -2,10 +2,8 @@
 import '@nosferatu500/react-sortable-tree/style.css';
 import { data } from './data.json';
 import CheckboxTreeComponent from '@/components/ui/checkbox-tree';
-import WidgetCard from '@/components/cards/widget-card';
 import { routes } from '@/config/routes';
-import PageHeader from '@/app/shared/page-header';
-import Card from '@/components/cards/card';
+import { Card, PageHeader } from 'shafa-bo';
 
 function List() {
   const pageHeader = {

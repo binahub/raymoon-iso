@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import { ActionIcon, Tooltip } from 'rizzui';
-import { HeaderCell } from '@/components/ui/rizz-table';
+import { HeaderCell, AvatarCard } from 'shafa-bo';
 import PencilIcon from '@/components/icons/pencil';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import DeletePopover from '@/app/shared/delete-popover';
 import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
 import { ModalView } from '../update/modal';
-import TableAvatar from '@/components/ui/avatar-card';
 
 type Columns = {
   data: any[];
@@ -50,7 +49,7 @@ export const getColumns = ({
     key: 'imageUrl',
     name: 'توضیحات',
     render: (_: any, row: any) => (
-      <TableAvatar src={row.imageUrl} name={row.name} description={'shakiba@fateme.bina'} />
+      <AvatarCard src={row.imageUrl} name={row.name} description={'shakiba@fateme.bina'} />
     ),
   },
   {
@@ -114,7 +113,7 @@ function RenderAction({
           </Link>
         </Tooltip>
         <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
-        <Link href={routes.food.detail(row.id)}>
+          <Link href={routes.food.detail(row.id)}>
             <ActionIcon
               tag='span'
               size='sm'

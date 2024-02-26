@@ -1,6 +1,5 @@
 'use client';
-import Card from '@/components/cards/card';
-import { Tab } from '@/components/ui/tab';
+import { Tab, Card } from 'shafa-bo';
 import ExportButton from '@/app/shared/export-button';
 
 function page() {

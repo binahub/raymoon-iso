@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect, useState, type ComponentProps } from 'react';
-import WidgetCard from '@/components/cards/widget-card';
 import WorldMap, { type CountryContext } from 'react-svg-worldmap';
 import { useElementSize } from '@/hooks/use-element-size';
-import { cn, Spinner, Title, Text, Badge } from 'shafa-bo';
+import { cn, Spinner, Title, Text, Badge, WidgetCard } from 'shafa-bo';
 
 const data = [
   { country: 'cn', name: 'China', value: 5, style: 'bg-[#ffe5e5]' },

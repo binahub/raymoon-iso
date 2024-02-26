@@ -1,12 +1,9 @@
-'use client';
+// 'use client';
 import { routes } from '@/config/routes';
-import { Button, PageHeader } from 'shafa-bo';
+// import { Button, PageHeader } from 'shafa-bo';
+import { Button } from '@/components/ui/button';
+import PageHeader from '@/app/shared/page-header';
 import ChartWidgets from '@/app/shared/chart-widgets';
-import { metaObject } from '@/config/site.config';
-
-export const metadata = {
-  ...metaObject('Charts'),
-};
 
 const pageHeader = {
   title: 'Charts',

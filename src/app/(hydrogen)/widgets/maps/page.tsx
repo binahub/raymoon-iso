@@ -1,3 +1,4 @@
+'use client';
 import { routes } from '@/config/routes';
 import { Button, PageHeader } from 'shafa-bo';
 import BasicMap from './basic-map';

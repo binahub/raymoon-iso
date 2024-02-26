@@ -1,3 +1,4 @@
+'use client';
 import { routes } from '@/config/routes';
 import { cn, Title, PageHeader } from 'shafa-bo';
 import MetricCardWithBarChart from '@/app/shared/analytics-dashboard/stat-cards';
@@ -9,11 +10,6 @@ import RecentAppList from './recent-app-list';
 import CircleProgressBars from './circle-progressbars';
 import AreaChartList from './area-chart-list';
 import BarChartList from './bar-chart-list';
-import { metaObject } from '@/config/site.config';
-
-export const metadata = {
-  ...metaObject('Cards'),
-};
 
 const pageHeader = {
   title: 'Cards',

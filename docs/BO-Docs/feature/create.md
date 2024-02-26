@@ -1,4 +1,0 @@
-# Create Header
-1) create header.tsx file for generate title and breadcrumb page
-
-2) create page.tsx file for add new data 

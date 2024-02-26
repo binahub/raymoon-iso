@@ -1,14 +1,12 @@
 'use client';
 
 import FolderIcon from '@/components/icons/folder-solid';
-import { Title, Text } from '@/components/ui/text';
+import { Button, cn, Title, Text } from 'shafa-bo';
 import PDFIcon from '@/components/icons/pdf-solid';
 import DocIcon from '@/components/icons/doc-solid';
 import ImageIcon from '@/components/icons/image-solid';
 import XMLIcon from '@/components/icons/xml-solid';
-import cn from '@/utils/class-names';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
 import { useScrollableSlider } from '@/hooks/use-scrollable-slider';
 
@@ -50,13 +48,7 @@ const mockdata = [
   },
 ];
 
-export function QuickAccessCard({
-  item,
-  className,
-}: {
-  item: any;
-  className?: string;
-}) {
+export function QuickAccessCard({ item, className }: { item: any; className?: string }) {
   return (
     <div
       className={cn(
@@ -65,11 +57,11 @@ export function QuickAccessCard({
       )}
     >
       {item?.file?.image && (
-        <div className="w-14">
+        <div className='w-14'>
           <item.file.image />
         </div>
       )}
-      <Text className="mt-5 w-full truncate text-center text-sm font-medium text-gray-700">
+      <Text className='mt-5 w-full truncate text-center text-sm font-medium text-gray-700'>
         {item?.file?.name}
       </Text>
     </div>
@@ -77,41 +69,33 @@ export function QuickAccessCard({
 }
 
 export default function QuickAccess({ className }: { className?: string }) {
-  const {
-    sliderEl,
-    sliderPrevBtn,
-    sliderNextBtn,
-    scrollToTheRight,
-    scrollToTheLeft,
-  } = useScrollableSlider();
+  const { sliderEl, sliderPrevBtn, sliderNextBtn, scrollToTheRight, scrollToTheLeft } =
+    useScrollableSlider();
 
   return (
     <div className={className}>
-      <div className="col-span-full mb-3 flex items-center justify-between 2xl:mb-5">
-        <Title as="h3" className="text-lg font-semibold xl:text-xl">
+      <div className='col-span-full mb-3 flex items-center justify-between 2xl:mb-5'>
+        <Title as='h3' className='text-lg font-semibold xl:text-xl'>
           Quick Access
         </Title>
-        <Link
-          href={'/file-manager'}
-          className="text-sm font-medium text-gray-900 hover:underline"
-        >
+        <Link href={'/file-manager'} className='text-sm font-medium text-gray-900 hover:underline'>
           View all
         </Link>
       </div>
-      <div className="relative">
+      <div className='relative'>
         <Button
-          title="Prev"
-          variant="text"
+          title='Prev'
+          variant='text'
           ref={sliderPrevBtn}
           onClick={() => scrollToTheLeft()}
-          className="!absolute left-0 top-0 z-10 !h-full w-8 !justify-start rounded-none bg-white dark:bg-gray-50/80 px-0 text-gray-500 hover:text-black 3xl:hidden"
+          className='!absolute left-0 top-0 z-10 !h-full w-8 !justify-start rounded-none bg-white dark:bg-gray-50/80 px-0 text-gray-500 hover:text-black 3xl:hidden'
         >
-          <PiCaretLeftBold className="h-5 w-5" />
+          <PiCaretLeftBold className='h-5 w-5' />
         </Button>
-        <div className="w-full overflow-hidden">
+        <div className='w-full overflow-hidden'>
           <div
             ref={sliderEl}
-            className="custom-scrollbar-x grid grid-flow-col gap-5 overflow-x-auto scroll-smooth"
+            className='custom-scrollbar-x grid grid-flow-col gap-5 overflow-x-auto scroll-smooth'
           >
             {mockdata.map((item) => {
               return <QuickAccessCard key={item.id} item={item} />;
@@ -119,13 +103,13 @@ export default function QuickAccess({ className }: { className?: string }) {
           </div>
         </div>
         <Button
-          title="Next"
-          variant="text"
+          title='Next'
+          variant='text'
           ref={sliderNextBtn}
           onClick={() => scrollToTheRight()}
-          className="!absolute right-0 top-0 z-10 !h-full w-8 !justify-end rounded-none bg-white dark:bg-gray-50/80 px-0 text-gray-500 hover:text-black 3xl:hidden"
+          className='!absolute right-0 top-0 z-10 !h-full w-8 !justify-end rounded-none bg-white dark:bg-gray-50/80 px-0 text-gray-500 hover:text-black 3xl:hidden'
         >
-          <PiCaretRightBold className="h-5 w-5" />
+          <PiCaretRightBold className='h-5 w-5' />
         </Button>
       </div>
     </div>

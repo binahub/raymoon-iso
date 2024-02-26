@@ -1,8 +1,6 @@
 'use client';
 
-import cn from '@/utils/class-names';
-import { Button } from '@/components/ui/button';
-import { Title, Text } from '@/components/ui/text';
+import { cn, Button, Title, Text } from 'shafa-bo';
 import { useScrollableSlider } from '@/hooks/use-scrollable-slider';
 import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
 import MetricCard from '@/components/cards/metric-card';

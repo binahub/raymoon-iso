@@ -1,8 +1,4 @@
-import cn from '@/utils/class-names';
-import { Title, Text } from '@/components/ui/text';
-import { Button } from '@/components/ui/button';
-import { ActionIcon } from '@/components/ui/action-icon';
-import WidgetCard from '@/components/cards/widget-card';
+import { cn, Title, Text, Button, ActionIcon, WidgetCard } from 'shafa-bo';
 import CircleProgressBar from '@/components/charts/circle-progressbar';
 import { PiSlidersHorizontalDuotone } from 'react-icons/pi';
 
@@ -49,11 +45,7 @@ const data = [
   },
 ];
 
-export default function CircleProgressBars({
-  className,
-}: {
-  className?: string;
-}) {
+export default function CircleProgressBars({ className }: { className?: string }) {
   return (
     <>
       {data.map((item) => (
@@ -61,34 +53,34 @@ export default function CircleProgressBars({
           key={item.name}
           title={item.name}
           description={'67% acquired this month'}
-          rounded="lg"
+          rounded='lg'
           action={
-            <ActionIcon variant="outline" rounded="full">
-              <PiSlidersHorizontalDuotone className="h-auto w-5" />
+            <ActionIcon variant='outline' rounded='full'>
+              <PiSlidersHorizontalDuotone className='h-auto w-5' />
             </ActionIcon>
           }
-          descriptionClassName="text-gray-500 mt-1.5"
+          descriptionClassName='text-gray-500 mt-1.5'
           className={cn(className)}
         >
-          <div className="mt-5 grid w-full grid-cols-1 justify-around gap-6 @container @sm:py-2 @7xl:gap-8">
-            <div className="text-center">
-              <div className="mx-auto mb-5 mt-2 w-full max-w-[180px] sm:mb-7 xl:mb-8 2xl:mb-10 2xl:mt-4">
+          <div className='mt-5 grid w-full grid-cols-1 justify-around gap-6 @container @sm:py-2 @7xl:gap-8'>
+            <div className='text-center'>
+              <div className='mx-auto mb-5 mt-2 w-full max-w-[180px] sm:mb-7 xl:mb-8 2xl:mb-10 2xl:mt-4'>
                 <CircleProgressBar
                   percentage={item.percentage}
                   size={180}
-                  stroke="#f0f0f0"
+                  stroke='#f0f0f0'
                   strokeWidth={12}
                   progressColor={item.color}
                   label={
-                    <Text className="font-lexend text-xl font-bold text-gray-900 @xs:text-2xl">
+                    <Text className='font-lexend text-xl font-bold text-gray-900 @xs:text-2xl'>
                       {item.value}
                     </Text>
                   }
-                  strokeClassName="dark:stroke-gray-200"
+                  strokeClassName='dark:stroke-gray-200'
                 />
               </div>
-              <Text className="leading-relaxed">
-                <Text as="strong" className="font-semibold">
+              <Text className='leading-relaxed'>
+                <Text as='strong' className='font-semibold'>
                   Notes:
                 </Text>{' '}
                 {item.message}
@@ -96,12 +88,8 @@ export default function CircleProgressBars({
             </div>
 
             <Button
-              size="lg"
-              className={cn(
-                'text-sm font-semibold text-white',
-                item.bgColor,
-                item.bgActiveColor
-              )}
+              size='lg'
+              className={cn('text-sm font-semibold text-white', item.bgColor, item.bgActiveColor)}
             >
               View Details
             </Button>

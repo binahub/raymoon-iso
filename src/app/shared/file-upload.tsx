@@ -2,7 +2,6 @@
 
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
-import cn from '@/utils/class-names';
 import {
   PiArrowLineDownBold,
   PiFile,
@@ -14,12 +13,8 @@ import {
   PiTrashBold,
   PiXBold,
 } from 'react-icons/pi';
-import { Button } from '@/components/ui/button';
-import { Title, Text } from '@/components/ui/text';
-import { ActionIcon } from '@/components/ui/action-icon';
-import Upload from '@/components/ui/upload';
+import { cn, SimpleBar, Upload, ActionIcon, Button, Title, Text } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import SimpleBar from '@/components/ui/simplebar';
 import { toast } from 'react-hot-toast';
 
 type AcceptedFiles = 'img' | 'pdf' | 'csv' | 'imgAndPdf' | 'all';
@@ -95,7 +90,6 @@ export const FileInput = ({
 }) => {
   const { closeModal } = useModal();
   const [files, setFiles] = useState<Array<File>>([]);
-
 
   const imageRef = useRef<HTMLInputElement>(null);
 
@@ -190,7 +184,10 @@ export const FileInput = ({
           className='w-full bg-gradient-to-r from-blue-800  to-blue-darkBlue'
           onClick={
             // () => handleFileUploa ,
-            () =>{ setFileName(files),  closeModal()}}
+            () => {
+              setFileName(files), closeModal();
+            }
+          }
         >
           <PiArrowLineDownBold className='me-1.5 h-[17px] w-[17px]' />
           {btnLabel}

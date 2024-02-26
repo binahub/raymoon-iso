@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Title, Text } from '@/components/ui/shafa';
+import { Title, Text } from 'shafa-bo';
 import SubscriptionForm from '@/app/shared/subscription-form';
 import MaintananceImg from '@public/maintanance.png';
 

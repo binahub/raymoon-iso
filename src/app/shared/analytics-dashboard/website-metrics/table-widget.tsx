@@ -1,17 +1,12 @@
 'use client';
 
 import React from 'react';
-import Table from '@/components/ui/rizz-table';
-import Pagination from '@/components/ui/pagination';
-import { Input } from 'shafa-bo';
-import { Loader } from '@/components/ui/loader';
-import WidgetCard from '@/components/cards/widget-card';
+import { Spinner, Table, Pagination, Input, Loader, WidgetCard } from 'shafa-bo';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import { websiteMetricData } from '@/data/website-metrics-data';
 import { getColumns } from '@/app/shared/analytics-dashboard/website-metrics/columns';
 import { useTable } from '@/hooks/use-table';
 import { useColumn } from '@/hooks/use-column';
-import Spinner from '@/components/ui/spinner';
 
 type WebsiteMetricsTypes = {
   title?: React.ReactNode;

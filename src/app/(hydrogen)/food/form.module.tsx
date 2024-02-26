@@ -1,15 +1,12 @@
 'use client';
 import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions } from '../neshan/data';
-import { Datepicker, Input, Button, Form, Select } from 'shafa-bo';
-
+import { Datepicker, Input, Button, Form, Select, UploadZone, Password } from 'shafa-bo';
 import {
   GeneralFormTypes,
   generalFormSchema,
   defaultValues,
 } from '@/utils/validators/general.schema';
-import UploadZone from '@/components/ui/file-upload/upload-zone';
-import { Password } from 'rizzui';
 
 type Props = {
   handlerOnSubmit: (data: any) => void;

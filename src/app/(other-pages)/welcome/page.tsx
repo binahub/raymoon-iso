@@ -1,6 +1,6 @@
+'use client';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { Title, Text } from '@/components/ui/text';
+import { Button, Title, Text } from 'shafa-bo';
 import LaptopImg from '@public/welcome-laptop.png';
 import MobileImg from '@public/welcome-mobile.png';
 import DatePicker from 'react-multi-date-picker';

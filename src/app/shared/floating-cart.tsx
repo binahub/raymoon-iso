@@ -6,14 +6,12 @@ import { usePathname } from 'next/navigation';
 import { PiShoppingCartBold } from 'react-icons/pi';
 import { useCart } from '@/store/quick-cart/cart.context';
 import { routes } from '@/config/routes';
-import cn from '@/utils/class-names';
+import { cn } from 'shafa-bo';
 import { DUMMY_ID } from '@/config/constants';
-// import CartDrawerView from './ecommerce/cart/cart-drawer-view';
 
-const Drawer = dynamic(
-  () => import('@/components/ui/drawer').then((module) => module.Drawer),
-  { ssr: false }
-);
+const Drawer = dynamic(() => import('shafa-bo').then((module) => module.Drawer), {
+  ssr: false,
+});
 
 interface FloatingCartProps {
   className?: string;
@@ -22,14 +20,8 @@ interface FloatingCartProps {
 export default function FloatingCart({ className }: FloatingCartProps) {
   const pathname = usePathname();
   const [openDrawer, setOpenDrawer] = useState(false);
-  const {
-    totalItems,
-    items,
-    total,
-    addItemToCart,
-    removeItemFromCart,
-    clearItemFromCart,
-  } = useCart();
+  const { totalItems, items, total, addItemToCart, removeItemFromCart, clearItemFromCart } =
+    useCart();
 
   // Check if this page belongs to ecommerce.
   const isECom = pathname.includes('ecommerce');
@@ -58,15 +50,15 @@ export default function FloatingCart({ className }: FloatingCartProps) {
           )}
           onClick={() => setOpenDrawer(true)}
         >
-          <PiShoppingCartBold className="mx-auto h-[18px] w-auto" />
+          <PiShoppingCartBold className='mx-auto h-[18px] w-auto' />
           {totalItems} {totalItems > 1 ? 'Items' : 'Item'}
         </button>
         <Drawer
-          size="sm"
+          size='sm'
           isOpen={openDrawer ?? false}
           onClose={() => setOpenDrawer(false)}
-          overlayClassName="dark:bg-opacity-60"
-          containerClassName="dark:bg-gray-100 max-w-md"
+          overlayClassName='dark:bg-opacity-60'
+          containerClassName='dark:bg-gray-100 max-w-md'
         >
           {/* <CartDrawerView
             setOpenDrawer={setOpenDrawer}

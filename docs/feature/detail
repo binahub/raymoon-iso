@@ -1,7 +1,0 @@
-TWO WAY FOR SHOW MORE DETAIL :
-
-1) create [id]-> page.tsx file for generate dynamic rout  ----> it is used for show more data in new page
-
-2) create collaps.tsx file for show more data in table  ----> you can show each ReactNode in collaps too 
-
-3) create header.tsx file for generate title and breadcrumb page

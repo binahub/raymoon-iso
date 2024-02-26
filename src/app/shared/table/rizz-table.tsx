@@ -6,7 +6,6 @@ import { ActionIcon } from "@/components/ui/action-icon";
 import { Checkbox } from "@/components/ui/checkbox";
 import { CheckboxGroup } from "@/components/ui/checkbox-group";
 import { Popover } from "@/components/ui/popover";
-import { addSpacesToCamelCase } from "@/utils/add-spaces-to-camel-case";
 import { Title, Text } from "@/components/ui/text";
 import { PiTextColumns } from "react-icons/pi";
 

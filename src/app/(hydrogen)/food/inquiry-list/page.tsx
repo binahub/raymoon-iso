@@ -128,45 +128,45 @@ export default function FoodPage() {
 
   return (
     <>
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
-      <Card className='rounded-t-3xl mb-5'>
-        <Form
-          validationSchema={foodInquirySchema}
-          onSubmit={onSubmit}
-          useFormProps={{
-            mode: 'onChange',
-          }}
-          className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]  @2xl:p-8 3xl:px-12 4xl:px-24'
-        >
-          {({ register, control, setValue, getValues, formState: { errors } }) => {
-            return (
-              <>
-                <Input
-                  label='نام*'
-                  id='name'
-                  type='text'
-                  {...register('name')}
-                  className='flex-grow'
-                  error={errors?.name?.message}
-                />
-                <Input
-                  label='توضیحات*'
-                  id='description'
-                  type='text'
-                  {...register('description')}
-                  className='flex-grow'
-                  error={errors?.description?.message}
-                />
-                <div className='flex justify-end items-end'>
-                  <Button type='submit' className='w-32' isLoading={isLoading}>
-                    استعلام
-                  </Button>
-                </div>
-              </>
-            );
-          }}
-        </Form>
-      </Card>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}/>
+        <Card className='rounded-t-3xl mb-5'>
+          <Form
+            validationSchema={foodInquirySchema}
+            onSubmit={onSubmit}
+            useFormProps={{
+              mode: 'onChange',
+            }}
+            className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]  @2xl:p-8 3xl:px-12 4xl:px-24'
+          >
+            {({ register, control, setValue, getValues, formState: { errors } }) => {
+              return (
+                <>
+                  <Input
+                    label='نام*'
+                    id='name'
+                    type='text'
+                    {...register('name')}
+                    className='flex-grow'
+                    error={errors?.name?.message}
+                  />
+                  <Input
+                    label='توضیحات*'
+                    id='description'
+                    type='text'
+                    {...register('description')}
+                    className='flex-grow'
+                    error={errors?.description?.message}
+                  />
+                  <div className='flex justify-end items-end'>
+                    <Button type='submit' className='w-32' isLoading={isLoading}>
+                      استعلام
+                    </Button>
+                  </div>
+                </>
+              );
+            }}
+          </Form>
+        </Card>
       <Table
         /* get data from api call for handel export file */
         data={dataService?.foodCategoryObjectList}

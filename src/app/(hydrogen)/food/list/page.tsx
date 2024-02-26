@@ -119,12 +119,13 @@ export default function FoodPage() {
       buttons={<GenerateElement />}
       /* get columns table */
       columns={columns}
-      /* show detail or ReactNode */
+      /* show detail or ReactNode  */
       expandedRow={(rowData: any) => detail(rowData)}
       expandedKeys={[rowEdit]}
-      onExpand={(expanded: boolean, row: any) => {
+      rowKey={(expanded: boolean, row: any) => {
         expanded ? setRowEdit(row.id) : setRowEdit({});
       }}
+      
       /* show table pagination and handle functionality  */
       paginatorOptions={{
         pageSize,

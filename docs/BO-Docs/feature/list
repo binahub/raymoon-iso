@@ -1,0 +1,57 @@
+TWO TYPE LIST PAGE :
+
+
+[1] list without require input data
+
+you should create the following files :
+
+    1) columns.tsx
+            generate columns table with status column including: add && delete && update && ...
+    2) filter.tsx
+            create object for generate content filter in drawer
+    3) header.tsx
+            generate title and breadcrumb page
+    4) page.tsx
+        a) api call for get data list
+        b) use useTable hook to generate all functionalities in table ---> like: pagination && handle table layout && actions
+           /* for this handling must get : data && pageSize && totalElement && initialFilterValues */
+        c) create actionFilter function for api call per filter 
+        d) use Table component with following props:
+           *(require) : columns ---> get columns 
+           *(require) : data ---> get data from api call
+           *(optional) : buttons ---> show each ReactNode in layout table 
+           *(optional) : pageHeader ---> show title and breadcrumb page
+           *(optional) : paginatorOptions ---> pagination table
+           *(optional) : filterElement ---> show filter drawer 
+           *(optional) : hasExportFile ---> export file 
+           *(optional) : exportFileName ---> get name Excel file
+           *(optional) : exportColumns ---> get title of Excel columns
+           *(optional) : onExpand ---> show each ReactNode in expand table
+
+
+
+
+[2] list with require input data (inquiry-list)
+
+you should create the following files :
+
+    1) columns.tsx
+            generate columns table with status column including: add && delete && update && ...
+    2) filter.tsx
+            create object for generate content filter in drawer
+    3) header.tsx
+            generate title and breadcrumb page
+    4) page.tsx
+        a) create form for get data with api call
+        b) use useTable hook to generate all functionalities in table ---> like: pagination && handle table layout && actions
+           /* for this handling must get : data && pageSize && totalElement && initialFilterValues */
+        c) create actionFilter function for api call per filter 
+        d) use Table component with following props:
+           *(require) : columns ---> get columns 
+           *(require) : data ---> get data from api call
+           *(optional) : onExpand ---> show each ReactNode in expand table
+           *(optional) : paginatorOptions ---> pagination table
+           *(optional) : filterElement ---> show filter drawer 
+           *(optional) : hasExportFile ---> export file 
+           *(optional) : exportFileName ---> get name Excel file
+           *(optional) : exportColumns ---> get title of Excel columns

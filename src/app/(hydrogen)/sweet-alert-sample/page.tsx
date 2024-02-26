@@ -1,8 +1,9 @@
 'use client';
-import WidgetCard from '@/components/cards/widget-card';
-import SweetAlert from '@/components/ui/sweet-alert';
+// import WidgetCard from '@/components/cards/widget-card';
+// import SweetAlert from '@/components/ui/sweet-alert';
 import Notification from '@/utils/notification';
-import { Button } from '@/components/ui/button';
+// import { Button } from '@/components/ui/button';
+import { Button, SweetAlert, WidgetCard } from 'shafa-bo';
 
 function page() {
   return (

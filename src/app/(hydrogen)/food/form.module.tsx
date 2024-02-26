@@ -1,11 +1,12 @@
 'use client';
-import { Form } from '@/components/ui/form';
-import Select from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+// import { Form } from '@/components/ui/form';
+// import Select from '@/components/ui/select';
+// import { Input } from '@/components/ui/input';
+// import { Button } from '@/components/ui/button';
 import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions } from '../neshan/data';
-import { Datepicker } from '@/components/ui/datepicker';
+// import { Datepicker } from '@/components/ui/datepicker';
+import { Datepicker, Input, Button, Form, Select } from 'shafa-bo';
 
 import {
   GeneralFormTypes,
@@ -160,7 +161,7 @@ export default function FormData({ handlerOnSubmit, data, isEdit, numberCol }: P
                   className='w-32'
                   // isLoading={isLoading}
                 >
-                 {isEdit ? 'ویرایش' : ' افزودن'}
+                  {isEdit ? 'ویرایش' : ' افزودن'}
                 </Button>
               </div>
             </>

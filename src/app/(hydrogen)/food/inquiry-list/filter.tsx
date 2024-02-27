@@ -1,3 +1,5 @@
+import {type DataFilter} from '@/app/shared/table/content-filter';
+
 /* initioalization  */
 export const filterState = {
   name: '',
@@ -5,26 +7,26 @@ export const filterState = {
 };
 
 /* filterable form input */
-export const dataFilter: any = [
+export const dataFilter: DataFilter = [
   {
     label: 'نام',
-    type: 'Text',
+    type: 'text',
     key: 'name',
   },
   {
     label: 'توضیحات',
-    type: 'Text',
+    type: 'text',
     key: 'description',
   },
 
   {
     label: 'تاریخ شروع',
-    type: 'DatePicker',
+    type: 'datePicker',
     key: 'date1',
   },
   {
     label: ' وضعیت پرداخت',
-    type: 'Select',
+    type: 'select',
     key: 'status1',
     selectOption: [
       {
@@ -39,17 +41,17 @@ export const dataFilter: any = [
   },
     {
     label: 'توضیحات',
-    type: 'Text',
+    type: 'text',
     key: 'description',
   },
   {
     label: 'تاریخ شروع',
-    type: 'DatePicker',
+    type: 'datePicker',
     key: 'date',
   },
   {
     label: ' وضعیت پرداخت',
-    type: 'Select',
+    type: 'select',
     key: 'status',
     selectOption: [
       {
@@ -64,17 +66,17 @@ export const dataFilter: any = [
   },
   {
     label: 'توضیحات',
-    type: 'Text',
+    type: 'text',
     key: 'description',
   },
   {
     label: 'تاریخ شروع',
-    type: 'DatePicker',
+    type: 'datePicker',
     key: 'date',
   },
   {
     label: ' وضعیت پرداخت',
-    type: 'Select',
+    type: 'select',
     key: 'status',
     selectOption: [
       {
@@ -89,17 +91,17 @@ export const dataFilter: any = [
   },
   {
     label: 'توضیحات',
-    type: 'Text',
+    type: 'text',
     key: 'description',
   },
   {
     label: 'تاریخ شروع',
-    type: 'DatePicker',
+    type: 'datePicker',
     key: 'date',
   },
   {
     label: ' وضعیت پرداخت',
-    type: 'Select',
+    type: 'select',
     key: 'status',
     selectOption: [
       {
@@ -114,17 +116,17 @@ export const dataFilter: any = [
   },
   {
     label: 'توضیحات',
-    type: 'Text',
+    type: 'text',
     key: 'description',
   },
   {
     label: 'تاریخ شروع',
-    type: 'DatePicker',
+    type: 'datePicker',
     key: 'date',
   },
   {
     label: ' وضعیت پرداخت',
-    type: 'Select',
+    type: 'select',
     key: 'status',
     selectOption: [
       {
@@ -139,17 +141,17 @@ export const dataFilter: any = [
   },
     {
     label: 'توضیحات',
-    type: 'Text',
+    type: 'text',
     key: 'description',
   },
   {
     label: 'تاریخ شروع',
-    type: 'DatePicker',
+    type: 'datePicker',
     key: 'date',
   },
   {
     label: ' وضعیت پرداخت',
-    type: 'Select',
+    type: 'select',
     key: 'status',
     selectOption: [
       {
@@ -164,17 +166,17 @@ export const dataFilter: any = [
   },
   {
     label: 'توضیحات',
-    type: 'Text',
+    type: 'text',
     key: 'description',
   },
   {
     label: 'تاریخ شروع',
-    type: 'DatePicker',
+    type: 'datePicker',
     key: 'date',
   },
   {
     label: ' وضعیت پرداخت',
-    type: 'Select',
+    type: 'select',
     key: 'status',
     selectOption: [
       {
@@ -189,17 +191,17 @@ export const dataFilter: any = [
   },
   {
     label: 'توضیحات',
-    type: 'Text',
+    type: 'text',
     key: 'description',
   },
   {
     label: 'تاریخ شروع',
-    type: 'DatePicker',
+    type: 'datePicker',
     key: 'date',
   },
   {
     label: ' وضعیت پرداخت',
-    type: 'Select',
+    type: 'select',
     key: 'status',
     selectOption: [
       {

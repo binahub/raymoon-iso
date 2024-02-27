@@ -1,7 +1,8 @@
 # Implement of new feature in Iva App BackOffice (SAMA)
 
 ## list 
-### (app/(hydrogen)/feature/list)
+
+#### (app/(hydrogen)/feature/list)
 
 directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 
@@ -54,14 +55,16 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 4.  `filter.tsx`: create object for generate content filter in drawer {#2}
 
 ## create 
-### (app/(hydrogen)/feature/create)
+
+#### (app/(hydrogen)/feature/create)
 
 1.  `header.tsx`: generate title and breadcrumb page
 
 2.  `page.tsx`: add Form
 
 ## detail 
-### (app/(hydrogen)/feature/detail)
+
+#### (app/(hydrogen)/feature/detail)
 
 1. `[id]/page.tsx`: show more data based on id
 
@@ -70,7 +73,8 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 3. `header.tsx`: generate title and breadcrumb page
 
 ## update {#1}
-### (app/(hydrogen)/feature/update)
+
+#### (app/(hydrogen)/feature/update)
 
 1. `header.tsx`: generate title and breadcrumb page
 

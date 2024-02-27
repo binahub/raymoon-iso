@@ -73,7 +73,7 @@ export const messages = {
   roleNameLengthMin: 'نام نقش باید حداقل 3 حرف باشد',
   errorSendingEmail: 'خطا در ارسال ایمیل',
   emailSentSuccessfully: 'ایمیل شما با موفقی ارسال شد.',
-  trackingCodeRequired:'ضروری',
+  descriptionRequired:'ضروری',
   phoneNumber :'شماره موبایل اشتباه است',
   bankRequired:'ضروری',
   nameRequired:'ضروری',

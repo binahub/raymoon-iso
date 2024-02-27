@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { ActionIcon, Tooltip , HeaderCell , AvatarCard} from 'shafa-bo';
+import { ActionIcon, Tooltip, HeaderCell, AvatarCard } from 'shafa-bo';
+import PencilIcon from '@/components/icons/pencil';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import DeletePopover from '@/app/shared/delete-popover';
 import EyeIcon from '@/components/icons/eye';
-import PencilIcon from '@/components/icons/pencil';
 import { routes } from '@/config/routes';
 import { ModalView } from '../update/modal';
 
@@ -11,9 +11,7 @@ type Columns = {
   onDeleteItem: (id: string) => void;
 };
 
-export const getColumns = ({
-  onDeleteItem
-}: Columns) => [
+export const getColumns = ({ onDeleteItem }: Columns) => [
   {
     title: <HeaderCell title='شناسه' />,
     dataIndex: 'id',
@@ -56,14 +54,14 @@ function RenderAction({
 
   return (
     <>
-      <div className='flex items-center justify-end gap-3 pe-4 '>
+      <div className='flex items-center justify-end gap-3 pe-4'>
         <Tooltip size='sm' content={() => ' ویرایش با مدال'} placement='top' color='invert'>
           <ActionIcon
             tag='span'
             size='sm'
             variant='outline'
             aria-label={'ویرایش'}
-            className='hover:text-gray-700 cursor-pointer'
+            className='hover:text-gray-700  cursor-pointer'
             onClick={() =>
               openModal({
                 view: <ModalView rowData={row} />,
@@ -93,7 +91,7 @@ function RenderAction({
           </Link>
         </Tooltip>
         <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
-        <Link href={routes.food.detail(row.id)}>
+          <Link href={routes.food.detail(row.id)}>
             <ActionIcon
               tag='span'
               size='sm'

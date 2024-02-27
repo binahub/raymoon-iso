@@ -37,16 +37,19 @@ export const routes = {
     viewTemplate: (id: string) => `/support/templates/${id}`,
     editTemplate: (id: string) => `/support/templates/${id}/edit`,
   },
-   neshan:{
+  neshan: {
     dashboard: '/neshan',
     list: '/neshan/list',
-    add: '/neshan/add'
-   },
+    add: '/neshan/add',
+  },
 
-   food:{
+  food: {
     // dashboard: '/neshan',
     list: '/food/list',
-    update: (id: string) => `/food/${id}/update`,
+    inquiry: '/food/inquiry-list',
+    create:'/food/create',
+    update: (id: string) => `/food/update/${id}`,
+    detail: (id: string) => `/food/detail/${id}`,
    },
   logistics: {
     dashboard: '/logistics',
@@ -138,5 +141,6 @@ export const routes = {
   checkboxTree: '/checkbox-tree-sample',
   reactTreeSample: '/react-tree-sample',
   sweetAlertSample: '/sweet-alert-sample',
-  datepickerSample: '/datepicker-sample'
+  datepickerSample: '/datepicker-sample',
+  tabSample: '/tab-sample',
 };

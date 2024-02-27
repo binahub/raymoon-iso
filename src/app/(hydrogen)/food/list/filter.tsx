@@ -1,13 +1,15 @@
-/* initioalization */
-export const filterState = {
+import {type DataFilter} from '@/app/shared/table/content-filter';
+/* initioalization  */
+export const initialFilterValues = {
   name: '',
+  // description: '',
 };
 
 /* filterable form input */
-export const dataFilter: any = [
+export const dataFilter: DataFilter = [
   {
     label: 'نام',
-    type: 'Text',
+    type: 'text',
     key: 'name',
   },
 ];

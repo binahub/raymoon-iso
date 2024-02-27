@@ -98,12 +98,12 @@ export default function NeshanPage() {
   const dataFilter: any = [
     {
       label: 'نوع پرداخت',
-      type: 'Text',
+      type: 'text',
       key: 'paymentFunctionName',
     },
     {
       label: ' وضعیت پرداخت',
-      type: 'Select',
+      type: 'select',
       key: 'status',
       selectOption: [
         {
@@ -118,7 +118,7 @@ export default function NeshanPage() {
     },
     {
       label: ' تاریخ پرداخت',
-      type: 'DatePicker',
+      type: 'datePicker',
       key: 'date',
     },
   ];
@@ -130,7 +130,6 @@ export default function NeshanPage() {
       </>
     );
   };
-
   return (
     <Table
       pageHeader={pageHeader}

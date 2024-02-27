@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { ActionIcon } from '@/components/ui/action-icon';
 import { PiCaretDownBold, PiCaretUpBold } from 'react-icons/pi';
 import { useColumn } from '@/hooks/use-column';
@@ -10,7 +10,7 @@ import cn from '@/utils/class-names';
 import Card from '@/components/cards/card';
 
 type LayoutTable = {
-  pageHeader: {
+  pageHeader?: {
     title?: string;
     breadcrumb: { name: string; href?: string }[];
   };
@@ -81,8 +81,12 @@ type BasicTableWidgetProps = {
   expadable?: boolean;
   paginatorOptions?: any;
   exportColumns?: string;
-  exportFileName?: string;
+  exportFileName?: any;
+  requiredSeachTable?: boolean;
 };
+
+
+
 
 export default function Table({
   pageHeader,
@@ -92,7 +96,7 @@ export default function Table({
   variant = 'modern',
   noGutter,
   sticky,
-  scroll = { x: 1300 },
+  scroll = { x: 1000 },
   expandedRow: ExpandedRow,
   onExpand,
   expandedKeys,
@@ -109,70 +113,136 @@ export default function Table({
   tableData,
   exportColumns,
   exportFileName,
+  requiredSeachTable,
 }: any) {
   const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
+  console.log(tableData);
+  
+
+
 
   return (
-    <TableLayout
-      title={pageHeader.title}
-      breadcrumb={pageHeader.breadcrumb}
-      data={data}
-      fileName={exportFileName}
-      header={exportColumns}
-      buttons={buttons}
-      hasExportFile={hasExportFile}
-    >
-      <Card>
-        <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
-          <ControlledTable
-            isLoading={isLoading}
-            data={tableData}
-            columns={visibleColumns}
-            expandable={
-              ExpandedRow
-                ? {
-                    expandIcon: CustomExpandIcon,
-                    expandedRowRender: (record: any) => <ExpandedRow record={record} />,
-                    expandedRowKeys: expandedKeys,
-                    onExpand: onExpand,
-                  }
-                : {}
-            }
-            scroll={scroll}
-            sticky={sticky}
-            variant={variant}
-            className='mt-4'
-            paginatorOptions={paginatorOptions ? paginatorOptions : {}}
-            filterOptions={{
-              searchTerm,
-              onSearchClear: () => {
-                handleSearch('');
-              },
-              onSearchChange: (event) => {
-                handleSearch(event.target.value);
-              },
-              hasSearched: isFiltered,
-              hideIndex: 1,
-              columns,
-              checkedColumns,
-              setCheckedColumns,
-              enableDrawerFilter: true,
-            }}
-            filterElement={
-              FilterElement && (
-                <FilterElement
-                  onSearch={handleSearch}
-                  searchTerm={searchTerm}
-                  isFiltered={isFiltered}
-                  filters={filters}
-                  updateFilter={updateFilter}
-                  handleReset={handleReset}
-                />
-              )
-            }
-          />
-        </div>
-      </Card>
-    </TableLayout>
+    <>
+      {requiredSeachTable  ?  (
+        <Card className='rounded-b-3xl'>
+          <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
+            <ControlledTable
+              isLoading={isLoading}
+              data={tableData}
+              columns={visibleColumns}
+              expandable={
+                ExpandedRow
+                  ? {
+                      expandIcon: CustomExpandIcon,
+                      expandedRowRender: (record: any) => <ExpandedRow record={record} />,
+                      expandedRowKeys: expandedKeys,
+                      onExpand: onExpand,
+                    }
+                  : {}
+              }
+              scroll={scroll}
+              sticky={sticky}
+              variant={variant}
+              className='mt-4'
+              paginatorOptions={paginatorOptions ? paginatorOptions : {}}
+              filterOptions={{
+                searchTerm,
+                onSearchClear: () => {
+                  handleSearch('');
+                },
+                onSearchChange: (event: any) => {
+                  handleSearch(event.target.value);
+                },
+                hasSearched: isFiltered,
+                hideIndex: 1,
+                columns,
+                checkedColumns,
+                setCheckedColumns,
+                enableDrawerFilter: true,
+                requiredSeachTable: requiredSeachTable,
+                data: {tableData},
+                fileName: exportFileName,
+                header: exportColumns,
+              }}
+              filterElement={
+                FilterElement && (
+                  <FilterElement
+                    onSearch={handleSearch}
+                    searchTerm={searchTerm}
+                    isFiltered={isFiltered}
+                    filters={filters}
+                    updateFilter={updateFilter}
+                    handleReset={handleReset}
+                  />
+                )
+              }
+            />
+          </div>
+        </Card>
+      ) : (
+        <TableLayout
+          title={pageHeader?.title}
+          breadcrumb={pageHeader?.breadcrumb}
+          data={tableData}
+          fileName={exportFileName}
+          header={exportColumns}
+          buttons={buttons}
+          hasExportFile={hasExportFile}
+        >
+          <Card className='rounded-b-3xl'>
+            <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
+              <ControlledTable
+                isLoading={isLoading}
+                data={tableData}
+                columns={visibleColumns}
+                expandable={
+                  ExpandedRow
+                    ? {
+                        expandIcon: CustomExpandIcon,
+                        expandedRowRender: (record: any) => <ExpandedRow record={record} />,
+                        expandedRowKeys: expandedKeys,
+                        onExpand: onExpand,
+                      }
+                    : {}
+                }
+                scroll={scroll}
+                sticky={sticky}
+                variant={variant}
+                className='mt-4'
+                paginatorOptions={paginatorOptions ? paginatorOptions : {}}
+                filterOptions={{
+                  searchTerm,
+                  onSearchClear: () => {
+                    handleSearch('');
+                  },
+                  onSearchChange: (event: any) => {
+                    handleSearch(event.target.value);
+                  },
+                  hasSearched: isFiltered,
+                  hideIndex: 1,
+                  columns,
+                  checkedColumns,
+                  setCheckedColumns,
+                  enableDrawerFilter: true,
+                  requiredSeachTable: requiredSeachTable,
+                }}
+                filterElement={
+                  FilterElement && (
+                    <FilterElement
+                      onSearch={handleSearch}
+                      searchTerm={searchTerm}
+                      isFiltered={isFiltered}
+                      filters={filters}
+                      updateFilter={updateFilter}
+                      handleReset={handleReset}
+                    />
+                  )
+                }
+              />
+            </div>
+          </Card>
+        </TableLayout>
+      )}
+    </>
   );
 }

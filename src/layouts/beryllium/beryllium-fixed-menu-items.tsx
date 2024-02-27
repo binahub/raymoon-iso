@@ -139,6 +139,10 @@ export const berylliumMenuItems: MenuItemsType[] = [
             name: 'لیست غذاها',
             href: routes.food.list,
           },
+          {
+            name: 'نمونه Tab',
+            href: routes.tabSample,
+          },
         ],
       },
     ],
@@ -211,8 +215,16 @@ export const berylliumMenuItems: MenuItemsType[] = [
         icon: PiBeerSteinThin,
         subMenuItems: [
           {
+            name: ' افزودن غذا',
+            href: routes.food.create,
+          },
+          {
             name: 'لیست سفارش ',
             href: routes.food.list,
+          },
+          {
+            name: ' استعلام سفارش غذا',
+            href: routes.food.inquiry,
           },
         ],
       },

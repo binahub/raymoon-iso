@@ -2,9 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
-// import { Table, FilterElement } from 'shafa-bo';
-import Table from '@/app/shared/table/table';
-import FilterElement from '@/app/shared/table/content-filter';
+import { Table, FilterElement } from 'shafa-bo';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { dataFilter, initialFilterValues } from './filter';
@@ -16,6 +14,7 @@ export default function FoodPage() {
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
 
+  /* api call body */
   const parameterMap = {
     parameterMap: {
       page: pageNumer,
@@ -29,21 +28,15 @@ export default function FoodPage() {
   const [list, { isLoading, data }] = useCategoryListMutation();
 
   /* use hooks for table*/
-  const {
-    isFiltered,
-    filters,
-    updateFilter,
-    handleReset,
-    tableData,
-    currentPage,
-    handleDelete,
-    handlePaginate,
-    setData,
-  } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, initialFilterValues);
+  const { isFiltered, filters, updateFilter, handleReset, tableData, currentPage, handleDelete, handlePaginate, setData } = useTable(
+    data?.foodCategoryObjectList,
+    pageSize,
+    data?.totalElements,
+    initialFilterValues
+  );
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
@@ -51,12 +44,10 @@ export default function FoodPage() {
       setData(data?.foodCategoryObjectList);
     }
     setPageNumer(currentPage - 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   useEffect(() => {
     list(parameterMap);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
 
   const onDeleteItem = (id: string) => {
@@ -65,10 +56,10 @@ export default function FoodPage() {
 
   /* use options columns */
   const columns = React.useMemo(
-    () => getColumns({ 
-      onDeleteItem
-     }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    () =>
+      getColumns({
+        onDeleteItem,
+      }),
     [onDeleteItem]
   );
 

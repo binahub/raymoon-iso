@@ -8,7 +8,7 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 
 1.  `header.tsx`: generate title and breadcrumb page
 2.  `columns.tsx`: generate columns table with status column including: add && delete && update && ...
-    - Notice: if you need to handle update by modal view, check [update](#L75) section of this instruction
+    - Notice: if you need to handle update by modal view, check [update](update.md) section of this instruction
 3.  `page.tsx`: two types of page
 
     - for list without require input fields to generate table
@@ -72,7 +72,7 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 
 3. `header.tsx`: generate title and breadcrumb page
 
-## update
+# update
 
 #### (app/(hydrogen)/feature/update)
 

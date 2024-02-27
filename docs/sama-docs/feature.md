@@ -1,6 +1,7 @@
 # Implement of new feature in Iva App BackOffice (SAMA)
 
-## list
+## list 
+### (app/(hydrogen)/feature/list)
 
 directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 
@@ -19,16 +20,16 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
           3. actionFilter function: api call by filters
 
           4. Table component with following props:
-             4-1. (require)columns: get columns
-             4-2. (require)data: get data from api call
-             4-3. (optional)buttons: show each ReactNode in layout table
-             4-4. (optional)pageHeader: show title and breadcrumb page
-             4-5. (optional)paginatorOptions: pagination table
-             4-6. (optional)filterElement: show filter drawer
-             4-7. (optional)hasExportFile: export file
-             4-8. (optional)exportFileName: get name Excel file
-             4-9. (optional)exportColumns: get title of Excel columns
-             4-10. (optional)onExpand: show each ReactNode in expand table row
+          - [(require)columns: get columns](#heading-1)
+          - [(require)tableData: get data from api and fix changes data after filter and pagination](#heading-2)
+          - [(optional)buttons: show any ReactNode in layout table](#heading-3)
+          - [(optional)pageHeader: show title and breadcrumb page](#heading-4)
+          - [(optional)paginatorOptions: pagination table](#heading-5)
+          - [(optional)filterElement: show filter drawer](#heading-6)
+          - [(optional)hasExportFile: export file](#heading-7)
+          - [(optional)exportFileName: get name Excel file](#heading-8)
+          - [(optional)exportColumns: get title of Excel columns](#heading-9)
+          - [(optional)onExpand: show any ReactNode in expand table row](#heading-10)
 
     - for list with require input data (inquiry-list)
 
@@ -40,25 +41,27 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
           3. actionFilter function: api call per filter
 
           4. Table component with following props:
-             4-1. (require)columns: get columns
-             4-2. (require)data: get data from api call
-             4-3. (optional)paginatorOptions: pagination table
-             4-4. (optional)filterElement: show filter drawer
-             4-5. (optional)hasExportFile: export file
-             4-6. (optional)exportFileName: get name Excel file
-             4-7. (optional)exportColumns: get title of Excel columns
-             4-8. (optional)onExpand: show each ReactNode in expand table
-             4-9. (optional)requiredSeachTable: for this type of table
+          - [(require)columns: get columns](#heading-1)
+          - [(require)tableData: get data from api and fix changes data after filter and pagination](#heading-2)
+          - [(optional)paginatorOptions: pagination table](#heading-3)
+          - [(optional)filterElement: show filter drawer](#heading-4)
+          - [(optional)hasExportFile: export file](#heading-5)
+          - [(optional)exportFileName: get name Excel file](#heading-6)
+          - [(optional)exportColumns: get title of Excel columns](#heading-7)
+          - [(optional)onExpand: show any ReactNode in expand table row](#heading-8)
+          - [(optional)requiredSeachTable: for this type of table](#heading-9)
 
 4.  `filter.tsx`: create object for generate content filter in drawer
 
-## create
+## create 
+### (app/(hydrogen)/feature/create)
 
 1.  `header.tsx`: generate title and breadcrumb page
 
 2.  `page.tsx`: add Form
 
-## detail
+## detail 
+### (app/(hydrogen)/feature/detail)
 
 1. `[id]/page.tsx`: show more data based on id
 
@@ -66,7 +69,8 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 
 3. `header.tsx`: generate title and breadcrumb page
 
-## update ###(app/(hydrogen)/feature/update)
+## update 
+### (app/(hydrogen)/feature/update)
 
 1. `header.tsx`: generate title and breadcrumb page
 

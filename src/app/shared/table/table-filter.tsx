@@ -98,6 +98,9 @@ export default function TableFilter({
   const [showFilters, setShowFilters] = useState(true);
   const [openDrawer, setOpenDrawer] = useState(false);
 
+console.log(data);
+
+  
   return (
     <div className='table-filter flex items-center justify-between'>
       <div className='flex flex-wrap items-center gap-4'>
@@ -113,9 +116,9 @@ export default function TableFilter({
             prefix={<PiMagnifyingGlassBold className='h-4 w-4' />}
           />
         ) : null} */}
-        {requiredSeachTable && data && (
+        {requiredSeachTable && data?.tableData && (
           <ExportButton
-            data={data}
+            data={data?.tableData}
             fileName={fileName ? fileName : 'export-table'}
             header={header ? header : ''}
           />

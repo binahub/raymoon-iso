@@ -1,12 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-//@TODO: should change import from package
+import { useCategoryListMutation } from '@/provider/redux/apis/category';
+// import { Table, FilterElement } from 'shafa-bo';
 import Table from '@/app/shared/table/table';
 import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
-import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, initialFilterValues } from './filter';
 import { headerData } from './header';
 import ImportButton from '@/app/shared/import-button';
@@ -25,10 +25,8 @@ export default function FoodPage() {
     },
   };
 
-  /* create title excel columns */
-  const exportColumns = 'Order ID,Name';
   /* api call */
-  const [list, { isLoading, isSuccess, isError, error, data }] = useCategoryListMutation();
+  const [list, { isLoading, data }] = useCategoryListMutation();
 
   /* use hooks for table*/
   const {
@@ -36,15 +34,10 @@ export default function FoodPage() {
     filters,
     updateFilter,
     handleReset,
-    sortConfig,
     tableData,
     currentPage,
-    handleSort,
     handleDelete,
     handlePaginate,
-    selectedRowKeys,
-    handleRowSelect,
-    handleSelectAll,
     setData,
   } = useTable(data?.foodCategoryObjectList, pageSize, data?.totalElements, initialFilterValues);
 
@@ -66,38 +59,15 @@ export default function FoodPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
 
-  const onHeaderCellClick = (value: string) => ({
-    onClick: () => {
-      handleSort(value);
-    },
-  });
-
   const onDeleteItem = (id: string) => {
     handleDelete(id);
   };
 
   /* use options columns */
   const columns = React.useMemo(
-    () =>
-      getColumns({
-        data,
-        sortConfig,
-        onHeaderCellClick,
-        onDeleteItem,
-        checkedItems: selectedRowKeys,
-        onChecked: handleRowSelect,
-        handleSelectAll,
-      }),
+    () => getColumns({ onDeleteItem }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [
-      selectedRowKeys,
-      onHeaderCellClick,
-      sortConfig.key,
-      sortConfig.direction,
-      onDeleteItem,
-      handleRowSelect,
-      handleSelectAll,
-    ]
+    [onDeleteItem]
   );
 
   /* Handel filter with my dataFilter */
@@ -105,27 +75,29 @@ export default function FoodPage() {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };
 
-  /* generate each ReactNode for show in layout table */
+  /* generate any ReactNode for show in layout table */
   const GenerateElement = () => {
-    return (<ImportButton title={'آپلود فایل'} /> );
+    return <ImportButton title={'آپلود فایل'} />;
   };
+
+  /* create title excel columns */
+  const exportColumns = 'Order ID,Name';
 
   return (
     <Table
       pageHeader={headerData}
-      /* get data from api call */
-      data={data?.foodCategoryObjectList}
-      /* get each ReactNode */
+      /* get data from api && changes data after pagination and filter */
+      tableData={tableData}
+      /* get any ReactNode */
       buttons={<GenerateElement />}
       /* get columns table */
       columns={columns}
       /* show detail or ReactNode  */
       expandedRow={(rowData: any) => detail(rowData)}
       expandedKeys={[rowEdit]}
-      rowKey={(expanded: boolean, row: any) => {
+      onExpand={(expanded: boolean, row: any) => {
         expanded ? setRowEdit(row.id) : setRowEdit({});
       }}
-      
       /* show table pagination and handle functionality  */
       paginatorOptions={{
         pageSize,
@@ -134,7 +106,6 @@ export default function FoodPage() {
         current: currentPage,
         onChange: (page: number) => handlePaginate(page),
       }}
-      tableData={tableData}
       /* show filter drawer && handle filter */
       filterElement={() =>
         FilterElement({

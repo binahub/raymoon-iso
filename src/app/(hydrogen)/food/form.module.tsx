@@ -1,13 +1,9 @@
 'use client';
 import { SubmitHandler, Controller } from 'react-hook-form';
 import { regions } from '../neshan/data';
-import { Datepicker, Input, Button, Form, Select } from 'shafa-bo';
+import { Datepicker, Input, Button, Form, Select, Password, UploadZone } from 'shafa-bo';
 
-import {
-  GeneralFormTypes,
-} from '@/utils/validators/general.schema';
-import UploadZone from '@/components/ui/file-upload/upload-zone';
-import { Password } from 'rizzui';
+import { GeneralFormTypes } from '@/utils/validators/general.schema';
 
 type Props = {
   handlerOnSubmit: (data: any) => void;
@@ -96,9 +92,7 @@ export default function FormData({ handlerOnSubmit, data, isEdit, numberCol }: P
                     onChange={onChange}
                     options={regions}
                     getOptionValue={(option) => option.name}
-                    displayValue={(selected: string) =>
-                      regions?.find((c) => c.name === selected)?.name ?? ''
-                    }
+                    displayValue={(selected: string) => regions?.find((c) => c.name === selected)?.name ?? ''}
                     error={isEdit ? '' : errors?.bank?.message}
                     disabled={isEdit}
                   />

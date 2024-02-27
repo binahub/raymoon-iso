@@ -1,4 +1,4 @@
-import {type DataFilter} from '@/app/shared/table/content-filter';
+import { type DataFilter } from 'shafa-bo';
 /* initioalization  */
 export const initialFilterValues = {
   name: '',

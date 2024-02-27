@@ -11,6 +11,7 @@ type Props = {
 export default function FoodEditPage({ params }: Props) {
   const [initialData, setInitialData] = useState({ name: '', description: '' });
 
+  /* api call body */
   const parameterMap = {
     parameterMap: {
       id: params.id,
@@ -26,7 +27,6 @@ export default function FoodEditPage({ params }: Props) {
 
   useEffect(() => {
     list(parameterMap);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

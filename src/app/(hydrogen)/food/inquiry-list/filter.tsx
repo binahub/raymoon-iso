@@ -1,4 +1,4 @@
-import {type DataFilter} from '@/app/shared/table/content-filter';
+import { type DataFilter } from 'shafa-bo';
 
 /* initioalization  */
 export const filterState = {
@@ -39,31 +39,6 @@ export const dataFilter: DataFilter = [
       },
     ],
   },
-    {
-    label: 'توضیحات',
-    type: 'text',
-    key: 'description',
-  },
-  {
-    label: 'تاریخ شروع',
-    type: 'datePicker',
-    key: 'date',
-  },
-  {
-    label: ' وضعیت پرداخت',
-    type: 'select',
-    key: 'status',
-    selectOption: [
-      {
-        name: 'موفق',
-        value: '1',
-      },
-      {
-        name: 'ناموفق',
-        value: '2',
-      },
-    ],
-  },
   {
     label: 'توضیحات',
     type: 'text',
@@ -139,7 +114,32 @@ export const dataFilter: DataFilter = [
       },
     ],
   },
-    {
+  {
+    label: 'توضیحات',
+    type: 'text',
+    key: 'description',
+  },
+  {
+    label: 'تاریخ شروع',
+    type: 'datePicker',
+    key: 'date',
+  },
+  {
+    label: ' وضعیت پرداخت',
+    type: 'select',
+    key: 'status',
+    selectOption: [
+      {
+        name: 'موفق',
+        value: '1',
+      },
+      {
+        name: 'ناموفق',
+        value: '2',
+      },
+    ],
+  },
+  {
     label: 'توضیحات',
     type: 'text',
     key: 'description',

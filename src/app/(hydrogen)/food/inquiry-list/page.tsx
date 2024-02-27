@@ -1,9 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-import { PageHeader, Button, Input, Form, Card } from 'shafa-bo';
-import Table from '@/app/shared/table/table';
-import FilterElement from '@/app/shared/table/content-filter';
+import { FilterElement, PageHeader, Button, Input, Form, Card, Table } from 'shafa-bo';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema } from '@/utils/validators/food.schema';
@@ -18,6 +16,7 @@ export default function FoodPage() {
   const [pageSize, setPageSize] = useState(5);
   const [isInitialLoad, setIsInitialLoad] = useState(false);
 
+  /* api call body */
   const parameterMap = {
     parameterMap: {
       page: pageNumer,
@@ -31,17 +30,7 @@ export default function FoodPage() {
   const [list, { isLoading, data: dataService }] = useCategoryListMutation();
 
   /* use hooks for table*/
-  const {
-    isFiltered,
-    filters,
-    updateFilter,
-    handleReset,
-    tableData,
-    currentPage,
-    handleDelete,
-    handlePaginate,
-    setData,
-  } = useTable(
+  const { isFiltered, filters, updateFilter, handleReset, tableData, currentPage, handleDelete, handlePaginate, setData } = useTable(
     dataService?.foodCategoryObjectList,
     pageSize,
     dataService?.totalElements,
@@ -50,7 +39,6 @@ export default function FoodPage() {
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
@@ -58,7 +46,6 @@ export default function FoodPage() {
       setData(dataService?.foodCategoryObjectList);
     }
     setPageNumer(currentPage - 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const onDeleteItem = (id: string) => {
@@ -67,10 +54,10 @@ export default function FoodPage() {
 
   /* use options columns */
   const columns = React.useMemo(
-    () => getColumns({ 
-      onDeleteItem
-     }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    () =>
+      getColumns({
+        onDeleteItem,
+      }),
     [onDeleteItem]
   );
 
@@ -88,7 +75,6 @@ export default function FoodPage() {
     if (isInitialLoad) {
       list(parameterMap);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
 
   /* create title excel columns */
@@ -109,14 +95,7 @@ export default function FoodPage() {
           {({ register, formState: { errors } }) => {
             return (
               <>
-                <Input
-                  label='نام*'
-                  id='name'
-                  type='text'
-                  {...register('name')}
-                  className='flex-grow'
-                  error={errors?.name?.message}
-                />
+                <Input label='نام*' id='name' type='text' {...register('name')} className='flex-grow' error={errors?.name?.message} />
                 <Input
                   label='توضیحات*'
                   id='description'

@@ -1,13 +1,8 @@
 import Link from 'next/link';
-import { ActionIcon, Tooltip } from 'rizzui';
-import { HeaderCell } from '@/components/ui/rizz-table';
-import PencilIcon from '@/components/icons/pencil';
+import { PencilIcon, HeaderCell, ActionIcon, Tooltip, DeletePopover, EyeIcon, AvatarCard } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import DeletePopover from '@/app/shared/delete-popover';
-import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
 import { ModalView } from '../update/modal';
-import TableAvatar from '@/components/ui/avatar-card';
 
 type Columns = {
   data: any[];
@@ -49,9 +44,7 @@ export const getColumns = ({
     dataIndex: 'imageUrl',
     key: 'imageUrl',
     name: 'توضیحات',
-    render: (_: any, row: any) => (
-      <TableAvatar src={row.imageUrl} name={row.name} description={'shakiba@fateme.bina'} />
-    ),
+    render: (_: any, row: any) => <AvatarCard src={row.imageUrl} name={row.name} description={'shakiba@fateme.bina'} />,
   },
   {
     title: <HeaderCell title='Actions' className='opacity-0' />,
@@ -95,42 +88,21 @@ function RenderAction({
             <PencilIcon className='h-4 w-4' />
           </ActionIcon>
         </Tooltip>
-        <Tooltip
-          size='sm'
-          content={() => ' ویرایش جزئیات در صفحه جدید'}
-          placement='top'
-          color='invert'
-        >
+        <Tooltip size='sm' content={() => ' ویرایش جزئیات در صفحه جدید'} placement='top' color='invert'>
           <Link href={routes.food.update(row.id)}>
-            <ActionIcon
-              tag='span'
-              size='sm'
-              variant='outline'
-              aria-label={'ویرایش'}
-              className='hover:text-gray-700'
-            >
+            <ActionIcon tag='span' size='sm' variant='outline' aria-label={'ویرایش'} className='hover:text-gray-700'>
               <PencilIcon className='h-4 w-4' />
             </ActionIcon>
           </Link>
         </Tooltip>
         <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
-        <Link href={routes.food.detail(row.id)}>
-            <ActionIcon
-              tag='span'
-              size='sm'
-              variant='outline'
-              aria-label={'دیدن جزئیات بیشتر'}
-              className='hover:text-gray-700'
-            >
+          <Link href={routes.food.detail(row.id)}>
+            <ActionIcon tag='span' size='sm' variant='outline' aria-label={'دیدن جزئیات بیشتر'} className='hover:text-gray-700'>
               <EyeIcon className='h-4 w-4' />
             </ActionIcon>
           </Link>
         </Tooltip>
-        <DeletePopover
-          title={`آیا مطمئن هستید؟`}
-          description={`انجام این عملیات غیرقابل بازگشت می باشد.`}
-          onDelete={() => {}}
-        />
+        <DeletePopover title={`آیا مطمئن هستید؟`} description={`انجام این عملیات غیرقابل بازگشت می باشد.`} onDelete={() => {}} />
       </div>
     </>
   );

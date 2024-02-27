@@ -7,7 +7,7 @@ import signInBanner from '@public/assets/signin/login-banner.png';
 import App from 'package.json';
 
 export const metadata = {
-  ...metaObject('Sign In'),
+  ...metaObject('ورود'),
 };
 export default function SignIn() {
   return (

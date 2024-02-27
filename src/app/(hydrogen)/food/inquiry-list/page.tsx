@@ -77,6 +77,7 @@ export default function FoodPage() {
   /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
+    setIsInitialLoad(true)
   };
 
   const onSubmit: SubmitHandler<any> = (data) => {

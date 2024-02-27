@@ -8,7 +8,7 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 
 1.  `header.tsx`: generate title and breadcrumb page
 2.  `columns.tsx`: generate columns table with status column including: add && delete && update && ...
-    - Notice: if you need to handle update by modal view, check [update](#75) section of this instruction
+    - Notice: if you need to handle update by modal view, check [update](#L75) section of this instruction
 3.  `page.tsx`: two types of page
 
     - for list without require input fields to generate table
@@ -16,7 +16,7 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
           1. api call: get data list
 
           2. useTable hook: generate all functionalities in table, like: pagination && handle table layout && actions
-              - Notice: for this handling must get : data && pageSize && totalElement && initialFilterValues(if you need [filter](#55) for table)
+              - Notice: for this handling must get : data && pageSize && totalElement && initialFilterValues(if you need [filter](#L55) for table)
 
           3. actionFilter function: api call by filters
 

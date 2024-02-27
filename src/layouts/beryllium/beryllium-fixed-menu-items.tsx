@@ -33,11 +33,12 @@ export interface SubMenuItemType {
   description?: string;
   href: string;
   badge?: string;
+  icon? : any
 }
 
 export interface ItemType {
   name: string;
-  icon: IconType;
+  icon?: any;
   href?: string;
   description?: string;
   badge?: string;
@@ -48,7 +49,8 @@ export interface MenuItemsType {
   id: string;
   name: string;
   title: string;
-  icon: IconType;
+  icon: any;
+  href?: any;
   menuItems: ItemType[];
 }
 
@@ -58,6 +60,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
     name: 'خانه',
     title: 'خانه',
     icon: PiHouse,
+    href: '#',
     menuItems: [
       {
         name: 'داشبورد',
@@ -145,6 +148,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
     name: 'ایوا',
     title: 'ایوا',
     icon: PiLightning,
+    href: '#',
     menuItems: [
       {
         name: 'خطاهای شاپرکی',
@@ -184,6 +188,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
     name: 'نشان',
     title: 'نشان',
     icon: PiUserCircle,
+    href: '#',
     menuItems: [
       {
         name: 'نشان اعتباری',
@@ -230,6 +235,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
     name: 'کیف پول',
     title: 'کیف پول',
     icon: PiPackage,
+    href: '#',
     menuItems: [
       {
         name: 'کیف پول مرجع',
@@ -258,6 +264,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
     name: 'اپلیکیشن',
     title: 'اپلیکیشن',
     icon: PiNotePencil,
+    href: '#',
     menuItems: [
       {
         name: 'مدیریت سرویس ها',
@@ -287,6 +294,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
     name: 'پنل',
     title: 'پنل',
     icon: PiTable,
+    href: '#',
     menuItems: [
       {
         name: 'مدیریت کاربران',

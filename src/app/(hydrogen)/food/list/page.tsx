@@ -37,6 +37,7 @@ export default function FoodPage() {
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
@@ -44,10 +45,12 @@ export default function FoodPage() {
       setData(data?.foodCategoryObjectList);
     }
     setPageNumer(currentPage - 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   useEffect(() => {
     list(parameterMap);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
 
   const onDeleteItem = (id: string) => {

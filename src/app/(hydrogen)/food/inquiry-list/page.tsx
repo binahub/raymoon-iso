@@ -39,6 +39,7 @@ export default function FoodPage() {
 
   useEffect(() => {
     setPageNumer(currentPage - 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
@@ -46,6 +47,7 @@ export default function FoodPage() {
       setData(dataService?.foodCategoryObjectList);
     }
     setPageNumer(currentPage - 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const onDeleteItem = (id: string) => {
@@ -76,6 +78,7 @@ export default function FoodPage() {
     if (isInitialLoad) {
       list(parameterMap);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
 
   /* create title excel columns */

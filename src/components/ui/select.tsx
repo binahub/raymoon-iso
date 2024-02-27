@@ -9,14 +9,7 @@ import { ExtractProps } from '@/components/ui/rizz-table';
 import cn from '@/utils/class-names';
 import { PiCaretUpDown } from 'react-icons/pi';
 import { FieldError } from '@/components/ui/field-error';
-import {
-  type Placement,
-  flip,
-  shift,
-  offset,
-  autoUpdate,
-  useFloating,
-} from '@floating-ui/react';
+import { type Placement, flip, shift, offset, autoUpdate, useFloating } from '@floating-ui/react';
 import { useElementSize } from '@/hooks/use-element-size';
 
 const labelClasses = {
@@ -49,30 +42,24 @@ const selectClasses = {
     active: {
       base: 'border bg-gray-0 focus:ring-[0.6px]',
       color: {
-        DEFAULT:
-          'border-gray-900 focus:border-gray-1000 focus:ring-gray-1000 text-gray-1000',
-        primary:
-          'border-primary focus:border-primary focus:ring-primary text-primary-dark',
+        DEFAULT: 'border-gray-900 focus:border-gray-1000 focus:ring-gray-1000 text-gray-1000',
+        primary: 'border-primary focus:border-primary focus:ring-primary text-primary-dark',
         secondary:
           'border-secondary focus:border-secondary focus:ring-secondary text-secondary-dark',
         danger: 'border-red focus:border-red focus:ring-red text-red-dark',
         info: 'border-blue focus:border-blue focus:ring-blue text-blue-dark',
-        success:
-          'border-green focus:border-green focus:ring-green text-green-dark',
-        warning:
-          'border-orange focus:border-orange-dark focus:ring-orange-dark text-orange-dark',
+        success: 'border-green focus:border-green focus:ring-green text-green-dark',
+        warning: 'border-orange focus:border-orange-dark focus:ring-orange-dark text-orange-dark',
       },
     },
     flat: {
       base: 'focus:ring-2 focus:bg-transparent border-0',
       color: {
         DEFAULT: 'bg-gray-200/70 focus:ring-gray-900/20 text-gray-1000',
-        primary:
-          'bg-primary-lighter/70 focus:ring-primary/30 text-primary-dark',
-        secondary:
-          'bg-secondary-lighter/70 focus:ring-secondary/30 text-secondary-dark',
+        primary: 'bg-primary-lighter/70 focus:ring-primary/30 text-primary-dark',
+        secondary: 'bg-secondary-lighter/70 focus:ring-secondary/30 text-secondary-dark',
         danger: 'bg-red-lighter/70 focus:ring-red/30 text-red-dark',
-        info: 'bg-blue-lighter/70 focus:ring-blue/30 text-blue-dark',
+        info: 'bg-transparent focus:ring-blue/30 text-blue-dark dark:text-inherit',
         success: 'bg-green-lighter/70 focus:ring-green/30 text-green-dark',
         warning: 'bg-orange-lighter/80 focus:ring-orange/30 text-orange-dark',
       },
@@ -80,11 +67,9 @@ const selectClasses = {
     outline: {
       base: 'bg-transparent focus:ring-[0.6px] border border-gray-300',
       color: {
-        DEFAULT:
-          'hover:border-gray-1000 focus:border-gray-1000 focus:ring-gray-1000',
+        DEFAULT: 'hover:border-gray-1000 focus:border-gray-1000 focus:ring-gray-1000',
         primary: 'hover:border-primary focus:border-primary focus:ring-primary',
-        secondary:
-          'hover:border-secondary focus:border-secondary focus:ring-secondary',
+        secondary: 'hover:border-secondary focus:border-secondary focus:ring-secondary',
         danger: 'hover:border-red focus:border-red focus:ring-red',
         info: 'hover:border-blue focus:border-blue focus:ring-blue',
         success: 'hover:border-green focus:border-green focus:ring-green',
@@ -96,8 +81,7 @@ const selectClasses = {
       color: {
         DEFAULT: 'hover:text-gray-1000 focus:ring-gray-900/20',
         primary: 'hover:text-primary-dark focus:ring-primary/30 text-primary',
-        secondary:
-          'hover:text-secondary-dark focus:ring-secondary/30 text-secondary',
+        secondary: 'hover:text-secondary-dark focus:ring-secondary/30 text-secondary',
         danger: 'hover:text-red-600 focus:ring-red/30 text-red',
         info: 'hover:text-blue-dark focus:ring-blue/30 text-blue',
         success: 'hover:text-green-dark focus:ring-green/30 text-green',
@@ -126,8 +110,7 @@ const optionsClasses = {
 
 const optionClasses = {
   base: 'text-gray-900 relative cursor-pointer select-none text-sm dark:hover:bg-gray-50',
-  notFound:
-    'relative cursor-default select-none text-center text-gray-500 whitespace-nowrap',
+  notFound: 'relative cursor-default select-none text-center text-gray-500 whitespace-nowrap',
   color: {
     DEFAULT: 'text-gray-900 bg-gray-100',
     primary: 'text-primary-dark bg-primary-lighter',
@@ -178,10 +161,7 @@ export type SelectOption = {
   [key: string]: unknown;
 };
 
-export type SelectBoxProps<Option> = Omit<
-  ExtractProps<typeof Listbox>,
-  'color'
-> & {
+export type SelectBoxProps<Option> = Omit<ExtractProps<typeof Listbox>, 'color'> & {
   /** Options for select */
   options: SelectOption[];
   // options: Option[];
@@ -240,9 +220,7 @@ export type SelectBoxProps<Option> = Omit<
   /** Use this when you want to display other than displayValue*/
   getOptionDisplayValue?(option: SelectOption): React.ReactNode;
   /** Select whether label or value you want get on onChange method */
-  getOptionValue?: (
-    option: SelectOption
-  ) => SelectOption[keyof SelectOption] | SelectOption;
+  getOptionValue?: (option: SelectOption) => SelectOption[keyof SelectOption] | SelectOption;
 };
 
 function getOptionValueFn(option: any) {
@@ -292,7 +270,7 @@ export default function SelectBox<OptionType extends SelectOption>({
   rounded = 'DEFAULT',
   variant = 'outline',
   color = 'info',
-  suffix = <PiCaretUpDown className="h-5 w-5" />,
+  suffix = <PiCaretUpDown className='h-5 w-5' />,
   onFocus,
   onBlur,
   ...props
@@ -320,23 +298,14 @@ export default function SelectBox<OptionType extends SelectOption>({
           <>
             {label && (
               <Listbox.Label
-                className={cn(
-                  'block font-medium',
-                  labelClasses.size[size],
-                  labelClassName
-                )}
+                className={cn('block font-medium', labelClasses.size[size], labelClassName)}
               >
                 {label}
-                {isRequired && (
-                  <span className="ms-1 font-medium text-red-light">*</span>
-                )}
+                {isRequired && <span className='ms-1 font-medium text-red-light'>*</span>}
               </Listbox.Label>
             )}
 
-            <div
-              ref={ref}
-              className={cn('h-full', !useContainerWidth && 'relative')}
-            >
+            <div ref={ref} className={cn('h-full', !useContainerWidth && 'relative')}>
               <Listbox.Button
                 className={cn(
                   selectClasses.base,
@@ -356,12 +325,7 @@ export default function SelectBox<OptionType extends SelectOption>({
                 )}
               >
                 {prefix && (
-                  <span
-                    className={cn(
-                      'block whitespace-nowrap leading-normal',
-                      prefixClassName
-                    )}
-                  >
+                  <span className={cn('block whitespace-nowrap leading-normal', prefixClassName)}>
                     {prefix}
                   </span>
                 )}
@@ -377,29 +341,20 @@ export default function SelectBox<OptionType extends SelectOption>({
                 </div>
 
                 {clearable && !emptyValue && (
-                  <ClearButton
-                    size={size}
-                    onClick={onClear}
-                    hasSuffix={Boolean(suffix)}
-                  />
+                  <ClearButton size={size} onClick={onClear} hasSuffix={Boolean(suffix)} />
                 )}
 
                 {suffix && (
-                  <span
-                    className={cn(
-                      'whitespace-nowrap leading-normal',
-                      suffixClassName
-                    )}
-                  >
+                  <span className={cn('whitespace-nowrap leading-normal', suffixClassName)}>
                     {suffix}
                   </span>
                 )}
               </Listbox.Button>
               <Transition
                 ref={refs.setFloating}
-                leave="transition ease-in duration-100"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
+                leave='transition ease-in duration-100'
+                leaveFrom='opacity-100'
+                leaveTo='opacity-0'
                 className={cn(
                   optionsClasses.base,
                   optionsClasses.shadow[size],
@@ -415,14 +370,8 @@ export default function SelectBox<OptionType extends SelectOption>({
               >
                 <Listbox.Options>
                   {isEmpty(options) ? (
-                    <li
-                      className={cn(
-                        optionClasses.notFound,
-                        selectClasses.size[size],
-                        'h-auto'
-                      )}
-                    >
-                     داده‌ای یافت نشد.
+                    <li className={cn(optionClasses.notFound, selectClasses.size[size], 'h-auto')}>
+                      داده‌ای یافت نشد.
                     </li>
                   ) : (
                     options.map((option) => (
@@ -448,12 +397,8 @@ export default function SelectBox<OptionType extends SelectOption>({
                         {({ selected }) => (
                           <span
                             className={cn(
-                              suffix &&
-                                selectFieldClasses.suffixEndPadding.size[size],
-                              prefix &&
-                                selectFieldClasses.prefixStartPadding.size[
-                                  size
-                                ],
+                              suffix && selectFieldClasses.suffixEndPadding.size[size],
+                              prefix && selectFieldClasses.prefixStartPadding.size[size],
                               {
                                 'font-medium': selected,
                               }
@@ -477,9 +422,7 @@ export default function SelectBox<OptionType extends SelectOption>({
           {helperText}
         </FieldHelperText>
       )}
-      {error && (
-        <FieldError size={size} error={error} className={errorClassName} />
-      )}
+      {error && <FieldError size={size} error={error} className={errorClassName} />}
     </div>
   );
 }
@@ -507,15 +450,10 @@ export interface FieldClearButtonProps {
   className?: string;
 }
 
-export function ClearButton({
-  size,
-  onClick,
-  hasSuffix,
-  className,
-}: FieldClearButtonProps) {
+export function ClearButton({ size, onClick, hasSuffix, className }: FieldClearButtonProps) {
   return (
     <span
-      role="button"
+      role='button'
       tabIndex={0}
       onClick={onClick}
       className={cn(
@@ -530,12 +468,12 @@ export function ClearButton({
     >
       {/* HeroIcon: x-mark */}
       <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        className="h-4 w-auto"
+        xmlns='http://www.w3.org/2000/svg'
+        viewBox='0 0 20 20'
+        fill='currentColor'
+        className='h-4 w-auto'
       >
-        <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+        <path d='M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z' />
       </svg>
     </span>
   );

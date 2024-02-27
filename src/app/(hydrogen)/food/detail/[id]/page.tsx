@@ -1,9 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Card ,PageHeader } from 'shafa-bo';
+import { Card, PageHeader, Input } from 'shafa-bo';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { headerData } from '../header';
-import { Input } from '@/components/ui/input';
 
 type Props = {
   params: { id: string };
@@ -23,8 +22,7 @@ export default function FoodEditPage({ params }: Props) {
   };
 
   /* api call */
-  const [list, { isSuccess, data: serverData }] =
-    useCategoryListMutation();
+  const [list, { isSuccess, data: serverData }] = useCategoryListMutation();
 
   useEffect(() => {
     list(parameterMap);
@@ -64,13 +62,7 @@ export default function FoodEditPage({ params }: Props) {
             />
           </div>
           <div>
-            <Input
-              label='کد پیگیری'
-              labelClassName='font-medium text-gray-900 dark:text-white'
-              className='mb-5'
-              defaultValue={''}
-              disabled
-            />
+            <Input label='کد پیگیری' labelClassName='font-medium text-gray-900 dark:text-white' className='mb-5' defaultValue={''} disabled />
           </div>
         </div>
       </Card>

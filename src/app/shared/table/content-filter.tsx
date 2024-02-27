@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Datepicker } from '@/components/ui/datepicker';
-import { Button } from 'rizzui';
+import { Button } from 'shafa-bo';
 import { PiTrashDuotone } from 'react-icons/pi';
 import { StatusField } from './status-field';
 
@@ -121,7 +121,7 @@ export default function FilterElement({
             value={localFilter.find((f) => f.key === item.key)?.value || ''}
             onChange={(event) => OnChangeInput(event, item)}
             autoFocus
-            className='bg-white'
+            className='bg-white dark:bg-inherit'
           />
         );
       case 'select':
@@ -170,7 +170,7 @@ export default function FilterElement({
                 setLocalFilter([]);
                 handleReset();
               }}
-              className=' h-11 w-[100%]  bg-gray-200/70 mb-6 '
+              className=' h-11 w-[100%] bg-gray-200/70 mb-6 bg-gray-400 dark:bg-gray-200'
               variant='flat'
             >
               <PiTrashDuotone className='me-1.5 h-[17px] w-[17px]' /> پاک کن

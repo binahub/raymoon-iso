@@ -1,12 +1,14 @@
 # Implement of new feature in Iva App BackOffice (SAMA)
 
-## list #### (app/(hydrogen)/feature/list)
+## list 
+
+#### (app/(hydrogen)/feature/list)
 
 directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 
 1.  `header.tsx`: generate title and breadcrumb page
 2.  `columns.tsx`: generate columns table with status column including: add && delete && update && ...
-    - Notice: if you need to handle update by modal view, check [update](#1) section of this instruction
+    - Notice: if you need to handle update by modal view, check [update](#75) section of this instruction
 3.  `page.tsx`: two types of page
 
     - for list without require input fields to generate table
@@ -14,7 +16,7 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
           1. api call: get data list
 
           2. useTable hook: generate all functionalities in table, like: pagination && handle table layout && actions
-              - Notice: for this handling must get : data && pageSize && totalElement && initialFilterValues(if you need [filter](#2) for table)
+              - Notice: for this handling must get : data && pageSize && totalElement && initialFilterValues(if you need [filter](#55) for table)
 
           3. actionFilter function: api call by filters
 
@@ -50,7 +52,7 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
           - (optional)onExpand: show any ReactNode in expand table row
           - (optional)requiredSeachTable: for this type of table
 
-4.  `filter.tsx`: create object for generate content filter in drawer {#2}
+4.  `filter.tsx`: create object for generate content filter in drawer
 
 ## create 
 
@@ -70,7 +72,7 @@ directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 
 3. `header.tsx`: generate title and breadcrumb page
 
-## update {#1}
+## update
 
 #### (app/(hydrogen)/feature/update)
 

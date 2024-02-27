@@ -1,14 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import CheckboxTree from 'react-checkbox-tree';
-import {
-  FaRegSquare,
-  FaCheckSquare,
-  FaRegPlusSquare,
-  FaFolder,
-  FaAngleLeft,
-  FaAngleDown,
-} from 'react-icons/fa';
+import { FaRegSquare, FaCheckSquare, FaRegPlusSquare, FaFolder, FaAngleLeft, FaAngleDown } from 'react-icons/fa';
 import { FaRegSquareCheck, FaRegSquareMinus } from 'react-icons/fa6';
 import makeFlatItems from '@/utils/make-flat';
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
@@ -37,13 +30,7 @@ export interface CheckboxTreeProps {
   checkModel: string;
 }
 
-export default function CheckboxTreeComponent({
-  checkedWithParents,
-  nodes,
-  defaultChecked,
-  checkModel,
-  ...props
-}: CheckboxTreeProps) {
+export default function CheckboxTreeComponent({ checkedWithParents, nodes, defaultChecked, checkModel, ...props }: CheckboxTreeProps) {
   const [checked, setChecked] = useState(defaultChecked);
   const [expanded, setExpanded] = useState([]);
 
@@ -58,9 +45,7 @@ export default function CheckboxTreeComponent({
 
     const checkedItemsKeys = [...new Set([...parents, ...values])];
 
-    const checkedItemsIds = allNodes
-      .filter((node: any) => checkedItemsKeys.includes(node.value))
-      .map((item: any) => item.id);
+    const checkedItemsIds = allNodes.filter((node: any) => checkedItemsKeys.includes(node.value)).map((item: any) => item.id);
 
     return { checkedItemsKeys, checkedItemsIds };
   };

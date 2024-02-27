@@ -3,22 +3,16 @@
 import { useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useTable } from '@/hooks/use-table';
-import { Button } from '@/components/ui/button';
+
+import { Button, ControlledTable } from 'shafa-bo';
 import { useColumn } from '@/hooks/use-column';
 import { getColumns } from '@/app/shared/file/manager/file-list/columns';
 import FileFilters from '@/app/shared/file/manager/file-filters';
-import { ControlledTable } from 'shafa-bo';
 const TableFooter = dynamic(() => import('@/app/shared/table-footer'), {
   ssr: false,
 });
 
-export default function FileListTable({
-  className,
-  data = [],
-}: {
-  className?: string;
-  data: any[];
-}) {
+export default function FileListTable({ className, data = [] }: { className?: string; data: any[] }) {
   const [pageSize, setPageSize] = useState(10);
 
   const onHeaderCellClick = (value: string) => ({
@@ -64,27 +58,14 @@ export default function FileListTable({
         handleSelectAll,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [
-      selectedRowKeys,
-      onHeaderCellClick,
-      sortConfig.key,
-      sortConfig.direction,
-      onDeleteItem,
-      handleRowSelect,
-      handleSelectAll,
-    ]
+    [selectedRowKeys, onHeaderCellClick, sortConfig.key, sortConfig.direction, onDeleteItem, handleRowSelect, handleSelectAll]
   );
 
   const { visibleColumns } = useColumn(columns);
 
   return (
     <div className={className}>
-      <FileFilters
-        filters={filters}
-        updateFilter={updateFilter}
-        onSearch={handleSearch}
-        searchTerm={searchTerm}
-      />
+      <FileFilters filters={filters} updateFilter={updateFilter} onSearch={handleSearch} searchTerm={searchTerm} />
       <ControlledTable
         isLoading={isLoading}
         showLoadingText={true}
@@ -94,7 +75,7 @@ export default function FileListTable({
         scroll={{ x: 1300 }}
         variant='modern'
         tableLayout='fixed'
-        rowKey={(record : any) => record.id}
+        rowKey={(record: any) => record.id}
         paginatorOptions={{
           pageSize,
           setPageSize,

@@ -10,7 +10,7 @@ export const initialFilterValues = {
 export const dataFilter: any = [
   {
     label: 'نام',
-    type: 'Text',
+    type: 'text',
     key: 'name',
   },
   // {

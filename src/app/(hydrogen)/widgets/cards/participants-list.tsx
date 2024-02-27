@@ -1,5 +1,4 @@
-import { Title, Text, Button, Badge, Avatar, WidgetCard, cn } from 'shafa-bo';
-import TrophyIcon from '@/components/icons/trophy';
+import { TrophyIcon, Title, Text, Button, Badge, Avatar, WidgetCard, cn } from 'shafa-bo';
 import { members } from '@/data/members-data';
 
 const status: any = {
@@ -24,18 +23,9 @@ export default function ParticipantsList() {
         {members.slice(0, 7).map((user) => (
           <div key={user.name} className='flex items-center'>
             <div className='relative inline-flex flex-shrink-0'>
-              <Avatar
-                src={user.thumbnail}
-                name={user.name}
-                className='flex-shrink-0 shadow-sm xs:!h-10 xs:!w-10'
-              />
+              <Avatar src={user.thumbnail} name={user.name} className='flex-shrink-0 shadow-sm xs:!h-10 xs:!w-10' />
               {user.status !== 'offline' ? (
-                <Badge
-                  renderAsDot
-                  color={status[user.status]}
-                  enableOutlineRing
-                  className='absolute bottom-0 end-0 -translate-y-[56%]'
-                />
+                <Badge renderAsDot color={status[user.status]} enableOutlineRing className='absolute bottom-0 end-0 -translate-y-[56%]' />
               ) : null}
             </div>
             <div className='flex w-[calc(100%-44px)] items-center justify-between gap-2 ps-3.5'>
@@ -46,12 +36,7 @@ export default function ParticipantsList() {
                 <Text className='w-[98%] truncate text-gray-500'>{user.email}</Text>
               </div>
 
-              <div
-                className={cn(
-                  'flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10',
-                  user.fill
-                )}
-              >
+              <div className={cn('flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10', user.fill)}>
                 <TrophyIcon className={cn('h-6 w-6', user.color)} />
               </div>
             </div>

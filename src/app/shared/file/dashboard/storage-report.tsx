@@ -1,10 +1,9 @@
 'use client';
 
-import { SimpleBar, cn, Badge, WidgetCard, Title, Text } from 'shafa-bo';
+import { SimpleBar, cn, Badge, WidgetCard, Title, Text, TrendingUpIcon } from 'shafa-bo';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useMedia } from '@/hooks/use-media';
 import { CustomTooltip } from '@/components/charts/custom-tooltip';
-import TrendingUpIcon from '@/components/icons/trending-up';
 
 const data = [
   {

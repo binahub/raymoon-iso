@@ -1,6 +1,6 @@
 'use client';
 
-import cn from '@/utils/class-names';
+import { cn } from 'shafa-bo';
 import React, { useEffect, useRef, useState } from 'react';
 
 const classes = {
@@ -74,9 +74,7 @@ export default function CircleProgressBar({
   // Safari browser transform css issue with foreignObject
   const [isSafari, setSafari] = useState(false);
   useEffect(() => {
-    let isBrowserSafari = /^((?!chrome|android).)*safari/i.test(
-      navigator.userAgent
-    );
+    let isBrowserSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     setSafari(() => isBrowserSafari);
   }, []);
 
@@ -84,17 +82,13 @@ export default function CircleProgressBar({
     <svg
       {...(!useParentResponsive && { width: size, height: size })}
       viewBox={`0 0 ${size} ${size}`}
-      className={cn(
-        'transition-all duration-200',
-        !isSafari && classes.base,
-        !isSafari && classes.startAngle[startAngle]
-      )}
+      className={cn('transition-all duration-200', !isSafari && classes.base, !isSafari && classes.startAngle[startAngle])}
     >
       {gradientColor && (
         <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor={progressColor} />
-            <stop offset="100%" stopColor={gradientColor} />
+          <linearGradient id='gradient' x1='0%' y1='0%' x2='100%' y2='100%'>
+            <stop offset='0%' stopColor={progressColor} />
+            <stop offset='100%' stopColor={gradientColor} />
           </linearGradient>
         </defs>
       )}
@@ -114,12 +108,12 @@ export default function CircleProgressBar({
         cx={cx}
         cy={cy}
         r={radius}
-        fill="transparent"
+        fill='transparent'
         strokeWidth={strokeWidth}
         stroke={gradientColor ? 'url(#gradient)' : progressColor}
         strokeDasharray={`${circumference} ${circumference}`}
         strokeDashoffset={-offset}
-        strokeLinecap="round"
+        strokeLinecap='round'
         {...(progressBarClassName && { className: progressBarClassName })}
       />
 

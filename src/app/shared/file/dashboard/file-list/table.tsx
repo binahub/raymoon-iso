@@ -5,17 +5,10 @@ import Link from 'next/link';
 import { useTable } from '@/hooks/use-table';
 import { useColumn } from '@/hooks/use-column';
 import { getColumns } from './columns';
-import { Title, Text } from '@/components/ui/text';
-import {ControlledTable} from 'shafa-bo';
+import { ControlledTable, Title, Text } from 'shafa-bo';
 import { routes } from '@/config/routes';
 
-export default function FileListTable({
-  className,
-  data = [],
-}: {
-  className?: string;
-  data: any[];
-}) {
+export default function FileListTable({ className, data = [] }: { className?: string; data: any[] }) {
   const [pageSize, setPageSize] = useState(5);
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {
@@ -27,18 +20,13 @@ export default function FileListTable({
     handleDelete(id);
   };
 
-  const filterState = 10
+  const filterState = 10;
 
-  const {
-    isLoading,
-    tableData,
-    currentPage,
-    totalItems,
-    handlePaginate,
-    sortConfig,
-    handleSort,
-    handleDelete,
-  } = useTable(data, pageSize, filterState);
+  const { isLoading, tableData, currentPage, totalItems, handlePaginate, sortConfig, handleSort, handleDelete } = useTable(
+    data,
+    pageSize,
+    filterState
+  );
 
   const columns = useMemo(
     () => getColumns({ sortConfig, onHeaderCellClick, onDeleteItem }),
@@ -50,17 +38,11 @@ export default function FileListTable({
 
   return (
     <div className={className}>
-      <div className="mb-3 flex items-center justify-between 2xl:mb-5">
-        <Title
-          as="h3"
-          className="text-lg font-semibold text-gray-900 xl:text-xl"
-        >
+      <div className='mb-3 flex items-center justify-between 2xl:mb-5'>
+        <Title as='h3' className='text-lg font-semibold text-gray-900 xl:text-xl'>
           All Files
         </Title>
-        <Link
-          href={routes.file.manager}
-          className="text-sm font-medium text-gray-900 hover:underline"
-        >
+        <Link href={routes.file.manager} className='text-sm font-medium text-gray-900 hover:underline'>
           View all
         </Link>
       </div>
@@ -70,10 +52,10 @@ export default function FileListTable({
         // @ts-ignore
         columns={visibleColumns}
         scroll={{ x: 1300 }}
-        variant="modern"
-        tableLayout="fixed"
-        rowKey={(record : any) => record.id}
-        className="overflow-hidden rounded-lg border border-gray-200 text-sm"
+        variant='modern'
+        tableLayout='fixed'
+        rowKey={(record: any) => record.id}
+        className='overflow-hidden rounded-lg border border-gray-200 text-sm'
         paginatorOptions={{
           pageSize,
           setPageSize,

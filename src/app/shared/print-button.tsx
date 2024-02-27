@@ -11,7 +11,7 @@ export default function PrintButton() {
   return (
     <Button onClick={() => handlePrint()} variant='outline' className='w-full @lg:w-auto'>
       <PiPrinterBold className='me-1.5 h-[17px] w-[17px]' />
-      Print
+      چاپ
     </Button>
   );
 }

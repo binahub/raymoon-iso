@@ -1,7 +1,6 @@
 'use client';
 
-import { Title } from '@/components/ui/text';
-import { Input } from '@/components/ui/input';
+import { Title ,Input} from 'shafa-bo';
 import { PiMagnifyingGlassBold } from 'react-icons/pi';
 import ViewSwitcher from '@/app/shared/file/manager/view-switcher';
 import FileTypeDropdown from './file-sortby-type';

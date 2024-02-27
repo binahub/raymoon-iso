@@ -1,12 +1,10 @@
 'use client';
 
-import { cn, Button, Title, Text } from 'shafa-bo';
+import { cn, Button, Title, Text, TrendingDownIcon, TrendingUpIcon } from 'shafa-bo';
 import { useScrollableSlider } from '@/hooks/use-scrollable-slider';
 import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
 import MetricCard from '@/components/cards/metric-card';
 import CircleProgressBar from '@/components/charts/circle-progressbar';
-import TrendingUpIcon from '@/components/icons/trending-up';
-import TrendingDownIcon from '@/components/icons/trending-down';
 
 type FileStatsType = {
   className?: string;
@@ -84,18 +82,8 @@ export function FileStatGrid({ className }: { className?: string }) {
             }
           >
             <Text className='mt-3 flex items-center leading-none text-gray-500'>
-              <Text
-                as='span'
-                className={cn(
-                  'me-2 inline-flex items-center font-medium',
-                  stat.increased ? 'text-green' : 'text-red'
-                )}
-              >
-                {stat.increased ? (
-                  <TrendingUpIcon className='me-1 h-4 w-4' />
-                ) : (
-                  <TrendingDownIcon className='me-1 h-4 w-4' />
-                )}
+              <Text as='span' className={cn('me-2 inline-flex items-center font-medium', stat.increased ? 'text-green' : 'text-red')}>
+                {stat.increased ? <TrendingUpIcon className='me-1 h-4 w-4' /> : <TrendingDownIcon className='me-1 h-4 w-4' />}
                 {stat.value}%
               </Text>
               last month
@@ -108,8 +96,7 @@ export function FileStatGrid({ className }: { className?: string }) {
 }
 
 export default function FileStats({ className }: FileStatsType) {
-  const { sliderEl, sliderPrevBtn, sliderNextBtn, scrollToTheRight, scrollToTheLeft } =
-    useScrollableSlider();
+  const { sliderEl, sliderPrevBtn, sliderNextBtn, scrollToTheRight, scrollToTheLeft } = useScrollableSlider();
 
   return (
     <div className={cn('relative flex w-auto items-center overflow-hidden', className)}>
@@ -123,10 +110,7 @@ export default function FileStats({ className }: FileStatsType) {
         <PiCaretLeftBold className='h-5 w-5' />
       </Button>
       <div className='w-full overflow-hidden'>
-        <div
-          ref={sliderEl}
-          className='custom-scrollbar-x grid grid-flow-col gap-5 overflow-x-auto scroll-smooth 2xl:gap-6 3xl:gap-8'
-        >
+        <div ref={sliderEl} className='custom-scrollbar-x grid grid-flow-col gap-5 overflow-x-auto scroll-smooth 2xl:gap-6 3xl:gap-8'>
           <FileStatGrid className='min-w-[292px]' />
         </div>
       </div>

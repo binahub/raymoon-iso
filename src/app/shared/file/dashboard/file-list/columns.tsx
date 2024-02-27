@@ -1,15 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import {
-  PiCopySimple,
-  PiDotsThreeOutlineVerticalFill,
-  PiShareFat,
-  PiTrashSimple,
-} from 'react-icons/pi';
-import { Popover, Button, ActionIcon, HeaderCell, Title, Text } from 'shafa-bo';
+import { PiCopySimple, PiDotsThreeOutlineVerticalFill, PiShareFat, PiTrashSimple } from 'react-icons/pi';
+import { DateCell, Popover, Button, ActionIcon, HeaderCell, Title, Text } from 'shafa-bo';
 import Favorite from '@/app/shared/file/manager/favorite';
-import DateCell from '@/components/ui/date-cell';
 
 type Columns = {
   sortConfig?: any;
@@ -29,9 +23,7 @@ export const getColumns = ({ sortConfig, onDeleteItem, onHeaderCellClick }: Colu
           <Image src={file.avatar} className='aspect-square h-7 w-7' alt={'File Type'} />
         </div>
         <div className='ml-3 rtl:ml-0 rtl:mr-3'>
-          <Text className='mb-0.5 font-lexend !text-sm font-medium text-gray-900 dark:text-gray-700'>
-            {file.name}
-          </Text>
+          <Text className='mb-0.5 font-lexend !text-sm font-medium text-gray-900 dark:text-gray-700'>{file.name}</Text>
         </div>
       </div>
     ),
@@ -51,13 +43,7 @@ export const getColumns = ({ sortConfig, onDeleteItem, onHeaderCellClick }: Colu
     render: (value: any) => <span className='capitalize text-gray-500'>{value}</span>,
   },
   {
-    title: (
-      <HeaderCell
-        title='Modified'
-        sortable
-        ascending={sortConfig?.direction === 'asc' && sortConfig?.key === 'dueDate'}
-      />
-    ),
+    title: <HeaderCell title='Modified' sortable ascending={sortConfig?.direction === 'asc' && sortConfig?.key === 'dueDate'} />,
     onHeaderCell: () => onHeaderCellClick('modified'),
     dataIndex: 'modified',
     key: 'modified',

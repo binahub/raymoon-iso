@@ -1,8 +1,7 @@
 'use client';
 
-import { AdvancedRadio } from '@/components/ui/advanced-radio';
+import { cn, AdvancedRadio } from 'shafa-bo';
 import { useState } from 'react';
-import cn from '@/utils/class-names';
 
 type ButtonGroupActionProps = {
   name?: string;
@@ -23,9 +22,7 @@ export default function ButtonGroupAction({
   defaultActive,
   activeClassName,
 }: ButtonGroupActionProps) {
-  const [state, setState] = useState(
-    defaultActive ? defaultActive : options[options.length - 1]
-  );
+  const [state, setState] = useState(defaultActive ? defaultActive : options[options.length - 1]);
   function handleOnChange(value: string) {
     setState(() => value);
     onChange && onChange(value);
@@ -41,9 +38,7 @@ export default function ButtonGroupAction({
           onChange={(e) => handleOnChange(e.target.value)}
           className={cn(
             'rounded-md px-3 py-1.5 transition-all duration-200 hover:cursor-pointer',
-            state === item
-              ? 'bg-gray-100 text-gray-900 dark:text-gray-700'
-              : 'text-gray-600',
+            state === item ? 'bg-gray-100 text-gray-900 dark:text-gray-700' : 'text-gray-600',
             btnClassName,
             state === item && activeClassName
           )}

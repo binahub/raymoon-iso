@@ -1,6 +1,6 @@
 'use client';
 
-import WidgetCard from '@/components/cards/widget-card';
+import { WidgetCard } from 'shafa-bo';
 import SimpleRadarChartComponent from '@/components/charts/simple-radar-chart';
 import cn from '@/utils/class-names';
 
@@ -43,24 +43,11 @@ const data = [
   },
 ];
 
-export default function SimpleRadarChart({
-  className,
-}: {
-  className?: string;
-}) {
+export default function SimpleRadarChart({ className }: { className?: string }) {
   return (
-    <WidgetCard
-      title={'Simple Radar Chart'}
-      className={cn('@container', className)}
-    >
-      <div className="mt-5 h-96 w-full pb-2 @sm:h-96 @xl:pb-0 @2xl:aspect-[1060/660] @2xl:h-auto lg:mt-7">
-        <SimpleRadarChartComponent
-          data={data}
-          dataKey="month"
-          radarKey={'A'}
-          fill="#D7E3FE"
-          stroke="#3872FA"
-        />
+    <WidgetCard title={'Simple Radar Chart'} className={cn('@container', className)}>
+      <div className='mt-5 h-96 w-full pb-2 @sm:h-96 @xl:pb-0 @2xl:aspect-[1060/660] @2xl:h-auto lg:mt-7'>
+        <SimpleRadarChartComponent data={data} dataKey='month' radarKey={'A'} fill='#D7E3FE' stroke='#3872FA' />
       </div>
     </WidgetCard>
   );

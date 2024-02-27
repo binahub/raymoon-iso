@@ -2,12 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { PiCaretDownBold, PiCaretRightBold } from 'react-icons/pi';
-import { Popover } from '@/components/ui/popover';
-import { Button } from '@/components/ui/button';
+import { Datepicker, cn, Popover, Button, Title, Text } from 'shafa-bo';
 import { useMedia } from '@/hooks/use-media';
-import { Datepicker } from '@/components/ui/datepicker';
-import cn from '@/utils/class-names';
-import { Title, Text } from '@/components/ui/text';
 
 const modifiedOptions = [
   {
@@ -38,7 +34,7 @@ const modifiedOptions = [
   {
     value: 'customDateRange',
     name: 'Custom date ranger',
-    icon: <PiCaretRightBold className="h-4 w-4 text-gray-500 rtl:rotate-180" />,
+    icon: <PiCaretRightBold className='h-4 w-4 text-gray-500 rtl:rotate-180' />,
     id: 6,
   },
 ];
@@ -58,49 +54,34 @@ export default function FileSortbyDate() {
 
   return (
     <Popover
-      placement="bottom-start"
-      className="z-50 px-3 dark:bg-gray-100 [&>svg]:dark:fill-gray-100"
-      content={({ setOpen }) => (
-        <div className="w-full max-w-[460px] pt-1 text-left rtl:text-right">
-          <div className="flex">
-            <ul className="w-full max-w-[200px]">
-              {modifiedOptions.map(
-                (item: {
-                  name: string;
-                  value: string;
-                  id: number;
-                  icon?: React.ReactNode;
-                }) => (
-                  <li key={item.id}>
-                    <Button
-                      type="button"
-                      variant="text"
-                      className={cn(
-                        'flex w-full justify-between rounded-md px-2 text-sm font-normal leading-5 text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-50 dark:focus:bg-gray-50',
-                        item.id === modifiedOptions.length && 'hidden sm:flex'
-                      )}
-                      onClick={() => {
-                        item.id === modifiedOptions.length
-                          ? setCustomDateRange((prev) => !prev)
-                          : setSelected(item.value);
-                      }}
-                    >
-                      {item.name}
-                      {item?.icon}
-                    </Button>
-                  </li>
-                )
-              )}
+      placement='bottom-start'
+      className='z-50 px-3 dark:bg-gray-100 [&>svg]:dark:fill-gray-100'
+      content={({ setOpen }: any) => (
+        <div className='w-full max-w-[460px] pt-1 text-left rtl:text-right'>
+          <div className='flex'>
+            <ul className='w-full max-w-[200px]'>
+              {modifiedOptions.map((item: { name: string; value: string; id: number; icon?: React.ReactNode }) => (
+                <li key={item.id}>
+                  <Button
+                    type='button'
+                    variant='text'
+                    className={cn(
+                      'flex w-full justify-between rounded-md px-2 text-sm font-normal leading-5 text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-50 dark:focus:bg-gray-50',
+                      item.id === modifiedOptions.length && 'hidden sm:flex'
+                    )}
+                    onClick={() => {
+                      item.id === modifiedOptions.length ? setCustomDateRange((prev) => !prev) : setSelected(item.value);
+                    }}
+                  >
+                    {item.name}
+                    {item?.icon}
+                  </Button>
+                </li>
+              ))}
             </ul>
-            <div
-              className={cn(
-                customDateRange ? 'block' : 'hidden',
-                isMobile && 'hidden',
-                'flex-grow pl-4'
-              )}
-            >
-              <div className="mb-5">
-                <Text as="span" className="mb-2 mt-2.5 block text-sm">
+            <div className={cn(customDateRange ? 'block' : 'hidden', isMobile && 'hidden', 'flex-grow pl-4')}>
+              <div className='mb-5'>
+                <Text as='span' className='mb-2 mt-2.5 block text-sm'>
                   Start Date
                 </Text>
                 <Datepicker
@@ -108,11 +89,11 @@ export default function FileSortbyDate() {
                   onChange={(date: Date) => setStartDate(date)}
                   minDate={startDate}
                   maxDate={endDate}
-                  placeholder="Select Date"
+                  placeholder='Select Date'
                 />
               </div>
               <div>
-                <Text as="span" className="mb-2 block text-sm">
+                <Text as='span' className='mb-2 block text-sm'>
                   End Date
                 </Text>
                 <Datepicker
@@ -120,24 +101,19 @@ export default function FileSortbyDate() {
                   onChange={(date: Date) => setEndDate(date)}
                   minDate={startDate}
                   maxDate={endDate}
-                  placeholder="Select Date"
+                  placeholder='Select Date'
                 />
               </div>
             </div>
           </div>
-          <div className="mt-2 flex justify-end border-t border-dashed border-gray-300 pt-2">
-            <Button
-              type="button"
-              variant="text"
-              className="text-gray-500"
-              onClick={() => setOpen(false)}
-            >
+          <div className='mt-2 flex justify-end border-t border-dashed border-gray-300 pt-2'>
+            <Button type='button' variant='text' className='text-gray-500' onClick={() => setOpen(false)}>
               Cancel
             </Button>
             <Button
-              color="primary"
-              type="button"
-              variant="text"
+              color='primary'
+              type='button'
+              variant='text'
               onClick={() => {
                 console.log('Last modified =>', selected);
                 setOpen(false);
@@ -149,12 +125,8 @@ export default function FileSortbyDate() {
         </div>
       )}
     >
-      <Button
-        size="sm"
-        variant="outline"
-        className="text-sm font-normal text-gray-600"
-      >
-        Last Modified <PiCaretDownBold className="ms-2 h-4 w-4" />
+      <Button size='sm' variant='outline' className='text-sm font-normal text-gray-600'>
+        Last Modified <PiCaretDownBold className='ms-2 h-4 w-4' />
       </Button>
     </Popover>
   );

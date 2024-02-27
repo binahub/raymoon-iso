@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Select from '@/components/ui/select';
+import { Select } from 'shafa-bo';
 import { PiCalendarBlank, PiCaretDownBold } from 'react-icons/pi';
 
 type Options = {
@@ -18,11 +18,7 @@ type DropdownActionProps = {
   activeClassName?: string;
 };
 
-export default function DropdownAction({
-  options,
-  onChange,
-  className,
-}: DropdownActionProps) {
+export default function DropdownAction({ options, onChange, className }: DropdownActionProps) {
   const [viewType, setViewType] = useState(options[0]);
   function handleOnChange(data: Options) {
     setViewType(data);
@@ -31,20 +27,18 @@ export default function DropdownAction({
 
   return (
     <Select
-      variant="text"
+      variant='text'
       value={viewType.value}
       options={options}
       onChange={handleOnChange}
-      displayValue={(selected) =>
-        options.find((option) => option.value === selected)?.name
-      }
-      selectClassName="py-1 px-2 leading-[32px] h-8"
-      optionClassName="py-1 px-2 leading-[32px] h-8"
-      dropdownClassName="w-32 p-2 gap-1 grid"
+      displayValue={(selected: any) => options.find((option) => option.value === selected)?.name}
+      selectClassName='py-1 px-2 leading-[32px] h-8'
+      optionClassName='py-1 px-2 leading-[32px] h-8'
+      dropdownClassName='w-32 p-2 gap-1 grid'
       useContainerWidth={false}
-      placement="bottom-end"
-      prefix={<PiCalendarBlank className="h-5 w-5 text-gray-500" />}
-      suffix={<PiCaretDownBold className="ml-2 h-3 w-3" />}
+      placement='bottom-end'
+      prefix={<PiCalendarBlank className='h-5 w-5 text-gray-500' />}
+      suffix={<PiCaretDownBold className='ml-2 h-3 w-3' />}
       className={className}
     />
   );

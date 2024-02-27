@@ -1,9 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import cn from '@/utils/class-names';
-import { Button } from '@/components/ui/button';
-import SimpleBar from '@/components/ui/simplebar';
+import { SimpleBar } from 'shafa-bo';
 import { useColorPresetName } from '@/hooks/use-theme-color';
 import LayoutSwitcher from '@/components/settings/layout-switcher';
 import ColorOptions from '@/components/settings/color-options';
@@ -16,8 +14,8 @@ export default function SettingsDrawer() {
 
   return (
     <>
-      <SimpleBar className="h-[calc(100%-138px)]">
-        <div className="px-5 py-6">
+      <SimpleBar className='h-[calc(100%-138px)]'>
+        <div className='px-5 py-6'>
           <ThemeSwitcher />
           <AppDirection />
           <LayoutSwitcher />

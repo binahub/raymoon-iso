@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import { SimpleBar, cn, WidgetCard, Title, Text } from 'shafa-bo';
-import TrophyIcon from '@/components/icons/trophy';
+import { TrophyIcon, SimpleBar, cn, WidgetCard, Title, Text } from 'shafa-bo';
 import { members } from '@/data/members-data';
 
 export default function Members({ className }: { className?: string }) {
@@ -16,27 +15,14 @@ export default function Members({ className }: { className?: string }) {
               {members.map((member) => (
                 <div key={member.name + member.id} className='flex items-start pe-2'>
                   <div className='relative me-3 h-12 w-12 shrink-0 overflow-hidden rounded-full bg-gray-100 @sm:h-12 @sm:w-12'>
-                    <Image
-                      src={member.thumbnail}
-                      alt={member.name}
-                      fill
-                      sizes='(max-width: 768px) 100vw'
-                      className='object-cover'
-                    />
+                    <Image src={member.thumbnail} alt={member.name} fill sizes='(max-width: 768px) 100vw' className='object-cover' />
                   </div>
                   <div className='flex w-full items-center justify-between gap-2'>
                     <div>
-                      <Text className='text-sm font-semibold text-gray-900 dark:text-gray-700 2xl:text-base'>
-                        {member.name}
-                      </Text>
+                      <Text className='text-sm font-semibold text-gray-900 dark:text-gray-700 2xl:text-base'>{member.name}</Text>
                       <Text className='text-gray-500'>{member.email}</Text>
                     </div>
-                    <div
-                      className={cn(
-                        'flex h-10 w-10 items-center justify-center rounded-full',
-                        member.fill
-                      )}
-                    >
+                    <div className={cn('flex h-10 w-10 items-center justify-center rounded-full', member.fill)}>
                       <TrophyIcon className={cn('h-6 w-6', member.color)} />
                     </div>
                   </div>

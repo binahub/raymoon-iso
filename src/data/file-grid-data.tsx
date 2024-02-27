@@ -1,8 +1,4 @@
-import FolderIcon from '@/components/icons/folder-solid';
-import PDFIcon from '@/components/icons/pdf-solid';
-import DocIcon from '@/components/icons/doc-solid';
-import ImageIcon from '@/components/icons/image-solid';
-import XMLIcon from '@/components/icons/xml-solid';
+import { FolderIcon, PDFIcon, DocIcon, ImageIcon, XMLIcon } from 'shafa-bo';
 
 export const fileGridData = [
   {

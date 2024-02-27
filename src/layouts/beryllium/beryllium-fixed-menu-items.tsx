@@ -62,7 +62,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
       {
         name: 'داشبورد',
         description: '"Effortless Assistance at your Fingertips!"',
-        href: routes.executive.dashboard,
+        href: routes.file.dashboard,
         icon: PiBinoculars,
       },
       {

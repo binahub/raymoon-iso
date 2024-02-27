@@ -1,5 +1,4 @@
-import cn from '@/utils/class-names';
-import { Button } from '@/components/ui/button';
+import { cn, Button } from 'shafa-bo';
 
 interface FormFooterProps {
   className?: string;
@@ -11,13 +10,7 @@ interface FormFooterProps {
 
 export const negMargin = '-mx-4 md:-mx-5 lg:-mx-6 3xl:-mx-8 4xl:-mx-10';
 
-export default function FormFooter({
-  isLoading,
-  altBtnText = 'Save as Draft',
-  submitBtnText = 'Submit',
-  className,
-  handleAltBtn,
-}: FormFooterProps) {
+export default function FormFooter({ isLoading, altBtnText = 'Save as Draft', submitBtnText = 'Submit', className, handleAltBtn }: FormFooterProps) {
   return (
     <div
       className={cn(
@@ -26,18 +19,10 @@ export default function FormFooter({
         negMargin
       )}
     >
-      <Button
-        variant="outline"
-        className="w-full @xl:w-auto"
-        onClick={handleAltBtn}
-      >
+      <Button variant='outline' className='w-full @xl:w-auto' onClick={handleAltBtn}>
         {altBtnText}
       </Button>
-      <Button
-        type="submit"
-        isLoading={isLoading}
-        className="w-full @xl:w-auto dark:bg-gray-100 dark:text-white dark:active:bg-gray-100"
-      >
+      <Button type='submit' isLoading={isLoading} className='w-full @xl:w-auto dark:bg-gray-100 dark:text-white dark:active:bg-gray-100'>
         {submitBtnText}
       </Button>
     </div>

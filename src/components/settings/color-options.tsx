@@ -2,7 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import { PiCheckBold } from 'react-icons/pi';
-import cn from '@/utils/class-names';
+import { cn } from 'shafa-bo';
 import { usePresets } from '@/config/color-presets';
 import { useColorPresetName, useColorPresets } from '@/hooks/use-theme-color';
 import DrawerBlock from '@/components/settings/drawer-block';
@@ -14,13 +14,10 @@ export default function ColorOptions() {
   const { colorPresetName, setColorPresetName } = useColorPresetName();
 
   return (
-    <DrawerBlock title="Colors">
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+    <DrawerBlock title='Colors'>
+      <div className='grid grid-cols-2 gap-4 sm:grid-cols-3'>
         {COLOR_PRESETS.map((preset) => (
-          <div
-            key={preset?.name}
-            className="flex flex-col items-center justify-center gap-1"
-          >
+          <div key={preset?.name} className='flex flex-col items-center justify-center gap-1'>
             <button
               title={preset?.name}
               onClick={() => {
@@ -38,27 +35,16 @@ export default function ColorOptions() {
               <PiCheckBold
                 className={cn(
                   'h-6 w-6',
-                  colorPresetName?.toLowerCase() === preset?.name?.toLowerCase()
-                    ? 'text-white'
-                    : 'text-transparent',
-                  colorPresetName?.toLowerCase() ===
-                    preset?.name?.toLowerCase() && preset.name === 'Black'
-                    ? 'text-gray-0'
-                    : ''
+                  colorPresetName?.toLowerCase() === preset?.name?.toLowerCase() ? 'text-white' : 'text-transparent',
+                  colorPresetName?.toLowerCase() === preset?.name?.toLowerCase() && preset.name === 'Black' ? 'text-gray-0' : ''
                 )}
               />
             </button>
             <span
-              className={
-                colorPresetName?.toLowerCase() === preset?.name?.toLowerCase()
-                  ? 'font-semibold'
-                  : 'font-medium'
-              }
+              className={colorPresetName?.toLowerCase() === preset?.name?.toLowerCase() ? 'font-semibold' : 'font-medium'}
               style={{ color: preset.colors.default }}
             >
-              {theme === 'dark' && preset.name === 'Black'
-                ? 'White'
-                : preset.name}
+              {theme === 'dark' && preset.name === 'Black' ? 'White' : preset.name}
             </span>
           </div>
         ))}

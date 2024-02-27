@@ -1,10 +1,14 @@
 import Link from 'next/link';
-import { ActionIcon, Tooltip } from 'rizzui';
-import { HeaderCell, AvatarCard } from 'shafa-bo';
-import PencilIcon from '@/components/icons/pencil';
+import {
+  ActionIcon,
+  Tooltip,
+  HeaderCell,
+  AvatarCard,
+  PencilIcon,
+  EyeIcon,
+  DeletePopover,
+} from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import DeletePopover from '@/app/shared/delete-popover';
-import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
 import { ModalView } from '../update/modal';
 

@@ -1,14 +1,6 @@
-import cn from '@/utils/class-names';
+import { cn } from 'shafa-bo';
 
-export function RoundedTopBar({
-  x,
-  y,
-  width,
-  height,
-  fillOpacity,
-  className,
-  cornerRadius = 6,
-}: any) {
+export function RoundedTopBar({ x, y, width, height, fillOpacity, className, cornerRadius = 6 }: any) {
   const roundedHeight = Math.max(cornerRadius, height);
   const path = `
     M${x},${y + roundedHeight}
@@ -19,27 +11,10 @@ export function RoundedTopBar({
     L${x + width},${y + roundedHeight}
     Z
   `;
-  return (
-    <path
-      d={path}
-      fillOpacity={fillOpacity}
-      className={cn('fill-[#d4dcfa] dark:fill-[#7c88b2]', className)}
-    />
-  );
+  return <path d={path} fillOpacity={fillOpacity} className={cn('fill-[#d4dcfa] dark:fill-[#7c88b2]', className)} />;
 }
 
-export function RoundedTopBarFill({
-  x,
-  y,
-  width,
-  height,
-  fillOpacity,
-  fill,
-  stroke,
-  strokeWidth,
-  cornerRadius = 6,
-  className,
-}: any) {
+export function RoundedTopBarFill({ x, y, width, height, fillOpacity, fill, stroke, strokeWidth, cornerRadius = 6, className }: any) {
   const roundedHeight = Math.max(cornerRadius, height);
   const path = `
     M${x},${y + roundedHeight}

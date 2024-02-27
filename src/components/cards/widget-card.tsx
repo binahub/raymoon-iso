@@ -1,5 +1,5 @@
-import { Title } from '@/components/ui/text';
-import cn from '@/utils/class-names';
+'use client';
+import { cn, Title } from 'shafa-bo';
 import { ForwardedRef, forwardRef } from 'react';
 
 const widgetCardClasses = {
@@ -40,30 +40,13 @@ function WidgetCard(
   ref: ForwardedRef<HTMLDivElement>
 ) {
   return (
-    <div
-      className={cn(
-        widgetCardClasses.base,
-        widgetCardClasses.rounded[rounded],
-        className
-      )}
-      ref={ref}
-    >
-      <div
-        className={cn(
-          action && 'flex items-start justify-between',
-          headerClassName
-        )}
-      >
+    <div className={cn(widgetCardClasses.base, widgetCardClasses.rounded[rounded], className)} ref={ref}>
+      <div className={cn(action && 'flex items-start justify-between', headerClassName)}>
         <div>
-          <Title
-            as="h3"
-            className={cn('text-base font-semibold sm:text-lg', titleClassName)}
-          >
+          <Title as='h3' className={cn('text-base font-semibold sm:text-lg', titleClassName)}>
             {title}
           </Title>
-          {description && (
-            <div className={descriptionClassName}>{description}</div>
-          )}
+          {description && <div className={descriptionClassName}>{description}</div>}
         </div>
         {action && <div className={cn('ps-2', actionClassName)}>{action}</div>}
       </div>

@@ -1,7 +1,6 @@
 'use client';
 import { routes } from '@/config/routes';
 import { cn, Title, PageHeader } from 'shafa-bo';
-import MetricCardWithBarChart from '@/app/shared/analytics-dashboard/stat-cards';
 import { FileStatGrid } from '@/app/shared/file/dashboard/file-stats';
 import ParticipantsList from './participants-list';
 import TransactionsList from './transactions-list';
@@ -41,10 +40,7 @@ function SectionBlock({
   return (
     <section className={className}>
       <header className='mb-2.5 lg:mb-3'>
-        <Title
-          as='h5'
-          className={cn('mb-2 text-sm font-normal text-gray-700 sm:text-base', titleClassName)}
-        >
+        <Title as='h5' className={cn('mb-2 text-sm font-normal text-gray-700 sm:text-base', titleClassName)}>
           {title}
         </Title>
       </header>
@@ -69,9 +65,9 @@ export default function CardsPage() {
           </div>
         </SectionBlock>
 
-        <SectionBlock title={'MetricCard + BarChart'}>
+        {/* <SectionBlock title={'MetricCard + BarChart'}>
           <MetricCardWithBarChart className='grid-cols-1 @xl:grid-cols-2 @6xl:grid-cols-4 4xl:gap-8' />
-        </SectionBlock>
+        </SectionBlock> */}
 
         <SectionBlock title={'WidgetCard + List + Chart'}>
           <div className='grid grid-cols-1 gap-5 @2xl:grid-cols-2 @[90rem]:grid-cols-4 3xl:gap-8'>

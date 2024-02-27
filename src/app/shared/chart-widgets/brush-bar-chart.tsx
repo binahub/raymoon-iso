@@ -1,18 +1,7 @@
 'use client';
 
-import WidgetCard from '@/components/cards/widget-card';
-import {
-  BarChart,
-  Bar,
-  Brush,
-  ReferenceLine,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts';
+import { WidgetCard } from 'shafa-bo';
+import { BarChart, Bar, Brush, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
   { name: '1', uv: 300, pv: 456 },
@@ -59,8 +48,8 @@ const data = [
 export default function BrushBarChart({ className }: { className?: string }) {
   return (
     <WidgetCard title={'Brush Bar Chart'} className={className}>
-      <div className="mt-5 aspect-[1060/660] w-full lg:mt-7">
-        <ResponsiveContainer width="100%" height="100%">
+      <div className='mt-5 aspect-[1060/660] w-full lg:mt-7'>
+        <ResponsiveContainer width='100%' height='100%'>
           <BarChart
             data={data}
             barSize={32}
@@ -68,15 +57,15 @@ export default function BrushBarChart({ className }: { className?: string }) {
               left: -20,
             }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis tickLine={false} dataKey="name" />
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis tickLine={false} dataKey='name' />
             <YAxis tickLine={false} />
             <Tooltip />
-            <Legend verticalAlign="top" wrapperStyle={{ lineHeight: '40px' }} />
-            <ReferenceLine y={0} stroke="#000" />
-            <Brush dataKey="name" height={30} stroke="#8200E9" />
-            <Bar dataKey="pv" fill="#8200E9" />
-            <Bar dataKey="uv" fill="#10b981" />
+            <Legend verticalAlign='top' wrapperStyle={{ lineHeight: '40px' }} />
+            <ReferenceLine y={0} stroke='#000' />
+            <Brush dataKey='name' height={30} stroke='#8200E9' />
+            <Bar dataKey='pv' fill='#8200E9' />
+            <Bar dataKey='uv' fill='#10b981' />
           </BarChart>
         </ResponsiveContainer>
       </div>

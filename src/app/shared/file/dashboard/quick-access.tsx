@@ -1,11 +1,6 @@
 'use client';
 
-import FolderIcon from '@/components/icons/folder-solid';
-import { Button, cn, Title, Text } from 'shafa-bo';
-import PDFIcon from '@/components/icons/pdf-solid';
-import DocIcon from '@/components/icons/doc-solid';
-import ImageIcon from '@/components/icons/image-solid';
-import XMLIcon from '@/components/icons/xml-solid';
+import { XMLIcon, ImageIcon, DocIcon, PDFIcon, FolderIcon, Button, cn, Title, Text } from 'shafa-bo';
 import Link from 'next/link';
 import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
 import { useScrollableSlider } from '@/hooks/use-scrollable-slider';
@@ -50,27 +45,19 @@ const mockdata = [
 
 export function QuickAccessCard({ item, className }: { item: any; className?: string }) {
   return (
-    <div
-      className={cn(
-        className,
-        'relative flex flex-col items-center justify-center rounded-lg bg-gray-50 p-7 dark:bg-gray-100/50'
-      )}
-    >
+    <div className={cn(className, 'relative flex flex-col items-center justify-center rounded-lg bg-gray-50 p-7 dark:bg-gray-100/50')}>
       {item?.file?.image && (
         <div className='w-14'>
           <item.file.image />
         </div>
       )}
-      <Text className='mt-5 w-full truncate text-center text-sm font-medium text-gray-700'>
-        {item?.file?.name}
-      </Text>
+      <Text className='mt-5 w-full truncate text-center text-sm font-medium text-gray-700'>{item?.file?.name}</Text>
     </div>
   );
 }
 
 export default function QuickAccess({ className }: { className?: string }) {
-  const { sliderEl, sliderPrevBtn, sliderNextBtn, scrollToTheRight, scrollToTheLeft } =
-    useScrollableSlider();
+  const { sliderEl, sliderPrevBtn, sliderNextBtn, scrollToTheRight, scrollToTheLeft } = useScrollableSlider();
 
   return (
     <div className={className}>
@@ -93,10 +80,7 @@ export default function QuickAccess({ className }: { className?: string }) {
           <PiCaretLeftBold className='h-5 w-5' />
         </Button>
         <div className='w-full overflow-hidden'>
-          <div
-            ref={sliderEl}
-            className='custom-scrollbar-x grid grid-flow-col gap-5 overflow-x-auto scroll-smooth'
-          >
+          <div ref={sliderEl} className='custom-scrollbar-x grid grid-flow-col gap-5 overflow-x-auto scroll-smooth'>
             {mockdata.map((item) => {
               return <QuickAccessCard key={item.id} item={item} />;
             })}

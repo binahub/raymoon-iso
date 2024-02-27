@@ -1,13 +1,10 @@
-import { Badge } from '@/components/ui/badge';
-import { ActionIcon } from '@/components/ui/action-icon';
+'use client';
+import { Badge, ActionIcon, RingBellSolidIcon, ChatSolidIcon } from 'shafa-bo';
 import MessagesDropdown from '@/layouts/messages-dropdown';
 import NotificationDropdown from '@/layouts/notification-dropdown';
 import ProfileMenu from '@/layouts/profile-menu';
 import SettingsButton from '@/components/settings/settings-button';
-import RingBellSolidIcon from '@/components/icons/ring-bell-solid';
-import ChatSolidIcon from '@/components/icons/chat-solid';
 import ThemeSwitcherHandler from '@/components/theme/switch-theme';
-
 
 export default function HeaderMenuRight() {
   return (
@@ -34,12 +31,7 @@ export default function HeaderMenuRight() {
           className='relative h-[34px] w-[34px] shadow backdrop-blur-md dark:bg-gray-100 md:h-9 md:w-9'
         >
           <RingBellSolidIcon className='h-[18px] w-auto' />
-          <Badge
-            renderAsDot
-            color='warning'
-            enableOutlineRing
-            className='absolute right-2.5 top-2.5 -translate-y-1/3 translate-x-1/2'
-          />
+          <Badge renderAsDot color='warning' enableOutlineRing className='absolute right-2.5 top-2.5 -translate-y-1/3 translate-x-1/2' />
         </ActionIcon>
       </NotificationDropdown>
       {/* <SettingsButton /> */}

@@ -4,9 +4,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { useColumn } from '@/hooks/use-column';
 import { PiCaretDownBold, PiCaretUpBold } from 'react-icons/pi';
-import { ControlledTable } from 'shafa-bo';
-import { ActionIcon } from '@/components/ui/action-icon';
-import cn from '@/utils/class-names';
+import { cn, ControlledTable, ActionIcon } from 'shafa-bo';
 
 function CustomExpandIcon(props: any) {
   return (
@@ -19,11 +17,7 @@ function CustomExpandIcon(props: any) {
         props.onExpand(props.record, e);
       }}
     >
-      {props.expanded ? (
-        <PiCaretUpBold className='h-3.5 w-3.5' />
-      ) : (
-        <PiCaretDownBold className='h-3.5 w-3.5' />
-      )}
+      {props.expanded ? <PiCaretUpBold className='h-3.5 w-3.5' /> : <PiCaretDownBold className='h-3.5 w-3.5' />}
     </ActionIcon>
   );
 }
@@ -96,7 +90,7 @@ export default function DataTable({
         columns={visibleColumns}
         expandable={{
           expandIcon: CustomExpandIcon,
-          expandedRowRender: (record) => <ExpandedRow record={record} />,
+          expandedRowRender: (record: any) => <ExpandedRow record={record} />,
         }}
         paginatorOptions={{
           pageSize: tablePageSize,
@@ -110,7 +104,7 @@ export default function DataTable({
           onSearchClear: () => {
             handleSearch('');
           },
-          onSearchChange: (event) => {
+          onSearchChange: (event: any) => {
             handleSearch(event.target.value);
           },
           hasSearched: isFiltered,
@@ -120,14 +114,7 @@ export default function DataTable({
           setCheckedColumns,
           enableDrawerFilter: true,
         }}
-        filterElement={
-          <FilterElement
-            isFiltered={isFiltered}
-            filters={filters}
-            updateFilter={updateFilter}
-            handleReset={handleReset}
-          />
-        }
+        filterElement={<FilterElement isFiltered={isFiltered} filters={filters} updateFilter={updateFilter} handleReset={handleReset} />}
         className={
           'rounded-md border border-gray-200 text-sm shadow-sm [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:h-60 [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:justify-center [&_.rc-table-row:last-child_td.rc-table-cell]:border-b-0 [&_thead.rc-table-thead]:border-t-0'
         }

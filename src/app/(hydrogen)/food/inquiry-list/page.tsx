@@ -50,12 +50,14 @@ export default function FoodPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onDeleteItem = (id: string) => {
     handleDelete(id);
   };
 
   /* use options columns */
-  const columns = React.useMemo(() =>
+  const columns = React.useMemo(
+    () =>
       getColumns({
         onDeleteItem,
       }),
@@ -65,7 +67,7 @@ export default function FoodPage() {
   /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
-    setIsInitialLoad(true)
+    setIsInitialLoad(true);
   };
 
   const onSubmit: SubmitHandler<any> = (data) => {

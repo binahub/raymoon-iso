@@ -1,45 +1,35 @@
 import Link from 'next/link';
+import { ActionIcon, Tooltip, HeaderCell, AvatarCard, PencilIcon, EyeIcon, DeletePopover } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { EyeIcon, DeletePopover, PencilIcon, ActionIcon, Tooltip, HeaderCell, AvatarCard } from 'shafa-bo';
 import { routes } from '@/config/routes';
 import { ModalView } from '../update/modal';
 
 type Columns = {
-  data: any[];
-  sortConfig?: any;
-  handleSelectAll: any;
-  checkedItems: string[];
   onDeleteItem: (id: string) => void;
-  onHeaderCellClick: (value: string) => void;
-  onChecked?: (id: string) => void;
 };
 
-export const getColumns = ({ data, sortConfig, checkedItems, onDeleteItem, onHeaderCellClick, handleSelectAll, onChecked }: Columns) => [
+export const getColumns = ({ onDeleteItem }: Columns) => [
   {
     title: <HeaderCell title='شناسه' />,
     dataIndex: 'id',
-    key: 'id',
     name: 'شناسه',
     render: (value: string) => <p>{value}</p>,
   },
   {
     title: <HeaderCell title='نام' />,
     dataIndex: 'name',
-    key: 'name',
     name: 'نام',
     render: (value: string) => <p>{value}</p>,
   },
   {
     title: <HeaderCell title='توضیحات' />,
     dataIndex: 'imageUrl',
-    key: 'imageUrl',
     name: 'توضیحات',
     render: (_: any, row: any) => <AvatarCard src={row.imageUrl} name={row.name} description={'shakiba@fateme.bina'} />,
   },
   {
     title: <HeaderCell title='Actions' className='opacity-0' />,
     dataIndex: 'action',
-    key: 'action',
     name: 'وضعیت',
     render: (_: string, row: any) => <RenderAction row={row} onDeleteItem={onDeleteItem} />,
   },
@@ -47,7 +37,6 @@ export const getColumns = ({ data, sortConfig, checkedItems, onDeleteItem, onHea
 
 function RenderAction({
   row,
-  onDeleteItem,
 }: {
   row: {
     id: string;

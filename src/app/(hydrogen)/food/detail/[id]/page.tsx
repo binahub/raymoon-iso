@@ -11,6 +11,7 @@ type Props = {
 export default function FoodEditPage({ params }: Props) {
   const [initialData, setInitialData] = useState({ name: '', description: '' });
 
+  /* api call body */
   const parameterMap = {
     parameterMap: {
       id: params.id,
@@ -22,8 +23,7 @@ export default function FoodEditPage({ params }: Props) {
   };
 
   /* api call */
-  const [list, { isLoading, isSuccess, isError, error, data: serverData }] =
-    useCategoryListMutation();
+  const [list, { isSuccess, data: serverData }] = useCategoryListMutation();
 
   useEffect(() => {
     list(parameterMap);
@@ -37,12 +37,11 @@ export default function FoodEditPage({ params }: Props) {
         description: serverData?.foodCategoryObjectList[0]?.description,
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, serverData]);
 
   return (
     <>
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb} />
       <Card>
         <div className=' grid w-[100%] grid-cols-3 gap-5 p-5'>
           <div>
@@ -64,13 +63,7 @@ export default function FoodEditPage({ params }: Props) {
             />
           </div>
           <div>
-            <Input
-              label='کد پیگیری'
-              labelClassName='font-medium text-gray-900 dark:text-white'
-              className='mb-5'
-              defaultValue={''}
-              disabled
-            />
+            <Input label='کد پیگیری' labelClassName='font-medium text-gray-900 dark:text-white' className='mb-5' defaultValue={''} disabled />
           </div>
         </div>
       </Card>

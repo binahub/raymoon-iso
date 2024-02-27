@@ -1,7 +1,7 @@
 'use client';
-import { PageHeader, Card } from 'shafa-bo';
-import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { useEffect, useState } from 'react';
+import { useCategoryListMutation } from '@/provider/redux/apis/category';
+import { Card ,PageHeader } from 'shafa-bo';
 import { SubmitHandler } from 'react-hook-form';
 import FormData from '../../form.module';
 import { headerData } from '../header';
@@ -24,7 +24,7 @@ export default function FoodEditPage({ params }: Props) {
   };
 
   /* api call */
-  const [list, { isLoading, isSuccess, isError, error, data: serverData }] =
+  const [list, { isSuccess, data: serverData }] =
     useCategoryListMutation();
 
   useEffect(() => {
@@ -48,10 +48,10 @@ export default function FoodEditPage({ params }: Props) {
 
   return (
     <>
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
-      <Card>
-        <FormData handlerOnSubmit={onSubmit} data={initialData} numberCol={3} isEdit />
-      </Card>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}/>
+        <Card>
+          <FormData handlerOnSubmit={onSubmit} data={initialData} numberCol={3} isEdit />
+        </Card>
     </>
   );
 }

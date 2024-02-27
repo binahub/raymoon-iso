@@ -1,16 +1,14 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-//@TODO: should change import from package
-import { Table, FilterElement, Card, Form, Input, Button } from 'shafa-bo';
+import { FilterElement, PageHeader, Button, Input, Form, Card, Table } from 'shafa-bo';
+import { useCategoryListMutation } from '@/provider/redux/apis/category';
+import { SubmitHandler } from 'react-hook-form';
+import { foodInquirySchema } from '@/utils/validators/food.schema';
+import { headerData } from './header';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
-import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { dataFilter, filterState } from './filter';
-import PageHeader from '@/app/shared/page-header';
-import { SubmitHandler } from 'react-hook-form';
-import { foodInquirySchema, FoodInquirySchema } from '@/utils/validators/food.schema';
-import { headerData } from './header';
 
 export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -18,6 +16,7 @@ export default function FoodPage() {
   const [pageSize, setPageSize] = useState(5);
   const [isInitialLoad, setIsInitialLoad] = useState(false);
 
+  /* api call body */
   const parameterMap = {
     parameterMap: {
       page: pageNumer,
@@ -27,30 +26,11 @@ export default function FoodPage() {
     },
   };
 
-  /* create title excel columns */
-  const exportColumns = 'Order ID,Name';
-
   /* api call */
-  const [list, { isLoading, isSuccess, isError, error, data: dataService }] =
-    useCategoryListMutation();
+  const [list, { isLoading, data: dataService }] = useCategoryListMutation();
 
   /* use hooks for table*/
-  const {
-    isFiltered,
-    filters,
-    updateFilter,
-    handleReset,
-    sortConfig,
-    tableData,
-    currentPage,
-    handleSort,
-    handleDelete,
-    handlePaginate,
-    selectedRowKeys,
-    handleRowSelect,
-    handleSelectAll,
-    setData,
-  } = useTable(
+  const { isFiltered, filters, updateFilter, handleReset, tableData, currentPage, handleDelete, handlePaginate, setData } = useTable(
     dataService?.foodCategoryObjectList,
     pageSize,
     dataService?.totalElements,
@@ -70,12 +50,7 @@ export default function FoodPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
-  const onHeaderCellClick = (value: string) => ({
-    onClick: () => {
-      handleSort(value);
-    },
-  });
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onDeleteItem = (id: string) => {
     handleDelete(id);
   };
@@ -84,29 +59,15 @@ export default function FoodPage() {
   const columns = React.useMemo(
     () =>
       getColumns({
-        data: dataService?.foodCategoryObjectList,
-        sortConfig,
-        onHeaderCellClick,
         onDeleteItem,
-        checkedItems: selectedRowKeys,
-        onChecked: handleRowSelect,
-        handleSelectAll,
       }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [
-      selectedRowKeys,
-      onHeaderCellClick,
-      sortConfig.key,
-      sortConfig.direction,
-      onDeleteItem,
-      handleRowSelect,
-      handleSelectAll,
-    ]
+    [onDeleteItem]
   );
 
   /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
+    setIsInitialLoad(true);
   };
 
   const onSubmit: SubmitHandler<any> = (data) => {
@@ -121,9 +82,12 @@ export default function FoodPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
 
+  /* create title excel columns */
+  const exportColumns = 'Order ID,Name';
+
   return (
     <>
-      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb}></PageHeader>
+      <PageHeader title={headerData.title} breadcrumb={headerData.breadcrumb} />
       <Card className='rounded-t-3xl mb-5'>
         <Form
           validationSchema={foodInquirySchema}
@@ -133,17 +97,10 @@ export default function FoodPage() {
           }}
           className='grid gap-4 md:grid-cols-3 md:gap-7 w-[100%]  @2xl:p-8 3xl:px-12 4xl:px-24'
         >
-          {({ register, control, setValue, getValues, formState: { errors } }) => {
+          {({ register, formState: { errors } }) => {
             return (
               <>
-                <Input
-                  label='نام*'
-                  id='name'
-                  type='text'
-                  {...register('name')}
-                  className='flex-grow'
-                  error={errors?.name?.message}
-                />
+                <Input label='نام*' id='name' type='text' {...register('name')} className='flex-grow' error={errors?.name?.message} />
                 <Input
                   label='توضیحات*'
                   id='description'
@@ -163,10 +120,12 @@ export default function FoodPage() {
         </Form>
       </Card>
       <Table
-        /* get data from api call for handel export file */
-        data={dataService?.foodCategoryObjectList}
+        /* get data from api && changes data after pagination and filter */
+        tableData={tableData}
         /* get columns table */
         columns={columns}
+        /* choose between two types of table */
+        requiredSeachTable
         /* show detail or ReactNode */
         expandedRow={(rowData: any) => detail(rowData)}
         expandedKeys={[rowEdit]}
@@ -181,7 +140,6 @@ export default function FoodPage() {
           current: currentPage,
           onChange: (page: number) => handlePaginate(page),
         }}
-        tableData={tableData}
         /* show filter drawer && handle filter */
         filterElement={() =>
           FilterElement({
@@ -196,8 +154,6 @@ export default function FoodPage() {
         isLoading={isLoading}
         /* title export file */
         exportColumns={exportColumns}
-        /* choose between two types of table */
-        requiredSeachTable
       />
     </>
   );

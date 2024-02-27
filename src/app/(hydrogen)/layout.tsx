@@ -1,7 +1,6 @@
 'use client';
 import { useLayout } from '@/hooks/use-layout';
 import BerylLiumLayout from '@/layouts/beryllium/beryllium-layout';
-
 import { useIsMounted } from '@/hooks/use-is-mounted';
 
 export default function DefaultLayout({ children }: { children: React.ReactNode }) {

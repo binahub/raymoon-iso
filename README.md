@@ -21,7 +21,7 @@ npm install
 pnpm run install
 ```
 
-## Running the Application
+c
 
 1. Start the development server by running the following command:
 

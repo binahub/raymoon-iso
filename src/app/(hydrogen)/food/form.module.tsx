@@ -95,9 +95,7 @@ export default function FormData({ handlerOnSubmit, data, isEdit, numberCol }: P
                     onChange={onChange}
                     options={regions}
                     getOptionValue={(option) => option.name}
-                    displayValue={(selected: string) =>
-                      regions?.find((c) => c.name === selected)?.name ?? ''
-                    }
+                    displayValue={(selected: string) => regions?.find((c) => c.name === selected)?.name ?? ''}
                     error={isEdit ? '' : errors?.bank?.message}
                     disabled={isEdit}
                   />

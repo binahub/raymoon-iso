@@ -1,8 +1,6 @@
 # Implement of new feature in Iva App BackOffice (SAMA)
 
-## list 
-
-#### (app/(hydrogen)/feature/list)
+## list #### (app/(hydrogen)/feature/list)
 
 directory structure: mkdir `src/app/(hydrogen)/feature/list/*`
 

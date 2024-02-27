@@ -65,7 +65,9 @@ export default function FoodPage() {
 
   /* use options columns */
   const columns = React.useMemo(
-    () => getColumns({ onDeleteItem }),
+    () => getColumns({ 
+      onDeleteItem
+     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [onDeleteItem]
   );

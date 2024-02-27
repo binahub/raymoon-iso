@@ -1,9 +1,8 @@
 'use client ';
-import { useModal } from '@/app/shared/modal-views/use-modal';
-import { ActionIcon, Title } from 'rizzui';
-import { PiXBold } from 'react-icons/pi';
 import { SubmitHandler } from 'react-hook-form';
-import { FoodSchema } from '@/utils/validators/food.schema';
+import { PiXBold } from 'react-icons/pi';
+import { useModal } from '@/app/shared/modal-views/use-modal';
+import { ActionIcon, Title } from 'shafa-bo';
 import FormData from '../form.module';
 
 type Props = {
@@ -15,13 +14,6 @@ type Props = {
 };
 export function ModalView(rowData: Props) {
   const { closeModal } = useModal();
-
-  /* initialValues form */
-  const initialValues: FoodSchema = {
-    id: rowData.rowData?.id,
-    name: rowData.rowData?.name,
-    description: rowData.rowData?.description,
-  };
 
   const onSubmit: SubmitHandler<any> = (data: any) => {
     console.log('data : ', { ...data, id: rowData.rowData.id });

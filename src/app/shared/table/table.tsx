@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { ActionIcon } from '@/components/ui/action-icon';
 import { PiCaretDownBold, PiCaretUpBold } from 'react-icons/pi';
 import { useColumn } from '@/hooks/use-column';
@@ -85,6 +85,9 @@ type BasicTableWidgetProps = {
   requiredSeachTable?: boolean;
 };
 
+
+
+
 export default function Table({
   pageHeader,
   buttons,
@@ -113,10 +116,14 @@ export default function Table({
   requiredSeachTable,
 }: any) {
   const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
+  console.log(tableData);
+  
+
+
 
   return (
     <>
-      {requiredSeachTable ? (
+      {requiredSeachTable  ?  (
         <Card className='rounded-b-3xl'>
           <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
             <ControlledTable
@@ -153,7 +160,7 @@ export default function Table({
                 setCheckedColumns,
                 enableDrawerFilter: true,
                 requiredSeachTable: requiredSeachTable,
-                data: data,
+                data: {tableData},
                 fileName: exportFileName,
                 header: exportColumns,
               }}
@@ -176,7 +183,7 @@ export default function Table({
         <TableLayout
           title={pageHeader?.title}
           breadcrumb={pageHeader?.breadcrumb}
-          data={data}
+          data={tableData}
           fileName={exportFileName}
           header={exportColumns}
           buttons={buttons}

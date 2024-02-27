@@ -32,8 +32,7 @@ export function ControlledTable({
 }: ControlledTableProps) {
   if (isLoading) {
     return <TableSkeleton actionButton />;
-  }
-  
+  }  
 
   return (
     <>

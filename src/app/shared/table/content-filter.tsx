@@ -6,16 +6,24 @@ import { Button } from 'rizzui';
 import { PiTrashDuotone } from 'react-icons/pi';
 import { StatusField } from './status-field';
 
-type FilterElementProps = {
+export type DataFilter = {
+  label: string;
+  type: 'text' | 'number' | 'email' | 'tel' | 'search' | 'datePicker' | 'select';
+  key: string;
+  selectOption?: any[]
+}[];
+
+export type FilterElementProps = {
   isFiltered?: boolean;
   filters: { [key: string]: any };
   updateFilter: (columnId: string, filterValue: string | any[]) => void;
   handleReset: () => void;
-  dataFilter: any;
+  dataFilter: DataFilter;
   actionFilter?: any;
   setIsOpenDrawer?: any;
-  isLoading?: boolean
+  isLoading?: boolean;
 };
+
 
 export default function FilterElement({
   isFiltered,
@@ -25,7 +33,7 @@ export default function FilterElement({
   dataFilter,
   actionFilter,
   setIsOpenDrawer,
-  isLoading
+  isLoading,
 }: FilterElementProps) {
   const [localFilter, setLocalFilter] = useState<{ key: string; value: string }[]>(
     filters ? Object.keys(filters).map((key) => ({ key, value: filters[key] })) : []
@@ -101,10 +109,13 @@ export default function FilterElement({
    */
   function getElementForm(item: any) {
     switch (item.type) {
-      case 'Text':
+      case 'text':
+      case 'number':
+      case 'tel':
+      case 'search':
         return (
           <Input
-            type='text'
+            type={item.type}
             label={item.label}
             color='info'
             value={localFilter.find((f) => f.key === item.key)?.value || ''}
@@ -113,7 +124,7 @@ export default function FilterElement({
             className='bg-white'
           />
         );
-      case 'Select':
+      case 'select':
         return (
           <StatusField
             options={item.selectOption}
@@ -126,7 +137,7 @@ export default function FilterElement({
             label={item.label}
           />
         );
-      case 'DatePicker':
+      case 'datePicker':
         return (
           <Datepicker
             label={item.label}

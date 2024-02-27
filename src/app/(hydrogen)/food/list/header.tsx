@@ -1,5 +1,3 @@
-import { routes } from "@/config/routes";
-
 export const headerData = {
   title: 'سفارش غذا',
   breadcrumb: [

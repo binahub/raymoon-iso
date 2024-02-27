@@ -1,8 +1,7 @@
 'use client';
-import PageHeader from '@/app/shared/page-header';
-import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { useEffect, useState } from 'react';
-import Card from '@/components/cards/card';
+import { Card ,PageHeader } from 'shafa-bo';
+import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { headerData } from '../header';
 import { Input } from '@/components/ui/input';
 
@@ -24,7 +23,7 @@ export default function FoodEditPage({ params }: Props) {
   };
 
   /* api call */
-  const [list, { isLoading, isSuccess, isError, error, data: serverData }] =
+  const [list, { isSuccess, data: serverData }] =
     useCategoryListMutation();
 
   useEffect(() => {

@@ -55,8 +55,7 @@ export default function FoodPage() {
   };
 
   /* use options columns */
-  const columns = React.useMemo(
-    () =>
+  const columns = React.useMemo(() =>
       getColumns({
         onDeleteItem,
       }),

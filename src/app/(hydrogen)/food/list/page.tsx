@@ -54,6 +54,7 @@ export default function FoodPage() {
   }, [pageNumer, pageSize]);
 
   const onDeleteItem = (id: string) => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     handleDelete(id);
   };
 

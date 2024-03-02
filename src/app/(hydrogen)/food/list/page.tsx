@@ -8,6 +8,7 @@ import { getColumns } from './columns';
 import { dataFilter, initialFilterValues } from './filter';
 import { headerData } from './header';
 import ImportButton from '@/app/shared/import-button';
+import PrintButton from '@/app/shared/print-button';
 
 export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -74,7 +75,7 @@ export default function FoodPage() {
 
   /* generate any ReactNode for show in layout table */
   const GenerateElement = () => {
-    return <ImportButton title={'آپلود فایل'} />;
+    return <div><ImportButton title={'آپلود فایل'} /><PrintButton/></div>;
   };
 
   /* create title excel columns */

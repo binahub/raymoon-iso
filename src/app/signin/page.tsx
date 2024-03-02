@@ -30,7 +30,7 @@ export default function SignIn() {
               sizes='(max-width: 800px) 100vw'
               className='object-cover rounded-3xl h-[85%]'
             />
-            <p className='text-yellow-lighter text-xs font-bold flex justify-center'>نسخه {App.version}</p>
+            <p className='text-xs font-bold flex justify-center'>نسخه {App.version}</p>
           </div>
         }
       >

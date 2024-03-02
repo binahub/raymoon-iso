@@ -3,43 +3,21 @@
 import { RefObject, useState } from 'react';
 import * as dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { SimpleBar, BulbSolidIcon, CloudTaskIcon, FileStackIcon, BrushSolidIcon, Popover, TruckSolidIcon, Checkbox, Badge, Title } from 'shafa-bo';
+import { SimpleBar, Popover, Badge, Title } from 'shafa-bo';
 import Link from 'next/link';
 import { useMedia } from '@/hooks/use-media';
 import { PiCheck } from 'react-icons/pi';
 
 dayjs.extend(relativeTime);
 
-const data = [
-  {
-    id: 1,
-    name: 'بازپرداخت گواهی امضا',
-    icon: <BrushSolidIcon />,
-    unRead: true,
-    sendTime: '2023-06-01T09:35:31.820Z',
-  },
-  {
-    id: 3,
-    name: 'افزودن منو جشنواره در ایوا',
-    icon: <FileStackIcon />,
-    unRead: false,
-    sendTime: '2023-06-01T09:35:31.820Z',
-  },
-
-  {
-    id: 5,
-    name: 'بازپرداخت گواهی امضا',
-    icon: <BrushSolidIcon />,
-    unRead: true,
-    sendTime: '2023-06-01T09:35:31.820Z',
-  },
-  {
-    id: 7,
-    name: 'افزودن منو جشنواره در ایوا',
-    icon: <FileStackIcon />,
-    unRead: false,
-    sendTime: '2023-06-01T09:35:31.820Z',
-  },
+const data:any[] = [
+  // {
+  //   id: 1,
+  //   name: 'بازپرداخت گواهی امضا',
+  //   icon: <BrushSolidIcon />,
+  //   unRead: true,
+  //   sendTime: '2023-06-01T09:35:31.820Z',
+  // },
 ];
 
 function NotificationsList({ setIsOpen }: { setIsOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
@@ -71,7 +49,7 @@ function NotificationsList({ setIsOpen }: { setIsOpen: React.Dispatch<React.SetS
                 </div>
                 <div className='ms-auto flex-shrink-0'>
                   {item.unRead ? (
-                    <Badge renderAsDot size='lg' color='primary' className='scale-90' />
+                    <Badge renderAsDot size='lg' color='info' className='scale-90' />
                   ) : (
                     <span className='inline-block rounded-full bg-gray-100 p-0.5 dark:bg-gray-50'>
                       <PiCheck className='h-auto w-[9px]' />
@@ -83,13 +61,14 @@ function NotificationsList({ setIsOpen }: { setIsOpen: React.Dispatch<React.SetS
           ))}
         </div>
       </SimpleBar>
-      <Link
+      {data.length > 0 ? ( <Link
         href={'#'}
         // onClick={() => setIsOpen(false)}
         className='-me-6 block px-6 pb-0.5 pt-3 text-center hover:underline'
       >
         دیدن همه موارد
-      </Link>
+      </Link>) :<div className='-me-6 block px-6 pb-0.5 pt-3 text-center'> پیامی یافت نشد!</div>}
+     
     </div>
   );
 }

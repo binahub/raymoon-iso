@@ -60,7 +60,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
       {
         name: 'داشبورد',
         description: '"Effortless Assistance at your Fingertips!"',
-        href: routes.file.dashboard,
+        href: routes.executive.dashboard,
         icon: PiBinoculars,
       },
       {
@@ -146,7 +146,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
         name: 'پشتیبانی',
         href: routes.accessDenied,
         icon: PiCreditCard,
-        badge: 'Update',
+        badge: '1',
       },
     ],
   },
@@ -175,7 +175,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
         name: 'افتتاح حساب',
         href: routes.accessDenied,
         icon: PiAirplaneTilt,
-        badge: 'Update',
+        badge: '3',
       },
       {
         name: 'کارت اعتباری',
@@ -200,7 +200,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
         name: 'مدیریت بنرها',
         href: routes.accessDenied,
         icon: PiBellSimpleRinging,
-        badge: 'New',
+        badge: '5',
       },
       {
         name: 'مدیریت دسته بندی ها',
@@ -211,29 +211,6 @@ export const berylliumMenuItems: MenuItemsType[] = [
         name: 'مدیریت تبلیغ ها',
         href: routes.accessDenied,
         icon: PiEnvelopeSimpleOpen,
-      },
-    ],
-  },
-  {
-    id: '5',
-    name: 'ویجت',
-    title: 'ویجت',
-    icon: PiPackage,
-    menuItems: [
-      {
-        name: 'کارد',
-        href: routes.widgets.cards,
-        icon: PiSquaresFour,
-      },
-      {
-        name: 'نمودار',
-        href: routes.widgets.charts,
-        icon: PiChartLineUp,
-      },
-      {
-        name: 'نقشه',
-        href: routes.widgets.maps,
-        icon: PiMapPinLine,
       },
     ],
   },

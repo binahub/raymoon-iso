@@ -78,7 +78,7 @@ export default function ProfileMenu({ buttonClassName, avatarClassName }: { butt
       >
         <Avatar
           src='https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-11.webp'
-          name='John Doe'
+          name='کاربر'//@TODO: change based on service
           color='invert'
           className={cn('!h-9 w-9 sm:!h-10 sm:w-10', avatarClassName)}
         />

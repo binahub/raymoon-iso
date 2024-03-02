@@ -17,7 +17,6 @@ type ControlledTableProps = {
   tableFooter?: React.ReactNode;
   className?: string;
   paginatorClassName?: string;
-  // countFilter?: number
 } & TableProps;
 
 export function ControlledTable({
@@ -29,7 +28,6 @@ export function ControlledTable({
   showLoadingText,
   paginatorClassName,
   className,
-  // countFilter,
   ...tableProps
 }: ControlledTableProps) {
   if (isLoading) {

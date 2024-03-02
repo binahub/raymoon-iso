@@ -1,7 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
-import { FilterElement, PageHeader, Button, Input, Form, Card, Table } from 'shafa-bo';
+import {  PageHeader, Button, Input, Form, Card } from 'shafa-bo';
+import Table from '@/app/shared/table/table';
+import FilterElement from '@/app/shared/table/content-filter';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema } from '@/utils/validators/food.schema';
@@ -15,6 +17,8 @@ export default function FoodPage() {
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
   const [isInitialLoad, setIsInitialLoad] = useState(false);
+  const [reset, setReset] = useState({});
+
 
   /* api call body */
   const parameterMap = {
@@ -68,6 +72,7 @@ export default function FoodPage() {
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
     setIsInitialLoad(true);
+    setReset({})
   };
 
   const onSubmit: SubmitHandler<any> = (data) => {
@@ -92,6 +97,7 @@ export default function FoodPage() {
         <Form
           validationSchema={foodInquirySchema}
           onSubmit={onSubmit}
+          resetValues={reset}
           useFormProps={{
             mode: 'onChange',
           }}
@@ -151,6 +157,7 @@ export default function FoodPage() {
             actionFilter,
           })
         }
+        countFilter={filters}
         isLoading={isLoading}
         /* title export file */
         exportColumns={exportColumns}

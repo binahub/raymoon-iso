@@ -16,6 +16,7 @@ export default function FoodPage() {
   const [pageNumer, setPageNumer] = useState(0);
   const [pageSize, setPageSize] = useState(5);
 
+
   /* api call body */
   const parameterMap = {
     parameterMap: {
@@ -118,13 +119,12 @@ export default function FoodPage() {
           isLoading,
         })
       }
+      countFilter={filters}
       isLoading={isLoading}
       /* export file */
       hasExportFile
       exportFileName={'export-food-table'}
       exportColumns={exportColumns}
-      /* get count filters */
-      countFilter={(Object.keys(filters).filter(key => filters[key] !== '')).length}
     />
   );
 }

@@ -39,6 +39,9 @@ export default function FilterElement({
     filters ? Object.keys(filters).map((key) => ({ key, value: filters[key] })) : []
   );
 
+  console.log(filters);
+  
+
   useEffect(() => {
     setLocalFilter(Object.keys(filters).map((key) => ({ key, value: filters[key] })));
   }, [filters]);

@@ -12,6 +12,7 @@ import cn from '@/utils/class-names';
 import { useMedia } from '@/hooks/use-media';
 import ExportButton from '../export-button';
 import { Badge, Text } from 'shafa-bo';
+import { useLayout } from '@/hooks/use-layout';
 
 function FilterDrawerView({
   isOpen,
@@ -72,9 +73,9 @@ export type TableFilterProps = {
 };
 
 export default function TableFilter({
-  searchTerm,
-  onSearchClear,
-  onSearchChange,
+  // searchTerm,
+  // onSearchClear,
+  // onSearchChange,
   columns,
   checkedColumns,
   setCheckedColumns,
@@ -116,16 +117,22 @@ export default function TableFilter({
           </>
         )}
       </div>
-
       <div className='ms-4 flex flex-shrink-0 items-center'>
         {children ? (
           <>
-            {countFilter && countFilter > 0 && (
-              <div className='flex items-center justify-end'>
-                <Badge color='success' size='DEFAULT' renderAsDot />
-                <Text className=' font-medium text-black-dark'>{countFilter}</Text>
-              </div>
-            )}
+            <div className='absolute mb-6 '>
+              {countFilter !== undefined && countFilter > 0 && (
+                <Badge
+                  variant='flat'
+                  size='xl'
+                  className={cn(
+                    'rizzui-badge inline-flex text-sm items-center justify-center leading-none color w-5 h-6 bg-orange text-white rounded-full ring-2 ring-gray-0 right-2.5  -translate-y-1/3 translate-x-1/2'
+                  )}
+                >
+                  {countFilter}
+                </Badge>
+              )}
+            </div>
             <Button
               {...(isMediumScreen || enableDrawerFilter
                 ? {
@@ -137,12 +144,7 @@ export default function TableFilter({
               variant={'outline'}
               className={cn('me-2.5 h-9 pe-3 ps-2.5 ml-2', !(isMediumScreen || enableDrawerFilter) && showFilters && 'border-dashed border-gray-700')}
             >
-              {/* {countFilter && countFilter ? (
-                <Badge className='ml-1' color='success' size='lg' renderAsDot />
-              ) : ( */}
-                <PiFunnel className='me-1.5 h-[18px] w-[18px]' strokeWidth={1.7} />
-              {/* )} */}
-
+              <PiFunnel className='me-1.5 h-[18px] w-[18px]' strokeWidth={1.7} />
               {!(isMediumScreen || enableDrawerFilter) && showFilters ? 'Hide Filters' : 'فیلتر'}
             </Button>
           </>

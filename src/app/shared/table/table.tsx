@@ -83,6 +83,7 @@ type BasicTableWidgetProps = {
   exportColumns?: string;
   exportFileName?: any;
   requiredSeachTable?: boolean;
+  countFilter?: number
 };
 
 
@@ -114,12 +115,9 @@ export default function Table({
   exportColumns,
   exportFileName,
   requiredSeachTable,
+  countFilter
 }: any) {
-  const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
-  console.log(tableData);
-  
-
-
+  const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);  
 
   return (
     <>
@@ -173,6 +171,7 @@ export default function Table({
                     filters={filters}
                     updateFilter={updateFilter}
                     handleReset={handleReset}
+                    countFilter={countFilter}
                   />
                 )
               }
@@ -235,6 +234,7 @@ export default function Table({
                       filters={filters}
                       updateFilter={updateFilter}
                       handleReset={handleReset}
+                      countFilter={countFilter}
                     />
                   )
                 }

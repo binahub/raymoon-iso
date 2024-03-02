@@ -2,7 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
-import { Table, FilterElement } from 'shafa-bo';
+// import { Table, FilterElement } from 'shafa-bo';
+import Table from '@/app/shared/table/table';
+import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
 import { dataFilter, initialFilterValues } from './filter';
@@ -72,6 +74,7 @@ export default function FoodPage() {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };
 
+
   /* generate any ReactNode for show in layout table */
   const GenerateElement = () => {
     return <ImportButton title={'آپلود فایل'} />;
@@ -120,6 +123,8 @@ export default function FoodPage() {
       hasExportFile
       exportFileName={'export-food-table'}
       exportColumns={exportColumns}
+      /* get count filters */
+      countFilter={(Object.keys(filters).filter(key => filters[key] !== '')).length}
     />
   );
 }

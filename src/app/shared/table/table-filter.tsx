@@ -11,6 +11,7 @@ import { Drawer } from '@/components/ui/drawer';
 import cn from '@/utils/class-names';
 import { useMedia } from '@/hooks/use-media';
 import ExportButton from '../export-button';
+import { Badge, Text } from 'shafa-bo';
 
 function FilterDrawerView({
   isOpen,
@@ -35,13 +36,7 @@ function FilterDrawerView({
       <div className='flex h-full flex-col p-5 '>
         <div className='-mx-5 mb-6 flex items-center justify-between border-b border-gray-200 px-5'>
           <Title as='h5'>{drawerTitle}</Title>
-          <ActionIcon
-            size='sm'
-            rounded='full'
-            variant='text'
-            title={'بستن'}
-            onClick={() => setOpenDrawer(false)}
-          >
+          <ActionIcon size='sm' rounded='full' variant='text' title={'بستن'} onClick={() => setOpenDrawer(false)}>
             <PiXBold className='h-4 w-4' />
           </ActionIcon>
         </div>
@@ -73,6 +68,7 @@ export type TableFilterProps = {
   data?: unknown[] | any;
   header?: string;
   fileName?: string;
+  countFilter?: number;
 };
 
 export default function TableFilter({
@@ -93,33 +89,17 @@ export default function TableFilter({
   fileName,
   header,
   children,
+  countFilter,
 }: TableFilterProps) {
   const isMediumScreen = useMedia('(max-width: 1860px)', false);
   const [showFilters, setShowFilters] = useState(true);
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  
   return (
     <div className='table-filter flex items-center justify-between'>
       <div className='flex flex-wrap items-center gap-4'>
-        {/* {!showSearchOnTheRight && !requiredSeachTable ? (
-          <Input
-            type='search'
-            placeholder='جستجو...'
-            value={searchTerm}
-            onClear={onSearchClear}
-            onChange={onSearchChange}
-            inputClassName='h-9'
-            clearable={true}
-            prefix={<PiMagnifyingGlassBold className='h-4 w-4' />}
-          />
-        ) : null} */}
-        {requiredSeachTable && data?.tableData && data?.tableData?.length > 0  && (
-          <ExportButton
-            data={data?.tableData}
-            fileName={fileName ? fileName : 'export-table'}
-            header={header ? header : ''}
-          />
+        {requiredSeachTable && data?.tableData && data?.tableData?.length > 0 && (
+          <ExportButton data={data?.tableData} fileName={fileName ? fileName : 'export-table'} header={header ? header : ''} />
         )}
 
         {showSearchOnTheRight && enableDrawerFilter ? <>{menu ? menu : null}</> : null}
@@ -127,12 +107,7 @@ export default function TableFilter({
         {children && (
           <>
             {isMediumScreen || enableDrawerFilter ? (
-              <FilterDrawerView
-                isOpen={openDrawer}
-                setOpenDrawer={setOpenDrawer}
-                drawerTitle={drawerTitle}
-                hasSearched={hasSearched}
-              >
+              <FilterDrawerView isOpen={openDrawer} setOpenDrawer={setOpenDrawer} drawerTitle={drawerTitle} hasSearched={hasSearched}>
                 {children}
               </FilterDrawerView>
             ) : (
@@ -143,48 +118,37 @@ export default function TableFilter({
       </div>
 
       <div className='ms-4 flex flex-shrink-0 items-center'>
-        {/* {showSearchOnTheRight ? (
-          <Input
-            type='search'
-            placeholder='جستجو...'
-            value={searchTerm}
-            onClear={onSearchClear}
-            onChange={onSearchChange}
-            inputClassName='h-9'
-            clearable={true}
-            prefix={<PiMagnifyingGlassBold className='h-4 w-4' />}
-            className='me-2.5'
-          />
-        ) : null} */}
-
         {children ? (
-          <Button
-            {...(isMediumScreen || enableDrawerFilter
-              ? {
-                  onClick: () => {
-                    setOpenDrawer(() => !openDrawer);
-                  },
-                }
-              : { onClick: () => setShowFilters(() => !showFilters) })}
-            variant={'outline'}
-            className={cn(
-              'me-2.5 h-9 pe-3 ps-2.5 ml-2',
-              !(isMediumScreen || enableDrawerFilter) &&
-                showFilters &&
-                'border-dashed border-gray-700'
+          <>
+            {countFilter && countFilter > 0 && (
+              <div className='flex items-center justify-end'>
+                <Badge color='success' size='DEFAULT' renderAsDot />
+                <Text className=' font-medium text-black-dark'>{countFilter}</Text>
+              </div>
             )}
-          >
-            <PiFunnel className='me-1.5 h-[18px] w-[18px]' strokeWidth={1.7} />
-            {!(isMediumScreen || enableDrawerFilter) && showFilters ? 'Hide Filters' : 'فیلتر'}
-          </Button>
+            <Button
+              {...(isMediumScreen || enableDrawerFilter
+                ? {
+                    onClick: () => {
+                      setOpenDrawer(() => !openDrawer);
+                    },
+                  }
+                : { onClick: () => setShowFilters(() => !showFilters) })}
+              variant={'outline'}
+              className={cn('me-2.5 h-9 pe-3 ps-2.5 ml-2', !(isMediumScreen || enableDrawerFilter) && showFilters && 'border-dashed border-gray-700')}
+            >
+              {/* {countFilter && countFilter ? (
+                <Badge className='ml-1' color='success' size='lg' renderAsDot />
+              ) : ( */}
+                <PiFunnel className='me-1.5 h-[18px] w-[18px]' strokeWidth={1.7} />
+              {/* )} */}
+
+              {!(isMediumScreen || enableDrawerFilter) && showFilters ? 'Hide Filters' : 'فیلتر'}
+            </Button>
+          </>
         ) : null}
 
-        <ToggleColumns
-          columns={columns}
-          checkedColumns={checkedColumns}
-          setCheckedColumns={setCheckedColumns}
-          hideIndex={hideIndex}
-        />
+        <ToggleColumns columns={columns} checkedColumns={checkedColumns} setCheckedColumns={setCheckedColumns} hideIndex={hideIndex} />
       </div>
     </div>
   );

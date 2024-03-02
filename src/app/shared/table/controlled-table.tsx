@@ -17,6 +17,7 @@ type ControlledTableProps = {
   tableFooter?: React.ReactNode;
   className?: string;
   paginatorClassName?: string;
+  // countFilter?: number
 } & TableProps;
 
 export function ControlledTable({
@@ -28,6 +29,7 @@ export function ControlledTable({
   showLoadingText,
   paginatorClassName,
   className,
+  // countFilter,
   ...tableProps
 }: ControlledTableProps) {
   if (isLoading) {
@@ -36,7 +38,7 @@ export function ControlledTable({
 
   return (
     <>
-      {!isEmpty(filterOptions) && <TableFilter {...filterOptions }>{filterElement}</TableFilter>}
+      {!isEmpty(filterOptions) && <TableFilter {...filterOptions } countFilter={filterElement.props.countFilter}>{filterElement}</TableFilter>}
 
       <div className='relative'>
         <RizzTable

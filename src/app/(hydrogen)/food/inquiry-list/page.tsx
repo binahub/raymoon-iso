@@ -19,7 +19,12 @@ export default function FoodPage() {
   const [isInitialLoad, setIsInitialLoad] = useState(false);
   const [reset, setReset] = useState({});
 
+  const initialValues = {
+    name: '',
+    description: '',
+  };
 
+  
   /* api call body */
   const parameterMap = {
     parameterMap: {
@@ -72,6 +77,7 @@ export default function FoodPage() {
   const actionFilter = (filters: any) => {
     list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
     setIsInitialLoad(true);
+    // setReset(initialValues)
   };
 
   const onSubmit: SubmitHandler<any> = (data) => {

@@ -4,7 +4,7 @@ import { routes } from '@/config/routes';
 export const pageLinks = [
   {
     name: 'لیست سفارش غذاها',
-    href: routes.food.list,
+    href: routes.featureSample.list,
   },
   //label start
   {

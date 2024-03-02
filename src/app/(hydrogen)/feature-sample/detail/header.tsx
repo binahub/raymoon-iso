@@ -4,12 +4,11 @@ export const headerData = {
     title: 'سفارش غذا',
     breadcrumb: [
       {
-        href: routes.food.list,
-        name: 'لیست سفارشات غذا',
+        href: routes.featureSample.list,
+        name: ' لیست سفارشات غذا ',
       },
-  
       {
-        name: ' افزودن غذا به لیست ',
+        name: 'جزئیات',
       },
     ],
   };

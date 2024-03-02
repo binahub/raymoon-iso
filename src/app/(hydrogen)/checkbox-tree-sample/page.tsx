@@ -1,7 +1,7 @@
 'use client';
 import '@nosferatu500/react-sortable-tree/style.css';
 import { data } from './data.json';
-import CheckboxTreeComponent from '@/components/ui/checkbox-tree';
+import CheckboxTreeComponent from '@/components/checkbox-tree';
 import { routes } from '@/config/routes';
 import { Card, PageHeader } from 'shafa-bo';
 

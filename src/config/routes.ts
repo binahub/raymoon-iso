@@ -4,13 +4,13 @@ export const routes = {
     list: '/neshan/list',
     add: '/neshan/add',
   },
-  food: {
+  featureSample: {
     // dashboard: '/neshan',
-    list: '/food/list',
-    inquiry: '/food/inquiry-list',
-    create:'/food/create',
-    update: (id: string) => `/food/update/${id}`,
-    detail: (id: string) => `/food/detail/${id}`,
+    list: '/feature-sample/list',
+    inquiry: '/feature-sample/inquiry-list',
+    create:'/feature-sample/create',
+    update: (id: string) => `/feature-sample/update/${id}`,
+    detail: (id: string) => `/feature-sample/detail/${id}`,
    },
   executive: {
     dashboard: '/executive',

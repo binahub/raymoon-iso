@@ -63,7 +63,7 @@ export const berylliumSidebarMenuItems = [
     dropdownItems: [
       {
         name: 'گزارش سفارش غذاها',
-        href: routes.food.list,
+        href: routes.featureSample.list,
       },
     ],
   },
@@ -98,7 +98,7 @@ export const berylliumSidebarMenuItems = [
       },
       {
         name: 'لیست غذاها',
-        href: routes.food.list,
+        href: routes.featureSample.list,
       },
     ],
   },
@@ -166,7 +166,7 @@ export const berylliumSidebarMenuItems = [
     dropdownItems: [
       {
         name: 'گزارش سفارش غذاها',
-        href: routes.food.list,
+        href: routes.featureSample.list,
       },
     ],
   },

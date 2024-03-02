@@ -13,8 +13,8 @@ export const config = {
     '/',
     '/iva',
     '/neshan/list',
-    '/food/create',
-    '/food/list',
-    '/food/inquiry-list'
+    '/feature-sample/create',
+    '/feature-sample/list',
+    '/feature-sample/inquiry-list'
   ],
 };

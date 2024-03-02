@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ActionIcon, Tooltip, HeaderCell, AvatarCard, PencilIcon, EyeIcon, DeletePopover } from 'shafa-bo';
+import { PencilIcon, HeaderCell, ActionIcon, Tooltip, DeletePopover, EyeIcon, AvatarCard } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import { routes } from '@/config/routes';
 import { ModalView } from '../update/modal';
@@ -8,7 +8,9 @@ type Columns = {
   onDeleteItem: (id: string) => void;
 };
 
-export const getColumns = ({ onDeleteItem }: Columns) => [
+export const getColumns = ({
+  onDeleteItem
+}: Columns) => [
   {
     title: <HeaderCell title='شناسه' />,
     dataIndex: 'id',
@@ -49,14 +51,14 @@ function RenderAction({
 
   return (
     <>
-      <div className='flex items-center justify-end gap-3 pe-4'>
+      <div className='flex items-center justify-end gap-3 pe-4 '>
         <Tooltip size='sm' content={() => ' ویرایش با مدال'} placement='top' color='invert'>
           <ActionIcon
             tag='span'
             size='sm'
             variant='outline'
             aria-label={'ویرایش'}
-            className='hover:text-gray-700  cursor-pointer'
+            className='hover:text-gray-700 cursor-pointer'
             onClick={() =>
               openModal({
                 view: <ModalView rowData={row} />,
@@ -68,14 +70,14 @@ function RenderAction({
           </ActionIcon>
         </Tooltip>
         <Tooltip size='sm' content={() => ' ویرایش جزئیات در صفحه جدید'} placement='top' color='invert'>
-          <Link href={routes.food.update(row.id)}>
+          <Link href={routes.featureSample.update(row.id)}>
             <ActionIcon tag='span' size='sm' variant='outline' aria-label={'ویرایش'} className='hover:text-gray-700'>
               <PencilIcon className='h-4 w-4' />
             </ActionIcon>
           </Link>
         </Tooltip>
         <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
-          <Link href={routes.food.detail(row.id)}>
+          <Link href={routes.featureSample.detail(row.id)}>
             <ActionIcon tag='span' size='sm' variant='outline' aria-label={'دیدن جزئیات بیشتر'} className='hover:text-gray-700'>
               <EyeIcon className='h-4 w-4' />
             </ActionIcon>

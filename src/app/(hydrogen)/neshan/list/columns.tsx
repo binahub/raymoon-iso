@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ActionIcon, Badge, Text, Tooltip, HeaderCell, EyeIcon, PencilIcon, DeletePopover } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { SnippetType } from '@/data/snippets-and-templates';
 import { routes } from '@/config/routes';
 import { ModalView } from './edit';
 
@@ -80,7 +79,7 @@ export const getColumns = ({ data, sortConfig, checkedItems, onDeleteItem, onHea
   },
 ];
 
-function RenderAction({ row, onDeleteItem }: { row: SnippetType; onDeleteItem: (id: string) => void }) {
+function RenderAction({ row, onDeleteItem }: { row: any; onDeleteItem: (id: string) => void }) {
   const [isModal, setIsModal] = useState(true);
   const { openModal } = useModal();
   return (

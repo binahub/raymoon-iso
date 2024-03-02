@@ -1,4 +1,4 @@
-{
+export const CheckboxTreeData: any = {
     "data": [
       {
         "id": 19,

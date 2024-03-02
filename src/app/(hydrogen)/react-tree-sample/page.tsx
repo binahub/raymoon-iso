@@ -1,13 +1,13 @@
 'use client';
 import SortableTree from '@nosferatu500/react-sortable-tree';
 import '@nosferatu500/react-sortable-tree/style.css';
-import { data } from './data.json';
+import { TreeData } from './data';
 import { useState } from 'react';
 import { Button, PageHeader, Card } from 'shafa-bo';
 import { routes } from '@/config/routes';
 
 function List() {
-  const finalData = data.map((item) => {
+  const finalData = TreeData.data.map((item: any) => {
     const expandedItem = { ...item, expanded: true };
     return expandedItem;
   });

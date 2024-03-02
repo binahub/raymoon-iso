@@ -1,6 +1,6 @@
 'use client';
 import '@nosferatu500/react-sortable-tree/style.css';
-import { data } from './data.json';
+import { CheckboxTreeData } from './data';
 import CheckboxTreeComponent from '@/components/checkbox-tree';
 import { routes } from '@/config/routes';
 import { Card, PageHeader } from 'shafa-bo';
@@ -59,7 +59,7 @@ function List() {
       <Card>
         <CheckboxTreeComponent
           checkModel='all'
-          nodes={convertToAcceptableNode(data)}
+          nodes={convertToAcceptableNode(CheckboxTreeData.data)}
           checkedWithParents={(checkedItems) => checkedItems.checkedItemsIds}
           defaultChecked={[]}
         />

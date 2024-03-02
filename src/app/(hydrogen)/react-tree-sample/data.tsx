@@ -1,4 +1,4 @@
-{
+export const TreeData: any = {
     "data": [
       {
         "id": 19,

@@ -6,7 +6,7 @@ import { Button } from 'shafa-bo';
 import { PiTrashDuotone } from 'react-icons/pi';
 import { StatusField } from './status-field';
 
-export type DataFilter = {
+export type GeneratedFilterType = {
   label: string;
   type: 'text' | 'number' | 'email' | 'tel' | 'search' | 'datePicker' | 'select';
   key: string;
@@ -18,7 +18,7 @@ export type FilterElementProps = {
   filters: { [key: string]: any };
   updateFilter: (columnId: string, filterValue: string | any[]) => void;
   handleReset: () => void;
-  dataFilter: DataFilter;
+  generatedFilter: GeneratedFilterType;
   actionFilter?: any;
   setIsOpenDrawer?: any;
   isLoading?: boolean;
@@ -30,7 +30,7 @@ export default function FilterElement({
   handleReset,
   filters,
   updateFilter,
-  dataFilter,
+  generatedFilter,
   actionFilter,
   setIsOpenDrawer,
   isLoading,
@@ -155,10 +155,10 @@ export default function FilterElement({
   }
 
   return (
-    dataFilter && (
+    generatedFilter && (
       <div className='h-screen'>
         <div className='h-[70%]  overflow-y-auto pl-3 '>
-          {dataFilter?.map((item: any, index: number) => (
+          {generatedFilter?.map((item: any, index: number) => (
             <div className='mt-5' key={index}>
               {getElementForm(item)}
             </div>

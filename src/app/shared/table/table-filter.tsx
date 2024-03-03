@@ -73,9 +73,6 @@ export type TableFilterProps = {
 };
 
 export default function TableFilter({
-  // searchTerm,
-  // onSearchClear,
-  // onSearchChange,
   columns,
   checkedColumns,
   setCheckedColumns,

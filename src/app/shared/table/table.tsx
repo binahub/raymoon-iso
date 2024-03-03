@@ -9,21 +9,6 @@ import TableLayout from './table-layout';
 import cn from '@/utils/class-names';
 import Card from '@/components/cards/card';
 
-type LayoutTable = {
-  pageHeader?: {
-    title?: string;
-    breadcrumb: { name: string; href?: string }[];
-  };
-  filterElement?: any;
-  buttons?: ReactNode;
-  hasExportFile?: boolean;
-  data?: any;
-  searchable?: boolean;
-  expandedRow?: Function;
-  getColumns: Function;
-  enablePagination?: boolean;
-  paginatorOptions?: any;
-};
 function CustomExpandIcon(props: any) {
   return (
     <ActionIcon
@@ -35,11 +20,7 @@ function CustomExpandIcon(props: any) {
         props.onExpand(props.record, e);
       }}
     >
-      {props.expanded ? (
-        <PiCaretUpBold className='h-3.5 w-3.5' />
-      ) : (
-        <PiCaretDownBold className='h-3.5 w-3.5' />
-      )}
+      {props.expanded ? <PiCaretUpBold className='h-3.5 w-3.5' /> : <PiCaretDownBold className='h-3.5 w-3.5' />}
     </ActionIcon>
   );
 }
@@ -54,46 +35,68 @@ type ColumnTypes = {
   onChecked?: (id: string) => void;
 };
 
-type BasicTableWidgetProps = {
+type FilterElementTypes = {
+  isFiltered?: boolean;
+  filters: { [key: string]: any };
+  updateFilter: (columnId: string, filterValue: string | any[]) => void;
+  handleReset: () => void;
+  dataFilter: {
+    label: string;
+    type: 'text' | 'number' | 'email' | 'tel' | 'search' | 'datePicker' | 'select';
+    key: string;
+    selectOption?: any[]
+  };
+  actionFilter?: Function;
+  setIsOpenDrawer?: any;
+  isLoading?: boolean;
+};
+
+type TableProps = {
+  tableData: any[];
+  columns: {
+    title: React.JSX.Element;
+    dataIndex: string;
+    name: string;
+    render: (_: string, row: any) => React.JSX.Element;
+  }[];
+  pageHeader?: {
+    title?: string;
+    breadcrumb: { name: string; href?: string }[];
+  };
+  // filterElement?: ({ isFiltered , handleReset, filters, updateFilter, dataFilter, actionFilter, isLoading }: FilterElementTypes) => any;
+  filterElement?: any;
+  buttons?: any;
+  hasExportFile?: boolean;
+  onExpand?: any;
+  expandedKeys?: any;
+  isLoading?: boolean;
+  handleSearch?: any;
+  searchTerm?: any;
+  isFiltered?: boolean;
+  updateFilter?: Function;
+  handleReset?: Function;
   title?: React.ReactNode;
   className?: string;
-  getColumns: ({
-    data,
-    sortConfig,
-    checkedItems,
-    handleSelectAll,
-    onDeleteItem,
-    onHeaderCellClick,
-    onChecked,
-  }: ColumnTypes) => any;
-  data: any[];
-  expandedRow: any;
-  filterElement?: any;
+  getColumns?: ({ data, sortConfig, checkedItems, handleSelectAll, onDeleteItem, onHeaderCellClick, onChecked }: ColumnTypes) => React.ReactElement;
+  expandedRow?: (rowData: any) => React.JSX.Element;
   variant?: 'modern' | 'minimal' | 'classic' | 'elegant' | 'retro';
-  paginatorClassName?: string;
-  searchPlaceholder?: string;
   noGutter?: boolean;
   scroll?: {
     x?: number;
     y?: number;
   };
   sticky?: boolean;
-  expadable?: boolean;
   paginatorOptions?: any;
-  exportColumns?: string;
+  exportColumns?: any;
   exportFileName?: any;
   requiredSeachTable?: boolean;
-  countFilter?:any
+  countFilter?: any;
 };
-
-
-
 
 export default function Table({
   pageHeader,
   buttons,
   hasExportFile,
-  data,
   variant = 'modern',
   noGutter,
   sticky,
@@ -101,29 +104,27 @@ export default function Table({
   expandedRow: ExpandedRow,
   onExpand,
   expandedKeys,
-  filterElement: FilterElement,
+  filterElement : FilterElement,
   paginatorOptions,
   isLoading,
   columns,
   handleSearch,
   searchTerm,
   isFiltered,
-  filters,
   updateFilter,
   handleReset,
   tableData,
   exportColumns,
   exportFileName,
   requiredSeachTable,
-  countFilter
-}: any) {
-  const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);  
-  console.log(countFilter);
-  
+  countFilter,
+}: TableProps) {
+  const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
+
 
   return (
     <>
-      {requiredSeachTable  ?  (
+      {requiredSeachTable ? (
         <Card className='rounded-b-3xl'>
           <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
             <ControlledTable
@@ -160,16 +161,14 @@ export default function Table({
                 setCheckedColumns,
                 enableDrawerFilter: true,
                 requiredSeachTable: requiredSeachTable,
-                data: {tableData},
+                data: { tableData },
                 fileName: exportFileName,
                 header: exportColumns,
               }}
               filterElement={
-                FilterElement && (
-                  <FilterElement
-                    countFilter={(Object.keys(countFilter).filter(key => countFilter[key] !== '')).length}
+                FilterElement && <FilterElement
+                 countFilter={Object.keys(countFilter).filter((key) => countFilter[key] !== '').length}
                   />
-                )
               }
             />
           </div>
@@ -222,10 +221,9 @@ export default function Table({
                   requiredSeachTable: requiredSeachTable,
                 }}
                 filterElement={
-                  FilterElement && (
-                    <FilterElement
-                      countFilter={(Object.keys(countFilter).filter(key => countFilter[key] !== '')).length}                    />
-                  )
+                  FilterElement && <FilterElement 
+                  countFilter={Object.keys(countFilter).filter((key) => countFilter[key] !== '').length }
+                   />
                 }
               />
             </div>

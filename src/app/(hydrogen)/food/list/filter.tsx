@@ -1,4 +1,4 @@
-import { type DataFilter } from 'shafa-bo';
+import { type GeneratedFilterType } from "@/app/shared/table/content-filter";
 /* initioalization  */
 export const initialFilterValues = {
   name: '',
@@ -6,7 +6,7 @@ export const initialFilterValues = {
 };
 
 /* filterable form input */
-export const dataFilter: DataFilter = [
+export const generatedFilter: GeneratedFilterType = [
   {
     label: 'نام',
     type: 'text',
@@ -16,12 +16,6 @@ export const dataFilter: DataFilter = [
     label: 'توضیحات',
     type: 'text',
     key: 'description',
-  },
-
-  {
-    label: 'تاریخ شروع',
-    type: 'datePicker',
-    key: 'date1',
   },
   {
     label: ' وضعیت پرداخت',

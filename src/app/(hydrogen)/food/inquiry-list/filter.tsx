@@ -1,4 +1,4 @@
-import { type DataFilter } from 'shafa-bo';
+import { type GeneratedFilterType } from "@/app/shared/table/content-filter";
 
 /* initioalization  */
 export const filterState = {
@@ -7,7 +7,7 @@ export const filterState = {
 };
 
 /* filterable form input */
-export const dataFilter: DataFilter = [
+export const generatedFilter: GeneratedFilterType = [
   {
     label: 'نام',
     type: 'text',

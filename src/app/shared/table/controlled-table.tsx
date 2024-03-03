@@ -11,7 +11,7 @@ import { TablePagination , TablePaginationProps} from './table-pagination';
 type ControlledTableProps = {
   isLoading?: boolean;
   showLoadingText?: boolean;
-  filterElement: React.ReactElement;
+  filterElement?: React.ReactElement;
   filterOptions?: TableFilterProps;
   paginatorOptions?: TablePaginationProps;
   tableFooter?: React.ReactNode;
@@ -36,7 +36,7 @@ export function ControlledTable({
 
   return (
     <>
-      {!isEmpty(filterOptions) && <TableFilter {...filterOptions } countFilter={filterElement.props.countFilter}>{filterElement}</TableFilter>}
+      {!isEmpty(filterOptions) && <TableFilter {...filterOptions } countFilter={filterElement?.props.countFilter}>{filterElement}</TableFilter>}
 
       <div className='relative'>
         <RizzTable

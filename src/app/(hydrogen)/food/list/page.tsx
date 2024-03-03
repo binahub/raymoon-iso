@@ -7,7 +7,7 @@ import Table from '@/app/shared/table/table';
 import FilterElement from '@/app/shared/table/content-filter';
 import { detail } from '../detail/collaps';
 import { getColumns } from './columns';
-import { dataFilter, initialFilterValues } from './filter';
+import { generatedFilter, initialFilterValues } from './filter';
 import { headerData } from './header';
 import ImportButton from '@/app/shared/import-button';
 
@@ -114,7 +114,7 @@ export default function FoodPage() {
           handleReset,
           filters,
           updateFilter,
-          dataFilter,
+          generatedFilter,
           actionFilter,
           isLoading,
         })

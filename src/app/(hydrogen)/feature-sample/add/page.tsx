@@ -3,7 +3,7 @@ import { Card, PageHeader } from 'shafa-bo';
 import FormData from '../form.module';
 import { headerData } from './header';
 
-export default function FormPage() {
+export default function AddPage() {
   const onSubmit = (data: any) => {
     console.log(data);
   };

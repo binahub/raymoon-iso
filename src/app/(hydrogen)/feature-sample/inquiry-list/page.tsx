@@ -6,8 +6,8 @@ import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema } from '@/utils/validators/food.schema';
 import { headerData } from './header';
-import { detail } from '../detail/collaps';
-import { getColumns } from './columns';
+import { Detail } from '../detail/collaps';
+import { Columns } from './columns';
 import { dataFilter, filterState } from './filter';
 
 export default function FoodPage() {
@@ -58,7 +58,7 @@ export default function FoodPage() {
   /* use options columns */
   const columns = React.useMemo(
     () =>
-      getColumns({
+    Columns({
         onDeleteItem,
       }),
     [onDeleteItem]
@@ -127,7 +127,7 @@ export default function FoodPage() {
         /* choose between two types of table */
         requiredSeachTable
         /* show detail or ReactNode */
-        expandedRow={(rowData: any) => detail(rowData)}
+        expandedRow={(rowData: any) => Detail(rowData)}
         expandedKeys={[rowEdit]}
         onExpand={(expanded: boolean, row: any) => {
           expanded ? setRowEdit(row.id) : setRowEdit({});

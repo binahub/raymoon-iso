@@ -12,7 +12,7 @@ type Props = {
     description: string;
   };
 };
-export function ModalView(rowData: Props) {
+export function Edit(rowData: Props) {
   const { closeModal } = useModal();
 
   const onSubmit: SubmitHandler<any> = (data: any) => {

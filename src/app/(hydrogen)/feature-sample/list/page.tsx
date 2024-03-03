@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useTable } from '@/hooks/use-table';
 import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { Table, FilterElement } from 'shafa-bo';
-import { detail } from '../detail/collaps';
-import { getColumns } from './columns';
+import { Detail } from '../detail/collaps';
+import { Columns } from './columns';
 import { dataFilter, initialFilterValues } from './filter';
 import { headerData } from './header';
 import ImportButton from '@/app/shared/import-button';
@@ -62,7 +62,7 @@ export default function FoodPage() {
   /* use options columns */
   const columns = React.useMemo(
     () =>
-      getColumns({
+      Columns({
         onDeleteItem,
       }),
     [onDeleteItem]
@@ -91,7 +91,7 @@ export default function FoodPage() {
       /* get columns table */
       columns={columns}
       /* show detail or ReactNode  */
-      expandedRow={(rowData: any) => detail(rowData)}
+      expandedRow={(rowData: any) => Detail(rowData)}
       expandedKeys={[rowEdit]}
       onExpand={(expanded: boolean, row: any) => {
         expanded ? setRowEdit(row.id) : setRowEdit({});

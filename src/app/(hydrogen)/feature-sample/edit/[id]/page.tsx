@@ -10,7 +10,7 @@ type Props = {
   params: { id: string };
 };
 
-export default function FoodEditPage({ params }: Props) {
+export default function EditPage({ params }: Props) {
   const [initialData, setInitialData] = useState({ name: '', description: '' });
 
   const parameterMap = {

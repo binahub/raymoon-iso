@@ -1,11 +1,11 @@
 import { routes } from "@/config/routes";
 
 export const headerData = {
-    title: 'سفارش غذا',
+    title: 'جزئیات',
     breadcrumb: [
       {
         href: routes.featureSample.list,
-        name: ' لیست سفارشات غذا ',
+        name: ' فیچر نمونه',
       },
       {
         name: 'جزئیات',

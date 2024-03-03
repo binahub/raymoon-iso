@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { routes } from '@/config/routes';
 import { useTable } from '@/hooks/use-table-mock';
 import { getColumns } from './columns';
-import Table from '@/app/shared/table/table';
-import FilterElement from '@/app/shared/table/content-filter';
+// import Table from '@/app/shared/table/table';
+// import FilterElement from '@/app/shared/table/content-filter';
+import {Table , FilterElement} from 'shafa-bo'
 
 import { detail } from './detail';
 import { neshanData } from '../data';

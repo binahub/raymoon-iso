@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Title } from '@/components/ui/text';
+import { Button, Title } from 'shafa-bo';
 import ForbiddenImg from '@public/403img.svg';
 import ForbiddenTwoImg from '@public/forbidden-two.png';
 import { PiHouseLineBold } from 'react-icons/pi';

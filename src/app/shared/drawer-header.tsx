@@ -1,9 +1,7 @@
 'use client';
 
-import { Title } from '@/components/ui/text';
-import { ActionIcon } from '@/components/ui/action-icon';
+import { cn, Title, ActionIcon } from 'shafa-bo';
 import { PiXBold } from 'react-icons/pi';
-import cn from '@/utils/class-names';
 
 type DrawerHeaderProps = {
   heading: string;
@@ -11,11 +9,7 @@ type DrawerHeaderProps = {
   headerClassName?: string;
 };
 
-export default function DrawerHeader({
-  onClose,
-  heading,
-  headerClassName,
-}: DrawerHeaderProps) {
+export default function DrawerHeader({ onClose, heading, headerClassName }: DrawerHeaderProps) {
   return (
     <div
       className={cn(
@@ -23,11 +17,11 @@ export default function DrawerHeader({
         headerClassName
       )}
     >
-      <Title as="h5" className="font-semibold">
+      <Title as='h5' className='font-semibold'>
         {heading}
       </Title>
-      <ActionIcon variant="outline" onClick={onClose} className="border-0 p-0">
-        <PiXBold className="h-auto w-5" />
+      <ActionIcon variant='outline' onClick={onClose} className='border-0 p-0'>
+        <PiXBold className='h-auto w-5' />
       </ActionIcon>
     </div>
   );

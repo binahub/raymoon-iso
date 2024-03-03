@@ -1,7 +1,7 @@
 'use client';
 
 import { PiPrinterBold } from 'react-icons/pi';
-import { Button } from '@/components/ui/button';
+import { Button } from 'shafa-bo';
 
 export default function PrintButton() {
   function handlePrint() {
@@ -9,13 +9,9 @@ export default function PrintButton() {
   }
 
   return (
-    <Button
-      onClick={() => handlePrint()}
-      variant="outline"
-      className="w-full @lg:w-auto"
-    >
-      <PiPrinterBold className="me-1.5 h-[17px] w-[17px]" />
-      Print
+    <Button onClick={() => handlePrint()} variant='outline' className='w-full @lg:w-auto'>
+      <PiPrinterBold className='me-1.5 h-[17px] w-[17px]' />
+      چاپ
     </Button>
   );
 }

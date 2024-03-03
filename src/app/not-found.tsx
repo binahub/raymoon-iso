@@ -1,9 +1,8 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Title } from '@/components/ui/text';
-import { Button } from '@/components/ui/button';
+import { Title, Button } from 'shafa-bo';
 import { PiHouseLineBold } from 'react-icons/pi';
-import SocialItems from '@/components/ui/social-shares';
 import { siteConfig } from '@/config/site.config';
 import NotFoundImg from '@public/not-found.png';
 

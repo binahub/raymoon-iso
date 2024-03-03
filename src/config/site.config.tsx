@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import lightLogo from '@public/light-sadad-logo.svg';
 import darktLogo from '@public/dark-sadad-logo.svg';
 import { LAYOUT_OPTIONS } from '@/config/enums';
-import logoIconImg from '@public/logo-short.svg';
 import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 
 enum MODE {
@@ -13,7 +12,6 @@ enum MODE {
 export const siteConfig = {
   title: 'پنل مدیریت ایوا',
   description: `پنل مدیریت ایوا`,
-  icon: logoIconImg,
   mode: MODE.LIGHT,
   logo: MODE.DARK ? darktLogo : lightLogo,
   layout: LAYOUT_OPTIONS.BERYLLIUM,

@@ -63,7 +63,7 @@ export const berylliumSidebarMenuItems = [
     dropdownItems: [
       {
         name: 'گزارش سفارش غذاها',
-        href: routes.food.list,
+        href: routes.featureSample.list,
       },
     ],
   },
@@ -98,7 +98,7 @@ export const berylliumSidebarMenuItems = [
       },
       {
         name: 'لیست غذاها',
-        href: routes.food.list,
+        href: routes.featureSample.list,
       },
     ],
   },
@@ -166,19 +166,19 @@ export const berylliumSidebarMenuItems = [
     dropdownItems: [
       {
         name: 'گزارش سفارش غذاها',
-        href: routes.food.list,
+        href: routes.featureSample.list,
       },
     ],
   },
   {
     name: 'افتتاح حساب',
-    href: routes.searchAndFilter.flight,
+    href: routes.accessDenied,
     icon: <PiShoppingCart />,
     badge: 'Update',
   },
   {
     name: 'کارت اعتباری',
-    href: routes.searchAndFilter.nft,
+    href: routes.accessDenied,
     icon: <PiBellSimpleRinging />,
     badge: '',
   },
@@ -189,23 +189,13 @@ export const berylliumSidebarMenuItems = [
   // label end
   {
     name: 'کیف پول مرجع',
-    href: routes.widgets.cards,
+    href: routes.accessDenied,
     icon: <PiCreditCard />,
   },
   {
     name: 'کیف به کیف',
-    href: routes.widgets.icons,
+    href: routes.accessDenied,
     icon: <PiGridFour />,
-  },
-  {
-    name: 'سازمان ها',
-    href: routes.widgets.charts,
-    icon: <PiBinoculars />,
-  },
-  {
-    name: 'پرسش و پاسخ',
-    href: routes.widgets.maps,
-    icon: <PiCreditCard />,
   },
   // label start
   {
@@ -214,23 +204,23 @@ export const berylliumSidebarMenuItems = [
   // label end
   {
     name: 'مدیریت سرویس ها',
-    href: routes.forms.profileSettings,
+    href: routes.accessDenied,
     icon: <PiBinoculars />,
   },
   {
     name: 'مدیریت بنرها',
-    href: routes.forms.notificationPreference,
+    href: routes.accessDenied,
     icon: <PiCreditCard />,
     badge: 'New',
   },
   {
     name: 'مدیریت دسته بندی ها',
-    href: routes.forms.personalInformation,
+    href: routes.accessDenied,
     icon: <PiBellSimpleRinging />,
   },
   {
     name: 'مدیریت تبلیغ ها',
-    href: routes.forms.newsletter,
+    href: routes.accessDenied,
     icon: <PiFeather />,
   },
   // label start
@@ -241,22 +231,22 @@ export const berylliumSidebarMenuItems = [
 
   {
     name: 'مدیریت کاربران',
-    href: routes.tables.basic,
+    href: routes.accessDenied,
     icon: <PiUserGear />,
   },
   {
     name: 'مدیریت نقش ها',
-    href: routes.tables.collapsible,
+    href: routes.accessDenied,
     icon: <PiMapPinLine />,
   },
   {
     name: 'مدیریت دسترسی ها',
-    href: routes.tables.enhanced,
+    href: routes.accessDenied,
     icon: <PiBinoculars />,
   },
   {
     name: 'تنظیمات منو',
-    href: routes.tables.stickyHeader,
+    href: routes.accessDenied,
     icon: <PiEnvelopeSimpleOpen />,
   },
 ];

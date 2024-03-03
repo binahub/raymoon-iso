@@ -1,10 +1,8 @@
 import React from 'react';
-import Spinner from '@/components/ui/spinner';
+import { Spinner } from 'shafa-bo';
 
 export default function SVGLoader({ fileName }: { fileName: string }) {
-  const SvgComponent = React.lazy(
-    () => import(`@/components/icons/${fileName}`)
-  );
+  const SvgComponent = React.lazy(() => import(`@/components/icons/${fileName}`));
 
   return (
     <React.Suspense fallback={<Spinner />}>

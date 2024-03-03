@@ -1,5 +1,4 @@
 import { routes } from '@/config/routes';
-import { DUMMY_ID } from '@/config/constants';
 import { IconType } from 'react-icons/lib';
 import {
   PiAirplaneTilt,
@@ -7,19 +6,14 @@ import {
   PiBinoculars,
   PiBrowser,
   PiCaretCircleUpDown,
-  PiChartLineUp,
   PiCreditCard,
   PiEnvelopeSimpleOpen,
-  PiFeather,
   PiGridFour,
   PiHeadset,
   PiHouse,
   PiLightning,
-  PiMapPinLine,
   PiNotePencil,
-  PiPackage,
   PiPokerChip,
-  PiSquaresFour,
   PiTable,
   PiUser,
   PiUserCircle,
@@ -69,56 +63,29 @@ export const berylliumMenuItems: MenuItemsType[] = [
         icon: PiBinoculars,
       },
       {
-        name: 'تنظیمات منو',
-        description: '"Effortless Assistance at your Fingertips!"',
-        href: routes.reactTreeSample,
-        icon: PiUserCircle,
-      },
-      {
-        name: 'دسترسی کاربران',
-        description: '"Effortless Assistance at your Fingertips!"',
-        href: routes.checkboxTree,
-        icon: PiLightning,
-      },
-      {
-        name: 'نشان اعتباری',
-        description: '"نشان اعتباری"',
-        icon: PiHeadset,
-        subMenuItems: [
-          {
-            name: 'گزارش پرداخت',
-            href: routes.neshan.list,
-          },
-          {
-            name: 'افزودن پرداخت',
-            href: routes.neshan.add,
-          },
-        ],
-      },
-      {
-        name: 'سفارش غذا',
-        description: '"Effortless Assistance at your Fingertips!"',
+        name: 'فیچر نمونه',
+        description: '"سفارش غذا"',
         icon: PiBeerSteinThin,
         subMenuItems: [
           {
-            name: 'گزارش سفارش غذاها',
-            href: routes.food.list,
+            name: 'افزودن',
+            href: routes.featureSample.create,
+          },
+          {
+            name: 'لیست',
+            href: routes.featureSample.list,
+          },
+          {
+            name: 'لیست استعلام',
+            href: routes.featureSample.inquiry,
           },
         ],
       },
       {
         name: 'نمونه',
-        description: 'using different components as a sample',
+        description: 'نمونه ها',
         icon: PiUserCircle,
         subMenuItems: [
-          {
-            name: 'تقویم',
-            href: routes.datepickerSample,
-          },
-          {
-            name: 'اعلان',
-            href: routes.sweetAlertSample,
-          },
           {
             name: 'تنظیمات منو',
             href: routes.reactTreeSample,
@@ -128,16 +95,12 @@ export const berylliumMenuItems: MenuItemsType[] = [
             href: routes.checkboxTree,
           },
           {
-            name: 'گزارش نشان',
-            href: routes.neshan.list,
+            name: 'تقویم',
+            href: routes.datepickerSample,
           },
           {
-            name: 'فرم افزودن',
-            href: routes.neshan.add,
-          },
-          {
-            name: 'لیست غذاها',
-            href: routes.food.list,
+            name: 'اعلان',
+            href: routes.sweetAlertSample,
           },
           {
             name: 'نمونه Tab',
@@ -161,11 +124,11 @@ export const berylliumMenuItems: MenuItemsType[] = [
         subMenuItems: [
           {
             name: 'افزودن',
-            href: routes.neshan.add,
+            href: routes.accessDenied,
           },
           {
             name: 'گزارش',
-            href: routes.neshan.list,
+            href: routes.accessDenied,
           },
         ],
       },
@@ -175,15 +138,15 @@ export const berylliumMenuItems: MenuItemsType[] = [
         subMenuItems: [
           {
             name: 'افزودن',
-            href: routes.neshan.add,
+            href: routes.accessDenied,
           },
         ],
       },
       {
         name: 'پشتیبانی',
-        href: routes.neshan.add,
+        href: routes.accessDenied,
         icon: PiCreditCard,
-        badge: 'Update',
+        badge: '1',
       },
     ],
   },
@@ -210,33 +173,14 @@ export const berylliumMenuItems: MenuItemsType[] = [
         ],
       },
       {
-        name: 'سفارش غذا',
-        description: '"Effortless Assistance at your Fingertips!"',
-        icon: PiBeerSteinThin,
-        subMenuItems: [
-          {
-            name: ' افزودن غذا',
-            href: routes.food.create,
-          },
-          {
-            name: 'لیست سفارش ',
-            href: routes.food.list,
-          },
-          {
-            name: ' استعلام سفارش غذا',
-            href: routes.food.inquiry,
-          },
-        ],
-      },
-      {
         name: 'افتتاح حساب',
-        href: routes.searchAndFilter.flight,
+        href: routes.accessDenied,
         icon: PiAirplaneTilt,
-        badge: 'Update',
+        badge: '3',
       },
       {
         name: 'کارت اعتباری',
-        href: routes.searchAndFilter.nft,
+        href: routes.accessDenied,
         icon: PiPokerChip,
         badge: '',
       },
@@ -244,35 +188,6 @@ export const berylliumMenuItems: MenuItemsType[] = [
   },
   {
     id: '4',
-    name: 'کیف پول',
-    title: 'کیف پول',
-    icon: PiPackage,
-    href: '#',
-    menuItems: [
-      {
-        name: 'کیف پول مرجع',
-        href: routes.widgets.cards,
-        icon: PiSquaresFour,
-      },
-      {
-        name: 'کیف به کیف',
-        href: routes.widgets.icons,
-        icon: PiFeather,
-      },
-      {
-        name: 'سازمان ها',
-        href: routes.widgets.charts,
-        icon: PiChartLineUp,
-      },
-      {
-        name: 'پرسش و پاسخ',
-        href: routes.widgets.maps,
-        icon: PiMapPinLine,
-      },
-    ],
-  },
-  {
-    id: '5',
     name: 'اپلیکیشن',
     title: 'اپلیکیشن',
     icon: PiNotePencil,
@@ -280,23 +195,23 @@ export const berylliumMenuItems: MenuItemsType[] = [
     menuItems: [
       {
         name: 'مدیریت سرویس ها',
-        href: routes.forms.profileSettings,
+        href: routes.accessDenied,
         icon: PiUserGear,
       },
       {
         name: 'مدیریت بنرها',
-        href: routes.forms.notificationPreference,
+        href: routes.accessDenied,
         icon: PiBellSimpleRinging,
-        badge: 'New',
+        badge: '5',
       },
       {
         name: 'مدیریت دسته بندی ها',
-        href: routes.forms.personalInformation,
+        href: routes.accessDenied,
         icon: PiUser,
       },
       {
         name: 'مدیریت تبلیغ ها',
-        href: routes.forms.newsletter,
+        href: routes.accessDenied,
         icon: PiEnvelopeSimpleOpen,
       },
     ],
@@ -310,22 +225,22 @@ export const berylliumMenuItems: MenuItemsType[] = [
     menuItems: [
       {
         name: 'مدیریت کاربران',
-        href: routes.tables.basic,
+        href: routes.accessDenied,
         icon: PiGridFour,
       },
       {
         name: 'مدیریت نقش ها',
-        href: routes.tables.collapsible,
+        href: routes.accessDenied,
         icon: PiCaretCircleUpDown,
       },
       {
         name: 'مدیریت دسترسی ها',
-        href: routes.tables.enhanced,
+        href: routes.accessDenied,
         icon: PiTable,
       },
       {
         name: 'تنظیمات منو',
-        href: routes.tables.stickyHeader,
+        href: routes.accessDenied,
         icon: PiBrowser,
       },
     ],

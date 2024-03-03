@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Modal } from '@/components/ui/modal';
+import { Modal } from 'shafa-bo';
 import { useModal } from './use-modal';
 
 export default function GlobalModal() {
@@ -18,8 +18,8 @@ export default function GlobalModal() {
       isOpen={isOpen}
       onClose={closeModal}
       customSize={customSize}
-      overlayClassName="dark:bg-opacity-40 dark:backdrop-blur-lg"
-      containerClassName="dark:bg-gray-100"
+      overlayClassName='dark:bg-opacity-40 dark:backdrop-blur-lg'
+      containerClassName='dark:bg-gray-100'
     >
       {view}
     </Modal>

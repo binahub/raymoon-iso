@@ -1,11 +1,10 @@
 import { routes } from '@/config/routes';
-import { DUMMY_ID } from '@/config/constants';
 
 // Note: do not add href in the label object, it is rendering as label
 export const pageLinks = [
   {
     name: 'لیست سفارش غذاها',
-    href: routes.food.list,
+    href: routes.featureSample.list,
   },
   //label start
   {

@@ -1,16 +1,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { ActionIcon, Badge, Text, Tooltip } from 'rizzui';
-
-import { HeaderCell } from '@/components/ui/rizz-table';
-import PencilIcon from '@/components/icons/pencil';
+import { ActionIcon, Badge, Text, Tooltip, HeaderCell, EyeIcon, PencilIcon, DeletePopover } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { SnippetType } from '@/data/snippets-and-templates';
-import DeletePopover from '@/app/shared/delete-popover';
-import EyeIcon from '@/components/icons/eye';
 import { routes } from '@/config/routes';
 import { ModalView } from './edit';
-
 
 type Columns = {
   data: any[];
@@ -47,15 +40,7 @@ function getStatusBadge(status: string) {
   }
 }
 
-export const getColumns = ({
-  data,
-  sortConfig,
-  checkedItems,
-  onDeleteItem,
-  onHeaderCellClick,
-  handleSelectAll,
-  onChecked,
-}: Columns) => [
+export const getColumns = ({ data, sortConfig, checkedItems, onDeleteItem, onHeaderCellClick, handleSelectAll, onChecked }: Columns) => [
   {
     title: <HeaderCell title='نوع پرداخت' />,
     dataIndex: 'paymentFunctionName',
@@ -64,14 +49,7 @@ export const getColumns = ({
     render: (value: string) => <p>{value}</p>,
   },
   {
-    title: (
-      <HeaderCell
-        title='مبلغ'
-        ellipsis
-        sortable
-        ascending={sortConfig?.direction === 'asc' && sortConfig?.key === 'amount'}
-      />
-    ),
+    title: <HeaderCell title='مبلغ' ellipsis sortable ascending={sortConfig?.direction === 'asc' && sortConfig?.key === 'amount'} />,
     onHeaderCell: () => onHeaderCellClick('amount'),
     dataIndex: 'amount',
     key: 'amount',
@@ -101,13 +79,7 @@ export const getColumns = ({
   },
 ];
 
-function RenderAction({
-  row,
-  onDeleteItem,
-}: {
-  row: SnippetType;
-  onDeleteItem: (id: string) => void;
-}) {
+function RenderAction({ row, onDeleteItem }: { row: any; onDeleteItem: (id: string) => void }) {
   const [isModal, setIsModal] = useState(true);
   const { openModal } = useModal();
   return (
@@ -132,13 +104,7 @@ function RenderAction({
             </ActionIcon>
           ) : (
             <Link href={routes.neshan.add}>
-              <ActionIcon
-                tag='span'
-                size='sm'
-                variant='outline'
-                aria-label={'ویرایش'}
-                className='hover:text-gray-700'
-              >
+              <ActionIcon tag='span' size='sm' variant='outline' aria-label={'ویرایش'} className='hover:text-gray-700'>
                 <PencilIcon className='h-4 w-4' />
               </ActionIcon>
             </Link>
@@ -146,22 +112,12 @@ function RenderAction({
         </Tooltip>
         <Tooltip size='sm' content={() => 'دیدن جزئیات بیشتر'} placement='top' color='invert'>
           <Link href={routes.neshan.add}>
-            <ActionIcon
-              tag='span'
-              size='sm'
-              variant='outline'
-              aria-label={'دیدن جزئیات بیشتر'}
-              className='hover:text-gray-700'
-            >
+            <ActionIcon tag='span' size='sm' variant='outline' aria-label={'دیدن جزئیات بیشتر'} className='hover:text-gray-700'>
               <EyeIcon className='h-4 w-4' />
             </ActionIcon>
           </Link>
         </Tooltip>
-        <DeletePopover
-          title={`آیا مطمئن هستید؟`}
-          description={`انجام این عملیات غیرقابل بازگشت می باشد.`}
-          onDelete={() => {}}
-        />
+        <DeletePopover title={`آیا مطمئن هستید؟`} description={`انجام این عملیات غیرقابل بازگشت می باشد.`} onDelete={() => {}} />
       </div>
     </>
   );

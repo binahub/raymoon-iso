@@ -4,12 +4,8 @@
 import Link from 'next/link';
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
-import { Title } from '@/components/ui/text';
-import { Badge } from '@/components/ui/badge';
-import { Collapse } from '@/components/ui/collapse';
-import cn from '@/utils/class-names';
+import { Title, Badge, Collapse, cn, SimpleBar } from 'shafa-bo';
 import { PiCaretDownBold } from 'react-icons/pi';
-import SimpleBar from '@/components/ui/simplebar';
 import { berylliumSidebarMenuItems } from '@/layouts/beryllium/beryllium-sidebar-menu-items';
 import { ItemType, berylliumMenuItems } from '@/layouts/beryllium/beryllium-fixed-menu-items';
 import Logo from '@/components/logo';
@@ -62,9 +58,7 @@ export default function Sidebar({ className }: { className?: string }) {
                                 <span
                                   className={cn(
                                     'me-2 inline-flex h-5 w-5 items-center justify-center rounded-full [&>svg]:h-[20px] [&>svg]:w-[20px]',
-                                    isDropdownOpen
-                                      ? 'text-primary'
-                                      : 'text-gray-800 dark:text-gray-500 dark:group-hover:text-gray-700'
+                                    isDropdownOpen ? 'text-primary' : 'text-gray-800 dark:text-gray-500 dark:group-hover:text-gray-700'
                                   )}
                                 >
                                   <Icon />
@@ -102,18 +96,14 @@ export default function Sidebar({ className }: { className?: string }) {
                               key={dropdownItem?.name + index}
                               className={cn(
                                 'mx-3.5 mb-0.5 flex items-center justify-between rounded-full px-3.5 py-2 font-medium capitalize last-of-type:mb-1 lg:last-of-type:mb-2 2xl:mx-5',
-                                isChildActive
-                                  ? 'text-primary'
-                                  : 'text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900'
+                                isChildActive ? 'text-primary' : 'text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900'
                               )}
                             >
                               <div className='flex items-center truncate'>
                                 <span
                                   className={cn(
                                     'me-[18px] ms-1 inline-flex h-1 w-1 rounded-full bg-current transition-all duration-200',
-                                    isChildActive
-                                      ? 'bg-primary ring-[1px] ring-primary'
-                                      : 'opacity-40'
+                                    isChildActive ? 'bg-primary ring-[1px] ring-primary' : 'opacity-40'
                                   )}
                                 />{' '}
                                 <span className='truncate'>{dropdownItem?.name}</span>
@@ -207,9 +197,7 @@ export default function Sidebar({ className }: { className?: string }) {
                             <span
                               className={cn(
                                 'me-2 inline-flex h-5 w-5 items-center justify-center rounded-full [&>svg]:h-[20px] [&>svg]:w-[20px]',
-                                isActive
-                                  ? 'text-primary'
-                                  : 'text-gray-800 dark:text-gray-500 dark:group-hover:text-gray-700'
+                                isActive ? 'text-primary' : 'text-gray-800 dark:text-gray-500 dark:group-hover:text-gray-700'
                               )}
                             >
                               <Icon />

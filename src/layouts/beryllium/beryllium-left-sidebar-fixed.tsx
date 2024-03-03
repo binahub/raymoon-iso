@@ -1,18 +1,13 @@
 'use client';
 
-import { ActionIcon } from '@/components/ui/action-icon';
+import { ActionIcon, SimpleBar } from 'shafa-bo';
 import { PiTextIndent } from 'react-icons/pi';
 import { useBerylliumSidebars, getActiveMainMenuIndex } from '@/layouts/beryllium/beryllium-utils';
-import {
-  berylliumMenuItems,
-  MenuItemsType,
-  berylliumMenuItemAtom,
-} from '@/layouts/beryllium/beryllium-fixed-menu-items';
+import { berylliumMenuItems, MenuItemsType, berylliumMenuItemAtom } from '@/layouts/beryllium/beryllium-fixed-menu-items';
 import { useAtom, useSetAtom } from 'jotai';
 import cn from '@/utils/class-names';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import SimpleBar from '@/components/ui/simplebar';
 import { useWindowSize } from '@/hooks/use-window-size';
 import App from 'package.json';
 
@@ -31,10 +26,7 @@ function MenuItem({ menu }: { menu: MenuItemsType }) {
   }
 
   return (
-    <li
-      onClick={handleClick}
-      className='group flex cursor-pointer flex-col items-center gap-1.5 pb-1.5 '
-    >
+    <li onClick={handleClick} className='group flex cursor-pointer flex-col items-center gap-1.5 pb-1.5 '>
       <span
         className={cn(
           'rounded-3xl bg-gray-0/0 px-4 py-2 text-white transition-colors duration-200 group-hover:bg-gray-0 group-hover:text-gray-900 dark:group-hover:bg-gray-100',

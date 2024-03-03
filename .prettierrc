@@ -1,4 +1,19 @@
 {
+<<<<<<< HEAD
+  "arrowParens": "always",
+  "embeddedLanguageFormatting": "auto",
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "semi": true,
+  "endOfLine": "lf",
+  "htmlWhitespaceSensitivity": "css",
+  "proseWrap": "preserve",
+  "printWidth": 150,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "jsxSingleQuote": true
+}
+=======
     "arrowParens": "always",
     "embeddedLanguageFormatting": "auto",
     "singleQuote": true,
@@ -7,9 +22,10 @@
     "endOfLine": "lf",
     "htmlWhitespaceSensitivity": "css",
     "proseWrap": "preserve",
-    "printWidth": 100,
+    "printWidth": 150,
     "tabWidth": 2,
     "trailingComma": "es5",
     "jsxSingleQuote": true
   }
   
+>>>>>>> develop

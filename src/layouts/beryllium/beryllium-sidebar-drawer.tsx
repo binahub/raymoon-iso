@@ -95,8 +95,8 @@ export default function Sidebar({ className }: { className?: string }) {
                               href={dropdownItem?.href ?? '/'}
                               key={dropdownItem?.name + index}
                               className={cn(
-                                'mx-3.5 mb-0.5 flex items-center justify-between rounded-full px-3.5 py-2 font-medium capitalize last-of-type:mb-1 lg:last-of-type:mb-2 2xl:mx-5',
-                                isChildActive ? 'text-primary' : 'text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900'
+                                `mx-3.5 mb-0.5 flex ${dropdownItem.subMenuItems ? "flex-col" : "flex-row"} items-start justify-between rounded-full px-3.5 py-2 font-medium capitalize last-of-type:mb-1 lg:last-of-type:mb-2 2xl:mx-5',
+                               ${isChildActive ? 'text-primary' : 'text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900'}`
                               )}
                             >
                               <div className='flex items-center truncate'>
@@ -130,13 +130,12 @@ export default function Sidebar({ className }: { className?: string }) {
                                         <IIcon className='h-5 w-5' />
                                         {dropdownItem.name}
                                       </span>
-
                                       <PiCaretDownBold
                                         strokeWidth={3}
                                         className={cn(
                                           'h-3.5 w-3.5 -rotate-90 text-gray-500 transition-transform duration-200 rtl:rotate-90',
                                           open && 'rotate-0 rtl:rotate-0',
-                                          (isSubActive || isDropdownOpen) &&
+                                          (isSubActive || isSubDropdownOpen) &&
                                             'text-primary dark:text-primary-lighter'
                                         )}
                                       />
@@ -205,7 +204,6 @@ export default function Sidebar({ className }: { className?: string }) {
                           )}
                           <span className='truncate'>{item.name}</span>
                         </div>
-                        {/* {item?.badge?.length ? getStatusBadge(item?.badge) : null} */}
                       </Link>
                     )}
                   </>

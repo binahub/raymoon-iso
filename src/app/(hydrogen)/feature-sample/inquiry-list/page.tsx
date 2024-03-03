@@ -8,7 +8,7 @@ import { foodInquirySchema } from '@/utils/validators/food.schema';
 import { headerData } from './header';
 import { Detail } from '../detail/collaps';
 import { Columns } from './columns';
-import { dataFilter, filterState } from './filter';
+import { generatedFilter, filterState } from './filter';
 
 export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -147,10 +147,11 @@ export default function FoodPage() {
             handleReset,
             filters,
             updateFilter,
-            dataFilter,
+            generatedFilter,
             actionFilter,
           })
         }
+        countFilter={filters}
         isLoading={isLoading}
         /* title export file */
         exportColumns={exportColumns}

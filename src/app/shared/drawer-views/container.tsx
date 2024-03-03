@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Drawer } from '@/components/ui/drawer';
+import { Drawer } from 'shafa-bo';
 import { useDrawer } from './use-drawer';
 
 export default function GlobalDrawer() {
@@ -19,8 +19,8 @@ export default function GlobalDrawer() {
       onClose={closeDrawer}
       placement={placement}
       customSize={customSize}
-      overlayClassName="dark:bg-opacity-40 dark:backdrop-blur-md"
-      containerClassName="dark:bg-gray-100"
+      overlayClassName='dark:bg-opacity-40 dark:backdrop-blur-md'
+      containerClassName='dark:bg-gray-100'
     >
       {view}
     </Drawer>

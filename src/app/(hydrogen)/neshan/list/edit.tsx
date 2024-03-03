@@ -1,7 +1,6 @@
 'use client ';
-import { Input } from '@/components/ui/input';
+import { Input, ActionIcon, Button, Title } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { ActionIcon, Button, Title } from 'rizzui';
 import { PiXBold } from 'react-icons/pi';
 
 export function ModalView() {

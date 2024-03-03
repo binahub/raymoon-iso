@@ -192,8 +192,12 @@
     @apply dark:bg-gray-50;
   }
 
+  a {
+    font-family: 'iranYekan';
+  }
+
   body {
-    @apply flex min-h-full flex-col overflow-x-hidden font-vazir text-sm text-gray-600 dark:bg-gray-50;
+    @apply flex min-h-full flex-col overflow-x-hidden font-iranYekan text-sm text-gray-600 dark:bg-gray-50;
   }
 
   input::-ms-clear,
@@ -221,7 +225,7 @@
   h4,
   h5,
   h6 {
-    @apply font-vazir font-bold text-gray-900 dark:text-gray-700;
+    @apply font-iranYekan font-bold text-gray-900 dark:text-gray-700;
   }
 
   h1 {
@@ -380,7 +384,7 @@ select:-webkit-autofill:focus {
 /* ?React Datepicker Styling */
 /* ................................................... */
 .react-datepicker-popper .react-datepicker {
-  @apply bg-gray-0 font-vazir text-gray-600 dark:border-gray-300 dark:bg-gray-100;
+  @apply bg-gray-0 font-iranYekan text-gray-600 dark:border-gray-300 dark:bg-gray-100;
 }
 
 input[type='checkbox']:checked ~ svg {
@@ -486,7 +490,7 @@ td.rc-table-cell-fix-right {
 }
 
 .react-quill .ql-container {
-  @apply font-vazir;
+  @apply font-iranYekan;
 }
 
 .react-quill .ql-container.ql-snow {
@@ -700,7 +704,7 @@ div[style='z-index: 1000001;'],
 }
 
 .pac-item {
-  @apply px-3 py-1.5 font-vazir;
+  @apply px-3 py-1.5 font-iranYekan;
 }
 
 /* google location search auto complete  */
@@ -854,7 +858,7 @@ div[style='z-index: 1000001;'],
 }
 
 .rbc-toolbar-label {
-  @apply font-vazir text-xl font-medium text-gray-900 dark:text-white;
+  @apply font-iranYekan text-xl font-medium text-gray-900 dark:text-white;
 }
 
 .rbc-agenda-view {
@@ -1004,4 +1008,13 @@ ol {
 
 .rct-node-icon {
   color: rgb(56 114 250) !important;
+}
+
+.name-upload {
+  @apply flex items-center justify-start bg-[gainsboro] mt-[5px] text-left px-3 py-2 rounded-md;
+}
+
+
+.rc-pagination-item-active {
+  @apply !bg-primary
 }

@@ -2,8 +2,7 @@
 
 import { PiPlusBold } from 'react-icons/pi';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { Button, type ButtonProps } from '@/components/ui/button';
-import cn from '@/utils/class-names';
+import { cn, Button, type ButtonProps } from 'shafa-bo';
 
 interface ModalButtonProps extends ButtonProps {
   label?: string;
@@ -18,7 +17,7 @@ export default function ModalButton({
   className,
   customSize = '500px',
   view,
-  icon = <PiPlusBold className="me-1.5 h-[17px] w-[17px]" />,
+  icon = <PiPlusBold className='me-1.5 h-[17px] w-[17px]' />,
   ...rest
 }: ModalButtonProps) {
   const { openModal } = useModal();

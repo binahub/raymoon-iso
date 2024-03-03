@@ -1,4 +1,4 @@
-import SweetAlert from '@/components/ui/sweet-alert';
+import {SweetAlert} from 'shafa-bo';
 
 class Notification {
   static error(error: any) {

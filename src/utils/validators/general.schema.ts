@@ -8,7 +8,7 @@ import { containPersianCharacters } from '@/utils/persian-character-helper';
 // form zod validation schema
 export const generalFormSchema = z.object({
   name: z.string().min(1, { message: messages.nameRequired }),
-  TrackingCode: z.string().min(1, { message: messages.trackingCodeRequired }),
+  description: z.string().min(1, { message: messages.descriptionRequired }),
   phoneNumber: z
     .string()
     .min(1, { message: messages.phoneNumberRequired })
@@ -40,13 +40,13 @@ export type GeneralFormTypes = z.infer<typeof generalFormSchema>;
 
 export const defaultValues = {
   name: '',
-  TrackingCode: '',
+  description: '',
   phoneNumber: '',
   nationalCode: '',
   email: '',
   password: '',
   bank: undefined,
-  startDate: "",
+  // startDate: "",
   newPassword:'',
   userInfo: [],
 };

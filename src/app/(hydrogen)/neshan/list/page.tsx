@@ -1,12 +1,12 @@
 'use client';
-import { routes } from '@/config/routes';
-import { getColumns } from './columns';
-import Table from '@/app/shared/table/table';
-import FilterElement from '@/app/shared/table/filter';
-import { detail } from './detail';
 import React, { useState } from 'react';
+import { routes } from '@/config/routes';
 import { useTable } from '@/hooks/use-table-mock';
+import { getColumns } from './columns';
+import { Table, FilterElement } from 'shafa-bo';
+import { detail } from './detail';
 import { neshanData } from '../data';
+import ImportButton from '@/app/shared/import-button';
 
 export default function NeshanPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -31,7 +31,7 @@ export default function NeshanPage() {
   };
 
   /* create title excel coulemns */
-  const titleExcelColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At';
+  const exportColumns = 'Order ID,Name,Email,Avatar,Items,Price,Status,Created At,Updated At6';
 
   /*
    * use hooks for table
@@ -96,12 +96,12 @@ export default function NeshanPage() {
   const dataFilter: any = [
     {
       label: 'نوع پرداخت',
-      type: 'Text',
+      type: 'text',
       key: 'paymentFunctionName',
     },
     {
       label: ' وضعیت پرداخت',
-      type: 'Select',
+      type: 'select',
       key: 'status',
       selectOption: [
         {
@@ -116,15 +116,22 @@ export default function NeshanPage() {
     },
     {
       label: ' تاریخ پرداخت',
-      type: 'DatePicker',
+      type: 'datePicker',
       key: 'date',
     },
   ];
 
+  const GenerateElement = () => {
+    return (
+      <>
+        <ImportButton title={'آپلود فایل'} />
+      </>
+    );
+  };
   return (
     <Table
       pageHeader={pageHeader}
-      buttons={['export']}
+      buttons={<GenerateElement />}
       filterElement={() =>
         FilterElement({
           isFiltered,
@@ -152,7 +159,10 @@ export default function NeshanPage() {
       handleSearch={handleSearch}
       searchTerm={searchTerm}
       tableData={tableData}
-      fileTitles={titleExcelColumns}
+      /* optional export file */
+      hasExportFile
+      exportFileName={'fileName'}
+      exportColumns={exportColumns}
     />
   );
 }

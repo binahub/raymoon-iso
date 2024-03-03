@@ -1,10 +1,6 @@
 'use client';
-import {
-  useDrawer,
-  type DrawerPlacements,
-} from '@/app/shared/drawer-views/use-drawer';
-import { Button } from '@/components/ui/button';
-import cn from '@/utils/class-names';
+import { useDrawer, type DrawerPlacements } from '@/app/shared/drawer-views/use-drawer';
+import { cn, Button } from 'shafa-bo';
 import { PiSliders } from 'react-icons/pi';
 
 interface FiltersButtonProps {
@@ -13,11 +9,7 @@ interface FiltersButtonProps {
   placement: DrawerPlacements;
 }
 
-export default function FiltersButton({
-  className,
-  placement,
-  modalView,
-}: FiltersButtonProps) {
+export default function FiltersButton({ className, placement, modalView }: FiltersButtonProps) {
   const { openDrawer } = useDrawer();
   return (
     <Button
@@ -32,7 +24,7 @@ export default function FiltersButton({
         })
       }
     >
-      <PiSliders className="me-1 h-4 w-4 rotate-90" />
+      <PiSliders className='me-1 h-4 w-4 rotate-90' />
       Filters
     </Button>
   );

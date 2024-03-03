@@ -1,5 +1,5 @@
 'use client ';
-import { Input } from '@/components/ui/input';
+import { Input } from 'shafa-bo';
 
 type Props = {
   record: {

@@ -1,15 +1,13 @@
 'use client';
 
-import cn from '@/utils/class-names';
 import { useBerylliumSidebars } from '@/layouts/beryllium/beryllium-utils';
 import { useAtomValue } from 'jotai';
 import { ItemType, berylliumMenuItemAtom } from '@/layouts/beryllium/beryllium-fixed-menu-items';
 import { Fragment } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Collapse } from '@/components/ui/collapse';
+import { cn, SimpleBar, Collapse } from 'shafa-bo';
 import { PiCaretDownBold } from 'react-icons/pi';
-import SimpleBar from '@/components/ui/simplebar';
 import getStatusBadge from '@/components/get-status-badge';
 import { useTheme } from 'next-themes';
 
@@ -22,9 +20,7 @@ function LinkMenuItem({ item }: { item: ItemType }) {
       href={item.href ?? '/'}
       className={cn(
         'flex items-center justify-between gap-3 rounded-2xl  px-4 py-2 font-medium duration-200 ',
-        isActive
-          ? 'bg-gray-100 text-primary dark:bg-gray-100 dark:text-primary-lighter'
-          : 'hover:bg-gray-100 hover:text-gray-900'
+        isActive ? 'bg-gray-100 text-primary dark:bg-gray-100 dark:text-primary-lighter' : 'hover:bg-gray-100 hover:text-gray-900'
       )}
     >
       <div className='flex items-center gap-2 truncate'>
@@ -40,9 +36,7 @@ function LinkMenuItem({ item }: { item: ItemType }) {
 
 function CollapsibleMenuItem({ item }: { item: ItemType }) {
   const pathname = usePathname();
-  const pathnameExistInDropdowns: any = item?.subMenuItems?.filter(
-    (dropdownItem) => dropdownItem.href === pathname
-  );
+  const pathnameExistInDropdowns: any = item?.subMenuItems?.filter((dropdownItem) => dropdownItem.href === pathname);
   const isDropdownOpen = Boolean(pathnameExistInDropdowns?.length);
   const isActive = item.subMenuItems?.some((subMenuItem) => subMenuItem.href === pathname);
 
@@ -124,14 +118,10 @@ export default function BerylliumLeftSidebarExpandable() {
       )}
     >
       <SimpleBar className='min-w-[294px] pe-4 overflow-auto h-[85%]'>
-        <p className='mb-3 text-xs font-normal uppercase tracking-widest text-gray-500 mr-3'>
-          {selectedMenu.title}
-        </p>
+        <p className='mb-3 text-xs font-normal uppercase tracking-widest text-gray-500 mr-3'>{selectedMenu.title}</p>
         <div className='flex flex-col gap-2'>
           {selectedMenu.menuItems.map((menu) => (
-            <Fragment key={menu.name}>
-              {menu.href ? <LinkMenuItem item={menu} /> : <CollapsibleMenuItem item={menu} />}
-            </Fragment>
+            <Fragment key={menu.name}>{menu.href ? <LinkMenuItem item={menu} /> : <CollapsibleMenuItem item={menu} />}</Fragment>
           ))}
         </div>
       </SimpleBar>

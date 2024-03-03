@@ -11,18 +11,10 @@ export const config = {
   // restricted routes
   matcher: [
     '/',
-    '/analytics',
-    '/logistics/:path*',
-    '/ecommerce/:path*',
-    '/support/:path*',
-    '/file/:path*',
-    '/file-manager',
-    '/invoice/:path*',
-    '/forms/profile-settings/:path*',
-    '/category',
     '/iva',
     '/neshan/list',
-    '/food/list'
-    
+    '/feature-sample/create',
+    '/feature-sample/list',
+    '/feature-sample/inquiry-list'
   ],
 };

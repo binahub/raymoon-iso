@@ -1,7 +1,5 @@
 'use client';
-
-import { Button } from '@/components/ui/button';
-import { Title, Text } from '@/components/ui/text';
+import { Title, Text, Button } from 'shafa-bo';
 
 interface TableFooterProps {
   checkedItems: string[];
@@ -18,14 +16,14 @@ export default function TableFooter({
   }
 
   return (
-    <div className="sticky bottom-0 left-0 z-10 mt-2.5 flex w-full items-center justify-between rounded-md border border-gray-300 bg-gray-0 px-5 py-3.5 text-gray-900 shadow-sm dark:border-gray-300 dark:bg-gray-100 dark:text-white dark:active:bg-gray-100">
+    <div className='sticky bottom-0 left-0 z-10 mt-2.5 flex w-full items-center justify-between rounded-md border border-gray-300 bg-gray-0 px-5 py-3.5 text-gray-900 shadow-sm dark:border-gray-300 dark:bg-gray-100 dark:text-white dark:active:bg-gray-100'>
       <div>
-        <Text as="strong">{checkedItems.length}</Text> selected{' '}
+        <Text as='strong'>{checkedItems.length}</Text> selected{' '}
         <Button
-          size="sm"
-          variant="text"
-          className="underline"
-          color="danger"
+          size='sm'
+          variant='text'
+          className='underline'
+          color='danger'
           onClick={() => {
             handleDelete(checkedItems);
           }}

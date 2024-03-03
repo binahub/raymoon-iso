@@ -1,24 +1,14 @@
 'use client';
 import { routes } from '@/config/routes';
 import PageHeader from '@/app/shared/page-header';
-import { Form } from '@/components/ui/form';
-import Select from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { Form, Select, Input, Button, Password, Card, UploadZone } from 'shafa-bo';
 import { SubmitHandler, Controller } from 'react-hook-form';
-import { regions, status } from '../data';
-import { Datepicker } from '@/components/ui/datepicker';
+import { regions } from '../data';
 import {
   GeneralFormTypes,
   generalFormSchema,
   defaultValues,
 } from '@/utils/validators/general.schema';
-import UploadZone from '@/components/ui/file-upload/upload-zone';
-import { Password } from 'rizzui';
-import { useState } from 'react';
-import { DateObject } from 'react-multi-date-picker';
-import ImportButton from '@/app/shared/import-button';
-import Card from '@/components/cards/card';
 
 const pageHeader = {
   title: 'نشان بانک',
@@ -63,10 +53,10 @@ export default function SupportInboxPage() {
                   className='flex-grow'
                 />
                 <Input
-                  label='شماره پیگیری*'
+                  label='توضیحات*'
                   type='number'
-                  {...register('TrackingCode')}
-                  error={errors.TrackingCode?.message}
+                  {...register('description')}
+                  error={errors.description?.message}
                   className='flex-grow '
                 />
                 <Input
@@ -135,7 +125,7 @@ export default function SupportInboxPage() {
                   {...register('newPassword')}
                   error={errors.newPassword?.message}
                 />
-                <Controller
+                {/* <Controller
                   control={control}
                   name='startDate'
                   render={({ field: { value, onChange } }) => (
@@ -146,7 +136,7 @@ export default function SupportInboxPage() {
                       error={errors?.startDate}
                     />
                   )}
-                />
+                /> */}
                 <div className='mb-6 @3xl:col-span-3'>
                   <UploadZone
                     name='userInfo'
@@ -154,13 +144,13 @@ export default function SupportInboxPage() {
                     setValue={setValue}
                     error={errors?.userInfo?.message as string}
                     handleUpload={(data: any) => console.log(data)}
-                    // inForm
+                    inForm
                   />
                 </div>
                 <div className='col-span-full mt-2 flex items-center justify-end'>
                   <Button
                     type='submit'
-                    className=' dark:text-white dark:bg-yellow-500 bg-primary w-32'
+                    className='w-32'
                     // isLoading={isLoading}
                   >
                     افزودن

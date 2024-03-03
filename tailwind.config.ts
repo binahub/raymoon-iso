@@ -5,6 +5,7 @@ export default {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/rizzui/dist/*.{js,ts,jsx,tsx}', // must use this line to compile and generate our RizzUI components style
+    './node_modules/shafa-bo/dist/*.{js,ts,jsx,tsx}'// @TODO: must use this line to compile and generate our Sepehr's Package components style
   ],
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {
@@ -33,7 +34,7 @@ export default {
           800: 'rgb(var(--gray-800) / <alpha-value>)',
           900: 'rgb(var(--gray-900) / <alpha-value>)',
           1000: 'rgb(var(--gray-1000) / <alpha-value>)',
-          light: 'rgb(248, 248, 248)'
+          light: 'rgb(248, 248, 248)',
         },
         primary: {
           lighter: 'rgb(var(--primary-lighter) / <alpha-value>)',
@@ -65,7 +66,7 @@ export default {
           light: 'rgb(var(--blue-light) / <alpha-value>)',
           DEFAULT: 'rgb(var(--blue-default) / <alpha-value>)',
           dark: 'rgb(var(--blue-dark) / <alpha-value>)',
-          darkBlue:'#020058'
+          darkBlue: '#020058',
         },
         green: {
           lighter: 'rgb(var(--green-lighter) / <alpha-value>)',
@@ -73,20 +74,21 @@ export default {
           DEFAULT: 'rgb(var(--green-default) / <alpha-value>)',
           dark: 'rgb(var(--green-dark) / <alpha-value>)',
         },
-        yellow:{
+        yellow: {
           lighter: 'rgb(251, 212, 96)',
-          light:'rgba(241,255,0,0)',
-          dark :'rgb(252, 182, 0)',
+          light: 'rgba(241,255,0,0)',
+          dark: 'rgb(252, 182, 0)',
         },
-        purple:{
+        purple: {
           lighter: 'rgb(204, 204, 222)',
-          dark:'rgb(2, 0, 88)'
-        }
+          dark: 'rgb(2, 0, 88)',
+        },
       },
       fontFamily: {
         inter: ['var(--font-inter)'],
         lexend: ['var(--font-lexend)'],
-        vazir: ["Vazir"],
+        vazir: ['Vazir'],
+        iranYekan: ['iranYekan'],
       },
       // required these animations for the Loader component
       animation: {
@@ -142,8 +144,7 @@ export default {
         underline: 'url("/public/underline.svg")',
       },
       boxShadow: {
-        profilePic:
-          '0px 2px 4px -2px rgba(0, 0, 0, 0.10), 0px 4px 6px -1px rgba(0, 0, 0, 0.10)',
+        profilePic: '0px 2px 4px -2px rgba(0, 0, 0, 0.10), 0px 4px 6px -1px rgba(0, 0, 0, 0.10)',
       },
     },
   },

@@ -5,13 +5,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { SubmitHandler } from 'react-hook-form';
 import { PiArrowLeftBold, PiArrowRightBold } from 'react-icons/pi';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Password } from '@/components/ui/password';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Form } from '@/components/ui/form';
-import { Text } from '@/components/ui/text';
-import { routes } from '@/config/routes';
+import { Password, Button, Input, Form } from 'shafa-bo';
 import { loginSchema, LoginSchema } from '@/utils/validators/login.schema';
 import { useRouter } from 'next/navigation';
 import Notification from '@/utils/notification';
@@ -42,7 +36,7 @@ export default function SignInForm() {
         redirect: false,
       }).then((result: any) => {
         if (result?.ok) {
-          router.push('/dashboard');
+          router.push('/');
         } else {
           Notification.error(result?.error);
           setLoading(false);
@@ -88,7 +82,7 @@ export default function SignInForm() {
               {...register('password')}
               error={errors.password?.message}
             />
-            <Button className='w-full bg-blue-950 dark:bg-yellow-500'  type='submit' size='lg' isLoading={loading}>
+            <Button className='w-full bg-blue-950' type='submit' size='lg' isLoading={loading}>
               <span className='font-[vazir]'>وارد شوید</span>{' '}
               <PiArrowLeftBold className='ms-2 mt-0.5 h-5 w-5' />
             </Button>

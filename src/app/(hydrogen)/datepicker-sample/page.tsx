@@ -1,11 +1,7 @@
 'use client';
-import Card from '@/components/cards/card';
 import { Controller, SubmitHandler } from 'react-hook-form';
-import { Button } from '@/components/ui/button';
-import { Datepicker } from '@/components/ui/datepicker';
-import { Form } from '@/components/ui/form';
+import { Button, Datepicker, Form, Card } from 'shafa-bo';
 import { DatePickerSchema, datePickerSchema } from '@/utils/validators/datepicker.schema';
-
 
 function page() {
   const onSubmit: SubmitHandler<any> = (data: any) => {
@@ -16,9 +12,7 @@ function page() {
     <div>
       <Card className='p-5'>
         {/* using datepicker in react-hook-form */}
-        <Form<DatePickerSchema> 
-        validationSchema={datePickerSchema}
-        onSubmit={onSubmit}>
+        <Form<DatePickerSchema> validationSchema={datePickerSchema} onSubmit={onSubmit}>
           {({ register, control, formState: { errors } }) => {
             return (
               <>
@@ -32,6 +26,7 @@ function page() {
                       onChange={onChange}
                       className='w-60'
                       error={errors?.startDate}
+                      // disabled
                     />
                   )}
                 />

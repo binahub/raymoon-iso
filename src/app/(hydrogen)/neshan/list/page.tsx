@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { routes } from '@/config/routes';
 import { useTable } from '@/hooks/use-table-mock';
-import { getColumns } from './columns';
-import { Table, FilterElement } from 'shafa-bo';
+import { Columns } from './columns';
+import { Table, FilterElement, type GeneratedFilterType } from 'shafa-bo';
 import { detail } from './detail';
 import { neshanData } from '../data';
 import ImportButton from '@/app/shared/import-button';
@@ -69,10 +69,9 @@ export default function NeshanPage() {
    */
   const columns = React.useMemo(
     () =>
-      getColumns({
+      Columns({
         data: neshanData,
         sortConfig,
-        onHeaderCellClick,
         onDeleteItem,
         checkedItems: selectedRowKeys,
         onChecked: handleRowSelect,
@@ -81,7 +80,6 @@ export default function NeshanPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       selectedRowKeys,
-      onHeaderCellClick,
       sortConfig.key,
       sortConfig.direction,
       onDeleteItem,
@@ -93,7 +91,7 @@ export default function NeshanPage() {
   /*
    * filterable form input
    */
-  const dataFilter: any = [
+  const generatedFilter: GeneratedFilterType = [
     {
       label: 'نوع پرداخت',
       type: 'text',
@@ -138,10 +136,11 @@ export default function NeshanPage() {
           handleReset,
           filters,
           updateFilter,
-          dataFilter,
+          generatedFilter,
         })
       }
-      getColumns={getColumns}
+      countFilter={filters}
+      // getColumns={getColumns}
       expandedRow={(rowData: any) => detail(rowData)}
       paginatorOptions={{
         pageSize,
@@ -150,7 +149,6 @@ export default function NeshanPage() {
         current: currentPage,
         onChange: (page: number) => handlePaginate(page),
       }}
-      data={neshanData.data}
       expandedKeys={[rowEdit]}
       onExpand={(expanded: boolean, row: any) => {
         expanded ? setRowEdit(row.id) : setRowEdit({});

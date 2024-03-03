@@ -5,7 +5,7 @@ import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { Table, FilterElement } from 'shafa-bo';
 import { Detail } from '../detail/collaps';
 import { Columns } from './columns';
-import { dataFilter, initialFilterValues } from './filter';
+import { generatedFilter, initialFilterValues } from './filter';
 import { headerData } from './header';
 import ImportButton from '@/app/shared/import-button';
 import PrintButton from '@/app/shared/print-button';
@@ -111,11 +111,12 @@ export default function FoodPage() {
           handleReset,
           filters,
           updateFilter,
-          dataFilter,
+          generatedFilter,
           actionFilter,
           isLoading,
         })
       }
+      countFilter={filters}
       isLoading={isLoading}
       /* export file */
       hasExportFile

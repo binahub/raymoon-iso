@@ -1,4 +1,4 @@
-import { routes } from "@/config/routes";
+import { routes } from "@/common/config/routes";
 
 export const headerData = {
   title: 'ویرایش',

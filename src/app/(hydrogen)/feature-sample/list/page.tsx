@@ -1,14 +1,14 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { useTable } from '@/hooks/use-table';
-import { useCategoryListMutation } from '@/provider/redux/apis/category';
+import { useTable } from '@/common/hooks/use-table';
 import { Table, FilterElement } from 'shafa-bo';
 import { Detail } from '../detail/collaps';
 import { Columns } from './columns';
-import { dataFilter, initialFilterValues } from './filter';
+import { generatedFilter, initialFilterValues } from './filter';
 import { headerData } from './header';
 import ImportButton from '@/app/shared/import-button';
 import PrintButton from '@/app/shared/print-button';
+import { useCreateSample } from '@/common/apis/test-api/sample.mutation';
 
 export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -26,7 +26,7 @@ export default function FoodPage() {
   };
 
   /* api call */
-  const [list, { isLoading, data }] = useCategoryListMutation();
+  const { mutate, isPending:isLoading, data } = useCreateSample();
 
   /* use hooks for table*/
   const { isFiltered, filters, updateFilter, handleReset, tableData, currentPage, handleDelete, handlePaginate, setData } = useTable(
@@ -50,7 +50,7 @@ export default function FoodPage() {
   }, [isLoading]);
 
   useEffect(() => {
-    list(parameterMap);
+    mutate(parameterMap);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
 
@@ -70,7 +70,7 @@ export default function FoodPage() {
 
   /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
-    list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
+    mutate({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
   };
 
   /* generate any ReactNode for show in layout table */
@@ -111,11 +111,12 @@ export default function FoodPage() {
           handleReset,
           filters,
           updateFilter,
-          dataFilter,
+          generatedFilter,
           actionFilter,
           isLoading,
         })
       }
+      countFilter={filters}
       isLoading={isLoading}
       /* export file */
       hasExportFile

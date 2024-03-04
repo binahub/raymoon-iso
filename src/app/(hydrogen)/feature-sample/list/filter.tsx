@@ -1,4 +1,4 @@
-import { type DataFilter } from 'shafa-bo';
+import { type GeneratedFilterType } from 'shafa-bo';
 /* initioalization  */
 export const initialFilterValues = {
   name: '',
@@ -6,7 +6,7 @@ export const initialFilterValues = {
 };
 
 /* filterable form input */
-export const dataFilter: DataFilter = [
+export const generatedFilter: GeneratedFilterType = [
   {
     label: 'نام',
     type: 'text',

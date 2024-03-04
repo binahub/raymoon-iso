@@ -6,9 +6,9 @@ import { signIn, useSession } from 'next-auth/react';
 import { SubmitHandler } from 'react-hook-form';
 import { PiArrowLeftBold, PiArrowRightBold } from 'react-icons/pi';
 import { Password, Button, Input, Form } from 'shafa-bo';
-import { loginSchema, LoginSchema } from '@/utils/validators/login.schema';
+import { loginSchema, LoginSchema } from '@/common/utils/validators/login.schema';
 import { useRouter } from 'next/navigation';
-import Notification from '@/utils/notification';
+import Notification from '@/common/utils/notification';
 
 const initialValues: LoginSchema = {
   username: '',

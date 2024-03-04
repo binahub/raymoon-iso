@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ActionIcon, Badge, Text, Tooltip, HeaderCell, EyeIcon, PencilIcon, DeletePopover } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { routes } from '@/config/routes';
+import { routes } from '@/common/config/routes';
 import { ModalView } from './edit';
 
 type Columns = {

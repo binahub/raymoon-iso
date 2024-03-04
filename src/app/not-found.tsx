@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Title, Button } from 'shafa-bo';
 import { PiHouseLineBold } from 'react-icons/pi';
-import { siteConfig } from '@/config/site.config';
+import { siteConfig } from '@/common/config/site.config';
 import NotFoundImg from '@public/not-found.png';
 
 export default function NotFound() {

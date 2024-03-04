@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { PencilIcon, HeaderCell, ActionIcon, Tooltip, DeletePopover, EyeIcon, AvatarCard } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { routes } from '@/config/routes';
+import { routes } from '@/common/config/routes';
 import { Edit } from '../edit/modal';
 
 type Columns = {

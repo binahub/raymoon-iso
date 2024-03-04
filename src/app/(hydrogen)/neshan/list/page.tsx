@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { routes } from '@/config/routes';
-import { useTable } from '@/hooks/use-table-mock';
+import { routes } from '@/common/config/routes';
+import { useTable } from '@/common/hooks/use-table-mock';
 import { Columns } from './columns';
 import { Table, FilterElement, type GeneratedFilterType } from 'shafa-bo';
 import { detail } from './detail';

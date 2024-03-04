@@ -1,5 +1,5 @@
 'use client';
-import Notification from '@/utils/notification';
+import Notification from '@/common/utils/notification';
 import { Button, SweetAlert, WidgetCard } from 'shafa-bo';
 
 function page() {

@@ -1,10 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { Card ,PageHeader } from 'shafa-bo';
 import { SubmitHandler } from 'react-hook-form';
 import FormData from '../../form.module';
 import { headerData } from '../header';
+import { useCreateSample } from '@/common/apis/test-api/sample.mutation';
 
 type Props = {
   params: { id: string };
@@ -24,11 +24,12 @@ export default function EditPage({ params }: Props) {
   };
 
   /* api call */
-  const [list, { isSuccess, data: serverData }] =
-    useCategoryListMutation();
+  // const [list, { isSuccess, data: serverData }] =
+  //   useCategoryListMutation();
+    const { mutate, isPending:isLoading, data:serverData, isSuccess } = useCreateSample();
 
   useEffect(() => {
-    list(parameterMap);
+    mutate(parameterMap);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

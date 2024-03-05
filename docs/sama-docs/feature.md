@@ -13,48 +13,40 @@ directory structure: mkdir `src/app/(sama)/feature/list/*`
 
           1. api call: get data list
 
-          2. useTable hook: generate all functionalities in table, like: pagination && handle table layout && actions
-              - Notice: for this handling must get : data && pageSize && totalElement && initialFilterValues(if you need [filter](#L55) for table)
+          2. handleDataChange function: api call by filters and pagination
 
-          3. actionFilter function: api call by filters
-
-          4. Table component with following props:
-          - columns(required): get columns
-          - tableData(required): get data from api and fix changes data after filter and pagination
-          - buttons: show any ReactNode in layout table
-          - pageHeader: show title and breadcrumb page
-          - paginatorOptions: pagination table
-          - filterElement: show filter drawer
-          - hasExportFile: export file
-          - exportFileName: get name Excel file
-          - exportColumns: get title of Excel columns
-          - onExpand: show any ReactNode in expand table row
+          3. Table component with following props:
+            - columns(required): get columns
+            - data(required): get data from api and fix changes data after filter and pagination
+            - handleDataChange(required): handle change data with api call and pagination and filter
+            - isLoading(required): handle loading table
+            - buttons(optional): show any ReactNode in layout table
+            - filter(optional): show drawer filter
+            - pageHeader(optional): show title and breadcrumb page
+            - exportFile(optional): title of columns and name Excel file
 
     - for list with require input data (inquiry-list)
 
           1. add form for get my data response with api call
 
-          2. useTable hook: generate all functionalities in table, like: pagination && handle table layout && actions
-             /* for this handling must get : data && pageSize && totalElement && initialFilterValues */
+          2. actionFilter function: api call per filter
 
-          3. actionFilter function: api call per filter
-
-          4. Table component with following props:
-          - columns(required): get columns
-          - tableData(required): get data from api and fix changes data after filter and pagination
-          - paginatorOptions: pagination table
-          - filterElement: show filter drawer
-          - hasExportFile: export file
-          - exportFileName: get name Excel file
-          - exportColumns: get title of Excel columns
-          - onExpand: show any ReactNode in expand table row
-          - requiredSeachTable: for this type of table
+          3. Table component with following props:
+            - columns(required): get columns
+            - data(required): get data from api and fix changes data after filter and pagination
+            - handleDataChange(required): handle change data with api call and pagination and filter
+            - isLoading(required): handle loading table
+            - filter(optional): show drawer filter
+            - buttons(optional): show any ReactNode in layout table
+            - exportFile(optional): title of columns and name Excel file
+            - pageHeader(optional): show title and breadcrumb page
+            - requiredSeachTable(optional): for this type of table
 
 4.  `filter.tsx`: create object for generate content filter in drawer
 
-## create
+## add
 
-#### (app/(hydrogen)/feature/create)
+#### (app/(hydrogen)/feature/add)
 
 1.  `header.tsx`: generate title and breadcrumb page
 
@@ -70,9 +62,9 @@ directory structure: mkdir `src/app/(sama)/feature/list/*`
 
 3. `header.tsx`: generate title and breadcrumb page
 
-## update
+## edit
 
-#### (app/(hydrogen)/feature/update)
+#### (app/(hydrogen)/feature/edit)
 
 1. `header.tsx`: generate title and breadcrumb page
 

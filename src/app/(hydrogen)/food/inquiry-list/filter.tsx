@@ -1,7 +1,7 @@
 import { type GeneratedFilterType } from "@/app/shared/table/content-filter";
 
 /* initioalization  */
-export const filterState = {
+export const initialFilterValues = {
   name: '',
   // description: '',
 };

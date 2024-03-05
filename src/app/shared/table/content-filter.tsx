@@ -37,10 +37,7 @@ export default function FilterElement({
 }: FilterElementProps) {
   const [localFilter, setLocalFilter] = useState<{ key: string; value: string }[]>(
     filters ? Object.keys(filters).map((key) => ({ key, value: filters[key] })) : []
-  );
-
-  console.log(filters);
-  
+  );  
 
   useEffect(() => {
     setLocalFilter(Object.keys(filters).map((key) => ({ key, value: filters[key] })));

@@ -8,6 +8,8 @@ import { ControlledTable } from './controlled-table';
 import TableLayout from './table-layout';
 import cn from '@/utils/class-names';
 import Card from '@/components/cards/card';
+import { useTable } from '@/hooks/use-table';
+import FilterElement, { GeneratedFilterType } from './content-filter';
 
 function CustomExpandIcon(props: any) {
   return (
@@ -25,59 +27,19 @@ function CustomExpandIcon(props: any) {
   );
 }
 
-type ColumnTypes = {
-  data?: any[];
-  sortConfig?: any;
-  checkedItems?: string[];
-  handleSelectAll?: any;
-  onDeleteItem: (id: string) => void;
-  onHeaderCellClick: (value: string) => void;
-  onChecked?: (id: string) => void;
-};
-
-type FilterElementTypes = {
-  isFiltered?: boolean;
-  filters: { [key: string]: any };
-  updateFilter: (columnId: string, filterValue: string | any[]) => void;
-  handleReset: () => void;
-  dataFilter: {
-    label: string;
-    type: 'text' | 'number' | 'email' | 'tel' | 'search' | 'datePicker' | 'select';
-    key: string;
-    selectOption?: any[]
-  };
-  actionFilter?: Function;
-  setIsOpenDrawer?: any;
-  isLoading?: boolean;
-};
-
 type TableProps = {
-  tableData: any[];
-  columns: {
-    title: React.JSX.Element;
-    dataIndex: string;
-    name: string;
-    render: (_: string, row: any) => React.JSX.Element;
-  }[];
+  requiredSeachTable?: boolean;
   pageHeader?: {
     title?: string;
     breadcrumb: { name: string; href?: string }[];
   };
-  // filterElement?: ({ isFiltered , handleReset, filters, updateFilter, dataFilter, actionFilter, isLoading }: FilterElementTypes) => any;
-  filterElement?: any;
+  data: any;
+  columns: any;
+  handleDataChange: (parametr: any) => void;
   buttons?: any;
-  hasExportFile?: boolean;
-  onExpand?: any;
-  expandedKeys?: any;
-  isLoading?: boolean;
-  handleSearch?: any;
-  searchTerm?: any;
-  isFiltered?: boolean;
-  updateFilter?: Function;
-  handleReset?: Function;
+  isLoading: boolean;
   title?: React.ReactNode;
   className?: string;
-  getColumns?: ({ data, sortConfig, checkedItems, handleSelectAll, onDeleteItem, onHeaderCellClick, onChecked }: ColumnTypes) => React.ReactElement;
   expandedRow?: (rowData: any) => React.JSX.Element;
   variant?: 'modern' | 'minimal' | 'classic' | 'elegant' | 'retro';
   noGutter?: boolean;
@@ -86,41 +48,78 @@ type TableProps = {
     y?: number;
   };
   sticky?: boolean;
-  paginatorOptions?: any;
-  exportColumns?: any;
-  exportFileName?: any;
-  requiredSeachTable?: boolean;
-  countFilter?: any;
+  exportFile?: {
+    name: any,
+    columns: string
+  };
+  filter?: {
+    generatedFilter: GeneratedFilterType,
+    initialFilterValues: any
+  };
 };
 
 export default function Table({
   pageHeader,
   buttons,
-  hasExportFile,
   variant = 'modern',
   noGutter,
   sticky,
   scroll = { x: 1000 },
   expandedRow: ExpandedRow,
-  onExpand,
-  expandedKeys,
-  filterElement : FilterElement,
-  paginatorOptions,
+  data,
   isLoading,
-  columns,
-  handleSearch,
-  searchTerm,
-  isFiltered,
-  updateFilter,
-  handleReset,
-  tableData,
-  exportColumns,
-  exportFileName,
+  handleDataChange,
+  exportFile,
   requiredSeachTable,
-  countFilter,
+  filter,
+  columns,
 }: TableProps) {
-  const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(columns);
+  const [rowEdit, setRowEdit]: any = useState({});
+  const [pageNumer, setPageNumer] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
 
+  /* use hooks for table*/
+  const { isFiltered, filters, updateFilter, handleReset, tableData, currentPage, handleDelete, handlePaginate, setData, searchTerm } = useTable(
+    data?.foodCategoryObjectList,
+    pageSize,
+    data?.totalElements,
+    filter?.initialFilterValues
+  );
+
+  useEffect(() => {
+    setPageNumer(currentPage - 1);
+  }, [currentPage]);
+
+  useEffect(() => {
+    if (!isLoading) {
+      setData(data?.foodCategoryObjectList);
+    }
+    setPageNumer(currentPage - 1);
+  }, [isLoading]);
+
+  useEffect(() => {
+    handleDataChange({ page: pageNumer, size: pageSize });
+  }, [pageNumer, pageSize]);
+
+  const onDeleteItem = (id: string) => {
+    handleDelete(id);
+  };
+
+  /* Handel filter with my dataFilter */
+  const actionFilter = (filters: any) => {
+    handleDataChange(filters);
+  };
+
+  /* use options columns */
+  const optionColumn = React.useMemo(
+    () =>
+      columns({
+        onDeleteItem,
+      }),
+    [onDeleteItem]
+  );
+
+  const { visibleColumns, checkedColumns, setCheckedColumns } = useColumn(optionColumn);
 
   return (
     <>
@@ -136,8 +135,10 @@ export default function Table({
                   ? {
                       expandIcon: CustomExpandIcon,
                       expandedRowRender: (record: any) => <ExpandedRow record={record} />,
-                      expandedRowKeys: expandedKeys,
-                      onExpand: onExpand,
+                      expandedRowKeys: [rowEdit],
+                      onExpand: (expanded: boolean, row: any) => {
+                        expanded ? setRowEdit(row.id) : setRowEdit({});
+                      },
                     }
                   : {}
               }
@@ -145,15 +146,15 @@ export default function Table({
               sticky={sticky}
               variant={variant}
               className='mt-4'
-              paginatorOptions={paginatorOptions ? paginatorOptions : {}}
+              paginatorOptions={{
+                pageSize,
+                setPageSize,
+                total: data?.totalElements,
+                current: currentPage,
+                onChange: (page: number) => handlePaginate(page),
+              }}
               filterOptions={{
                 searchTerm,
-                onSearchClear: () => {
-                  handleSearch('');
-                },
-                onSearchChange: (event: any) => {
-                  handleSearch(event.target.value);
-                },
                 hasSearched: isFiltered,
                 hideIndex: 1,
                 columns,
@@ -162,14 +163,23 @@ export default function Table({
                 enableDrawerFilter: true,
                 requiredSeachTable: requiredSeachTable,
                 data: { tableData },
-                fileName: exportFileName,
-                header: exportColumns,
+                fileName: exportFile?.name,
+                header: exportFile?.columns,
               }}
               filterElement={
-                FilterElement && <FilterElement
-                 countFilter={Object.keys(countFilter).filter((key) => countFilter[key] !== '').length}
+                filter && (
+                  <FilterElement
+                    isLoading={isLoading}
+                    actionFilter={actionFilter}
+                    generatedFilter={filter.generatedFilter}
+                    updateFilter={updateFilter}
+                    isFiltered={isFiltered}
+                    handleReset={handleReset}
+                    filters={filters}
                   />
+                )
               }
+              countFilter={Object.keys(filters).filter((key) => filters[key] !== '').length}
             />
           </div>
         </Card>
@@ -178,10 +188,10 @@ export default function Table({
           title={pageHeader?.title}
           breadcrumb={pageHeader?.breadcrumb}
           data={tableData}
-          fileName={exportFileName}
-          header={exportColumns}
+          fileName={exportFile?.name}
+          header={exportFile?.columns}
           buttons={buttons}
-          hasExportFile={hasExportFile}
+          hasExportFile={!!exportFile }
         >
           <Card className='rounded-b-3xl'>
             <div className={cn('table-wrapper flex-grow p-8', noGutter && '-mx-5 lg:-mx-7')}>
@@ -194,8 +204,10 @@ export default function Table({
                     ? {
                         expandIcon: CustomExpandIcon,
                         expandedRowRender: (record: any) => <ExpandedRow record={record} />,
-                        expandedRowKeys: expandedKeys,
-                        onExpand: onExpand,
+                        expandedRowKeys: [rowEdit],
+                        onExpand: (expanded: boolean, row: any) => {
+                          expanded ? setRowEdit(row.id) : setRowEdit({});
+                        },
                       }
                     : {}
                 }
@@ -203,15 +215,15 @@ export default function Table({
                 sticky={sticky}
                 variant={variant}
                 className='mt-4'
-                paginatorOptions={paginatorOptions ? paginatorOptions : {}}
+                paginatorOptions={{
+                  pageSize,
+                  setPageSize,
+                  total: data?.totalElements,
+                  current: currentPage,
+                  onChange: (page: number) => handlePaginate(page),
+                }}
                 filterOptions={{
                   searchTerm,
-                  onSearchClear: () => {
-                    handleSearch('');
-                  },
-                  onSearchChange: (event: any) => {
-                    handleSearch(event.target.value);
-                  },
                   hasSearched: isFiltered,
                   hideIndex: 1,
                   columns,
@@ -221,10 +233,19 @@ export default function Table({
                   requiredSeachTable: requiredSeachTable,
                 }}
                 filterElement={
-                  FilterElement && <FilterElement 
-                  countFilter={Object.keys(countFilter).filter((key) => countFilter[key] !== '').length }
-                   />
+                  filter && (
+                    <FilterElement
+                      isLoading={isLoading}
+                      actionFilter={actionFilter}
+                      generatedFilter={filter.generatedFilter}
+                      updateFilter={updateFilter}
+                      isFiltered={isFiltered}
+                      handleReset={handleReset}
+                      filters={filters}
+                    />
+                  )
                 }
+                countFilter={Object.keys(filters).filter((key) => filters[key] !== '').length}
               />
             </div>
           </Card>

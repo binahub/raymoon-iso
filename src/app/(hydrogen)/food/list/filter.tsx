@@ -1,6 +1,6 @@
 import { type GeneratedFilterType } from "@/app/shared/table/content-filter";
 /* initioalization  */
-export const initialFilterValues = {
+export const initialFilterValues : any = {
   name: '',
   // description: '',
 };
@@ -12,24 +12,24 @@ export const generatedFilter: GeneratedFilterType = [
     type: 'text',
     key: 'name',
   },
-  {
-    label: 'توضیحات',
-    type: 'text',
-    key: 'description',
-  },
-  {
-    label: ' وضعیت پرداخت',
-    type: 'select',
-    key: 'status1',
-    selectOption: [
-      {
-        name: 'موفق',
-        value: '1',
-      },
-      {
-        name: 'ناموفق',
-        value: '2',
-      },
-    ],
-  },
+  // {
+  //   label: 'توضیحات',
+  //   type: 'text',
+  //   key: 'description',
+  // },
+  // {
+  //   label: ' وضعیت پرداخت',
+  //   type: 'select',
+  //   key: 'status1',
+  //   selectOption: [
+  //     {
+  //       name: 'موفق',
+  //       value: '1',
+  //     },
+  //     {
+  //       name: 'ناموفق',
+  //       value: '2',
+  //     },
+  //   ],
+  // },
 ];

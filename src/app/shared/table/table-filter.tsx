@@ -117,13 +117,12 @@ export default function TableFilter({
       <div className='ms-4 flex flex-shrink-0 items-center'>
         {children ? (
           <>
-            <div className='absolute mb-6 '>
+            <div className='absolute mb-5 z-50'>
               {countFilter !== undefined && countFilter > 0 && (
                 <Badge
                   variant='flat'
-                  size='xl'
                   className={cn(
-                    'rizzui-badge inline-flex text-sm items-center justify-center leading-none color w-5 h-6 bg-orange text-white rounded-full ring-2 ring-gray-0 right-2.5  -translate-y-1/3 translate-x-1/2'
+                    'rizzui-badge h-5 text-xs font-extralight inline-flex items-center justify-center leading-none color w-5  bg-orange text-white rounded-full ring-2 ring-gray-0 right-2.5  -translate-y-1/3 translate-x-1/2'
                   )}
                 >
                   {countFilter}

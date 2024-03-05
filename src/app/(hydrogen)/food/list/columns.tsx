@@ -2,13 +2,13 @@ import Link from 'next/link';
 import { PencilIcon, HeaderCell, ActionIcon, Tooltip, DeletePopover, EyeIcon, AvatarCard } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import { routes } from '@/config/routes';
-import { ModalView } from '../update/modal';
+import { Modal } from '../edit/modal';
 
 type Columns = {
   onDeleteItem: (id: string) => void;
 };
 
-export const getColumns = ({
+export const Columns = ({
   onDeleteItem
 }: Columns) => [
   {
@@ -61,7 +61,7 @@ function RenderAction({
             className='hover:text-gray-700 cursor-pointer'
             onClick={() =>
               openModal({
-                view: <ModalView rowData={row} />,
+                view: <Modal rowData={row} />,
                 customSize: '720px',
               })
             }

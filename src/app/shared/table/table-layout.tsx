@@ -5,7 +5,7 @@ import ExportButton from '@/app/shared/export-button';
 
 type TableLayoutProps = {
   data: unknown[] | any;
-  header: string;
+  header?: string;
   fileName?: string;
   buttons?: string[];
   hasExportFile?: boolean;
@@ -20,6 +20,7 @@ export default function TableLayout({
   hasExportFile,
   ...props
 }: React.PropsWithChildren<TableLayoutProps>) {
+  
   return (
     <>
       <PageHeader {...props}>
@@ -29,7 +30,7 @@ export default function TableLayout({
             <ExportButton
               data={data}
               fileName={fileName ? fileName : 'export-table'}
-              header={header}
+              header={header ? header : ''}
             />
           )}
         </div>

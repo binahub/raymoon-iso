@@ -11,7 +11,7 @@ export function useTable<T extends AnyObject>(
   totalData: number,
   initialFilterState?: Partial<Record<string, any>>
 ) {
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState(initialData);  
   const [total, stTotal] = useState(totalData);
 
   /*

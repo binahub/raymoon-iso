@@ -120,7 +120,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
         subMenuItems: [
           {
             name: 'افزودن',
-            href: routes.accessDenied,
+            href: routes.shaparakError,
           },
           {
             name: 'گزارش',

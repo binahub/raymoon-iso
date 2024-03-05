@@ -8,10 +8,10 @@ export const routes = {
     // dashboard: '/neshan',
     list: '/feature-sample/list',
     inquiry: '/feature-sample/inquiry-list',
-    create:'/feature-sample/create',
+    create: '/feature-sample/create',
     update: (id: string) => `/feature-sample/update/${id}`,
     detail: (id: string) => `/feature-sample/detail/${id}`,
-   },
+  },
   executive: {
     dashboard: '/executive',
   },
@@ -24,4 +24,5 @@ export const routes = {
   sweetAlertSample: '/sweet-alert-sample',
   datepickerSample: '/datepicker-sample',
   tabSample: '/tab-sample',
+  shaparakError: '/shaparak-error',
 };

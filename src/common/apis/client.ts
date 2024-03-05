@@ -1,5 +1,5 @@
-import axios, { AxiosInstance, AxiosResponse } from "axios";
-import { getSession } from "next-auth/react";
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import { getSession } from 'next-auth/react';
 
 class Client {
   private axiosInstance: AxiosInstance;
@@ -7,10 +7,11 @@ class Client {
   constructor(baseURL?: string | null, token?: string) {
     this.axiosInstance = axios.create({
       // baseURL: baseURL ?? process.env.API_BASE_URL,
-      baseURL: 'http://78.157.51.13/food/api/v1',
+      // baseURL: 'http://78.157.51.13/food/api/v1',
+      baseURL: 'http://mobile-panel-service-payment-dev.apps.ocpdev.spsplan.local/api/v1',
       timeout: 10000, // 10 seconds timeout
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
 
@@ -20,14 +21,13 @@ class Client {
         // You can modify the request config here (e.g., add headers, authentication tokens, etc.)
         // console.log({ config });
         let headers: any = {};
-        const session : any = await getSession()
+        const session: any = await getSession();
 
-       
         if (typeof window !== undefined) {
-          const access =  session?.apiToken;
+          const access = session?.apiToken;
 
           if (access) {
-            headers["Authorization"] = `Bearer ${access}`;
+            headers['Authorization'] = `Bearer ${access}`;
           }
         }
 
@@ -59,11 +59,7 @@ class Client {
     );
   }
 
-  public async get<T>(
-    url: string,
-    params: object = {},
-    headers: object = {}
-  ): Promise<T> {
+  public async get<T>(url: string, params: object = {}, headers: object = {}): Promise<T> {
     try {
       const response = await this.axiosInstance.get<T>(url, {
         params,
@@ -75,11 +71,7 @@ class Client {
     }
   }
 
-  public async post<T>(
-    url: string,
-    data: object = {},
-    headers: object = {}
-  ): Promise<T> {
+  public async post<T>(url: string, data: object = {}, headers: object = {}): Promise<T> {
     try {
       const response = await this.axiosInstance.post<T>(url, data, { headers });
       return response.data;
@@ -88,11 +80,7 @@ class Client {
     }
   }
 
-  public async put<T>(
-    url: string,
-    data: object = {},
-    headers: object = {}
-  ): Promise<T> {
+  public async put<T>(url: string, data: object = {}, headers: object = {}): Promise<T> {
     try {
       const response = await this.axiosInstance.put<T>(url, data, { headers });
       return response.data;
@@ -101,11 +89,7 @@ class Client {
     }
   }
 
-  public async patch<T>(
-    url: string,
-    data: object = {},
-    headers: object = {}
-  ): Promise<T> {
+  public async patch<T>(url: string, data: object = {}, headers: object = {}): Promise<T> {
     try {
       const response = await this.axiosInstance.patch<T>(url, data, {
         headers,

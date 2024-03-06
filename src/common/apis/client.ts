@@ -6,9 +6,9 @@ class Client {
 
   constructor(baseURL?: string | null, token?: string) {
     this.axiosInstance = axios.create({
-      // baseURL: baseURL ?? process.env.API_BASE_URL,
+      baseURL: baseURL ?? process.env.NEXT_PUBLIC_BASE_URL,
       // baseURL: 'http://78.157.51.13/food/api/v1',
-      baseURL: 'http://mobile-panel-service-payment-dev.apps.ocpdev.spsplan.local/api/v1',
+      // baseURL: 'http://mobile-panel-service-payment-dev.apps.ocpdev.spsplan.local/api/v1',
       timeout: 10000, // 10 seconds timeout
       headers: {
         'Content-Type': 'application/json',

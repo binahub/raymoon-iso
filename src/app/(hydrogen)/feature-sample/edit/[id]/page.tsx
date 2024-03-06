@@ -24,8 +24,6 @@ export default function EditPage({ params }: Props) {
   };
 
   /* api call */
-  // const [list, { isSuccess, data: serverData }] =
-  //   useCategoryListMutation();
     const { mutate, isPending:isLoading, data:serverData, isSuccess } = useCreateSample();
 
   useEffect(() => {

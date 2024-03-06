@@ -9,7 +9,7 @@ import { Columns } from './columns';
 import { generatedFilter, initialFilterValues } from './filter';
 import { useCreateSample } from '@/common/apis/test-api/sample.mutation';
 
-export default function FoodPage() {
+export default function ListPage() {
   const [isInitialLoad, setIsInitialLoad] = useState(false);
 
   /* api call body */

@@ -2,7 +2,6 @@ import { type GeneratedFilterType } from 'shafa-bo';
 /* initioalization  */
 export const initialFilterValues : any = {
   name: '',
-  // description: '',
 };
 
 /* filterable form input */

@@ -68,7 +68,7 @@ function RenderAction({
           </ActionIcon>
         </Tooltip>
         <Tooltip size='sm' content={() => ' ویرایش جزئیات در صفحه جدید'} placement='top' color='invert'>
-          <Link href={routes.featureSample.update(row.id)}>
+          <Link href={routes.featureSample.edit(row.id)}>
             <ActionIcon tag='span' size='sm' variant='outline' aria-label={'ویرایش'} className='hover:text-gray-700'>
               <PencilIcon className='h-4 w-4' />
             </ActionIcon>

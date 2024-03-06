@@ -1,86 +1,42 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { useTable } from '@/common/hooks/use-table';
-import { FilterElement, PageHeader, Button, Input, Form, Card, Table } from 'shafa-bo';
+import { useState } from 'react';
+import {  PageHeader, Button, Input, Form, Card, Table } from 'shafa-bo';
 import { SubmitHandler } from 'react-hook-form';
 import { foodInquirySchema } from '@/common/utils/validators/food.schema';
 import { headerData } from './header';
 import { Detail } from '../detail/collaps';
 import { Columns } from './columns';
-import { generatedFilter, filterState } from './filter';
+import { generatedFilter, initialFilterValues } from './filter';
 import { useCreateSample } from '@/common/apis/test-api/sample.mutation';
 
 export default function FoodPage() {
-  const [rowEdit, setRowEdit] = useState({});
-  const [pageNumer, setPageNumer] = useState(0);
-  const [pageSize, setPageSize] = useState(5);
   const [isInitialLoad, setIsInitialLoad] = useState(false);
 
   /* api call body */
   const parameterMap = {
     parameterMap: {
-      page: pageNumer,
-      size: pageSize,
+      page: 0,
+      size: 5,
       orderBy: 'id',
       sort: 'asc',
     },
   };
 
   /* api call */
-  const { mutate, isPending:isLoading, data:dataService } = useCreateSample();
-
-  /* use hooks for table*/
-  const { isFiltered, filters, updateFilter, handleReset, tableData, currentPage, handleDelete, handlePaginate, setData } = useTable(
-    dataService?.foodCategoryObjectList,
-    pageSize,
-    dataService?.totalElements,
-    filterState
-  );
-
-  useEffect(() => {
-    setPageNumer(currentPage - 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage]);
-
-  useEffect(() => {
-    if (!isLoading) {
-      setData(dataService?.foodCategoryObjectList);
-    }
-    setPageNumer(currentPage - 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading]);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const onDeleteItem = (id: string) => {
-    handleDelete(id);
-  };
-
-  /* use options columns */
-  const columns = React.useMemo(
-    () =>
-    Columns({
-        onDeleteItem,
-      }),
-    [onDeleteItem]
-  );
-
-  /* Handel filter with my dataFilter */
-  const actionFilter = (filters: any) => {
-    mutate({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
-    setIsInitialLoad(true);
-  };
+  const { mutate, isPending:isLoading, data } = useCreateSample();
 
   const onSubmit: SubmitHandler<any> = (data) => {
     mutate({ parameterMap: { ...parameterMap.parameterMap, ...data } });
     setIsInitialLoad(true);
   };
 
-  useEffect(() => {
+  /* table setting */
+  const handleDataChange = (parametr: any) => {
     if (isInitialLoad) {
-      mutate(parameterMap);
+      mutate({ parameterMap: { ...parameterMap.parameterMap, ...parametr } });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageNumer, pageSize]);
+    setIsInitialLoad(true);
+  };
 
   /* create title excel columns */
   const exportColumns = 'Order ID,Name';
@@ -111,7 +67,7 @@ export default function FoodPage() {
                 />
                 <div className='flex justify-end items-end'>
                   <Button type='submit' className='w-32' isLoading={isLoading}>
-                    استعلام
+                    جستجو
                   </Button>
                 </div>
               </>
@@ -120,41 +76,22 @@ export default function FoodPage() {
         </Form>
       </Card>
       <Table
-        /* get data from api && changes data after pagination and filter */
-        tableData={tableData}
+        pageHeader={headerData}
         /* get columns table */
-        columns={columns}
+        columns={Columns}
+        /* get data from api call */
+        data={data}
+        /* handle data table with pagination and filter */
+        handleDataChange={handleDataChange}
+        /* handle expanded table and show detail or any ReactNode  */
+        expandedRow={(rowData: any) => Detail(rowData)}
+        /* generate model for form filters */
+        filter={{ generatedFilter, initialFilterValues }}
+        /* export file */
+        exportFile={{ name: 'export-food-table', columns: exportColumns }}
+        isLoading={isLoading}
         /* choose between two types of table */
         requiredSeachTable
-        /* show detail or ReactNode */
-        expandedRow={(rowData: any) => Detail(rowData)}
-        expandedKeys={[rowEdit]}
-        onExpand={(expanded: boolean, row: any) => {
-          expanded ? setRowEdit(row.id) : setRowEdit({});
-        }}
-        /* show table pagination and handle functionality  */
-        paginatorOptions={{
-          pageSize,
-          setPageSize,
-          total: dataService?.totalElements,
-          current: currentPage,
-          onChange: (page: number) => handlePaginate(page),
-        }}
-        /* show filter drawer && handle filter */
-        filterElement={() =>
-          FilterElement({
-            isFiltered,
-            handleReset,
-            filters,
-            updateFilter,
-            generatedFilter,
-            actionFilter,
-          })
-        }
-        countFilter={filters}
-        isLoading={isLoading}
-        /* title export file */
-        exportColumns={exportColumns}
       />
     </>
   );

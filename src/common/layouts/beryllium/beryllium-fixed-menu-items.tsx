@@ -66,7 +66,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
         subMenuItems: [
           {
             name: 'افزودن',
-            href: routes.featureSample.create,
+            href: routes.featureSample.add,
           },
           {
             name: 'لیست',

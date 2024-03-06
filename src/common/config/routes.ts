@@ -8,8 +8,8 @@ export const routes = {
     // dashboard: '/neshan',
     list: '/feature-sample/list',
     inquiry: '/feature-sample/inquiry-list',
-    create:'/feature-sample/create',
-    update: (id: string) => `/feature-sample/update/${id}`,
+    add:'/feature-sample/add',
+    edit: (id: string) => `/feature-sample/edit/${id}`,
     detail: (id: string) => `/feature-sample/detail/${id}`,
    },
   executive: {

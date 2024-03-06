@@ -1,7 +1,7 @@
 import { type GeneratedFilterType } from 'shafa-bo';
 
 /* initioalization  */
-export const filterState = {
+export const initialFilterValues = {
   name: '',
   // description: '',
 };

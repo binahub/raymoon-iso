@@ -12,6 +12,7 @@ type Props = {
     description: string;
   };
 };
+
 export function Edit(rowData: Props) {
   const { closeModal } = useModal();
 

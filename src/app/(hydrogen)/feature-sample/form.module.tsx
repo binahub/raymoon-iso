@@ -1,11 +1,11 @@
 'use client';
 import { SubmitHandler, Controller } from 'react-hook-form';
-import { regions } from '../neshan/data';
+import { regions } from './data';
 import { Datepicker, Input, Button, Form, Select, UploadZone, Password } from 'shafa-bo';
 import {
   GeneralFormTypes,
-  generalFormSchema,
-  defaultValues,
+  // generalFormSchema,
+  // defaultValues,
 } from '@/common/utils/validators/general.schema';
 
 type Props = {
@@ -18,7 +18,7 @@ type Props = {
 export default function FormData({ handlerOnSubmit, data, isEdit, numberCol }: Props) {
   const onSubmit: SubmitHandler<GeneralFormTypes> = (value) => {
     handlerOnSubmit(value);
-  };
+  };  
 
   return (
     <>

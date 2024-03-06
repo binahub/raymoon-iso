@@ -8,7 +8,7 @@ import ImportButton from '@/app/shared/import-button';
 import PrintButton from '@/app/shared/print-button';
 import { useCreateSample } from '@/common/apis/test-api/sample.mutation';
 
-export default function FoodPage() {
+export default function ListPage() {
   /* api call body */
   const parameterMap = {
     parameterMap: {
@@ -29,7 +29,7 @@ export default function FoodPage() {
 
   /* generate any ReactNode for show in layout table */
   const GenerateElement = () => {
-    return <div><ImportButton title={'آپلود فایل'} /><PrintButton/></div>;
+    return <ImportButton title={'آپلود فایل'} />;
   };
 
   /* create title excel columns */

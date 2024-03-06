@@ -1,18 +1,13 @@
 'use client';
-import WidgetCard from '@/components/cards/widget-card';
-import { Button } from '@/components/ui/button';
+import { WidgetCard, Button, Form, Input, Text } from 'shafa-bo';
 import ImportButton from '@/app/shared/import-button';
-import { Form } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
 import { z } from 'zod';
 import { SubmitHandler } from 'react-hook-form';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-import { Text } from '@/components/ui/text';
 
 function UploadButton() {
- 
-  const [file, setFile] = useState([]); 
+  const [file, setFile] = useState([]);
 
   // form zod validation schema
   const formSchema = z.object({

@@ -1,7 +1,5 @@
 'use client';
-import Card from '@/components/cards/card';
-import { Tab } from '@/components/ui/tab';
-import ExportButton from '@/app/shared/export-button';
+import {ExportButton, Tab, Card } from 'shafa-bo';
 
 function page() {
   const WalletContent = () => <div className='p-4 mt-8'>محتوای کیف پول</div>;

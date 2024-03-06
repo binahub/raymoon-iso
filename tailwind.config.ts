@@ -5,6 +5,7 @@ export default {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/rizzui/dist/*.{js,ts,jsx,tsx}', // must use this line to compile and generate our RizzUI components style
+    './node_modules/shafa-bo/dist/*.{js,ts,jsx,tsx}'// @TODO: must use this line to compile and generate our Sepehr's Package components style
   ],
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {

@@ -6,18 +6,18 @@ import AuthProvider from '@/app/api/auth/[...nextauth]/auth-provider';
 import GlobalDrawer from '@/app/shared/drawer-views/container';
 import GlobalModal from '@/app/shared/modal-views/container';
 import { ThemeProvider } from '@/app/shared/theme-provider';
-import { siteConfig } from '@/config/site.config';
+import { siteConfig } from '@/common/config/site.config';
 import { inter, lexendDeca } from '@/app/fonts';
-import cn from '@/utils/class-names';
+import cn from '@/common/utils/class-names';
 import '../../public/fonts/vazirFont.css';
 import '../../public/fonts/iranYekanFont.css';
 
-const NextProgress = dynamic(() => import('@/components/next-progress'), {
+const NextProgress = dynamic(() => import('@/common/components/next-progress'), {
   ssr: false,
 });
 // styles
 import '@/app/globals.css';
-import ReduxWrapper from '@/provider/redux/providers';
+import Providers from '@/common/apis/provider';
 
 export const metadata = {
   title: siteConfig.title,
@@ -38,7 +38,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         suppressHydrationWarning
         className={cn('font-iranYekan')}
       >
-        <ReduxWrapper>
+        <Providers>
           <AuthProvider session={session}>
             <ThemeProvider>
               <NextProgress />
@@ -48,7 +48,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <GlobalModal />
             </ThemeProvider>
           </AuthProvider>
-        </ReduxWrapper>
+        </Providers>
+
       </body>
     </html>
   );

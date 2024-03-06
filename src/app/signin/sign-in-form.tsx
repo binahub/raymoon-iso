@@ -5,16 +5,10 @@ import React, { useLayoutEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { SubmitHandler } from 'react-hook-form';
 import { PiArrowLeftBold, PiArrowRightBold } from 'react-icons/pi';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Password } from '@/components/ui/password';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Form } from '@/components/ui/form';
-import { Text } from '@/components/ui/text';
-import { routes } from '@/config/routes';
-import { loginSchema, LoginSchema } from '@/utils/validators/login.schema';
+import { Password, Button, Input, Form } from 'shafa-bo';
+import { loginSchema, LoginSchema } from '@/common/utils/validators/login.schema';
 import { useRouter } from 'next/navigation';
-import Notification from '@/utils/notification';
+import Notification from '@/common/utils/notification';
 
 const initialValues: LoginSchema = {
   username: '',

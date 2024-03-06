@@ -1,4 +1,4 @@
-import cn from '@/utils/class-names';
+import cn from '@/common/utils/class-names';
 
 interface FormGroupProps {
   title: React.ReactNode;

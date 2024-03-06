@@ -2,24 +2,9 @@
 
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
-import cn from '@/utils/class-names';
-import {
-  PiArrowLineDownBold,
-  PiFile,
-  PiFileCsv,
-  PiFileDoc,
-  PiFilePdf,
-  PiFileXls,
-  PiFileZip,
-  PiTrashBold,
-  PiXBold,
-} from 'react-icons/pi';
-import { Button } from '@/components/ui/button';
-import { Title, Text } from '@/components/ui/text';
-import { ActionIcon } from '@/components/ui/action-icon';
-import Upload from '@/components/ui/upload';
+import { PiArrowLineDownBold, PiFile, PiFileCsv, PiFileDoc, PiFilePdf, PiFileXls, PiFileZip, PiTrashBold, PiXBold } from 'react-icons/pi';
+import { cn, SimpleBar, Upload, ActionIcon, Button, Title, Text } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import SimpleBar from '@/components/ui/simplebar';
 import { toast } from 'react-hot-toast';
 
 type AcceptedFiles = 'img' | 'pdf' | 'csv' | 'imgAndPdf' | 'all';
@@ -47,23 +32,12 @@ export default function FileUpload({
         <Title as='h3' className='text-lg'>
           {label}
         </Title>
-        <ActionIcon
-          size='sm'
-          variant='text'
-          onClick={() => closeModal()}
-          className='p-0 text-gray-500 hover:!text-gray-900'
-        >
+        <ActionIcon size='sm' variant='text' onClick={() => closeModal()} className='p-0 text-gray-500 hover:!text-gray-900'>
           <PiXBold className='h-[18px] w-[18px]' />
         </ActionIcon>
       </div>
 
-      <FileInput
-        accept={accept}
-        multiple={multiple}
-        label={fieldLabel}
-        btnLabel={btnLabel}
-        setFileName={setFileName}
-      />
+      <FileInput accept={accept} multiple={multiple} label={fieldLabel} btnLabel={btnLabel} setFileName={setFileName} />
     </div>
   );
 }
@@ -95,7 +69,6 @@ export const FileInput = ({
 }) => {
   const { closeModal } = useModal();
   const [files, setFiles] = useState<Array<File>>([]);
-
 
   const imageRef = useRef<HTMLInputElement>(null);
 
@@ -145,10 +118,7 @@ export const FileInput = ({
         <SimpleBar className='max-h-[280px]'>
           <div className='grid grid-cols-1 gap-4'>
             {files?.map((file: File, index: number) => (
-              <div
-                className='flex min-h-[58px] w-full items-center rounded-xl border border-gray-200 px-3 dark:border-gray-300'
-                key={file.name}
-              >
+              <div className='flex min-h-[58px] w-full items-center rounded-xl border border-gray-200 px-3 dark:border-gray-300' key={file.name}>
                 <div className='relative flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-gray-50 object-cover px-2 py-1.5 dark:bg-transparent'>
                   {file.type.includes('image') ? (
                     <Image
@@ -179,18 +149,17 @@ export const FileInput = ({
         </SimpleBar>
       )}
       <div className='mt-4 flex justify-end gap-3'>
-        <Button
-          variant='outline'
-          className={cn(!files.length && 'hidden', 'w-full')}
-          onClick={() => setFiles([])}
-        >
+        <Button variant='outline' className={cn(!files.length && 'hidden', 'w-full')} onClick={() => setFiles([])}>
           پاک کردن
         </Button>
         <Button
           className='w-full bg-gradient-to-r from-blue-800  to-blue-darkBlue'
           onClick={
             // () => handleFileUploa ,
-            () =>{ setFileName(files),  closeModal()}}
+            () => {
+              setFileName(files), closeModal();
+            }
+          }
         >
           <PiArrowLineDownBold className='me-1.5 h-[17px] w-[17px]' />
           {btnLabel}

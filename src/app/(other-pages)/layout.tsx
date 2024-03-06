@@ -2,12 +2,10 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import SocialItems from '@/components/ui/social-shares';
+import { Button, cn } from 'shafa-bo';
 import { usePathname, useRouter } from 'next/navigation';
-import cn from '@/utils/class-names';
-import { siteConfig } from '@/config/site.config';
-import { routes } from '@/config/routes';
+import { siteConfig } from '@/common/config/site.config';
+import { routes } from '@/common/config/routes';
 import lighLogo from '@public/light-sadad-logo.svg';
 import darkLogo from '@public/dark-sadad-logo.svg';
 import { useTheme } from 'next-themes';

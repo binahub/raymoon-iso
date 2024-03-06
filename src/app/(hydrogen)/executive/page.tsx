@@ -1,6 +1,5 @@
-import { metaObject } from '@/config/site.config';
+import { metaObject } from '@/common/config/site.config';
 // import ExecutiveDashboard from '@/app/shared/executive';
-import FileDashboard from '@/app/shared/file/dashboard';
 
 export const metadata = {
   ...metaObject('Executive Dashboard'),
@@ -9,7 +8,7 @@ export const metadata = {
 export default function ExecutiveDashboardPage() {
   return (
     <>
-      <FileDashboard />
+     خوش آمدید.
     </>
   );
 }

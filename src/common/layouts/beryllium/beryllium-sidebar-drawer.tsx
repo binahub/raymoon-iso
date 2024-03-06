@@ -64,7 +64,10 @@ export default function Sidebar({ className }: { className?: string }) {
                                   <Icon />
                                 </span>
                               )}
-                              {item.name}
+
+                              {
+                                item.name
+                              }
                             </span>
 
                             <PiCaretDownBold
@@ -99,7 +102,8 @@ export default function Sidebar({ className }: { className?: string }) {
                                ${isChildActive ? 'text-primary' : 'text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900'}`
                               )}
                             >
-                              <div className='flex items-center truncate'>
+                              {
+!dropdownItem?.subMenuItems && <div className='flex items-center truncate'>
                                 <span
                                   className={cn(
                                     'me-[18px] ms-1 inline-flex h-1 w-1 rounded-full bg-current transition-all duration-200',
@@ -108,6 +112,8 @@ export default function Sidebar({ className }: { className?: string }) {
                                 />{' '}
                                 <span className='truncate'>{dropdownItem?.name}</span>
                               </div>
+                              }
+                              
                               {dropdownItem?.badge?.length
                                 ? getStatusBadge(dropdownItem?.badge)
                                 : null}
@@ -126,10 +132,10 @@ export default function Sidebar({ className }: { className?: string }) {
                                           : 'hover:bg-gray-100 hover:text-gray-900'
                                       )}
                                     >
-                                      <span className={'flex items-center gap-3 '}>
-                                        <IIcon className='h-5 w-5' />
+                                      {/* <span className={'flex items-center gap-3 '}> */}
+                                        {/* <IIcon className='h-5 w-5' /> */}
                                         {dropdownItem.name}
-                                      </span>
+                                      {/* </span> */}
                                       <PiCaretDownBold
                                         strokeWidth={3}
                                         className={cn(

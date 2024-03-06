@@ -6,7 +6,7 @@ import {
   GeneralFormTypes,
   generalFormSchema,
   defaultValues,
-} from '@/utils/validators/general.schema';
+} from '@/common/utils/validators/general.schema';
 
 type Props = {
   handlerOnSubmit: (data: any) => void;

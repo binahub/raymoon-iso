@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { ActionIcon, Tooltip, HeaderCell, AvatarCard, PencilIcon, EyeIcon, DeletePopover } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { routes } from '@/config/routes';
-import { ModalView } from '../update/modal';
+import { routes } from '@/common/config/routes';
+import { Edit } from '../edit/modal';
 
 type Columns = {
   onDeleteItem: (id: string) => void;
 };
 
-export const getColumns = ({ onDeleteItem }: Columns) => [
+export const Columns = ({ onDeleteItem }: Columns) => [
   {
     title: <HeaderCell title='شناسه' />,
     dataIndex: 'id',
@@ -59,7 +59,7 @@ function RenderAction({
             className='hover:text-gray-700  cursor-pointer'
             onClick={() =>
               openModal({
-                view: <ModalView rowData={row} />,
+                view: <Edit rowData={row} />,
                 customSize: '720px',
               })
             }

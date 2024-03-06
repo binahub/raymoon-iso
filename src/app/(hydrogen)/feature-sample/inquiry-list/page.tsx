@@ -1,14 +1,14 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { useTable } from '@/hooks/use-table';
+import { useTable } from '@/common/hooks/use-table';
 import { FilterElement, PageHeader, Button, Input, Form, Card, Table } from 'shafa-bo';
-import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { SubmitHandler } from 'react-hook-form';
-import { foodInquirySchema } from '@/utils/validators/food.schema';
+import { foodInquirySchema } from '@/common/utils/validators/food.schema';
 import { headerData } from './header';
-import { detail } from '../detail/collaps';
-import { getColumns } from './columns';
-import { dataFilter, filterState } from './filter';
+import { Detail } from '../detail/collaps';
+import { Columns } from './columns';
+import { generatedFilter, filterState } from './filter';
+import { useCreateSample } from '@/common/apis/test-api/sample.mutation';
 
 export default function FoodPage() {
   const [rowEdit, setRowEdit] = useState({});
@@ -27,7 +27,7 @@ export default function FoodPage() {
   };
 
   /* api call */
-  const [list, { isLoading, data: dataService }] = useCategoryListMutation();
+  const { mutate, isPending:isLoading, data:dataService } = useCreateSample();
 
   /* use hooks for table*/
   const { isFiltered, filters, updateFilter, handleReset, tableData, currentPage, handleDelete, handlePaginate, setData } = useTable(
@@ -58,7 +58,7 @@ export default function FoodPage() {
   /* use options columns */
   const columns = React.useMemo(
     () =>
-      getColumns({
+    Columns({
         onDeleteItem,
       }),
     [onDeleteItem]
@@ -66,18 +66,18 @@ export default function FoodPage() {
 
   /* Handel filter with my dataFilter */
   const actionFilter = (filters: any) => {
-    list({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
+    mutate({ parameterMap: { ...parameterMap.parameterMap, ...filters } });
     setIsInitialLoad(true);
   };
 
   const onSubmit: SubmitHandler<any> = (data) => {
-    list({ parameterMap: { ...parameterMap.parameterMap, ...data } });
+    mutate({ parameterMap: { ...parameterMap.parameterMap, ...data } });
     setIsInitialLoad(true);
   };
 
   useEffect(() => {
     if (isInitialLoad) {
-      list(parameterMap);
+      mutate(parameterMap);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumer, pageSize]);
@@ -127,7 +127,7 @@ export default function FoodPage() {
         /* choose between two types of table */
         requiredSeachTable
         /* show detail or ReactNode */
-        expandedRow={(rowData: any) => detail(rowData)}
+        expandedRow={(rowData: any) => Detail(rowData)}
         expandedKeys={[rowEdit]}
         onExpand={(expanded: boolean, row: any) => {
           expanded ? setRowEdit(row.id) : setRowEdit({});
@@ -147,10 +147,11 @@ export default function FoodPage() {
             handleReset,
             filters,
             updateFilter,
-            dataFilter,
+            generatedFilter,
             actionFilter,
           })
         }
+        countFilter={filters}
         isLoading={isLoading}
         /* title export file */
         exportColumns={exportColumns}

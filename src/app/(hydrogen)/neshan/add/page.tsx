@@ -1,5 +1,5 @@
 'use client';
-import { routes } from '@/config/routes';
+import { routes } from '@/common/config/routes';
 import PageHeader from '@/app/shared/page-header';
 import { Form, Select, Input, Button, Password, Card, UploadZone } from 'shafa-bo';
 import { SubmitHandler, Controller } from 'react-hook-form';
@@ -8,7 +8,7 @@ import {
   GeneralFormTypes,
   generalFormSchema,
   defaultValues,
-} from '@/utils/validators/general.schema';
+} from '@/common/utils/validators/general.schema';
 
 const pageHeader = {
   title: 'نشان بانک',

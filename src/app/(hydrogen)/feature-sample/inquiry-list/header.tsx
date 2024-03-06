@@ -1,8 +1,8 @@
 export const headerData = {
-  title: 'سفارش غذا',
+  title: 'فیچر نمونه',
   breadcrumb: [
     {
-      name: ' لیست استعلام',
+      name: ' فیچر نمونه',
     },
   ],
 };

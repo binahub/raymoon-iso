@@ -8,7 +8,7 @@ type Props = {
   };
 };
 
-export function detail(rowData: Props) {
+export function Detail(rowData: Props) {
   return (
     <div className='  w-[100%]'>
       <h5 className='w-[100%]'>جزئیات</h5>

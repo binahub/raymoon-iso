@@ -1,14 +1,14 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useCategoryListMutation } from '@/provider/redux/apis/category';
 import { Card, Input, PageHeader } from 'shafa-bo';
 import { headerData } from '../header';
+import { useCreateSample } from '@/common/apis/test-api/sample.mutation';
 
 type Props = {
   params: { id: string };
 };
 
-export default function FoodEditPage({ params }: Props) {
+export default function DetailPage({ params }: Props) {
   const [initialData, setInitialData] = useState({ name: '', description: '' });
 
   /* api call body */
@@ -23,10 +23,10 @@ export default function FoodEditPage({ params }: Props) {
   };
 
   /* api call */
-  const [list, { isSuccess, data: serverData }] = useCategoryListMutation();
+  const { mutate, data:serverData, isSuccess } = useCreateSample();
 
   useEffect(() => {
-    list(parameterMap);
+    mutate(parameterMap);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -10,7 +10,7 @@ import { FcGoogle } from 'react-icons/fc';
 import OrSeparation from './or-separation';
 import toast from 'react-hot-toast';
 import logo from '@public/assets/signin/logo.svg';
-import { siteConfig } from '@/config/site.config';
+import { siteConfig } from '@/common/config/site.config';
 import { useTheme } from 'next-themes';
 import lighLogo from '@public/light-sadad-logo.svg';
 import darkLogo from '@public/dark-sadad-logo.svg';

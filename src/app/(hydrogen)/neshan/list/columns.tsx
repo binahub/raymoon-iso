@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ActionIcon, Badge, Text, Tooltip, HeaderCell, EyeIcon, PencilIcon, DeletePopover } from 'shafa-bo';
 import { useModal } from '@/app/shared/modal-views/use-modal';
-import { routes } from '@/config/routes';
+import { routes } from '@/common/config/routes';
 import { ModalView } from './edit';
 
 type Columns = {
@@ -11,7 +11,6 @@ type Columns = {
   handleSelectAll: any;
   checkedItems: string[];
   onDeleteItem: (id: string) => void;
-  onHeaderCellClick: (value: string) => void;
   onChecked?: (id: string) => void;
 };
 function getStatusBadge(status: string) {
@@ -40,20 +39,21 @@ function getStatusBadge(status: string) {
   }
 }
 
-export const getColumns = ({ data, sortConfig, checkedItems, onDeleteItem, onHeaderCellClick, handleSelectAll, onChecked }: Columns) => [
+export const Columns = ({ data, sortConfig, checkedItems, onDeleteItem, handleSelectAll, onChecked }: Columns) => [
   {
     title: <HeaderCell title='نوع پرداخت' />,
     dataIndex: 'paymentFunctionName',
     key: 'paymentFunctionName',
     width: 30,
+    name:"test",
     render: (value: string) => <p>{value}</p>,
   },
   {
     title: <HeaderCell title='مبلغ' ellipsis sortable ascending={sortConfig?.direction === 'asc' && sortConfig?.key === 'amount'} />,
-    onHeaderCell: () => onHeaderCellClick('amount'),
     dataIndex: 'amount',
     key: 'amount',
     width: 30,
+    name:"test",
     render: (value: string) => <Text className='font-medium text-gray-700'>{value}ریال</Text>,
   },
   {
@@ -61,6 +61,7 @@ export const getColumns = ({ data, sortConfig, checkedItems, onDeleteItem, onHea
     dataIndex: 'creditCardNumber',
     key: 'creditCardNumber',
     width: 30,
+    name:"test",
     render: (value: string) => <p>{value}</p>,
   },
   {
@@ -68,6 +69,7 @@ export const getColumns = ({ data, sortConfig, checkedItems, onDeleteItem, onHea
     dataIndex: 'status',
     key: 'status',
     width: 40,
+    name:"test",
     render: (value: string) => getStatusBadge(value),
   },
   {
@@ -75,6 +77,7 @@ export const getColumns = ({ data, sortConfig, checkedItems, onDeleteItem, onHea
     dataIndex: 'action',
     key: 'action',
     width: 50,
+    name:"test",
     render: (_: string, row: any) => <RenderAction row={row} onDeleteItem={onDeleteItem} />,
   },
 ];

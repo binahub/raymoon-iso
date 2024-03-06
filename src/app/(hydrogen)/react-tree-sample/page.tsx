@@ -4,7 +4,7 @@ import '@nosferatu500/react-sortable-tree/style.css';
 import { TreeData } from './data';
 import { useState } from 'react';
 import { Button, PageHeader, Card } from 'shafa-bo';
-import { routes } from '@/config/routes';
+import { routes } from '@/common/config/routes';
 
 function List() {
   const finalData = TreeData.data.map((item: any) => {

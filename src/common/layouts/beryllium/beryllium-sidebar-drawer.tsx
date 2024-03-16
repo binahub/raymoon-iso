@@ -1,12 +1,11 @@
-//@TODO: menu in smaller devices, it must replace to original menu
 'use client';
 
 import Link from 'next/link';
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation';
-import { Title, Badge, Collapse, cn, SimpleBar } from 'shafa-bo';
+import { Title, Collapse, cn, SimpleBar } from 'shafa-bo';
 import { PiCaretDownBold } from 'react-icons/pi';
-import { ItemType, berylliumMenuItems } from '@/common/layouts/beryllium/beryllium-fixed-menu-items';
+import { berylliumMenuItems } from '@/common/layouts/beryllium/beryllium-fixed-menu-items';
 import Logo from '@/common/components/logo';
 import getStatusBadge from '@/common/components/get-status-badge';
 
@@ -42,7 +41,7 @@ export default function Sidebar({ className }: { className?: string }) {
                               'group relative mx-3 flex cursor-pointer items-center justify-between rounded-full px-3 py-2 font-medium lg:my-1 2xl:mx-5 2xl:my-2',
                               isDropdownOpen
                                 ? 'before:top-2/5 before:rounded-full-md text-primary before:absolute before:-start-3 before:block before:h-4/5 before:w-1 before:rounded-ee-full before:bg-primary 2xl:before:-start-5'
-                                : 'text-gray-700 transition-colors duration-200 hover:bg-gray-100 dark:text-gray-700/90 dark:hover:text-gray-700'
+                                : 'text-gray-700 transition-colors duration-200  dark:text-gray-700/90 dark:hover:text-gray-700'
                             )}
                           >
                             <span className='flex items-center'>
@@ -59,7 +58,6 @@ export default function Sidebar({ className }: { className?: string }) {
 
                               {item.name}
                             </span>
-
                             <PiCaretDownBold
                               strokeWidth={3}
                               className={cn(
@@ -85,11 +83,9 @@ export default function Sidebar({ className }: { className?: string }) {
                               key={dropdownItem?.name + index}
                               className={cn(
                                 `mx-3.5 mb-0.5 flex ${
-                                  dropdownItem.subMenuItems ? 'flex-col' : 'flex-row'
-                                } items-start justify-between rounded-full px-3.5 py-2 font-medium capitalize last-of-type:mb-1 lg:last-of-type:mb-2 2xl:mx-5',
-                               ${
-                                 isChildActive ? 'text-primary' : 'text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900'
-                               }`
+                                  dropdownItem.subMenuItems ? 'flex-col !mr-2 p-0' : 'flex-row px-3.5 py-2'
+                                } items-start justify-between rounded-full font-medium capitalize last-of-type:mb-1 lg:last-of-type:mb-2 2xl:mx-5',
+                               ${isChildActive ? 'text-primary' : 'text-gray-500 transition-colors duration-200 hover:text-primary'}`
                               )}
                             >
                               {!dropdownItem?.subMenuItems && (
@@ -108,7 +104,7 @@ export default function Sidebar({ className }: { className?: string }) {
                               {dropdownItem?.subMenuItems ? (
                                 <Collapse
                                   defaultOpen={isSubDropdownOpen}
-                                  className='testing [&_>_div]:mx-4 [&_>_div]:my-2 [&_>_div]:px-4 [&_>_div]:py-2 [&_>_div]:lg:my-0 [&_>_div]:2xl:mx-0 [&_>_div]:2xl:my-0'
+                                  className='testing [&_>_div]:mx-4 [&_>_div]:my-2 [&_>_div]:px-4 [&_>_div]:py-2 [&_>_div]:lg:my-0 [&_>_div]:2xl:mx-0 [&_>_div]:2xl:my-0 w-full'
                                   panelClassName='[&_>_a]:px-0 xl:!mt-2 2xl!:mt-2 3xl:!mt-2 [&_>_a]:mx-0 [&_>_a]:py-0 [&_>_a]:ps-4 [&_>_a]:my-0 space-y-5'
                                   header={({ open, toggle }) => (
                                     <div
@@ -117,13 +113,13 @@ export default function Sidebar({ className }: { className?: string }) {
                                         'group relative flex cursor-pointer items-center justify-between rounded-full px-4 py-2 font-medium duration-200',
                                         isSubActive || isSubDropdownOpen
                                           ? 'bg-gray-100 text-primary dark:bg-gray-100 dark:text-primary-lighter'
-                                          : 'hover:bg-gray-100 hover:text-gray-900'
+                                          : ' hover:text-gray-900'
                                       )}
                                     >
-                                      {/* <span className={'flex items-center gap-3 '}> */}
-                                      {/* <IIcon className='h-5 w-5' /> */}
-                                      {dropdownItem.name}
-                                      {/* </span> */}
+                                      <span className={'flex items-center gap-3 '}>
+                                        <IIcon className='h-5 w-5' />
+                                        {dropdownItem.name}
+                                      </span>
                                       <PiCaretDownBold
                                         strokeWidth={3}
                                         className={cn(
@@ -174,7 +170,7 @@ export default function Sidebar({ className }: { className?: string }) {
                           'group relative mx-3 my-0.5 flex items-center justify-between rounded-full px-3 py-2 font-medium capitalize lg:my-1 2xl:mx-5 2xl:my-2',
                           isActive
                             ? 'before:top-2/5 text-primary before:absolute before:-start-3 before:block before:h-4/5 before:w-1 before:rounded-ee-full before:rounded-se-full before:bg-primary 2xl:before:-start-5'
-                            : 'text-gray-700 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-700/90'
+                            : 'text-gray-700 transition-colors duration-200  hover:text-gray-900 dark:text-gray-700/90'
                         )}
                       >
                         <div className='flex items-center truncate'>
